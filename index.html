@@ -1,356 +1,1036 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>獨木舟翻滾進階教學 - 河流教育者筆記</title>
+    <title>ACA 獨木舟教練手冊 (2020) - 繁體中文版</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #fdfbf7;
-            color: #2d2a26;
+            scroll-behavior: smooth;
         }
-        h1, h2, h3, h4 {
+        .serif {
             font-family: 'Noto Serif TC', serif;
         }
-        .prose-custom p {
-            margin-bottom: 1.25rem;
-            line-height: 1.8;
+        .nav-link {
+            transition: all 0.2s;
         }
-        .image-container {
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        .nav-link:hover {
+            color: #4796cc;
+            padding-left: 0.5rem;
+        }
+        .prose-img {
             border-radius: 0.75rem;
-            overflow: hidden;
-            margin: 2rem 0;
-            background: #eee;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
-        .step-card {
-            background: white;
-            border-left: 4px solid #d9692a;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+        /* 語系顯示邏輯 */
+        body.lang-zh .en { display: none; }
+        body.lang-en .zh { display: none; }
+        
+        /* 僅在中文模式顯示的元素 */
+        body.lang-en .zh-only, body.lang-both .zh-only { display: none; }
+        
+        body.lang-both .zh { display: block; }
+        body.lang-both .en { 
+            display: block; 
+            font-size: 0.9em; 
+            color: #64748b; 
+            font-style: normal;
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+        /* 標題對照特殊排版 */
+        body.lang-both h1 .en, body.lang-both h2 .en, body.lang-both h3 .en {
+            font-style: normal;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* 列印優化 (Print Optimization) */
+        @media print {
+            /* 1. 隱藏不必要的 UI */
+            #sidebar, #menu-btn, .lg\:hidden {
+                display: none !important;
+            }
+
+            /* 2. 重設內容區域為全寬 */
+            body {
+                background: white !important;
+            }
+            .max-w-7xl {
+                max-width: 100% !important;
+                display: block !important;
+            }
+            main {
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            #content-container {
+                max-width: 100% !important;
+            }
+
+            /* 3. 強制顯示背景顏色與圖像 */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* 4. 斷頁優化 */
+            section {
+                break-inside: avoid-page;
+                margin-bottom: 2rem !important;
+                page-break-inside: avoid;
+            }
+            h1, h2, h3 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            
+            /* 5. 調整字體大小，適合紙張閱讀 */
+            p, li {
+                font-size: 11pt !important;
+                line-height: 1.6 !important;
+            }
+            h1 { font-size: 24pt !important; }
+            h2 { font-size: 20pt !important; }
+            h3 { font-size: 16pt !important; }
+
+            /* 6. 頁面邊距設定 */
+            @page {
+                margin: 2cm;
+            }
+
+            /* 7. 確保雙語對照在列印時不會重疊 */
+            .lang-both .en {
+                color: #475569 !important; /* 加深對照組顏色方便列印閱讀 */
+                border-left: 2px solid #e2e8f0;
+                padding-left: 1rem;
+                margin-top: 0.5rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-50 text-gray-900 leading-relaxed lang-zh">
 
-    <!-- Header Section -->
-    <header class="relative bg-[#1a202c] text-white py-20 px-6 overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-transparent"></div>
-        </div>
-        <div class="max-w-4xl mx-auto relative z-10 text-center">
-            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">River Educator Notebook</span>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">獨木舟翻滾進階教學</h1>
-            <p class="text-xl text-gray-300 italic">作者：內特·奧斯蒂斯 (Nate Ostis)</p>
-            <div class="mt-8 h-1 w-24 bg-[#d9692a] mx-auto"></div>
-        </div>
-    </header>
+    <!-- 導航欄 (Mobile Toggle) -->
+    <div class="lg:hidden fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50 px-4 py-3 flex justify-between items-center">
+        <span class="font-bold text-[#4796cc]">ACA 教練手冊 (2020)</span>
+        <button id="menu-btn" class="p-2 text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </div>
 
-    <main class="max-w-4xl mx-auto px-6 py-16">
+    <div class="max-w-7xl mx-auto flex">
         
-        <!-- Comparison Section -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-4 mb-8 flex items-center">
-                <span class="text-[#d9692a] mr-4 text-4xl">01</span> 基本翻滾技術比較
-            </h2>
-            <p class="text-lg text-gray-600 mb-8 italic leading-relaxed">了解多種翻滾類型可提高教學成功率。請根據環境和學生的狀況選擇最合適的教學方式。</p>
+        <!-- 左側固定導航 (Desktop) -->
+        <aside id="sidebar" class="hidden lg:block lg:w-72 h-screen lg:sticky top-0 border-r border-gray-200 p-8 overflow-y-auto bg-white">
+            <!-- 手機版關閉按鈕 -->
+            <button id="close-menu" class="lg:hidden absolute top-6 right-6 text-gray-400 hover:text-gray-900">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="mb-8 text-center lg:text-left">
+                <div class="inline-block p-2 bg-[#4796cc] text-white rounded-lg font-bold text-xl mb-2">ACA</div>
+                <h1 class="text-xl font-black tracking-tighter text-gray-800">
+                    <span class="zh">教練手冊</span>
+                    <span class="en">Instructor's Manual</span>
+                    <span class="text-gray-400 font-light ml-1">2020</span>
+                </h1>
+            </div>
+
+            <!-- 語系切換器 -->
+            <div class="flex bg-gray-100 rounded-lg p-1 mb-4 text-xs font-bold">
+                <button onclick="setLang('zh')" id="btn-zh" class="lang-btn flex-1 py-2 rounded-md transition-all">中</button>
+                <button onclick="setLang('en')" id="btn-en" class="lang-btn flex-1 py-2 rounded-md transition-all">EN</button>
+                <button onclick="setLang('both')" id="btn-both" class="lang-btn flex-1 py-2 rounded-md transition-all">對照</button>
+            </div>
+
+            <!-- 列印按鈕 (僅純中文模式顯示) -->
+            <button onclick="window.print()" class="zh-only w-full flex items-center justify-center gap-2 py-2 px-4 bg-white border border-gray-200 text-gray-600 rounded-lg text-xs font-bold hover:bg-gray-50 hover:border-[#4796cc] hover:text-[#4796cc] transition-all mb-8 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                匯出 PDF 手冊
+            </button>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="step-card">
-                    <h3 class="text-xl font-bold mb-3 text-blue-800">C to C 翻滾</h3>
-                    <p class="text-sm text-gray-500 mb-4">三個組成部分：準備 (Setup)、掃槳 (Sweep)、抬膝 (Knee Lift)</p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <span>在嘗試扶正船身前，身體和槳應垂直於船隻。</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <span>C to C 翻滾對身體柔軟度的要求較高。</span></li>
-                    </ul>
-                </div>
-                <div class="step-card">
-                    <h3 class="text-xl font-bold mb-3 text-blue-800">掃式翻滾 (Sweep Roll)</h3>
-                    <p class="text-sm text-gray-500 mb-4">兩個組成部分：準備 (Setup)、掃槳與壓水平 (Sweep-and-snap)</p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <span>船隻旋轉發生在槳葉掃向垂直方向的過程中。</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <span>掃式翻滾比 C to C 快，通常是大多數人最終演變成的形式。</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <span>適合柔軟度有限或使用寬船身的學習者。</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Teaching Considerations -->
-        <section class="mb-20 bg-blue-50 p-10 rounded-2xl border border-blue-100">
-            <h2 class="text-3xl font-bold mb-8 text-blue-900">教學注意事項</h2>
-            <div class="space-y-6 text-gray-700 leading-relaxed text-lg">
-                <p>• <strong>利用靜水機會：</strong> 利用靜水區進行教學。賦予學生更多的教學和救援責任。示範並教授如何在深水中排空獨木舟，以及如何在不靠岸的情況下讓槳手重新回到船上。</p>
-                <p>• <strong>心理建設：</strong> 說明在急流中游泳或回收裝備的困難。將其與等待 5 到 10 秒進行船首救援 (Bow Rescue) 或至少嘗試兩次翻滾進行比較。強調維持體力與溫度的重要性。</p>
-                <p>• <strong>支撐程度：</strong> 考慮在整個過程中提供的身體支撐。過多扶持槳葉會使翻滾過度依賴支撐。目標是由軀幹和膝蓋產生翻滾力，而非依賴槳葉。教練應更多地支撐身體和頭部，而非槳葉本身。</p>
-            </div>
-        </section>
-
-        <!-- Whitewater Development -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold mb-8">發展激流翻滾技術</h2>
-            <div class="prose-custom text-gray-700 text-lg">
-                <p><strong>直覺式 vs. 機械式翻滾：</strong> 機械式翻滾是指在靜水中學習的程序化步驟。直覺式翻滾則是槳手在激流中翻覆時，在各種難以想像的角度下所做的應變。一旦槳手能穩定成功地完成機械式翻滾，就可以嘗試在不同狀態下翻覆。雖然槳手通常不會在預設的起始位置翻船，但在水下找到那個起始點對於成功翻滾至關重要。</p>
-                <p><strong>決定翻滾：</strong> 在進入急流前就做好翻滾的心理準備。專注於積極面，避免告訴學生某些獨木舟比較容易翻滾。</p>
-            </div>
-        </section>
-
-        <!-- Advanced Techniques -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold mb-8">進階翻滾技巧</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-6 border border-gray-200 rounded-xl hover:border-[#d9692a] hover:bg-white hover:shadow-lg transition-all">
-                    <h4 class="font-bold mb-2 text-[#d9692a]">反手翻滾 (Offside Roll)</h4>
-                    <p class="text-sm text-gray-600">建議及早練習，以避免產生過強的慣用側偏好。</p>
-                </div>
-                <div class="p-6 border border-gray-200 rounded-xl hover:border-[#d9692a] hover:bg-white hover:shadow-lg transition-all">
-                    <h4 class="font-bold mb-2 text-[#d9692a]">徒手翻滾 (Hand Roll)</h4>
-                    <p class="text-sm text-gray-600">可以早期引入，有助於說明抬膝 (Knee-lift) 的重要性。</p>
-                </div>
-                <div class="p-6 border border-gray-200 rounded-xl hover:border-[#d9692a] hover:bg-white hover:shadow-lg transition-all">
-                    <h4 class="font-bold mb-2 text-[#d9692a]">後甲板翻滾 (Back Deck Roll)</h4>
-                    <p class="text-sm text-gray-600">許多專家級槳手比起其他方式更偏好這種翻滾。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- C-to-C Sequence -->
-        <section class="mb-20 bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-            <h2 class="text-3xl font-bold mb-4">C-TO-C 翻滾動作分解</h2>
-            <p class="text-gray-500 mb-10 italic">參考影片《Grace Under Pressure》</p>
-            <ol class="space-y-12">
-                <li class="relative pl-16">
-                    <span class="absolute left-0 top-0 w-10 h-10 bg-[#d9692a] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">1</span>
-                    <h4 class="text-xl font-bold mb-4 text-gray-800">準備位置 (Set-up position)</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>讓學生熟悉正確的控制手放置和槳葉角度感應。</li>
-                        <li>槳應直接放在側面，不要向前伸，槳葉平放在水面上，前臂靠在船邊。</li>
-                        <li><strong>關鍵提示：</strong> 開始前等待感覺到手上有冷空氣。</li>
-                    </ul>
-                </li>
-                <li class="relative pl-16">
-                    <span class="absolute left-0 top-0 w-10 h-10 bg-[#d9692a] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">2</span>
-                    <h4 class="text-xl font-bold mb-4 text-gray-800">掃槳位置 (Sweep position)</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>保持向側面延伸。</li>
-                        <li>解釋背挺起來的價值，這能提供更大的活動範圍（嘗試去看槳葉）。</li>
-                        <li>訓練後手放置在屁股上方。大拇指在船殼上滑動。</li>
-                        <li>將前肩推離船身。不要在槳葉上施加任何阻力。</li>
-                    </ul>
-                </li>
-                <li class="relative pl-16">
-                    <span class="absolute left-0 top-0 w-10 h-10 bg-[#d9692a] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">3</span>
-                    <h4 class="text-xl font-bold mb-4 text-gray-800">抬膝 (Knee lift)</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>利用身體、膝蓋和軀幹。不應使用槳葉。</li>
-                        <li>將耳朵朝向另一側肩膀，收縮翻滾側的肌肉，同時抬起膝蓋。</li>
-                        <li>雙腳保持放鬆，僅輕觸踏板。</li>
-                    </ul>
-                </li>
-                <li class="relative pl-16">
-                    <span class="absolute left-0 top-0 w-10 h-10 bg-[#d9692a] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">4</span>
-                    <h4 class="text-xl font-bold mb-4 text-gray-800">恢復 (Recovery)</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>肋骨回正到中立位置，同時頭部恢復。</li>
-                        <li>槳移至船隻正上方，身體回到中立位置或休息狀態（可以微微坐偏左邊）。</li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
-
-        <!-- Sweep Roll Progression -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold mb-8 text-center md:text-left">掃式翻滾教學進程 (The Sweep Roll)</h2>
-            <p class="text-gray-600 mb-12 italic text-center md:text-left">此版本的掃式翻滾強調「掃槳時不對槳葉施壓」。</p>
-
-            <div class="space-y-20">
-                <!-- Step 1 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟一：身體協同 (Body Synergy)
-                    </h3>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p>協同作用是指兩個或多個因素相互作用，產生大於各自效果總和的結果。在此步驟中，練習上半身與下半身之間協作但獨立的動作。讓學生在保持上半身不動的情況下，左右搖擺獨木舟。</p>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟二：船身旋轉 (Boat Rotation)
-                    </h3>
-                    <div class="image-container group-hover:scale-[1.01] transition-transform">
-                        <img src="images/image4.png" alt="Boat Rotation" class="w-full">
-                    </div>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p>成功的翻滾主要建立在有效運用「翻滾膝」來啟動船身旋轉。學生應在對教練手部施加最小壓力的情況下執行旋轉。<strong>口訣：「鳥—膝—魚」。</strong>讓學生專注於頭部位置與抬膝啟動之間的時機關係。</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟三：準備位置 (Set-up Position)
-                    </h3>
-                    <div class="image-container group-hover:scale-[1.01] transition-transform">
-                        <img src="images/image6.png" alt="Set-up Position" class="w-full">
-                    </div>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p>熟悉位置。教練喊「中立」時坐直；喊「準備」時回到準備位置。練習 20 次以上。</p>
-                        <ul class="list-disc pl-5 mt-4 space-y-2">
-                            <li>雙手輕握槳。動動手指以釋放握力。</li>
-                            <li>縮頭，扭轉軀幹至準備側的大腿外側，前臂靠在船上。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟四：結束位置 (Finish Position)
-                    </h3>
-                    <div class="image-container group-hover:scale-[1.01] transition-transform">
-                        <img src="images/image5.png" alt="Finish Position" class="w-full">
-                    </div>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p>在引入任何掃槳動作前，先介紹結束位置。喊「中立」，然後「結束」。練習 20 次以上。</p>
-                        <ul class="list-disc pl-5 mt-4 space-y-2">
-                            <li>扭轉軀幹，視線沿著槳桿向下看。</li>
-                            <li>雙手保持放鬆，指節捲回肩膀，手肘向前。</li>
-                            <li>雙手位於槳桿中心。</li>
-                            <li>上方手位於同側肩膀前方。「用手指輕點太陽穴」是個很好的提示。</li>
-                            <li>通過誇張的槳葉角度來消除阻力。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟五：水面練習—反向：從結束到準備
-                    </h3>
-                    <div class="image-container group-hover:scale-[1.01] transition-transform">
-                        <img src="images/image2.png" alt="Upright-Reverse" class="w-full">
-                    </div>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p>運用身體練習從結束位置扭轉回準備位置。這種扭轉動作能維持對翻滾膝的壓力。注意：壓力應僅施加於翻滾膝。教練可考慮拉開防噴裙以觀察學生的觸點。</p>
-                    </div>
-                </div>
-
-                <!-- Step 6 -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
-                        <span class="w-2 h-8 bg-blue-800 mr-4 rounded-full"></span> 步驟六：綜合演練
-                    </h3>
-                    <div class="image-container group-hover:scale-[1.01] transition-transform">
-                        <img src="images/image1.png" alt="Putting it all together" class="w-full">
-                    </div>
-                    <div class="prose-custom text-gray-700 text-lg">
-                        <p><strong>逐漸深入練習：</strong> 扶住學生的救生衣/軀幹。讓他們從結束位置開始。當你慢慢將他們翻入水中時，讓他們向前掃槳至準備位置。然後在支撐下，讓他們配合抬膝啟動扭轉動作，回到直立狀態。</p>
-                        <p class="mt-4">反向練習：讓他們從準備位置開始。翻轉並支撐他們，然後下令「結束」，讓他們扭轉至結束位置，同時用翻滾膝發力。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Troubleshooting Table -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold mb-8 border-l-8 border-[#d9692a] pl-6">故障排除清單</h2>
-            <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-50 text-gray-600 uppercase text-xs tracking-wider">
-                            <th class="p-5 border-b">觀察現象 (Marker)</th>
-                            <th class="p-5 border-b">發生機制 (Mechanism)</th>
-                            <th class="p-5 border-b">解決方案 (Solution)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm text-gray-700 divide-y divide-gray-100">
-                        <tr>
-                            <td class="p-5 font-bold text-red-600 bg-red-50/30">頭部抬起且槳葉下沉</td>
-                            <td class="p-5 italic">失敗的翻滾中頭部通常會先抬起，但這有時只是結果而非根本原因。</td>
-                            <td class="p-5">可能是其他問題引起的，需檢查動作連貫性。</td>
-                        </tr>
-                        <tr>
-                            <td class="p-5 font-bold text-red-600 bg-red-50/30">槳葉被向下拉</td>
-                            <td class="p-5 italic">試圖拉槳以尋求阻力。</td>
-                            <td class="p-5">通過誇張的結束位置角度消除阻力。尋求軀幹扭轉。讓槳葉在掃動中保持漂浮。口訣：「不要急著坐正」。</td>
-                        </tr>
-                        <tr>
-                            <td class="p-5 font-bold text-red-600 bg-red-50/30">動作中途停滯</td>
-                            <td class="p-5 italic">使用手臂拉起。初始動作後軀幹旋轉停止。</td>
-                            <td class="p-5">專注於完成動作。非翻滾側的手鎖定在肩膀上。更多練習軀幹旋轉。</td>
-                        </tr>
-                        <tr>
-                            <td class="p-5 font-bold text-red-600 bg-red-50/30">頭部過早抬起</td>
-                            <td class="p-5 italic">使用了錯誤的膝蓋。急於呼吸。缺乏信心。</td>
-                            <td class="p-5">練習船身旋轉。嘗試在「不努力坐正」的情況下翻滾（需助教）。使用面鏡定位。</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Article 1: Mary DeRiemer -->
-        <article class="mb-20 bg-orange-50 p-10 rounded-[3rem] border-2 border-orange-100 shadow-inner">
-            <div class="flex flex-col md:flex-row gap-8 items-center mb-10">
-                <div class="bg-white p-4 rounded-2xl shadow-sm">
-                    <img src="images/image3.png" alt="Adventure Kayaking" class="max-w-[220px]">
-                </div>
+            <nav class="space-y-6">
                 <div>
-                    <h2 class="text-3xl font-bold text-orange-900 mb-2 font-serif">鞏固翻滾技術的實用建議</h2>
-                    <p class="text-orange-800 font-medium">作者：瑪麗·德里默 (Mary DeRiemer)</p>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">內容目錄</h2>
+                    <ul class="space-y-3 text-sm font-medium text-gray-600">
+                        <li><a href="#acknowledgments" class="nav-link block"><span class="zh">致謝</span><span class="en">Acknowledgments</span></a></li>
+                        <li><a href="#introduction" class="nav-link block"><span class="zh">導言</span><span class="en">Introduction</span></a></li>
+                        <li><a href="#unit1" class="nav-link block"><span class="zh">Unit 1: 關於 ACA</span><span class="en">Unit 1: About the ACA</span></a></li>
+                        <li><a href="#unit2" class="nav-link block"><span class="zh">Unit 2: 獨木舟教育標準</span><span class="en">Unit 2: Education Standards</span></a></li>
+                        <li><a href="#unit3" class="nav-link block"><span class="zh">Unit 3: 環境管理與護理</span><span class="en">Unit 3: Stewardship</span></a></li>
+                        <li><a href="#unit4" class="nav-link block"><span class="zh">Unit 4: 教學與學習風格</span><span class="en">Unit 4: Teaching Styles</span></a></li>
+                        <li><a href="#unit5" class="nav-link block"><span class="zh">Unit 5: 課程組織與帶領</span><span class="en">Unit 5: Course Org</span></a></li>
+                        <li><a href="#unit6" class="nav-link block"><span class="zh">Unit 6: 責任與風險管理</span><span class="en">Unit 6: Risk Management</span></a></li>
+                        <li><a href="#unit7" class="nav-link block"><span class="zh">Unit 7: 划行概念</span><span class="en">Unit 7: Paddling Concepts</span></a></li>
+                        <li><a href="#unit8" class="nav-link block"><span class="zh">Unit 8: 體能調整</span><span class="en">Unit 8: Conditioning</span></a></li>
+                        <li><a href="#unit9" class="nav-link block"><span class="zh">Unit 9: 水域安全</span><span class="en">Unit 9: Safety on Water</span></a></li>
+                        <li class="pt-4 border-t border-gray-100">
+                            <a href="#conclusion" class="nav-link block"><span class="zh">結語</span><span class="en">Conclusion</span></a>
+                        </li>
+                        <li>
+                            <a href="#bibliography" class="nav-link block"><span class="zh">參考文獻</span><span class="en">Bibliography</span></a>
+                        </li>
+                        <li>
+                            <a href="#appendix-a" class="nav-link block text-gray-400"><span class="zh">附錄 A：課程回報</span><span class="en">Appendix A: Reporting</span></a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="prose-custom text-gray-700 text-lg space-y-6">
-                <p>你有很好的翻滾技術，成功率接近 100%。當然，這是在泳池裡。雖然你練習了所有模擬實戰的訓練，但不知為何，在激流中這種感覺就消失了。<strong>消除恐懼。</strong> 毀掉你翻滾的是恐懼，而不是技術。</p>
-                <p>首先，水下生活是這項運動的一部分。接受它。在心理上擁抱翻覆是正常的。不僅水下沒問題，你還必須<strong>相信水下很有趣</strong>。這就是關鍵！如果你預期會落水並感到自在，你的翻滾就會像在泳池一樣順暢。</p>
-                <p>如何達到這個境界？透過<strong>去敏感化過程</strong>。找一個你有信心能翻滾起來的深水流區。目標是感到 100% 的平靜。深吸一口氣，在電流中翻覆，然後<strong>就在那待著！</strong> 感受水的流動、溫度，睜開眼睛。保持好奇心，然後再翻滾上來。重複這個過程，直到你對倒置狀態感到無比熟悉。</p>
-            </div>
-        </article>
+            </nav>
+        </aside>
 
-        <!-- Article 2: Ben Morton -->
-        <article class="mb-20 bg-[#1e293b] text-white p-12 rounded-[3rem] shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <h2 class="text-3xl font-bold mb-6 font-serif">培養水下沉著度 (Underwater Composure)</h2>
-            <p class="text-blue-400 mb-10 font-medium">作者：本·莫頓 (Ben Morton)</p>
-            <div class="space-y-8 text-blue-50 leading-relaxed text-lg">
-                <p>水下沉著度是指一個人在各種姿勢和條件下在水下的平靜程度。我不能過度強調在學習翻滾前培養這種沉著度的重要性。我見過太多次學生被匆忙帶入翻滾進程，結果在第一次實戰失誤時恐懼接管了大腦，導致瘋狂的濕出口 (Wet Exit)，這會嚴重打擊信心。</p>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h4 class="font-bold text-blue-400 mb-3">「翻滾救援練習」</h4>
-                        <p class="text-sm">翻覆後敲擊船身請求救援。教練執行「上帝之手」救援將你翻回。逐漸增加水下憋氣時間。</p>
+        <!-- 主要內容區 -->
+        <main class="flex-1 px-6 lg:px-16 py-20 bg-white">
+            
+            <header class="mb-20 text-center max-w-3xl mx-auto">
+                <span class="text-[#4796cc] font-bold tracking-widest uppercase text-sm">Instructor's Manual</span>
+                <h1 class="text-5xl font-black mt-4 mb-6 leading-tight serif">
+                    <span class="zh">美國獨木舟協會<br>教練手冊</span>
+                    <span class="en">American Canoe Association<br>Instructor's Manual</span>
+                </h1>
+                <p class="text-gray-500 text-lg max-w-lg mx-auto">
+                    <span class="zh">本手冊旨在支持所有 ACA 划行領域的教練培訓課程，凝聚了划行專家、教練與培訓師的集體智慧。</span>
+                    <span class="en">This manual is intended to support Instructor Development and Certification processes for all ACA disciplines.</span>
+                </p>
+                <div class="h-1 w-20 bg-[#4796cc] mx-auto mt-8"></div>
+            </header>
+
+            <article id="content-container" class="max-w-3xl mx-auto prose prose-lg prose-slate">
+                
+                <!-- 致謝 (Acknowledgements) -->
+                <section id="acknowledgments" class="mb-20 scroll-mt-24">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-100 pb-4 mb-8 serif">
+                        <span class="zh">致謝</span>
+                        <span class="en">Acknowledgements</span>
+                    </h2>
+                    <p class="text-sm text-gray-600">
+                        <span class="zh">本手冊的編寫與製作凝聚了美國獨木舟協會受薪職員與志工的共同努力。若非多位專業人士的慷慨貢獻，本手冊將無法問世。</span>
+                        <span class="en">The writing and production of this manual is a collective effort of the American Canoe Association’s paid staff and volunteers. This manual would not be possible without the generous contributions of many professionals.</span>
+                    </p>
+                </section>
+                <!-- 導言 (Introduction) -->
+                <section id="introduction" class="mb-20 scroll-mt-24">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-100 pb-4 mb-8 serif">
+                        <span class="zh">導言</span>
+                        <span class="en">Introduction</span>
+                    </h2>
+                    <p>
+                        <span class="zh">ACA 教練培訓過程的目標，是協助教練候選人成為具備專業知識且高效的划行運動教練。除了運動本身的技術資訊外，教練候選人還需要掌握以下範疇：</span>
+                        <span class="en">The goal of the ACA Instructor Development process is to assist instructor candidates to become knowledgeable, effective paddlesport instructors. In addition to technical information about the sport, instructor candidates are expected to know information about:</span>
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                        <li><span class="zh">美國獨木舟協會：使命、願景與價值觀</span><span class="en">The American Canoe Association: Mission, Vision, Values</span></li>
+                        <li><span class="zh">安全教育與教學政策及程序</span><span class="en">Safety Education and Instruction Policies and Procedures</span></li>
+                        <li><span class="zh">環境管理與護理</span><span class="en">Environmental Stewardship</span></li>
+                        <li><span class="zh">教學原則與學習過程</span><span class="en">Teaching Principles and the Learning Process</span></li>
+                        <li><span class="zh">活動組織與規劃</span><span class="en">Program Organization</span></li>
+                        <li><span class="zh">風險管理</span><span class="en">Risk Management</span></li>
+                        <li><span class="zh">無障礙要求</span><span class="en">Accessibility Requirements</span></li>
+                        <li><span class="zh">課堂組織與規劃</span><span class="en">Lesson Organization and Planning</span></li>
+                        <li><span class="zh">學員指導與評量</span><span class="en">Student Coaching and Evaluation</span></li>
+                        <li><span class="zh">行政要求與課程回報</span><span class="en">Administrative Requirements/ Course Reporting</span></li>
+                        <li><span class="zh">體能調整</span><span class="en">Conditioning</span></li>
+                        <li><span class="zh">安全與救援：PFD、天氣、冷水反應、危害辨識</span><span class="en">Safety and Rescue: Personal Flotation Devices, Weather, Cold Water, Hazard Recognition and Avoidance</span></li>
+                        <li><span class="zh">船隻與裝備</span><span class="en">Boats and Equipment</span></li>
+                        <li><span class="zh">特定領域專業資訊</span><span class="en">Course Specific Information</span></li>
+                    </ul>
+                    <p class="mt-6">
+                        <span class="zh">本教練手冊的編撰旨在提供全方位的支持，適用於所有 ACA 領域的教練開發工作坊。它代表了划行界專家、培訓師與教練們多年來累積的集體智慧。</span>
+                        <span class="en">This instructor’s manual was developed to provide the necessary broad-based approach to support all ACA Instructor Development Workshops in all disciplines. It represents the collective knowledge gained by paddlesports instructors and trainers and experts in the paddling field.</span>
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-6 my-8 text-sm">
+                        <strong class="block mb-2 text-amber-800"><span class="zh">備註：</span><span class="en">Note:</span></strong>
+                        <span class="zh">戶外活動被視為具有承擔風險的運動。本書不能取代專業的划行、游泳或救生技術指導。儘管我們已盡力確保本指南的準確性，但判定自身能力並採取相應行動，終究是划行者自身的最終責任。</span>
+                        <span class="en">Outdoor activities are assumed-risk sports. This book cannot take the place of appropriate instruction for paddling, swimming, or lifesaving techniques. Every effort has been made to make this guide as accurate as possible, but it is the ultimate responsibility of the paddler to judge his or her ability and act accordingly.</span>
                     </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h4 class="font-bold text-blue-400 mb-3">「水下觀察」</h4>
-                        <p class="text-sm">水下時僅專注於溫度。感受臉頰、眼瞼、耳朵內側。這能有效轉移注意力，減少焦慮。</p>
+                </section>
+
+                <!-- Unit 1: 關於 ACA -->
+                <section id="unit1" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 1</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">關於 ACA</span>
+                            <span class="en">About the ACA</span>
+                        </h2>
                     </div>
-                </div>
-                <div class="bg-blue-500/10 p-8 rounded-2xl border border-blue-500/20">
-                    <h4 class="font-bold text-blue-400 mb-3">「水下轉身練習」</h4>
-                    <p>在水下嘗試讓軀幹做圓周運動（前縮、右側、後仰、左側）。這能大幅增加水下舒適度，並讓你清楚身體與船隻的相對位置。</p>
-                </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">訓練有素的 ACA 教練</span>
+                        <span class="en">A Trained ACA Instructor</span>
+                    </h3>
+                    <p>
+                        <span class="zh">恭喜您對美國獨木舟協會（ACA）教練認證感興趣！作為一名潛在的 ACA 教練，您在向公眾傳授划行技巧、環境意識、安全知識以及戶外休閒樂趣方面扮演著至關重要的角色。研究顯示，專業的教練培訓是教育課程的基石，您的培訓將同時造福您與您未來的學員。</span>
+                        <span class="en">Congratulations on your interest in becoming an American Canoe Association (ACA) Instructor! As a potential ACA Instructor, you play a vital role in providing the public with paddling skills, environmental awareness, safety information, and a sense of fun and enjoyment in the outdoors. Studies have shown that professional instructor training is the cornerstone of educational programs and your training will benefit both you and your students.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">ACA 使命聲明</span>
+                        <span class="en">ACA Mission Statement</span>
+                    </h3>
+                    <p>
+                        <span class="zh">美國獨木舟協會成立於 1880 年，是一個全國性的非營利組織，服務於廣大的划行大眾。我們相信我們的角色是：</span>
+                        <span class="en">Founded in 1880, the American Canoe Association is a national non-profit organization serving the broader paddling public. We believe our role is to:</span>
+                    </p>
+                    <ul class="space-y-2">
+                        <li><span class="zh">為大眾提供有趣的划行機會</span><span class="en">Provide fun paddling opportunities for the general public</span></li>
+                        <li><span class="zh">讓划行教育與教學更具可及性</span><span class="en">Make paddling education and instruction more accessible</span></li>
+                        <li><span class="zh">改善所有划行水域的進出便利性</span><span class="en">Improve access to all paddling waters</span></li>
+                        <li><span class="zh">將划行運動擴展至不同能力及弱勢族群</span><span class="en">Expand paddling to people of all abilities and underserved populations</span></li>
+                        <li><span class="zh">影響與划行體驗相關的環境護理議題與公共政策</span><span class="en">Influence environmental stewardship issues and public policy that impacts the paddling experience</span></li>
+                        <li><span class="zh">促進地方、區域與全國層級的划行競賽</span><span class="en">Promote paddling competition at local, regional, and national levels</span></li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">核心組織單位</span>
+                        <span class="en">Key Organizational Components</span>
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <h4 class="font-bold text-[#4796cc] mb-2">
+                                <span class="zh">安全教育與教學部門 (SEI)</span>
+                                <span class="en">Safety Education & Instruction Department (SEI)</span>
+                            </h4>
+                            <p class="text-sm m-0">
+                                <span class="zh">負責促進划行安全與樂趣。從教練的角度來看，SEI 負責管理教練、保留教練記錄並確保政策的執行。</span>
+                                <span class="en">Responsible for promoting paddling safety and enjoyment. From an instructor perspective, the SEI is responsible for managing instructors, keeping instructor records and ensuring policies are followed.</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Unit 2: 獨木舟教育標準 -->
+                <section id="unit2" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 2</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">獨木舟教育標準</span>
+                            <span class="en">Canoe Education Standards</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        <span class="zh">ACA 相信，提升划行安全最好的方式是透過「自願性的教育課程」。為此，ACA 為休閒划行者制定了一套教育課程的最低標準。這些標準旨在提供划行者在平靜、受保護水域開始划行時所需的最低限度資訊。</span>
+                        <span class="en">The ACA believes the best way to increase paddling safety is through voluntary education programs. To this end, the ACA has established a set of minimum standards for educational programs for recreational paddlers. These standards are designed to provide the minimum amount of information that a paddler needs to begin paddling in calm, protected waters.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+                        <span class="zh">1. 從基礎出發：必備裝備</span>
+                        <span class="en">1. Starting from the Basics: Essential Equipment</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="border border-gray-100 p-6 rounded-2xl shadow-sm">
+                            <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-[#4796cc] rounded-full"></span> 
+                                <span class="zh">船隻與槳</span>
+                                <span class="en">The Boat & Paddle</span>
+                            </h4>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li><span class="zh">根據划行者與活動需求選擇合適的船隻。</span><span class="en">Select the appropriate boat for the paddler and activity.</span></li>
+                                <li><span class="zh">遵守製造商的使用與維護指南。</span><span class="en">Follow manufacturer’s guidelines for use and maintenance.</span></li>
+                                <li><span class="zh">嚴禁超載；出發前檢查船身與硬體完整性。</span><span class="en">Never overload; check the hull and hardware integrity before launching.</span></li>
+                                <li><span class="zh">槳的尺寸應與划行者及活動類型匹配。</span><span class="en">Paddle size should match the paddler and the activity.</span></li>
+                            </ul>
+                        </div>
+                        <div class="border border-gray-100 p-6 rounded-2xl shadow-sm bg-blue-50/30">
+                            <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-[#4796cc] rounded-full"></span> 
+                                <span class="zh">救生衣 (PFD)</span>
+                                <span class="en">Personal Flotation Devices (PFDs)</span>
+                            </h4>
+                            <ul class="text-sm text-gray-600 space-y-2 font-medium">
+                                <li class="text-[#4796cc]"><span class="zh">船上每個人都必須備有符合體重標準且合格的 PFD。</span><span class="en">Everyone on board must have a properly fitted, USCG approved PFD.</span></li>
+                                <li class="text-[#4796cc]"><span class="zh">划行時應全程穿著並正確調整鬆緊。</span><span class="en">Wear it! And keep it properly adjusted at all times while on the water.</span></li>
+                                <li><span class="zh">翻船與落水極其常見，穿著 PFD 能大幅降低受傷或死亡風險。</span><span class="en">Capsizing and falling overboard are extremely common; wearing a PFD significantly reduces the risk of injury or death.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">2. 法律與划行者的責任</span>
+                        <span class="en">2. Law & Paddler Responsibility</span>
+                    </h3>
+                    <p>
+                        <span class="zh">法律規定因地區而異，教練應提醒學員：</span>
+                        <span class="en">Legal requirements vary by jurisdiction; instructors should remind students about:</span>
+                    </p>
+                    <ul class="space-y-3">
+                        <li><strong><span class="zh">登記與法規：</span><span class="en">Registration & Regulations:</span></strong> <span class="zh">了解當地水域的船隻登記要求。動力船或帆船的法規與人力船隻大不相同。</span><span class="en">Be aware of vessel registration requirements. Regulations for power or sail vessels differ significantly from human-powered craft.</span></li>
+                        <li><strong><span class="zh">操作者責任：</span><span class="en">Operator Responsibility:</span></strong> <span class="zh">划行者須對自己的行為負責。在水面上應保持禮貌並尊重他人。</span><span class="en">Paddlers are responsible for their actions. Be courteous and respectful of others on the water.</span></li>
+                        <li><strong><span class="zh">避讓大型船隻：</span><span class="en">Give Way to Large Vessels:</span></strong> <span class="zh">主動避開大型船隻與航道，大型船隻的機動性受限。</span><span class="en">Proactively avoid large vessels and shipping channels; larger craft have limited maneuverability.</span></li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+                        <span class="zh">3. 行程規劃</span>
+                        <span class="en">3. Planning Your Trip</span>
+                    </h3>
+                    <p><span class="zh">規劃是安全的核心。一個完整的「浮動計畫 (Float Plan)」應包含：</span><span class="en">Planning is central to safety. A complete "Float Plan" should include:</span></p>
+                    <div class="bg-gray-100 p-8 rounded-2xl mb-8">
+                        <ul class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm m-0 list-none pl-0">
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 mt-1">✅</span>
+                                <div>
+                                    <strong class="block mb-1"><span class="zh">技能匹配</span><span class="en">Skill Match</span></strong>
+                                    <span class="text-gray-600"><span class="zh">確保技能足以應對目的地。</span><span class="en">Ensure skills are adequate for the destination.</span></span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 mt-1">✅</span>
+                                <div>
+                                    <strong class="block mb-1"><span class="zh">環境評估</span><span class="en">Environmental Assessment</span></strong>
+                                    <span class="text-gray-600"><span class="zh">檢查天氣、水況與局部危害。</span><span class="en">Check weather, water conditions, and local hazards.</span></span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 mt-1">✅</span>
+                                <div>
+                                    <strong class="block mb-1"><span class="zh">備案計畫</span><span class="en">Alternative Plans</span></strong>
+                                    <span class="text-gray-600"><span class="zh">擁有備選路線。</span><span class="en">Have alternative routes.</span></span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="flex-shrink-0 mt-1">✅</span>
+                                <div>
+                                    <strong class="block mb-1"><span class="zh">通報系統</span><span class="en">Notification System</span></strong>
+                                    <span class="text-gray-600"><span class="zh">告知他人預計回報時間與逾時處理方案。</span><span class="en">Tell someone your expected return time and what to do if you are overdue.</span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+                        <span class="zh">4. ACA 技能課程體系</span>
+                        <span class="en">4. ACA Skills Course Curriculum</span>
+                    </h3>
+                    <p><span class="zh">ACA 提供不同等級的課程以滿足不同需求：</span><span class="en">The ACA provides various course levels to meet different needs:</span></p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-none w-24 font-bold text-[#4796cc]"><span class="zh">入門課程</span><span class="en">Intro Courses</span></div>
+                            <div class="flex-1 text-sm text-gray-600 border-l-2 border-gray-100 pl-4">
+                                <strong>Introduction Courses (1/4/8 <span class="zh">小時</span><span class="en">hours</span>)：</strong> <span class="zh">在受保護的平靜水域練習基礎技巧，強調安全教育。</span><span class="en">Practice basic skills in protected calm water, emphasizing safety education.</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-none w-24 font-bold text-[#4796cc]"><span class="zh">基礎課程</span><span class="en">Essential Courses</span></div>
+                            <div class="flex-1 text-sm text-gray-600 border-l-2 border-gray-100 pl-4">
+                                <strong>Essentials Courses (1 <span class="zh">天</span><span class="en">day</span>)：</strong> <span class="zh">針對特定領域，讓初學者能在平水或簡單流速水域安全划行。</span><span class="en">Discipline specific, allowing beginners to paddle safely in flat or slow-moving water.</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-none w-24 font-bold text-[#4796cc]"><span class="zh">進階課程</span><span class="en">Advanced Courses</span></div>
+                            <div class="flex-1 text-sm text-gray-600 border-l-2 border-gray-100 pl-4">
+                                <strong>Basic through Advanced Courses：</strong> <span class="zh">幫助愛好者掌握特定領域的精妙之處，包括在高難度水況下的操控與安全救援。</span><span class="en">Help enthusiasts master the nuances of a specific discipline, including maneuvering and safety rescues in more challenging conditions.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-blue-50 rounded-lg text-xs text-blue-800">
+                        <strong><span class="zh">教練須知：</span><span class="en">Instructor Note:</span></strong> <span class="zh">作為 ACA 教練，您僅被授權教授與您證照等級相符的知識範疇。</span><span class="en">As an ACA Instructor, you are authorized to teach only the material within your certification level.</span>
+                    </div>
+                </section>
+                                <!-- Unit 3: 環境管理 (Environmental Stewardship) -->
+                <section id="unit3" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 3</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">環境管理與護理</span>
+                            <span class="en">Environmental Stewardship</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        <span class="zh">環境護理是 ACA 的三大戰略支柱之一。沒有乾淨的水域與妥善維護的進出點，划行運動將無以為繼。ACA 教練應將環境護理資訊融入所有課程中。</span>
+                        <span class="en">Stewardship of the paddling environment is one of the three strategic tenets of the ACA. Without clean water, safe and well-kept access, and low-impact usage behavior, our lakes, rivers, and coastal areas may become unavailable for recreational use by paddlers. ACA instructors are urged to incorporate stewardship information and guidance into all courses and programs as appropriate.</span>
+                    </p>
+
+                    <div class="bg-green-50 border-l-4 border-green-500 p-8 rounded-r-2xl my-8">
+                        <h3 class="text-green-900 font-bold mt-0 text-xl">
+                            <span class="zh">什麼是環境管理 (Stewardship)？</span>
+                            <span class="en">What is Environmental Stewardship?</span>
+                        </h3>
+                        <p class="text-green-800 text-sm mb-0">
+                            <span class="zh">簡言之，這是「為了環境與下一代所採取的知情且負責任的行動」。這是一種道德義務，基於對地球的敬畏與對未來的責任感。有效的環境教育能幫助個體建立與自然資源的「個人連結」。</span>
+                            <span class="en">Environmental Stewardship is briefly defined as "informed, responsible action/behavior on behalf of the environment and future generations." It is a moral obligation to care for the environment and the actions undertaken to provide that care. Effective stewardship education helps individuals establish a "personal connection" with natural resources.</span>
+                        </p>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">負責任行為的三個層次</span>
+                        <span class="en">Three Levels of Responsible Behavior</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-5 border border-gray-100 rounded-xl">
+                            <div class="text-2xl mb-2">🌱</div>
+                            <h4 class="font-bold text-gray-800 mb-2">
+                                <span class="zh">入門層次 (Entry)</span>
+                                <span class="en">Entry Level</span>
+                            </h4>
+                            <p class="text-xs text-gray-500">
+                                <span class="zh">建立對生態的基本認知與環境敏感度。</span>
+                                <span class="en">Includes a person's environmental sensitivity and knowledge about ecology.</span>
+                            </p>
+                        </div>
+                        <div class="p-5 border border-gray-100 rounded-xl shadow-sm">
+                            <div class="text-2xl mb-2">⚓</div>
+                            <h4 class="font-bold text-gray-800 mb-2">
+                                <span class="zh">認同層次 (Ownership)</span>
+                                <span class="en">Ownership Level</span>
+                            </h4>
+                            <p class="text-xs text-gray-500">
+                                <span class="zh">將環境問題「個人化」，建立情感連結與投入感。</span>
+                                <span class="en">Allows individuals to personalize environmental problems and issues, taking ownership of them.</span>
+                            </p>
+                        </div>
+                        <div class="p-5 border border-gray-100 rounded-xl">
+                            <div class="text-2xl mb-2">💪</div>
+                            <h4 class="font-bold text-gray-800 mb-2">
+                                <span class="zh">授權層次 (Empowerment)</span>
+                                <span class="en">Empowerment Level</span>
+                            </h4>
+                            <p class="text-xs text-gray-500">
+                                <span class="zh">讓學員感到自己有能力改變現狀並解決環境問題。</span>
+                                <span class="en">Gives people a sense that they can make changes and help resolve important environmental issues.</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Unit 4: 教學與學習風格 (Teaching and Learning Styles) -->
+                <section id="unit4" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 4</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">教學與學習風格</span>
+                            <span class="en">Teaching and Learning Styles</span>
+                        </h2>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">1. 學習的障礙</span>
+                        <span class="en">1. Barriers to Learning</span>
+                    </h3>
+                    <p>
+                        <span class="zh">教練必須識別並排除學員在學習過程中的心理障礙：</span>
+                        <span class="en">Instructors must recognize and mitigate psychological barriers to learning:</span>
+                    </p>
+                    <div class="space-y-4 text-sm">
+                        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="font-bold text-red-600 mb-2 text-base">
+                                <span class="zh">恐懼</span>
+                                <span class="en">Fear</span>
+                            </div>
+                            <div class="text-gray-700">
+                                <span class="zh">學員通常比看起來更害怕。恐懼會阻礙新技能的獲取，因為大腦會優先處理「生存」而非「學習」。</span>
+                                <span class="en">Students are often more afraid than they appear. Fear blocks the acquisition of new skills as the brain prioritizes survival over learning.</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="font-bold text-[#4796cc] mb-2 text-base">
+                                <span class="zh">首位/近位</span>
+                                <span class="en">Primacy / Recency</span>
+                            </div>
+                            <div class="text-gray-700">
+                                <span class="zh">學員最容易記住演示的最開始與最後一部分（Primacy / Recency）。因此「整體-局部-整體」教學法非常有效。</span>
+                                <span class="en">Students remember the beginning and end of a demonstration best. This is why the "Whole-Part-Whole" method is effective.</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="font-bold text-[#4796cc] mb-2 text-base">
+                                <span class="zh">負遷移</span>
+                                <span class="en">Negative Transfer</span>
+                            </div>
+                            <div class="text-gray-700">
+                                <span class="zh">舊習慣難以打破。成人學員帶著舊有的運動矩陣來到課堂，教練需保持耐心。</span>
+                                <span class="en">Old habits are break. Adult learners bring existing motor patterns; instructors must be patient.</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="font-bold text-[#4796cc] mb-2 text-base">
+                                <span class="zh">自我</span>
+                                <span class="en">Ego</span>
+                            </div>
+                            <div class="text-gray-700">
+                                <span class="zh">當表現受到挑戰時，自衛反應會阻礙學習。避免在團體面前過度施壓。</span>
+                                <span class="en">Defensive reactions when performance is challenged can block learning. Avoid over-pressuring students in front of the group.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-12 mb-6">
+                        <span class="zh">2. 四大學習風格</span>
+                        <span class="en">2. Four Learning Styles</span>
+                    </h3>
+                    <p>
+                        <span class="zh">每個人吸收資訊的方式不同，優秀的教練會同時運用視覺、聽覺與觸覺。以下是四種典型學習者：</span>
+                        <span class="en">Everyone processes information differently. Good instructors use visual, auditory, and kinesthetic modes. Here are four typical learners:</span>
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-blue-100 p-5 rounded-2xl bg-blue-50/20">
+                            <h4 class="font-bold text-blue-800 mb-2">👀 <span class="zh">觀察型</span><span class="en">Watchers</span></h4>
+                            <p class="text-xs text-blue-700 m-0">
+                                <span class="zh">需要先在腦中建立技能的「心像」。他們需要時間觀察，聽覺說明只是輔助。演示對他們至關重要。</span>
+                                <span class="en">Need to build a mental image of the skill. They need time to observe; verbal explanations are secondary. Demonstrations are critical.</span>
+                            </p>
+                        </div>
+                        <div class="border border-green-100 p-5 rounded-2xl bg-green-50/20">
+                            <h4 class="font-bold text-green-800 mb-2">🖐️ <span class="zh">感官型</span><span class="en">Feelers</span></h4>
+                            <p class="text-xs text-green-700 m-0">
+                                <span class="zh">依賴本體感覺與類比。比起口頭描述，他們更能從實際感受動作中獲益。適合使用生動的比喻。</span>
+                                <span class="en">Rely on proprioception and analogies. They benefit more from feeling the movement than hearing descriptions. Use vivid metaphors.</span>
+                            </p>
+                        </div>
+                        <div class="border border-purple-100 p-5 rounded-2xl bg-purple-50/20">
+                            <h4 class="font-bold text-purple-800 mb-2">🧠 <span class="zh">思考型</span><span class="en">Thinkers</span></h4>
+                            <p class="text-xs text-purple-700 m-0">
+                                <span class="zh">分析型學習者，需要詳細的技術細節與背後的科學原理。他們可能會讀書、看影片，並挑戰教練的知識深度。</span>
+                                <span class="en">Analytical learners who need technical details and the science behind the skills. They may read, watch videos, and challenge the instructor's depth of knowledge.</span>
+                            </p>
+                        </div>
+                        <div class="border border-orange-100 p-5 rounded-2xl bg-orange-50/20">
+                            <h4 class="font-bold text-orange-800 mb-2">🚀 <span class="zh">行動型</span><span class="en">Doers</span></h4>
+                            <p class="text-xs text-orange-700 m-0">
+                                <span class="zh">給他們槳就對了！冗長的解釋會讓他們分心。他們喜歡「先做再說」，且通常是最先自願嘗試的人。</span>
+                                <span class="en">Just give them a paddle! Long explanations distract them. They prefer "doing it first" and are often the first to volunteer.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+                        <span class="zh">3. 兒童 vs. 成人教學</span>
+                        <span class="en">3. Teaching Children vs. Adults</span>
+                    </h3>
+                    <div class="overflow-hidden border border-gray-200 rounded-2xl">
+                        <table class="min-w-full divide-y divide-gray-200 text-sm">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">特性</span><span class="en">Characteristic</span></th>
+                                    <th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">兒童 (Children)</span><span class="en">Children</span></th>
+                                    <th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">成人 (Adults)</span><span class="en">Adults</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 font-medium text-gray-900"><span class="zh">資訊接受度</span><span class="en">Information Acceptance</span></td>
+                                    <td class="px-6 py-4"><span class="zh">直接接受所呈現的內容。</span><span class="en">Accept presented material at face value.</span></td>
+                                    <td class="px-6 py-4"><span class="zh">根據自身經驗與信念進行評估。</span><span class="en">Evaluate based on own experiences and beliefs.</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-medium text-gray-900"><span class="zh">核心動力</span><span class="en">Core Motivation</span></td>
+                                    <td class="px-6 py-4"><span class="zh">好玩、快速、實作。</span><span class="en">Fun, fast-paced, hands-on.</span></td>
+                                    <td class="px-6 py-4"><span class="zh">追求立即的實用性。</span><span class="en">Seek immediate relevance and utility.</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-medium text-gray-900"><span class="zh">同儕互動</span><span class="en">Peer Interaction</span></td>
+                                    <td class="px-6 py-4"><span class="zh">還在學習如何學習。</span><span class="en">Still learning how to learn.</span></td>
+                                    <td class="px-6 py-4"><span class="zh">本身就是豐富的資源。</span><span class="en">Are rich resources themselves.</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Unit 5: 課程組織與帶領 (Organizing and Conducting a Class) -->
+                                <!-- Unit 5: 課程組織與帶領 (Organizing and Conducting a Class) -->
+                <section id="unit5" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 5</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">課程組織與帶領</span>
+                            <span class="en">Organizing and Conducting a Class</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        <span class="zh">課程的成功取決於細緻的準備。除了教學大綱，教練還必須考慮到人員移動（上下船）所需的時間，這通常比預期的要長。</span>
+                        <span class="en">The success of a course depends on meticulous preparation. In addition to the lesson plan, instructors must account for class movement (getting in and out of the water), which often takes significantly longer than expected.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+                        <span class="zh">1. 裝備與課前準備</span>
+                        <span class="en">1. Equipment and Preparation</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-[#4796cc] mb-4"><span class="zh">教練應準備：</span><span class="en">Instructor Provides:</span></h4>
+                            <ul class="text-sm space-y-2">
+                                <li><span class="zh">船隻、槳與救生衣 (PFD)</span><span class="en">Boats, paddles, and PFDs</span></li>
+                                <li><span class="zh">急救箱與緊急維修工具</span><span class="en">First aid kit and emergency repair tools</span></li>
+                                <li><span class="zh">拋繩袋、拖帶系統等救援器材</span><span class="en">Rescue bags, tow lines, and recovery gear</span></li>
+                                <li><span class="zh">通訊設備 (手機、對講機、哨子)</span><span class="en">Communication devices (Cell phone, VHF, Whistle)</span></li>
+                                <li><span class="zh">備用的保暖衣物與飲水</span><span class="en">Spare warm clothing and water</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
+                            <h4 class="font-bold text-amber-800 mb-4"><span class="zh">學員須知 (課前告知)：</span><span class="en">Student Requirements (Pre-course):</span></h4>
+                            <ul class="text-xs space-y-2 text-amber-900">
+                                <li><span class="zh">適當的個人衣物 (可能落水)</span><span class="en">Proper personal clothing (expect to get wet)</span></li>
+                                <li><span class="zh">防曬、防蟲液與充足飲水</span><span class="en">Sunscreen, bug spray, and adequate water</span></li>
+                                <li><span class="zh">簽署免責聲明與告知醫療病史</span><span class="en">Signed liability waiver and medical history disclosure</span></li>
+                                <li><span class="zh">遵守教學現場的安全行為守則</span><span class="en">Agreement to follow safety and conduct rules</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-12 mb-6">
+                        <span class="zh">2. 場地選擇與安全</span>
+                        <span class="en">2. Venue Selection and Safety</span>
+                    </h3>
+                    <p>
+                        <span class="zh">選擇合適的教學場地是教練的責任。良好的場地應具備：</span>
+                        <span class="en">Selecting an appropriate teaching site is the instructor's responsibility. A good site should provide:</span>
+                    </p>
+                    <ul class="space-y-3">
+                        <li><strong><span class="zh">避風避浪：</span><span class="en">Sheltered Water:</span></strong> <span class="zh">減少學習新技能時的挫折感。</span><span class="en">Reduces frustration when learning new skills.</span></li>
+                        <li><strong><span class="zh">通訊暢通：</span><span class="en">Clear Communication:</span></strong> <span class="zh">避免在吵雜的急流或強風中喊話，選擇能讓團體集中的靜水區或回流區。</span><span class="en">Avoid shouting over noisy rapids; choose eddies or calm areas for group instruction.</span></li>
+                        <li><strong><span class="zh">環境保護：</span><span class="en">Environmental Respect:</span></strong> <span class="zh">尊重私人土地所有權，並實踐「無痕山林 (LNT)」原則。</span><span class="en">Respect private property rights and practice "Leave No Trace" principles.</span></li>
+                    </ul>
+                </section>
+
+                <!-- Unit 6: 責任與風險管理 (Liability & Risk Management) -->
+                                <!-- Unit 6: 責任與風險管理 (Liability & Risk Management) -->
+                <section id="unit6" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 6</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">責任與風險管理</span>
+                            <span class="en">Liability & Risk Management</span>
+                        </h2>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-2xl mb-10">
+                        <h3 class="text-red-900 font-bold mt-0 text-xl underline">
+                            <span class="zh">注意義務 (Duty of Care)</span>
+                            <span class="en">Duty of Care</span>
+                        </h3>
+                        <p class="text-red-800 text-sm mb-0">
+                            <span class="zh">教練負有法律責任，必須確保學員免於受傷。這包括監控「可預見的危害」（例如天氣突變）。教練不需要對無法預見的罕見意外負責，但必須對常見的水域危險做好充分準備。</span>
+                            <span class="en">As an instructor, you have a duty to your students to act as a reasonable and prudent instructor would. This extends to all foreseeable risks. While not responsible for unforeseeable events, you must plan for common hazards.</span>
+                        </p>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">風險管理的七大要素</span>
+                        <span class="en">Seven Elements of Risk Management</span>
+                    </h3>
+                    <ul class="list-decimal pl-5 space-y-2 text-gray-700 text-sm">
+                        <li><strong><span class="zh">適當監督：</span><span class="en">Adequate Supervision:</span></strong> <span class="zh">確保隨時有人看顧學員，維持視線與通訊。</span><span class="en">Maintain visual and auditory contact with students.</span></li>
+                        <li><strong><span class="zh">完善計畫：</span><span class="en">Sound Planning:</span></strong> <span class="zh">更新教案以符合當前「最佳實踐」。</span><span class="en">Maintain current competencies and update lesson plans.</span></li>
+                        <li><strong><span class="zh">風險警告：</span><span class="en">Warning of Risks:</span></strong> <span class="zh">告知學員運動固有的風險（如溺水）。</span><span class="en">Explain inherent risks so participants can knowingly assume them.</span></li>
+                        <li><strong><span class="zh">安全環境：</span><span class="en">Safe Environment:</span></strong> <span class="zh">檢查場地、氣候與裝備狀態。</span><span class="en">Inspect facilities, water areas, and equipment.</span></li>
+                        <li><strong><span class="zh">能力評估：</span><span class="en">Evaluate Abilities:</span></strong> <span class="zh">確認學員的體能與技術足以參加該課程。</span><span class="en">Evaluate readiness to perform both physically and mentally.</span></li>
+                        <li><strong><span class="zh">急救程序：</span><span class="en">Emergency Procedures:</span></strong> <span class="zh">受過 CPR/急救訓練並備有應急方案。</span><span class="en">Have established emergency response protocols.</span></li>
+                        <li><strong><span class="zh">紀錄保存：</span><span class="en">Documentation:</span></strong> <span class="zh">保存免責聲明、醫療表格與意外報告。</span><span class="en">Maintain records of planning and implementation.</span></li>
+                    </ul>
+                </section>
+
+                <!-- Unit 7: 划行概念 (Concepts of Paddling) -->
+                                <!-- Unit 7: 划行概念 (Paddling Concepts) -->
+                <section id="unit7" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 7</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">划行概念</span>
+                            <span class="en">Concepts of Paddling</span>
+                        </h2>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">1. 槳葉原理：C-P-R 週期</span>
+                        <span class="en">1. Blade Concepts: C-P-R Cycle</span>
+                    </h3>
+                    <p>
+                        <span class="zh">有效的槳法可以分解為三個階段：</span>
+                        <span class="en">Effective strokes can be broken down into three phases:</span>
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                        <div class="p-4 border rounded-xl bg-blue-50/50">
+                            <span class="font-bold text-blue-700 block mb-1">C - <span class="zh">入水</span><span class="en">Catch</span></span>
+                            <p class="text-xs m-0 text-gray-600">
+                                <span class="zh">槳葉垂直插入水中的瞬間，像把槳「埋進混凝土」一樣固定。</span>
+                                <span class="en">The catch is when the paddle is planted or thrust into the water.</span>
+                            </p>
+                        </div>
+                        <div class="p-4 border rounded-xl bg-blue-50/50">
+                            <span class="font-bold text-blue-700 block mb-1">P - <span class="zh">動力</span><span class="en">Power</span></span>
+                            <p class="text-xs m-0 text-gray-600">
+                                <span class="zh">移動船體，而不是移動槳葉。想像船隻在槳葉旁滑過。</span>
+                                <span class="en">The power phase is when the boat is moved relative to the anchored paddle.</span>
+                            </p>
+                        </div>
+                        <div class="p-4 border rounded-xl bg-blue-50/50">
+                            <span class="font-bold text-blue-700 block mb-1">R - <span class="zh">復位</span><span class="en">Recovery</span></span>
+                            <p class="text-xs m-0 text-gray-600">
+                                <span class="zh">將槳葉帶回水面，準備下一次的入水。</span>
+                                <span class="en">The recovery moves the paddle back into position for another catch.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">2. 身體與船體 (Body & Boat)</span>
+                        <span class="en">2. Body & Boat Concepts</span>
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <strong><span class="zh">划行者選單 (Paddler's Box)：</span><span class="en">Paddler's Box:</span></strong>
+                            <span class="zh">雙手應始終保持在肩膀前方的空間內，以保護脆弱的肩關節。</span>
+                            <span class="en">Keep both arms within the "Paddler's Box" at all times to protect the shoulder joint.</span>
+                        </li>
+                        <li>
+                            <strong><span class="zh">軀幹旋轉 (Torso Rotation)：</span><span class="en">Torso Rotation:</span></strong>
+                            <span class="zh">利用大肌群的力量，減少手臂疲勞。</span>
+                            <span class="en">Rotate the torso to utilize large muscle groups and increase power.</span>
+                        </li>
+                        <li>
+                            <strong><span class="zh">船體靜止 (Quiet Boat)：</span><span class="en">Quiet Boat:</span></strong>
+                            <span class="zh">減少側傾、俯仰或偏移，以降低水中阻力，提高效率。</span>
+                            <span class="en">Keep the hull "quiet" in the water to reduce frictional resistance or drag.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Unit 8: 體能調整 (Conditioning) -->
+                                <!-- Unit 8: 體能調整 (Conditioning) -->
+                <section id="unit8" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 8</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">體能調整</span>
+                            <span class="en">Conditioning</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        <span class="zh">划行是一項高熱量消耗的運動（激烈時每小時可燃燒 600 卡）。良好的體能能顯著提升運動樂趣並降低受傷風險。</span>
+                        <span class="en">Paddling can be a demanding activity; recreational paddlers can burn an estimated 600 calories an hour. Conditioning will make the experience more rewarding and safer.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">體能四大要素</span>
+                        <span class="en">Four Components of Conditioning</span>
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="font-bold block"><span class="zh">力量</span><span class="en">Strength</span></span>
+                            <span class="text-xs text-gray-500"><span class="zh">爆發力與速度</span><span class="en">Power & Speed</span></span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="font-bold block"><span class="zh">耐力</span><span class="en">Endurance</span></span>
+                            <span class="text-xs text-gray-500"><span class="zh">持續運動能力</span><span class="en">Repeated Motion</span></span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="font-bold block"><span class="zh">柔韌性</span><span class="en">Flexibility</span></span>
+                            <span class="text-xs text-gray-500"><span class="zh">關節活動度</span><span class="en">Range of Motion</span></span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span class="font-bold block"><span class="zh">心肺功能</span><span class="en">Cardio</span></span>
+                            <span class="text-xs text-gray-500"><span class="zh">氧氣輸送效率</span><span class="en">Oxygen Delivery</span></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Unit 9: 水域安全 (Safety on the Water) -->
+                                <!-- Unit 9: 水域安全 (Safety on the Water) -->
+                <section id="unit9" class="mb-20 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 9</span>
+                        <h2 class="text-3xl font-bold serif m-0">
+                            <span class="zh">水域安全</span>
+                            <span class="en">Safety on the Water</span>
+                        </h2>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">1. PFD (救生衣)：救命關鍵</span>
+                        <span class="en">1. PFD: The Key to Survival</span>
+                    </h3>
+                    <p>
+                        <span class="zh">每年有數千人因溺水死亡，許多是發生在沒穿 PFD 的情況下。船體的簡單設計常讓人誤以為它「天生安全」，但其實划行者落水的機率遠高於其他船種。</span>
+                        <span class="en">Thousands drown annually, many without a PFD. Small craft require special attention to balance; a responsible paddler should always assume they are likely to get wet.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+                        <span class="zh">2. 冷水與 120 法則</span>
+                        <span class="en">2. Cold Water and the 120 Rule</span>
+                    </h3>
+                    <div class="bg-blue-600 text-white p-8 rounded-2xl my-6">
+                        <h4 class="font-bold text-xl mb-4 text-white">🌡️ <span class="zh">什麼是「120 法則」？</span><span class="en">What is the "120 Rule"?</span></h4>
+                        <p class="mb-0">
+                            <span class="zh">當「空氣溫度」＋「水溫」＜ 120°F (約 49°C) 時，必須穿著防寒衣 (Wetsuit) 或乾衣 (Drysuit)。</span>
+                            <span class="en">When the Air Temperature + Water Temperature < 120°F, protective gear (wetsuit or drysuit) is mandatory.</span>
+                        </p>
+                    </div>
+                    <p class="text-sm font-bold text-red-600">
+                        <span class="zh">冷水休克 (Cold Water Shock)：</span>
+                        <span class="en">Cold Water Shock:</span>
+                    </p>
+                    <p class="text-sm">
+                        <span class="zh">浸泡在 10-15°C 的水中會引發吸氣反射（喘氣）、血壓飆升甚至心跳驟停。沒有 PFD 的情況下，這通常是致命的。</span>
+                        <span class="en">Immersion in 50-60°F water can cause gasp reflex, spike in blood pressure, or cardiac arrest. This is often fatal without a PFD.</span>
+                    </p>
+                </section>
+
+                <!-- Conclusion: 結語 -->
+                <section id="conclusion" class="mb-20 scroll-mt-24">
+                    <div class="bg-[#4796cc] p-12 rounded-[2rem] text-white text-center mb-12 shadow-xl shadow-blue-900/10">
+                        <h2 class="text-4xl font-bold mb-4 serif text-white">
+                            <span class="zh">結語</span>
+                            <span class="en">Conclusion</span>
+                        </h2>
+                        <p class="text-blue-50 text-lg leading-relaxed max-w-2xl mx-auto">
+                            <span class="zh">本手冊是 ACA 教學模型、技術、責任與支持的權威資源。教練會發現此資源在整個教學職涯中都極具價值。</span>
+                            <span class="en">This manual serves as the definitive resource for information on ACA teaching models, techniques, responsibilities, and support. The instructor will find this resource to be valuable for the duration of his or her teaching career.</span>
+                        </p>
+                    </div>
+                    
+                    <div class="prose prose-slate max-w-none px-4">
+                        <p>
+                            <span class="zh">然而，單靠這本書無法保證您能成為一名安全、有效的教練。這需要付出巨大努力、積累經驗、與資深教練合作、參與持續教育等。本手冊為新教練提供了工具，幫助他們踏上提供安全有效教學的道路。</span>
+                            <span class="en">What this book cannot do is guarantee you will become a safe, effective instructor. That takes great effort, experience, working with more experienced instructors, taking part in continuing education, and more. This manual gives the new instructor tools for getting started on the path toward the goal of providing safe, effective instruction.</span>
+                        </p>
+                        <p>
+                            <span class="zh">本書是所有 ACA 教練認證課程的必修教材，也是教練培訓過程中的關鍵部分。深入理解本書內容對於成為合格的 ACA 教練至關重要。</span>
+                            <span class="en">This book is a required text for all ACA Instructor Certifications Programs, and is a vital part of the Instructor Development process. A thorough understanding of the material contained in this book is essential when attempting to become a certified ACA instructor.</span>
+                        </p>
+                        <p>
+                            <span class="zh">認證不應是教練候選人的終點。相反，ACA 教練必須追求上述的安全與成效。這是一個永無止境且收穫頗豐的探索過程。本手冊是所有教練學習的基礎。只有保持學生對知識與技巧的渴望，教練才能發揮其最大潛力。</span>
+                            <span class="en">Certification should not be the end goal for the instructor candidate. Instead, ACA instructors must strive for the aforementioned safety and effectiveness. This is a never-ending quest and a particularly rewarding one. This manual is a foundation for learning by all instructors. It is only by maintaining the student’s thirst for more knowledge and greater skills that the instructor will reach his or her full potential.</span>
+                        </p>
+                        
+                        <div class="bg-gray-50 border-y border-gray-100 p-10 my-16 text-center rounded-3xl">
+                            <p class="text-gray-600 mb-4">
+                                <span class="zh">歡迎加入充滿活力且成就感十足的划槳運動教學領域。</span>
+                                <span class="en">Welcome to the exciting, rewarding field of paddlesport instruction.</span>
+                            </p>
+                            <p class="text-3xl font-black text-[#d2232a] tracking-tight">
+                                <span class="zh">注意安全！享受樂趣！</span>
+                                <span class="en">Be Safe! Have Fun!</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bibliography -->
+                <section id="bibliography" class="prose prose-slate max-w-none scroll-mt-24 mb-20 pt-12 border-t border-gray-100">
+                    <h2 class="serif">
+                        <span class="zh">參考文獻</span>
+                        <span class="en">Bibliography</span>
+                    </h2>
+                    <ul class="list-none pl-0 text-sm text-gray-600 space-y-2">
+                        <li>American Canoe Association. (2008). <em>Canoeing</em>. Human Kinetics.</li>
+                        <li>American Canoe Association. (2009). <em>Kayaking</em>. Human Kinetics.</li>
+                        <li>American Canoe Association. (1996). <em>Introduction to Paddling</em>. Birmingham: Menasha Ridge Press.</li>
+                        <li>American Canoe Association. (2004). <em>Essentials of River Kayaking</em>. Birmingham: Menasha Ridge Press.</li>
+                        <li>American Canoe Association. (2005). <em>Essentials of Kayak Touring</em>. Birmingham: Menasha Ridge Press.</li>
+                        <li>American Whitewater. (1998). <em>Safety Code of American Whitewater [Brochure]</em>. Margaretville: American Whitewater.</li>
+                        <li>Gullion, L. (1987). <em>Canoeing and Kayaking Instruction Manual</em>. Birmingham: Menasha Ridge Press.</li>
+                        <li>The American National Red Cross. (1995). <em>American Red Cross Lifeguarding Instructor’s Manual</em>. St. Louis: Mosby Lifeline.</li>
+                        <li>Webre, A. W., & Zeller, J. A. (1990). <em>Canoeing and Kayaking for Persons with Physical Disabilities</em>. Newington: American Canoe Association, Inc.</li>
+                    </ul>
+                </section>
+
+                <!-- 附錄 A -->
+                <!-- Appendix A -->
+                <section id="appendix-a" class="prose prose-slate max-w-none scroll-mt-24 mb-20 pt-12 border-t border-gray-100">
+                    <h2 class="serif">
+                        <span class="zh">附錄 A：課程回報與認證維護</span>
+                        <span class="en">Appendix A: Reporting and Certification Maintenance</span>
+                    </h2>
+                    <p>
+                        <span class="zh">為了滿足教練 (Instructor)、教練培訓師 (IT) 或教練培訓教育師 (ITE) 的維護要求，必須回報最低數量的課程。</span>
+                        <span class="en">To satisfy maintenance requirements for Instructors, ITs, or ITEs, a minimum number of courses must be reported.</span>
+                    </p>
+
+                    <h3 class="text-xl font-bold mt-8 mb-4">
+                        <span class="zh">教練認證維護要求</span>
+                        <span class="en">Instructor Certification Maintenance</span>
+                    </h3>
+                    <p><span class="zh">在 4 年認證期結束前，必須滿足以下最低維護要求：</span><span class="en">The following requirements must be met within each 4-year certification period:</span></p>
+                    <ol class="list-decimal pl-5 space-y-2 text-sm">
+                        <li><span class="zh">維持年度 ACA 會員資格與 SEIC 註冊。</span><span class="en">Maintain annual ACA membership and SEIC registration.</span></li>
+                        <li><span class="zh">每四年教授並回報至少兩門課程。</span><span class="en">Teach and report at least two courses every four years.</span></li>
+                        <li><span class="zh">完成一次教練更新 (Instructor Update)。</span><span class="en">Successfully complete an Instructor Update.</span></li>
+                    </ol>
+                </section>
+
+            <div class="mt-24 p-6 bg-gray-50 rounded-xl border border-gray-100 text-xs text-gray-500 leading-relaxed">
+                <p class="font-bold mb-2 text-gray-700">【版權與使用聲明 / Copyright & Usage Notice】</p>
+                <p class="mb-2">
+                    <span class="zh">本翻譯手冊僅供 ACA 教練候選人個人學習、學術研究以及熟悉划槳運動中英文專業術語對照之用途，不具任何商業營利目的。</span>
+                    <span class="en">This translated manual is intended solely for personal study, academic research, and the familiarization of bilingual technical terminology for ACA instructor candidates. It is not for commercial use.</span>
+                </p>
+                <p>
+                    <span class="zh">本手冊原始內容之版權均歸美國獨木舟協會 (American Canoe Association, ACA) 所有。我們強烈建議所有教練透過 ACA 官方管道購買正版教練手冊，以獲得最權威與完整的資訊，並支持協會之發展。</span>
+                    <span class="en">All original content copyrights belong to the American Canoe Association (ACA). We strongly encourage all instructors to purchase the official manual through ACA channels for the most authoritative information and to support the association.</span>
+                </p>
             </div>
-        </article>
 
-    </main>
+            <footer class="mt-12 pt-8 border-t border-gray-100 text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2020 American Canoe Association (ACA)</p>
+                <p>繁體中文版翻修：王汪汪 Wang Wanwan</p>
+            </footer>
 
-    <footer class="bg-gray-100 py-16 px-6 text-center text-gray-500 text-sm border-t border-gray-200">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-8 flex justify-center space-x-4">
-                <div class="h-px w-12 bg-gray-300 self-center"></div>
-                <span class="font-serif italic text-gray-400 text-lg">Fin</span>
-                <div class="h-px w-12 bg-gray-300 self-center"></div>
-            </div>
-            <p class="mb-2">最後更新於 2018 年 4 月</p>
-            <p>本文件受 NOLS 河流教育標準規範 (IkoWapi.nols.edu)</p>
-            <p class="mt-6 font-medium text-gray-400">© 2026 翻滾診所教學資料庫 | Rolling Clinic Education</p>
-        </div>
-    </footer>
+        </main>
+    </div>
 
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const sidebar = document.getElementById('sidebar');
+
+        function toggleMenu() {
+            const isHidden = sidebar.classList.contains('hidden');
+            
+            if (isHidden) {
+                // 開啟全螢幕選單
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('fixed', 'inset-0', 'z-[100]', 'w-full', 'h-screen');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // 關閉選單
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('fixed', 'inset-0', 'z-[100]', 'w-full', 'h-screen');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // 語系切換邏輯
+        function setLang(lang) {
+            document.body.classList.remove('lang-zh', 'lang-en', 'lang-both');
+            document.body.classList.add('lang-' + lang);
+            
+            // 更新按鈕樣式
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'shadow-sm', 'text-[#4796cc]');
+            });
+            const activeBtn = document.getElementById('btn-' + lang);
+            activeBtn.classList.add('bg-white', 'shadow-sm', 'text-[#4796cc]');
+
+            // 儲存設定
+            localStorage.setItem('aca-manual-lang', lang);
+        }
+
+        // 初始化語系
+        const savedLang = localStorage.getItem('aca-manual-lang') || 'zh';
+        setLang(savedLang);
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // 點擊連結後自動關閉選單 (手機版)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024 && !sidebar.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
