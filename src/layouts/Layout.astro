@@ -1,111 +1,277 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 
 const navItems = [
-    { id: 'preamble', zh: '前言與導言', en: 'Preamble & Introduction', slug: '00-preamble' },
-    { id: 'unit1', zh: '第一單元：關於 ACA', en: 'About the ACA', slug: 'unit-01' },
-    { id: 'unit2', zh: '第二單元：獨木舟教育標準', en: 'Canoe Education Standards', slug: 'unit-02' },
-    { id: 'unit3', zh: '第三單元：環境守護與倫理', en: 'Environmental Stewardship', slug: 'unit-03' },
-    { id: 'unit4', zh: '第四單元：教學與學習風格', en: 'Teaching and Learning Styles', slug: 'unit-04' },
-    { id: 'unit5', zh: '第五單元：課程組織與帶領', en: 'Organizing and Conducting a Class', slug: 'unit-05' },
-    { id: 'unit6', zh: '第六單元：法律責任與風險管理', en: 'Liability & Risk Management', slug: 'unit-06' },
-    { id: 'unit7', zh: '第七單元：划行概念', en: 'Concepts of Paddling', slug: 'unit-07' },
-    { id: 'unit8', zh: '第八單元：體能調整', en: 'Conditioning', slug: 'unit-08' },
-    { id: 'unit9', zh: '第九單元：水域安全', en: 'Safety on the Water', slug: 'unit-09' },
-    { id: 'conclusion', zh: '結語', en: 'Conclusion', slug: 'conclusion' },
-    { id: 'bibliography', zh: '參考文獻', en: 'Bibliography', slug: 'bibliography' },
-    { id: 'appendix-a', zh: '附錄 A：課程回報與認證維護', en: 'Appendix A: Reporting and Maintenance', slug: 'appendix-a' },
+    {
+        id: "preamble",
+        zh: "前言與導言",
+        en: "Preamble & Introduction",
+        slug: "00-preamble",
+    },
+    {
+        id: "unit1",
+        zh: "第一單元：關於 ACA",
+        en: "Unit 1: About the ACA",
+        slug: "unit-01",
+    },
+    {
+        id: "unit2",
+        zh: "第二單元：獨木舟教育標準",
+        en: "Unit 2: Canoe Education Standards",
+        slug: "unit-02",
+    },
+    {
+        id: "unit3",
+        zh: "第三單元：環境守護與倫理",
+        en: "Unit 3: Environmental Stewardship",
+        slug: "unit-03",
+    },
+    {
+        id: "unit4",
+        zh: "第四單元：教學與學習風格",
+        en: "Unit 4: Teaching and Learning Styles",
+        slug: "unit-04",
+    },
+    {
+        id: "unit5",
+        zh: "第五單元：課程組織與帶領",
+        en: "Unit 5: Organizing and Conducting a Class",
+        slug: "unit-05",
+    },
+    {
+        id: "unit6",
+        zh: "第六單元：法律責任與風險管理",
+        en: "Unit 6: Liability & Risk Management",
+        slug: "unit-06",
+    },
+    {
+        id: "unit7",
+        zh: "第七單元：划行概念",
+        en: "Unit 7: Concepts of Paddling",
+        slug: "unit-07",
+    },
+    {
+        id: "unit8",
+        zh: "第八單元：體能調整",
+        en: "Unit 8: Conditioning",
+        slug: "unit-08",
+    },
+    {
+        id: "unit9",
+        zh: "第九單元：水域安全",
+        en: "Unit 9: Safety on the Water",
+        slug: "unit-09",
+    },
+    { id: "conclusion", zh: "結語", en: "Conclusion", slug: "conclusion" },
+    {
+        id: "bibliography",
+        zh: "參考文獻",
+        en: "Bibliography",
+        slug: "bibliography",
+    },
+    {
+        id: "appendix-a",
+        zh: "附錄 A：課程回報與認證維護",
+        en: "Appendix A: Reporting and Maintenance",
+        slug: "appendix-a",
+    },
 ];
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-TW">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="ACA 獨木舟教練手冊 (2020) - 繁體中文版" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | ACA 教練手冊</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
-		<div class="flex flex-col lg:flex-row min-h-screen">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="ACA 獨木舟教練手冊 (2020) - 繁體中文版"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title} | ACA 教練手冊</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900"
+    >
+        <div class="flex flex-col lg:flex-row min-h-screen">
             <!-- Mobile Header -->
-            <div class="lg:hidden sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-sm">
+            <div
+                class="lg:hidden sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-sm"
+            >
                 <div class="flex items-center gap-3 overflow-hidden mr-4">
-                    <a href={import.meta.env.BASE_URL} class="flex items-center gap-2 shrink-0">
-                        <div class="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-[10px]">A</div>
-                        <h1 class="text-xs font-black tracking-tighter shrink-0">ACA MANUAL</h1>
+                    <a
+                        href={import.meta.env.BASE_URL}
+                        class="flex items-center gap-2 shrink-0"
+                    >
+                        <div
+                            class="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-[10px]"
+                        >
+                            A
+                        </div>
+                        <h1
+                            class="text-xs font-black tracking-tighter shrink-0"
+                        >
+                            ACA MANUAL
+                        </h1>
                     </a>
                     <div class="h-4 w-[1px] bg-slate-200 shrink-0"></div>
-                    <div id="mobile-current-unit" class="text-[11px] font-bold text-slate-500 truncate transition-all duration-500">
+                    <div
+                        id="mobile-current-unit"
+                        class="text-[11px] font-bold text-slate-500 truncate transition-all duration-500"
+                    >
                         <!-- Dynamic Title -->
                     </div>
                 </div>
-                <button id="mobile-menu-toggle" class="p-2 -mr-2 text-slate-600 hover:text-blue-600 shrink-0 transition-colors" aria-label="Toggle Menu">
-                    <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <button
+                    id="mobile-menu-toggle"
+                    class="p-2 -mr-2 text-slate-600 hover:text-blue-600 shrink-0 transition-colors"
+                    aria-label="Toggle Menu"
+                >
+                    <svg
+                        id="hamburger-icon"
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg
+                        id="close-icon"
+                        class="w-6 h-6 hidden"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
 
             <!-- Overlay -->
-            <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+            <div
+                id="sidebar-overlay"
+                class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"
+            >
+            </div>
 
             <!-- Sidebar -->
-            <aside id="main-sidebar" class="fixed inset-y-0 left-0 w-80 bg-white z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out border-r border-slate-200">
+            <aside
+                id="main-sidebar"
+                class="fixed inset-y-0 left-0 w-80 lg:w-[340px] bg-white z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out border-r border-slate-200"
+            >
                 <div class="mb-10">
-                    <a href={import.meta.env.BASE_URL} class="hidden lg:flex items-center gap-3 mb-8 group">
-                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">A</div>
+                    <a
+                        href={import.meta.env.BASE_URL}
+                        class="hidden lg:flex items-center gap-3 mb-8 group"
+                    >
+                        <div
+                            class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform"
+                        >
+                            A
+                        </div>
                         <div>
-                            <h1 class="text-lg font-black tracking-tighter leading-none">ACA MANUAL</h1>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Version 2020</p>
+                            <h1
+                                class="text-lg font-black tracking-tighter leading-none"
+                            >
+                                ACA MANUAL
+                            </h1>
+                            <p
+                                class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1"
+                            >
+                                Version 2020
+                            </p>
                         </div>
                     </a>
-                    
+
                     <!-- Language Switcher -->
-                    <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200" id="lang-switcher">
-                        <button data-lang="zh" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">中文</button>
-                        <button data-lang="en" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">EN</button>
-                        <button data-lang="both" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">對照</button>
+                    <div
+                        class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200"
+                        id="lang-switcher"
+                    >
+                        <button
+                            data-lang="zh"
+                            class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
+                            >中文</button
+                        >
+                        <button
+                            data-lang="en"
+                            class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
+                            >ENGLISH</button
+                        >
                     </div>
 
                     <!-- PDF Export Button -->
-                    <button onclick="window.print()" class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 mb-8">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    <button
+                        onclick="window.print()"
+                        class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 mb-8"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+                            ></path>
+                        </svg>
                         匯出 PDF 手冊
                     </button>
 
-                    <nav class="space-y-1" id="main-nav">
-                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
-                        {navItems.map(item => (
-                            <a 
-                                href={`${import.meta.env.BASE_URL}/#${item.slug}`} 
-                                data-nav-id={item.slug}
-                                class="nav-link flex flex-col px-3 py-2 rounded-xl hover:bg-blue-50 transition-all group"
-                            >
-                                <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight transition-colors">{item.zh}</span>
-                                <span class="en text-[11px] font-bold text-slate-400 group-hover:text-blue-400 leading-tight mt-0.5 transition-colors">{item.en}</span>
-                            </a>
-                        ))}
+                    <nav class="space-y-2" id="main-nav">
+                        <p
+                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2"
+                        >
+                            目錄 Table of Contents
+                        </p>
+                        {
+                            navItems.map((item) => (
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/#${
+                                        item.slug
+                                    }`}
+                                    data-nav-id={item.slug}
+                                    class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
+                                >
+                                    <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">
+                                        {item.zh}
+                                    </span>
+                                    <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">
+                                        {item.en}
+                                    </span>
+                                </a>
+                            ))
+                        }
                     </nav>
                 </div>
 
                 <div class="mt-auto pt-8 border-t border-slate-100">
                     <p class="text-[10px] text-slate-400 leading-tight">
-                        American Canoe Association<br/>
+                        American Canoe Association<br />
                         Instructor Manual v.2020
                     </p>
                 </div>
@@ -117,67 +283,99 @@ const navItems = [
             </main>
         </div>
 
-		<script is:inline>
-			const initLang = () => {
-				const savedLang = localStorage.getItem('aca-lang') || 'zh';
-				document.documentElement.className = `lang-${savedLang}`;
-				
-				const buttons = document.querySelectorAll('#lang-switcher button');
-				buttons.forEach(btn => {
-					if (btn.dataset.lang === savedLang) {
-						btn.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
-					} else {
-						btn.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
-					}
-					
-					btn.onclick = () => {
-						const lang = btn.dataset.lang;
-						localStorage.setItem('aca-lang', lang);
-						document.documentElement.className = `lang-${lang}`;
-						
-						buttons.forEach(b => b.classList.remove('bg-white', 'shadow-sm', 'text-blue-600'));
-						btn.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
-					};
-				});
-			};
-			
-			initLang();
+        <script is:inline>
+            const initLang = () => {
+                const savedLang = localStorage.getItem("aca-lang") || "zh";
+                document.documentElement.className = `lang-${savedLang}`;
+
+                const buttons = document.querySelectorAll(
+                    "#lang-switcher button"
+                );
+                buttons.forEach((btn) => {
+                    if (btn.dataset.lang === savedLang) {
+                        btn.classList.add(
+                            "bg-white",
+                            "shadow-sm",
+                            "text-blue-600"
+                        );
+                    } else {
+                        btn.classList.remove(
+                            "bg-white",
+                            "shadow-sm",
+                            "text-blue-600"
+                        );
+                    }
+
+                    btn.onclick = () => {
+                        const lang = btn.dataset.lang;
+                        localStorage.setItem("aca-lang", lang);
+                        document.documentElement.className = `lang-${lang}`;
+
+                        buttons.forEach((b) =>
+                            b.classList.remove(
+                                "bg-white",
+                                "shadow-sm",
+                                "text-blue-600"
+                            )
+                        );
+                        btn.classList.add(
+                            "bg-white",
+                            "shadow-sm",
+                            "text-blue-600"
+                        );
+                    };
+                });
+            };
+
+            initLang();
 
             // Mobile Menu Logic
             const initMobileMenu = () => {
-                const toggleBtn = document.getElementById('mobile-menu-toggle');
-                const sidebar = document.getElementById('main-sidebar');
-                const overlay = document.getElementById('sidebar-overlay');
-                const hamburgerIcon = document.getElementById('hamburger-icon');
-                const closeIcon = document.getElementById('close-icon');
-                const navLinks = document.querySelectorAll('.nav-link');
+                const toggleBtn = document.getElementById("mobile-menu-toggle");
+                const sidebar = document.getElementById("main-sidebar");
+                const overlay = document.getElementById("sidebar-overlay");
+                const hamburgerIcon = document.getElementById("hamburger-icon");
+                const closeIcon = document.getElementById("close-icon");
+                const navLinks = document.querySelectorAll(".nav-link");
 
                 const toggleMenu = () => {
-                    const isOpen = sidebar.classList.contains('translate-x-0');
+                    const isOpen = sidebar.classList.contains("translate-x-0");
                     if (isOpen) {
-                        sidebar.classList.remove('translate-x-0');
-                        sidebar.classList.add('-translate-x-full');
-                        overlay.classList.remove('opacity-100', 'pointer-events-auto');
-                        overlay.classList.add('opacity-0', 'pointer-events-none');
-                        hamburgerIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        document.body.style.overflow = '';
+                        sidebar.classList.remove("translate-x-0");
+                        sidebar.classList.add("-translate-x-full");
+                        overlay.classList.remove(
+                            "opacity-100",
+                            "pointer-events-auto"
+                        );
+                        overlay.classList.add(
+                            "opacity-0",
+                            "pointer-events-none"
+                        );
+                        hamburgerIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                        document.body.style.overflow = "";
                     } else {
-                        sidebar.classList.add('translate-x-0');
-                        sidebar.classList.remove('-translate-x-full');
-                        overlay.classList.add('opacity-100', 'pointer-events-auto');
-                        overlay.classList.remove('opacity-0', 'pointer-events-none');
-                        hamburgerIcon.classList.add('hidden');
-                        closeIcon.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden';
+                        sidebar.classList.add("translate-x-0");
+                        sidebar.classList.remove("-translate-x-full");
+                        overlay.classList.add(
+                            "opacity-100",
+                            "pointer-events-auto"
+                        );
+                        overlay.classList.remove(
+                            "opacity-0",
+                            "pointer-events-none"
+                        );
+                        hamburgerIcon.classList.add("hidden");
+                        closeIcon.classList.remove("hidden");
+                        document.body.style.overflow = "hidden";
                     }
                 };
 
-                toggleBtn?.addEventListener('click', toggleMenu);
-                overlay?.addEventListener('click', toggleMenu);
-                
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
+                toggleBtn?.addEventListener("click", toggleMenu);
+                overlay?.addEventListener("click", toggleMenu);
+
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", () => {
                         if (window.innerWidth < 1024) {
                             toggleMenu();
                         }
@@ -189,17 +387,17 @@ const navItems = [
 
             // ScrollSpy
             const initScrollSpy = () => {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.nav-link');
-                
+                const sections = document.querySelectorAll("section[id]");
+                const navLinks = document.querySelectorAll(".nav-link");
+
                 if (sections.length === 0) {
                     // Handle single unit page highlighting
                     const path = window.location.pathname;
-                    const slug = path.split('/').filter(Boolean).pop();
+                    const slug = path.split("/").filter(Boolean).pop();
                     if (slug) {
-                        navLinks.forEach(link => {
+                        navLinks.forEach((link) => {
                             if (link.dataset.navId === slug) {
-                                link.classList.add('active-nav');
+                                link.classList.add("active-nav");
                             }
                         });
                     }
@@ -207,77 +405,100 @@ const navItems = [
                 }
 
                 const observerOptions = {
-                    rootMargin: '-10% 0px -80% 0px',
-                    threshold: 0
+                    rootMargin: "-10% 0px -80% 0px",
+                    threshold: 0,
                 };
 
                 const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
+                    entries.forEach((entry) => {
                         if (entry.isIntersecting) {
-                            const id = entry.target.getAttribute('id');
-                            const mobileUnitDisplay = document.getElementById('mobile-current-unit');
-                            
-                            navLinks.forEach(link => {
+                            const id = entry.target.getAttribute("id");
+                            const mobileUnitDisplay = document.getElementById(
+                                "mobile-current-unit"
+                            );
+
+                            navLinks.forEach((link) => {
                                 if (link.dataset.navId === id) {
-                                    link.classList.add('active-nav');
-                                    
+                                    link.classList.add("active-nav");
+
                                     // Update Mobile Header Title
                                     if (mobileUnitDisplay) {
-                                        const unitZh = link.querySelector('.zh')?.textContent;
-                                        if (unitZh && mobileUnitDisplay.textContent !== unitZh) {
-                                            mobileUnitDisplay.style.opacity = '0';
+                                        const unitZh =
+                                            link.querySelector(
+                                                ".zh"
+                                            )?.textContent;
+                                        if (
+                                            unitZh &&
+                                            mobileUnitDisplay.textContent !==
+                                                unitZh
+                                        ) {
+                                            mobileUnitDisplay.style.opacity =
+                                                "0";
                                             setTimeout(() => {
-                                                mobileUnitDisplay.textContent = unitZh;
-                                                mobileUnitDisplay.style.opacity = '1';
+                                                mobileUnitDisplay.textContent =
+                                                    unitZh;
+                                                mobileUnitDisplay.style.opacity =
+                                                    "1";
                                             }, 200);
                                         }
                                     }
                                 } else {
-                                    link.classList.remove('active-nav');
+                                    link.classList.remove("active-nav");
                                 }
                             });
                         }
                     });
                 }, observerOptions);
 
-                sections.forEach(section => observer.observe(section));
+                sections.forEach((section) => observer.observe(section));
             };
 
             // Run on initial load
             initScrollSpy();
 
             // Support Astro view transitions
-			document.addEventListener('astro:after-swap', () => {
+            document.addEventListener("astro:after-swap", () => {
                 initLang();
                 initMobileMenu();
                 initScrollSpy();
             });
-		</script>
-	</body>
+        </script>
+    </body>
 </html>
 
 <style is:global>
     html {
         scroll-behavior: smooth;
     }
-	.lang-zh .en { display: none !important; }
-	.lang-en .zh { display: none !important; }
-	.lang-both .zh { display: block; }
-	.lang-both .en { display: block; margin-top: 0.125rem; opacity: 0.6; }
-    
-    .serif { font-family: 'Noto Serif TC', serif; }
+    .lang-zh .en {
+        display: none !important;
+    }
+    .lang-en .zh {
+        display: none !important;
+    }
+
+    .serif {
+        font-family: "Noto Serif TC", serif;
+    }
 
     /* Active Navigation Styles */
     .active-nav {
         background-color: #eff6ff !important;
-        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -4px rgba(37, 99, 235, 0.1), inset 0 0 0 1px #dbeafe !important;
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1),
+            0 4px 6px -4px rgba(37, 99, 235, 0.1), inset 0 0 0 1px #dbeafe !important;
         transform: translateX(6px);
     }
-    .active-nav .zh { color: #2563eb !important; }
-    .active-nav .en { color: #60a5fa !important; }
+    .active-nav .zh {
+        color: #2563eb !important;
+    }
+    .active-nav .en {
+        color: #60a5fa !important;
+    }
 
     @media print {
-        #mobile-menu-toggle, #sidebar-overlay, .lg\:hidden {
+        #mobile-menu-toggle,
+        #sidebar-overlay,
+        .lg\:hidden {
             display: none !important;
         }
         aside {
@@ -294,48 +515,119 @@ const navItems = [
         padding-left: 0.5rem;
     }
 
-	@media print {
+    @media print {
         @page {
             size: A4;
             margin: 2cm;
         }
-		aside, button, #lang-switcher, nav { display: none !important; }
-		main { width: 100% !important; padding: 0 !important; }
-        .manual-unit { width: 100% !important; max-width: none !important; padding-top: 0 !important; margin-top: 0 !important; }
-        .max-w-4xl { padding-top: 0 !important; padding-bottom: 0 !important; }
-        
+        aside,
+        button,
+        #lang-switcher,
+        nav {
+            display: none !important;
+        }
+        main {
+            width: 100% !important;
+            padding: 0 !important;
+        }
+        .manual-unit {
+            width: 100% !important;
+            max-width: none !important;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+        .max-w-4xl {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
         /* Force display based on current selection, but if 'both' is selected, ensure it prints well */
-        .lang-both .en, .lang-both .zh { display: block !important; }
-        
-        section { page-break-before: always; padding-top: 0 !important; margin-top: 0 !important; }
-        section:first-of-type { page-break-before: auto; }
-        
+        .lang-both .en,
+        .lang-both .zh {
+            display: block !important;
+        }
+
+        section {
+            page-break-before: always;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+        section:first-of-type {
+            page-break-before: auto;
+        }
+
         /* Typography optimizations for print */
-        body { background: white !important; font-size: 11pt; line-height: 1.5; color: black !important; }
-        .prose { max-width: none !important; color: black !important; }
-        .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-gray-50 { background-color: transparent !important; border: 1px solid #eee !important; }
-        .text-blue-600, .text-red-600 { color: black !important; font-weight: bold; }
-        .shadow-lg, .shadow-xl, .shadow-2xl { shadow: none !important; box-shadow: none !important; }
+        body {
+            background: white !important;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: black !important;
+        }
+        .prose {
+            max-width: none !important;
+            color: black !important;
+        }
+        .bg-slate-50,
+        .bg-slate-100,
+        .bg-blue-50,
+        .bg-gray-50 {
+            background-color: transparent !important;
+            border: 1px solid #eee !important;
+        }
+        .text-blue-600,
+        .text-red-600 {
+            color: black !important;
+            font-weight: bold;
+        }
+        .shadow-lg,
+        .shadow-xl,
+        .shadow-2xl {
+            shadow: none !important;
+            box-shadow: none !important;
+        }
 
         /* Prevent breaking elements across pages */
         .grid > div,
-        .p-4, .p-5, .p-6, .p-8,
-        li, 
+        .p-4,
+        .p-5,
+        .p-6,
+        .p-8,
+        li,
         blockquote,
-        .rounded-2xl, .rounded-3xl,
-        h2, h3, h4 {
+        .rounded-2xl,
+        .rounded-3xl,
+        h2,
+        h3,
+        h4 {
             break-inside: avoid;
             page-break-inside: avoid;
         }
 
         /* Ensure images and headers stay with their following content */
-        h2, h3, h4 { break-after: avoid; }
-        img { break-inside: avoid; max-height: 40vh; object-fit: contain; }
-	}
+        h2,
+        h3,
+        h4 {
+            break-after: avoid;
+        }
+        img {
+            break-inside: avoid;
+            max-height: 40vh;
+            object-fit: contain;
+        }
+    }
 
     /* Scrollbar Styling */
-    aside::-webkit-scrollbar { width: 4px; }
-    aside::-webkit-scrollbar-track { background: transparent; }
-    aside::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-    aside::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+    aside::-webkit-scrollbar {
+        width: 4px;
+    }
+    aside::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    aside::-webkit-scrollbar-thumb {
+        background: #e2e8f0;
+        border-radius: 10px;
+    }
+    aside::-webkit-scrollbar-thumb:hover {
+        background: #cbd5e1;
+    }
 </style>
