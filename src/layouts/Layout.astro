@@ -488,8 +488,7 @@ const navItems = [
     body {
         width: 100%;
         position: relative;
-        overflow-x: hidden;
-        /* 防止 iOS 橡皮筋效應產生的白邊 */
+        /* 移除此處的 overflow-x: hidden 以恢復桌面版 sticky 功能 */
         -webkit-overflow-scrolling: touch;
     }
 
