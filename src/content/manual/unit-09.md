@@ -49,7 +49,7 @@ unit_number: 9
 <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
 <h4 class="font-bold text-red-800 mb-2 text-sm">🚫 <span class="zh">酒精、藥物與划行</span><span class="en">Alcohol, Drugs & Paddling</span></h4>
 <p class="text-sm text-red-700 m-0 leading-relaxed">
-<span class="zh">在酒精或藥物影響下划行是極其危險且違法的。酒精會削弱平衡感、協調性與判斷力，並加速低體溫症的發生。教練應對此採取零容忍態度。</span>
+<span class="zh">在酒精或藥物影響下划行是極其危險且違法的。酒精會削弱平衡感、協調性與判斷力，並加速失溫現象的發生。教練應對此採取零容忍態度。</span>
 <span class="en">Operating a vessel under the influence is dangerous and illegal. Alcohol impairs balance, coordination, and judgment, while accelerating hypothermia. Instructors should have zero tolerance.</span>
 </p>
 </div>
@@ -59,7 +59,7 @@ unit_number: 9
 <ul class="text-sm text-amber-900 space-y-2 list-none pl-0">
 <li class="flex items-start gap-2"><span>●</span> <span><span class="zh">風與浪：即使是溫和的風也能讓船隻偏航或翻覆。</span><span class="en">Wind & Waves: Even mild wind can blow a craft off course or cause capsize.</span></span></li>
 <li class="flex items-start gap-2"><span>●</span> <span><span class="zh">流水與急流：水流產生的壓力極大，應避免被推向障礙物。</span><span class="en">Current & Moving Water: The pressure of moving water is immense; avoid being pinned against obstacles.</span></span></li>
-<li class="flex items-start gap-2"><span>●</span> <span><span class="zh">人造設施：水壩、橋墩與碼頭可能產生致命的渦流或吸力。</span><span class="en">Man-made Objects: Dams, bridge pilings, and docks can create deadly eddies or suction.</span></span></li>
+<li class="flex items-start gap-2"><span>●</span> <span><span class="zh">人造設施：攔河堰、橋墩與碼頭設施可能產生致命的渦流或吸力。</span><span class="en">Man-made Objects: Dams, bridge pilings, and docks can create deadly eddies or suction.</span></span></li>
 </ul>
 </div>
 </div>
@@ -83,8 +83,8 @@ unit_number: 9
 <p class="text-xs text-gray-500 leading-relaxed"><span class="zh">在狹窄航道或對向遇船時，應保持在航道的右側通行。</span><span class="en">In narrow channels or when meeting head-on, keep to the right side of the channel.</span></p>
 </div>
 <div class="border-l-4 border-blue-500 pl-6 py-2">
-<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">清晰的可見度</span><span class="en">Be Visible</span></h4>
-<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">使用鮮豔的船隻與服裝。若在黎明、黃昏或夜間划行，必須配備符合法規的白光燈具。</span><span class="en">Use bright colors. At dawn, dusk, or night, a white light is legally required.</span></p>
+<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">保持醒目</span><span class="en">Be Visible</span></h4>
+<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">使用鮮豔的船隻與服裝。若在黎明、黃昏或夜間划行，必須配備符合法規的白光燈具（提高辨識度）。</span><span class="en">Use bright colors. At dawn, dusk, or night, a white light is legally required.</span></p>
 </div>
 <div class="border-l-4 border-blue-500 pl-6 py-2">
 <h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">避免航道停留</span><span class="en">Avoid Channels</span></h4>

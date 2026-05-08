@@ -24,7 +24,7 @@ unit_number: 7
 </p>
 <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-4 my-6">
 <div class="p-4 border rounded-xl bg-blue-50/50 shadow-sm">
-<span class="font-bold text-blue-700 block mb-1 text-sm uppercase tracking-tighter">C - <span class="zh">入水</span><span class="en">Catch</span></span>
+<span class="font-bold text-blue-700 block mb-1 text-sm uppercase tracking-tighter">C - <span class="zh">抓水</span><span class="en">Catch</span></span>
 <p class="text-xs m-0 text-slate-600 leading-relaxed">
 <span class="zh">槳葉垂直插入水中的瞬間，像把槳「埋進混凝土」一樣固定。</span>
 <span class="en">The catch is when the paddle is planted or thrust into the water.</span>
@@ -132,12 +132,12 @@ unit_number: 7
 <span class="en">Instructor Demonstration Standards</span>
 </h4>
 <p class="text-sm opacity-80 leading-relaxed mb-6">
-<span class="zh">作為教練，您的動作必須是優雅、流暢且精準的。學員會模仿您的每一個細節：</span>
+<span class="zh">作為教練，您的動作必須是流暢且精準的。學員會模仿您的每一個細節：</span>
 <span class="en">As an instructor, your movements must be graceful, fluid, and precise. Students will mimic every detail:</span>
 </p>
 <ul class="text-sm space-y-3 opacity-90 list-none pl-0">
 <li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">展現從入水、動力到復位的完整週期。</span><span class="en">Show the full C-P-R cycle clearly.</span></span></li>
-<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">強調「划行者選單」的安全性。</span><span class="en">Emphasize the safety of the Paddler's Box.</span></span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">強調「划行者框架」的安全性。</span><span class="en">Emphasize the safety of the Paddler's Box.</span></span></li>
 <li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">演示如何利用環境（如水流）來輔助操控。</span><span class="en">Demo using the environment to aid maneuvers.</span></span></li>
 </ul>
 </div>

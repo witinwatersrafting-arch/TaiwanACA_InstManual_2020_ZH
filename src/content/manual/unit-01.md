@@ -51,14 +51,14 @@ unit_number: 1
 <span class="en">Safety Education & Instruction Department (SEI)</span>
 </h4>
 <p class="text-sm m-0">
-<span class="zh">負責促進划行安全與樂趣。從教練的角度來看，SEI 負責管理教練、保留教練記錄並確保政策的執行。</span>
+<span class="zh">負責促進划行安全與樂趣。從教練的角度來看，SEI 負責管理教練、維護教練檔案並確保政策的執行。</span>
 <span class="en">Responsible for promoting paddling safety and enjoyment. From an instructor perspective, the SEI is responsible for managing instructors, keeping instructor records and ensuring policies are followed.</span>
 </p>
 </div>
 
 <div class="bg-gray-50 p-6 rounded-xl">
 <h4 class="font-bold text-[#4796cc] mb-2">
-<span class="zh">安全教育與指導委員會 (SEIC)</span>
+<span class="zh">安全教育與教學委員會 (SEIC)</span>
 <span class="en">Safety Education & Instruction Council (SEIC)</span>
 </h4>
 <p class="text-sm m-0">
@@ -120,7 +120,7 @@ unit_number: 1
 <div class="bg-blue-900 text-white p-8 rounded-2xl relative overflow-hidden">
 <div class="relative z-10">
 <h4 class="text-2xl font-bold mb-4 italic opacity-90 leading-tight">
-<span class="zh">「教育，而非監管」</span>
+<span class="zh">「教育重於管制」</span>
 <span class="en">"Education, Not Regulation"</span>
 </h4>
 <p class="text-sm opacity-80 leading-relaxed">
@@ -139,7 +139,7 @@ unit_number: 1
 <span class="en">Partnerships for Safety</span>
 </h4>
 <ul class="text-sm space-y-3 text-gray-600">
-<li><span class="zh">與美國海岸警衛隊 (USCG) 合作開發安全資訊</span><span class="en">Collaboration with USCG to develop safety information</span></li>
+<li><span class="zh">與美國海岸防衛隊 (USCG) 合作開發安全資訊</span><span class="en">Collaboration with USCG to develop safety information</span></li>
 <li><span class="zh">與 NASBLA 合作推廣划船法規與教育</span><span class="en">Partnering with NASBLA for boating laws and education</span></li>
 <li><span class="zh">與各州政府機構共同維護水域安全</span><span class="en">Working with state agencies to maintain water safety</span></li>
 </ul>

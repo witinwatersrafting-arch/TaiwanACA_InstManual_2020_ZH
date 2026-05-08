@@ -30,7 +30,7 @@ unit_number: 4
 <span class="en">Motor Skills</span>
 </h4>
 <p class="text-sm text-gray-500 leading-relaxed m-0">
-<span class="zh">涉及導致可測量的物理動作（例如：船尾拉動轉彎）。</span>
+<span class="zh">涉及導致可測量的物理動作（例如：船尾側撥轉向）。</span>
 <span class="en">Involves physical movements that result in measurable action (e.g., stern draw for a turn).</span>
 </p>
 </div>
@@ -95,11 +95,11 @@ unit_number: 4
 </div>
 <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
 <div class="font-bold text-[#4796cc] mb-2 text-base">
-<span class="zh">首位/近位</span>
+<span class="zh">初始效應 / 時近效應</span>
 <span class="en">Primacy / Recency</span>
 </div>
 <div class="text-gray-700 leading-relaxed">
-<span class="zh">學員最容易記住演示的最開始與最後一部分（Primacy / Recency）。因此「整體-局部-整體」教學法非常有效。</span>
+<span class="zh">學員最容易記住演示的最開始與最後一部分。因此「整體-局部-整體」教學法非常有效。</span>
 <span class="en">Students remember the beginning and end of a demonstration best. This is why the "Whole-Part-Whole" method is effective.</span>
 </div>
 </div>
@@ -109,7 +109,7 @@ unit_number: 4
 <span class="en">Negative Transfer</span>
 </div>
 <div class="text-gray-700 leading-relaxed">
-<span class="zh">舊習慣難以打破。成人學員帶著舊有的運動矩陣來到課堂，教練需保持耐心。</span>
+<span class="zh">舊習慣難以打破。成人學員帶著舊有的動作模式來到課堂，教練需保持耐心。</span>
 <span class="en">Old habits are hard to break. Adult learners bring existing motor patterns; instructors must be patient.</span>
 </div>
 </div>
@@ -135,30 +135,30 @@ unit_number: 4
 </p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
 <div class="border border-blue-100 p-5 rounded-2xl bg-blue-50/20">
-<h4 class="font-bold text-blue-800 mb-2">👀 <span class="zh">觀察型</span><span class="en">Watchers</span></h4>
+<h4 class="font-bold text-blue-800 mb-2">👀 <span class="zh">視覺型</span><span class="en">Watchers</span></h4>
 <p class="text-sm text-blue-700 m-0 leading-relaxed">
 <span class="zh">需要先在腦中建立技能的「心像」。他們需要時間觀察，聽覺說明只是輔助。演示對他們至關重要。</span>
 <span class="en">Need to build a mental image of the skill. They need time to observe; verbal explanations are secondary. Demonstrations are critical.</span>
 </p>
 </div>
 <div class="border border-green-100 p-5 rounded-2xl bg-green-50/20">
-<h4 class="font-bold text-green-800 mb-2">🖐️ <span class="zh">感官型</span><span class="en">Feelers</span></h4>
+<h4 class="font-bold text-green-800 mb-2">🖐️ <span class="zh">體感型</span><span class="en">Feelers</span></h4>
 <p class="text-sm text-green-700 m-0 leading-relaxed">
 <span class="zh">依賴本體感覺與類比。比起口頭描述，他們更能從實際感受動作中獲益。適合使用生動的比喻。</span>
 <span class="en">Rely on proprioception and analogies. They benefit more from feeling the movement than hearing descriptions. Use vivid metaphors.</span>
 </p>
 </div>
 <div class="border border-purple-100 p-5 rounded-2xl bg-purple-50/20">
-<h4 class="font-bold text-purple-800 mb-2">🧠 <span class="zh">思考型</span><span class="en">Thinkers</span></h4>
+<h4 class="font-bold text-purple-800 mb-2">🧠 <span class="zh">邏輯型</span><span class="en">Thinkers</span></h4>
 <p class="text-sm text-purple-700 m-0 leading-relaxed">
 <span class="zh">分析型學習者，需要詳細的技術細節與背後的科學原理。他們可能會讀書、看影片，並挑戰教練的知識深度。</span>
 <span class="en">Analytical learners who need technical details and the science behind the skills. They may read, watch videos, and challenge the instructor's depth of knowledge.</span>
 </p>
 </div>
 <div class="border border-orange-100 p-5 rounded-2xl bg-orange-50/20">
-<h4 class="font-bold text-orange-800 mb-2">🚀 <span class="zh">行動型</span><span class="en">Doers</span></h4>
+<h4 class="font-bold text-orange-800 mb-2">🚀 <span class="zh">實踐型</span><span class="en">Doers</span></h4>
 <p class="text-sm text-orange-700 m-0 leading-relaxed">
-<span class="zh">給他們槳就對了！冗長的解釋會讓他們分心。他們喜歡「先做再說」，且通常是最先自願嘗試的人。</span>
+<span class="zh">直接讓他們拿到槳就對了！冗長的解釋會讓他們分心。他們喜歡「先做再說」，且通常是最先自願嘗試的人。</span>
 <span class="en">Just give them a paddle! Long explanations distract them. They prefer "doing it first" and are often the first to volunteer.</span>
 </p>
 </div>
@@ -245,7 +245,7 @@ unit_number: 4
 </h3>
 <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
 <p class="text-sm leading-relaxed mb-8 text-slate-700 italic">
-<span class="zh">「所有的認證教練都代表著 ACA 的形象。教練的知識、風度、道德標準和背景會直接影響課程與組織的可信度。」</span>
+<span class="zh">「所有的認證教練都代表著 ACA 的形象。教練的知識、專業氣度、道德標準和背景會直接影響課程與組織的可信度。」</span>
 <span class="en">"All certified instructors represent the image of the ACA. An instructor’s knowledge, demeanor, ethical standards, and background all impact the credibility of the program and organization."</span>
 </p>
 
@@ -315,7 +315,7 @@ unit_number: 4
 <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
 <div class="text-blue-600 font-black text-xl mb-1">D1</div>
 <h5 class="text-sm font-bold mb-2"><span class="zh">示範 (Demonstrate)</span><span class="en">Demonstrate</span></h5>
-<p class="text-xs text-gray-500"><span class="zh">展示正確且優雅的動作，必要時使用慢動作。</span><span class="en">Show the correct technique, using slow motion if needed.</span></p>
+<p class="text-xs text-gray-500"><span class="zh">展示正確且流暢的動作，必要時使用慢動作。</span><span class="en">Show the correct technique, using slow motion if needed.</span></p>
 </div>
 <div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
 <div class="text-blue-600 font-black text-xl mb-1">D2</div>
@@ -354,7 +354,7 @@ unit_number: 4
 </div>
 <div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
 <h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🛶 <span class="zh">精準示範</span><span class="en">Demonstration Skill</span></h4>
-<p class="text-sm text-gray-600 m-0"><span class="zh">具備比學員更高水平的示範能力，能將複雜動作分解為易學的組件。</span><span class="en">Ability to model skills at a higher level than students, breaking down complex moves.</span></p>
+<p class="text-sm text-gray-600 m-0"><span class="zh">具備比學員更高水平的示範能力，能將流暢動作分解為易學的組件。</span><span class="en">Ability to model skills at a higher level than students, breaking down complex moves.</span></p>
 </div>
 <div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
 <h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">✅ <span class="zh">成功導向</span><span class="en">Success Oriented</span></h4>

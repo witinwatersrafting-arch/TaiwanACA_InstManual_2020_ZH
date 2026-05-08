@@ -33,7 +33,7 @@ unit_number: 8
 <span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">持續運動能力</span><span class="en">Repeated Motion</span></span>
 </div>
 <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
-<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">柔韌性</span><span class="en">Flexibility</span></span>
+<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">柔軟度</span><span class="en">Flexibility</span></span>
 <span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">關節活動度</span><span class="en">Range of Motion</span></span>
 </div>
 <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">

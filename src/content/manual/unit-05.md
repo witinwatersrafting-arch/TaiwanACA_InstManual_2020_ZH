@@ -107,7 +107,7 @@ unit_number: 5
 <div class="p-6 bg-blue-50/30 border border-blue-100 rounded-2xl">
 <h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2">
 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-<span class="zh">M+D3 教學流程範式</span>
+<span class="zh">M+D3 教學流程架構</span>
 <span class="en">M+D3 Teaching Paradigm</span>
 </h4>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -125,11 +125,11 @@ unit_number: 5
 </div>
 <div class="bg-white p-3 rounded-xl shadow-sm border border-blue-50">
 <span class="block text-blue-600 font-black text-lg leading-none mb-1">D3</span>
-<span class="text-xs font-bold text-gray-700 block"><span class="zh">實作</span><span class="en">Do It</span></span>
+<span class="text-xs font-bold text-gray-700 block"><span class="zh">技術演練</span><span class="en">Do It</span></span>
 </div>
 </div>
 <p class="text-xs text-gray-500 mt-4 leading-relaxed text-center">
-<span class="zh">教練引導興趣 ➜ 準確示範 ➜ 口頭解析關鍵點 ➜ 學員立即訓練。</span>
+<span class="zh">教練引導興趣 ➜ 準確示範 ➜ 口頭解析關鍵點 ➜ 學員立即演練。</span>
 <span class="en">Motivation ➜ Demonstration ➜ Description ➜ Practical Drills.</span>
 </p>
 </div>
@@ -152,6 +152,6 @@ unit_number: 5
 </div>
 
 <div class="mt-12 p-4 bg-slate-900 text-slate-400 text-xs rounded-xl flex justify-between items-center">
-<span class="zh">※ 課程註冊與彙報需透過 ACA 官網系統完成。</span>
+<span class="zh">※ 課程註冊與結報需透過 ACA 官網系統完成。</span>
 <span class="en">※ Course registration and reporting must be completed via the ACA website.</span>
 </div>

@@ -31,7 +31,7 @@ unit_number: 2
 <span class="en"><strong>Importance:</strong> EECs are core standards established to ensure the safety of all participants. Instructors must use these criteria to evaluate whether a student possesses the physical and mental capabilities required for a specific course.</span>
 </p>
 <ul class="text-sm space-y-2 text-red-900/80 m-0">
-<li><span class="zh">1. 能夠獨立或在最少輔助下閉氣並將頭部浮出水面。</span><span class="en">1. Ability to hold breath underwater and keep head above water independently or with minimal assistance.</span></li>
+<li><span class="zh">1. 能在水中閉氣並將頭部保持在水面上（可獨立或在最少輔助下完成）。</span><span class="en">1. Ability to hold breath underwater and keep head above water independently or with minimal assistance.</span></li>
 <li><span class="zh">2. 能夠在發生翻船時獨立脫離船隻。</span><span class="en">2. Ability to independently exit the craft in the event of a capsize.</span></li>
 <li><span class="zh">3. 能夠遵守指令並與教練及團隊有效溝通。</span><span class="en">3. Ability to follow instructions and communicate effectively with the instructor and group.</span></li>
 </ul>
@@ -52,7 +52,7 @@ unit_number: 2
 <ul class="text-sm text-gray-600 space-y-2">
 <li><span class="zh">根據划行者與活動需求選擇合適的船隻。</span><span class="en">Select the appropriate boat for the paddler and activity.</span></li>
 <li><span class="zh">遵守製造商的使用與維護指南。</span><span class="en">Follow manufacturer’s guidelines for use and maintenance.</span></li>
-<li><span class="zh">嚴禁超載；出發前檢查船身與硬體完整性。</span><span class="en">Never overload; check the hull and hardware integrity before launching.</span></li>
+<li><span class="zh">嚴禁超載；出發前檢查船體與各項裝備完整性。</span><span class="en">Never overload; check the hull and hardware integrity before launching.</span></li>
 <li><span class="zh">槳的尺寸應與划行者及活動類型匹配。</span><span class="en">Paddle size should match the paddler and the activity.</span></li>
 </ul>
 </div>
@@ -79,7 +79,7 @@ unit_number: 2
 <span class="en">Legal requirements vary by jurisdiction; instructors should remind students about:</span>
 </p>
 <ul class="space-y-3">
-<li><strong><span class="zh">登記與法規：</span><span class="en">Registration & Regulations:</span></strong> <span class="zh">了解當地水域的船隻登記要求。動力船或帆船的法規與人力船隻大不相同。</span><span class="en">Be aware of vessel registration requirements. Regulations for power or sail vessels differ significantly from human-powered craft.</span></li>
+<li><strong><span class="zh">登記與法規：</span><span class="en">Registration & Regulations:</span></strong> <span class="zh">了解當地水域的船隻登記要求。動力船或帆船的法規與無動力船隻大不相同。</span><span class="en">Be aware of vessel registration requirements. Regulations for power or sail vessels differ significantly from human-powered craft.</span></li>
 <li><strong><span class="zh">操作者責任：</span><span class="en">Operator Responsibility:</span></strong> <span class="zh">划行者須對自己的行為負責。在水面上應保持禮貌並尊重他人。</span><span class="en">Paddlers are responsible for their actions. Be courteous and respectful of others on the water.</span></li>
 <li><strong><span class="zh">避讓大型船隻：</span><span class="en">Give Way to Large Vessels:</span></strong> <span class="zh">主動避開大型船隻與航道，大型船隻的機動性受限。</span><span class="en">Proactively avoid large vessels and shipping channels; larger craft have limited maneuverability.</span></li>
 </ul>
@@ -108,8 +108,8 @@ unit_number: 2
 <li class="flex items-start gap-3">
 <span class="flex-shrink-0 mt-1">✅</span>
 <div>
-<strong class="block mb-1"><span class="zh">備案計畫</span><span class="en">Alternative Plans</span></strong>
-<span class="text-gray-600"><span class="zh">擁有備選路線。</span><span class="en">Have alternative routes.</span></span>
+<strong class="block mb-1"><span class="zh">應變計畫</span><span class="en">Alternative Plans</span></strong>
+<span class="text-gray-600"><span class="zh">擁有備選路線與應對方案。</span><span class="en">Have alternative routes.</span></span>
 </div>
 </li>
 <li class="flex items-start gap-3">
@@ -174,7 +174,7 @@ unit_number: 2
 <span class="en">Technical & Teaching Ability</span>
 </h5>
 <p class="text-blue-800/80">
-<span class="zh">必須能示範優雅且有效的划行技術，並能運用多元教學風格（視覺、聽覺、實踐）來引導學員。</span>
+<span class="zh">必須能示範流暢且有效的划行技術，並能運用多元教學風格（視覺、聽覺、實踐）來引導學員。</span>
 <span class="en">Must demonstrate graceful, effective technique and use diverse teaching styles (visual, auditory, kinesthetic) to guide students.</span>
 </p>
 </div>

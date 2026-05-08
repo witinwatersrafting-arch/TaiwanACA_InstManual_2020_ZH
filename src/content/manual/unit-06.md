@@ -1,7 +1,7 @@
 ---
 title: "第六單元：責任與風險管理"
 en_title: "Liability & Risk Management"
-description: "深入了解注意義務 (Duty of Care)、風險管理要素以及急救程序。"
+description: "深入了解法律責任 (Liability)、注意義務 (Duty of Care)、風險管理要素以及急救程序。"
 en_description: "In-depth look at Duty of Care, risk management elements, and emergency procedures."
 unit_number: 6
 ---
@@ -9,7 +9,7 @@ unit_number: 6
 <div class="flex items-center gap-4 mb-8">
 <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 6</span>
 <h2 class="text-3xl font-bold serif m-0">
-<span class="zh">責任與風險管理</span>
+<span class="zh">法律責任與風險管理</span>
 <span class="en">Liability & Risk Management</span>
 </h2>
 </div>
@@ -36,7 +36,7 @@ unit_number: 6
 </li>
 <li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
 <strong class="text-slate-900 block mb-1">2. <span class="zh">完善計畫：</span><span class="en">Sound Planning:</span></strong> 
-<span class="text-sm text-slate-500"><span class="zh">更新教案以符合當前「最佳實踐」。</span><span class="en">Maintain current competencies and update lesson plans.</span></span>
+<span class="text-sm text-slate-500"><span class="zh">更新教案以符合當前「最佳實務」。</span><span class="en">Maintain current competencies and update lesson plans.</span></span>
 </li>
 <li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
 <strong class="text-slate-900 block mb-1">3. <span class="zh">風險警告：</span><span class="en">Warning of Risks:</span></strong> 
@@ -82,7 +82,7 @@ unit_number: 6
 </div>
 
 <h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-red-500 decoration-4">
-<span class="zh">意外報告與紀錄保存</span>
+<span class="zh">事故通報與紀錄保存</span>
 <span class="en">Incident Reporting & Documentation</span>
 </h3>
 <p class="text-sm text-gray-600 mb-8 leading-relaxed">
@@ -94,8 +94,8 @@ unit_number: 6
 <div class="flex gap-6 items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
 <div class="flex-none w-12 h-12 bg-red-100 text-red-600 flex items-center justify-center rounded-xl font-bold">!</div>
 <div>
-<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">意外報告 (Incident Reports)</span><span class="en">Incident Reports</span></h5>
-<p class="text-sm text-gray-500 leading-relaxed"><span class="zh">若發生任何涉及受傷或財產損失的事件，應立即填寫意外報告並提交至 ACA 辦公室。</span><span class="en">Complete and submit reports to ACA immediately for any incident involving injury or property damage.</span></p>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">事故/意外通報 (Incident Reports)</span><span class="en">Incident Reports</span></h5>
+<p class="text-sm text-gray-500 leading-relaxed"><span class="zh">若發生任何涉及受傷或財產損失的事件，應立即填寫事故通報並提交至 ACA 辦公室。</span><span class="en">Complete and submit reports to ACA immediately for any incident involving injury or property damage.</span></p>
 </div>
 </div>
 <div class="flex gap-6 items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">

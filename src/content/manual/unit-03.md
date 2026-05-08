@@ -9,29 +9,29 @@ unit_number: 3
 <div class="flex items-center gap-4 mb-8">
 <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 3</span>
 <h2 class="text-3xl font-bold serif m-0">
-<span class="zh">環境管理與護理</span>
+<span class="zh">環境守護與倫理</span>
 <span class="en">Environmental Stewardship</span>
 </h2>
 </div>
 
 <p>
-<span class="zh">環境護理是 ACA 的三大戰略支柱之一。沒有乾淨的水域與妥善維護的進出點，划行運動將無以為繼。ACA 教練應將環境護理資訊融入所有課程中。</span>
+<span class="zh">環境守護是 ACA 的三大戰略支柱之一。沒有乾淨的水域與妥善維護的進出點，划行運動將無以為繼。ACA 教練應將環境守護資訊融入所有課程中。</span>
 <span class="en">Stewardship of the paddling environment is one of the three strategic tenets of the ACA. Without clean water, safe and well-kept access, and low-impact usage behavior, our lakes, rivers, and coastal areas may become unavailable for recreational use by paddlers. ACA instructors are urged to incorporate stewardship information and guidance into all courses and programs as appropriate.</span>
 </p>
 
 <div class="bg-green-50 border-l-4 border-green-500 p-8 rounded-r-2xl my-8">
 <h3 class="text-green-900 font-bold mt-0 text-xl">
-<span class="zh">什麼是環境管理 (Stewardship)？</span>
+<span class="zh">什麼是環境守護 (Stewardship)？</span>
 <span class="en">What is Environmental Stewardship?</span>
 </h3>
 <p class="text-green-800 text-sm mb-0 leading-relaxed">
-<span class="zh">簡言之，這是「為了環境與下一代所採取的知情且負責任的行動」。這是一種道德義務，基於對地球的敬畏與對未來的責任感。有效的環境教育能幫助個體建立與自然資源的「個人連結」。</span>
+<span class="zh">簡言之，這是「基於充分認知的負責任行動」。這是一種道德義務，基於對環境的照顧與守護。有效的環境教育能幫助個體建立與自然資源的「個人連結」。</span>
 <span class="en">Environmental Stewardship is briefly defined as "informed, responsible action/behavior on behalf of the environment and future generations." It is a moral obligation to care for the environment and the actions undertaken to provide that care. Effective stewardship education helps individuals establish a "personal connection" with natural resources.</span>
 </p>
 </div>
 
 <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
-<span class="zh">負責任行為的三個層次</span>
+<span class="zh">環境責任行為的三個階段</span>
 <span class="en">Three Levels of Responsible Behavior</span>
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-6">
@@ -60,22 +60,22 @@ unit_number: 3
 <div class="p-5 border border-gray-100 rounded-xl">
 <div class="text-2xl mb-2">💪</div>
 <h4 class="font-bold text-gray-800 mb-2 text-sm">
-<span class="zh">授權層次 (Empowerment)</span>
+<span class="zh">行動賦權層次 (Empowerment)</span>
 <span class="en">Empowerment Level</span>
 </h4>
 <p class="text-xs text-gray-500 leading-relaxed">
-<span class="zh">讓學員感到自己有能力改變現狀並解決環境問題。</span>
+<span class="zh">讓學員感到自己有能力透過實際行動來改善並解決環境問題。</span>
 <span class="en">Gives people a sense that they can make changes and help resolve important environmental issues.</span>
 </p>
 </div>
 </div>
 
 <h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
-<span class="zh">有效監管的特質</span>
+<span class="zh">優質環境守護者的特質</span>
 <span class="en">Qualities of Effective Stewardship</span>
 </h3>
 <p class="text-sm text-gray-600 mb-6">
-<span class="zh">有效的管理教育不僅是傳遞知識，更在於塑造態度與行為。以下是有效監管者的核心特質：</span>
+<span class="zh">優質的守護者教育不僅是傳遞知識，更在於塑造態度與行為。以下是其核心特質：</span>
 <span class="en">Effective stewardship education is about more than just knowledge; it's about shaping attitudes and behaviors. Key qualities include:</span>
 </p>
 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-none pl-0">
@@ -112,7 +112,7 @@ unit_number: 3
 <div class="mt-12 bg-blue-900 text-white p-8 rounded-3xl relative overflow-hidden">
 <div class="relative z-10">
 <h4 class="text-xl font-bold mb-4">
-<span class="zh">ACA 監管計畫</span>
+<span class="zh">ACA 環境守護計畫</span>
 <span class="en">ACA Stewardship Programs</span>
 </h4>
 <p class="text-sm opacity-80 mb-6 leading-relaxed">
@@ -121,8 +121,8 @@ unit_number: 3
 </p>
 <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-6">
 <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-<h5 class="font-bold text-blue-300 text-sm mb-2 uppercase tracking-tighter"><span class="zh">基層網絡</span><span class="en">Grassroots Networks</span></h5>
-<p class="text-xs opacity-70"><span class="zh">激活基層支持，培養各地的環境領導者。</span><span class="en">Activating grassroots support and leadership networks.</span></p>
+<h5 class="font-bold text-blue-300 text-sm mb-2 uppercase tracking-tighter"><span class="zh">在地社群網絡</span><span class="en">Grassroots Networks</span></h5>
+<p class="text-xs opacity-70"><span class="zh">激活地方支持，培養各地的環境領導者。</span><span class="en">Activating grassroots support and leadership networks.</span></p>
 </div>
 <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
 <h5 class="font-bold text-blue-300 text-sm mb-2 uppercase tracking-tighter"><span class="zh">水路清潔</span><span class="en">Waterway Cleanup</span></h5>
@@ -140,6 +140,6 @@ unit_number: 3
 </div>
 
 <p class="mt-8 italic text-sm text-gray-400 text-right">
-<span class="zh">「監管是一個長期的過程。它需要一系列互補的教育努力。」</span>
+<span class="zh">「環境守護是一個長期的過程。它需要一系列互補的教育努力。」</span>
 <span class="en">"Stewardship is a long-term process. It requires a series of complementary educational efforts."</span>
 </p>
