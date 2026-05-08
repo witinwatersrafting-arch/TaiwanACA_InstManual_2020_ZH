@@ -109,7 +109,7 @@ const navItems = [
         <div class="flex flex-col lg:flex-row min-h-screen w-full">
             <!-- Mobile Header -->
             <div
-                class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-sm w-full"
+                class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-sm"
             >
                 <div class="flex items-center gap-3 overflow-hidden mr-2">
                     <a
@@ -469,10 +469,35 @@ const navItems = [
 </html>
 
 <style is:global>
-    html, body {
+    html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+    
+    body {
         width: 100%;
         position: relative;
+        overflow-x: hidden;
+        /* 防止 iOS 橡皮筋效應產生的白邊 */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Global Typography Defense */
+    p, h1, h2, h3, h4, h5, h6, li, span {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    /* Flex/Grid Child Defense */
+    main, section, article, .grid, .flex {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Image/Media Defense */
+    img, video, svg {
+        max-width: 100%;
+        height: auto;
     }
     .lang-zh .en {
         display: none !important;
