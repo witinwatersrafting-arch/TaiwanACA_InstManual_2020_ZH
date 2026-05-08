@@ -1,0 +1,19 @@
+---
+import * as Icons from 'lucide-astro';
+
+interface Props {
+  name: string;
+  class?: string;
+  strokeWidth?: number;
+  size?: number;
+}
+
+const { name, class: className, strokeWidth = 2, size = 20 } = Astro.props;
+const IconComponent = Icons[name as keyof typeof Icons];
+
+if (!IconComponent) {
+  console.error(`Lucide icon "${name}" not found.`);
+}
+---
+
+{IconComponent ? <IconComponent class={className} stroke-width={strokeWidth} size={size} /> : null}
