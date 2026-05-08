@@ -88,7 +88,7 @@ unit_number: 2
 <span class="zh">3. 行程規劃與準備</span>
 <span class="en">3. Planning and Preparation</span>
 </h3>
-<p><span class="zh">規劃是安全的核心。一個完整的「浮動計畫 (Float Plan)」應包含：</span><span class="en">Planning is central to safety. A complete "Float Plan" should include:</span></p>
+<p><span class="zh">規劃是安全的核心。一個完整的「航行計畫 (Float Plan)」應包含：</span><span class="en">Planning is central to safety. A complete "Float Plan" should include:</span></p>
 <div class="bg-gray-100 p-8 rounded-2xl mb-8">
 <ul class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm m-0 list-none pl-0">
 <li class="flex items-start gap-3">

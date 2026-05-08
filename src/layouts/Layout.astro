@@ -63,15 +63,16 @@ const navItems = [
                         匯出 PDF 手冊
                     </button>
 
-                    <nav class="space-y-1">
+                    <nav class="space-y-1" id="main-nav">
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
                         {navItems.map(item => (
                             <a 
                                 href={`${import.meta.env.BASE_URL}/#${item.slug}`} 
-                                class="flex flex-col px-3 py-2 rounded-xl hover:bg-blue-50 transition-all group"
+                                data-nav-id={item.slug}
+                                class="nav-link flex flex-col px-3 py-2 rounded-xl hover:bg-blue-50 transition-all group"
                             >
-                                <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight">{item.zh}</span>
-                                <span class="en text-[11px] font-bold text-slate-400 group-hover:text-blue-400 leading-tight mt-0.5">{item.en}</span>
+                                <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight transition-colors">{item.zh}</span>
+                                <span class="en text-[11px] font-bold text-slate-400 group-hover:text-blue-400 leading-tight mt-0.5 transition-colors">{item.en}</span>
                             </a>
                         ))}
                     </nav>
@@ -116,15 +117,28 @@ const navItems = [
 			};
 			
 			initLang();
-			document.addEventListener('astro:after-swap', initLang);
 
             // ScrollSpy
-            const observeSections = () => {
+            const initScrollSpy = () => {
                 const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('nav a');
+                const navLinks = document.querySelectorAll('.nav-link');
                 
+                if (sections.length === 0) {
+                    // Handle single unit page highlighting
+                    const path = window.location.pathname;
+                    const slug = path.split('/').filter(Boolean).pop();
+                    if (slug) {
+                        navLinks.forEach(link => {
+                            if (link.dataset.navId === slug) {
+                                link.classList.add('active-nav');
+                            }
+                        });
+                    }
+                    return;
+                }
+
                 const observerOptions = {
-                    rootMargin: '-20% 0px -70% 0px',
+                    rootMargin: '-10% 0px -80% 0px',
                     threshold: 0
                 };
 
@@ -133,12 +147,10 @@ const navItems = [
                         if (entry.isIntersecting) {
                             const id = entry.target.getAttribute('id');
                             navLinks.forEach(link => {
-                                if (link.getAttribute('href') === `/#${id}`) {
-                                    link.classList.add('bg-blue-50', 'ring-1', 'ring-blue-100');
-                                    link.querySelector('.zh').classList.replace('text-slate-700', 'text-blue-600');
+                                if (link.dataset.navId === id) {
+                                    link.classList.add('active-nav');
                                 } else {
-                                    link.classList.remove('bg-blue-50', 'ring-1', 'ring-blue-100');
-                                    link.querySelector('.zh').classList.replace('text-blue-600', 'text-slate-700');
+                                    link.classList.remove('active-nav');
                                 }
                             });
                         }
@@ -148,8 +160,14 @@ const navItems = [
                 sections.forEach(section => observer.observe(section));
             };
 
-            window.addEventListener('scroll', observeSections, { once: true });
-            document.addEventListener('astro:after-swap', observeSections);
+            // Run on initial load
+            initScrollSpy();
+
+            // Support Astro view transitions
+			document.addEventListener('astro:after-swap', () => {
+                initLang();
+                initScrollSpy();
+            });
 		</script>
 	</body>
 </html>
@@ -164,6 +182,28 @@ const navItems = [
 	.lang-both .en { display: block; margin-top: 0.125rem; opacity: 0.6; }
     
     .serif { font-family: 'Noto Serif TC', serif; }
+
+    /* Active Navigation Styles */
+    .active-nav {
+        background-color: #eff6ff !important;
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -4px rgba(37, 99, 235, 0.1), inset 0 0 0 1px #dbeafe !important;
+        transform: translateX(6px);
+    }
+    .active-nav .zh {
+        color: #2563eb !important;
+    }
+    .active-nav .en {
+        color: #3b82f6 !important;
+        opacity: 1 !important;
+    }
+    .nav-link {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-left: 0px solid #2563eb;
+    }
+    .active-nav.nav-link {
+        border-left-width: 4px;
+        padding-left: 0.5rem;
+    }
 
 	@media print {
         @page {
