@@ -42,7 +42,7 @@ const navItems = [
             <!-- Sidebar -->
             <aside class="w-full lg:w-80 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto z-40">
                 <div class="mb-10">
-                    <a href="/" class="flex items-center gap-3 mb-8 group">
+                    <a href={import.meta.env.BASE_URL} class="flex items-center gap-3 mb-8 group">
                         <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">A</div>
                         <div>
                             <h1 class="text-lg font-black tracking-tighter leading-none">ACA MANUAL</h1>
@@ -67,7 +67,7 @@ const navItems = [
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
                         {navItems.map(item => (
                             <a 
-                                href={`/#${item.slug}`} 
+                                href={`${import.meta.env.BASE_URL}/#${item.slug}`} 
                                 class="flex flex-col px-3 py-2 rounded-xl hover:bg-blue-50 transition-all group"
                             >
                                 <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight">{item.zh}</span>
