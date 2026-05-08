@@ -1,0 +1,147 @@
+---
+title: "第一單元：關於 ACA"
+en_title: "About the ACA"
+description: "了解美國獨木舟協會的使命、核心價值以及教練晉升體系。"
+en_description: "Learn about ACA's mission, core values, and the instructor development pathway."
+unit_number: 1
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 1</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">關於 ACA</span>
+<span class="en">About the ACA</span>
+</h2>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">訓練有素的 ACA 教練</span>
+<span class="en">A Trained ACA Instructor</span>
+</h3>
+<p>
+<span class="zh">恭喜您對美國獨木舟協會（ACA）教練認證感興趣！作為一名潛在的 ACA 教練，您在向公眾傳授划行技巧、環境意識、安全知識以及戶外休閒樂趣方面扮演著至關重要的角色。研究顯示，專業的教練培訓是教育課程的基石，您的培訓將同時造福您與您未來的學員。</span>
+<span class="en">Congratulations on your interest in becoming an American Canoe Association (ACA) Instructor! As a potential ACA Instructor, you play a vital role in providing the public with paddling skills, environmental awareness, safety information, and a sense of fun and enjoyment in the outdoors. Studies have shown that professional instructor training is the cornerstone of educational programs and your training will benefit both you and your students.</span>
+</p>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">ACA 使命聲明</span>
+<span class="en">ACA Mission Statement</span>
+</h3>
+<p>
+<span class="zh">美國獨木舟協會成立於 1880 年，是一個全國性的非營利組織，服務於廣大的划行大眾。我們相信我們的角色是：</span>
+<span class="en">Founded in 1880, the American Canoe Association is a national non-profit organization serving the broader paddling public. We believe our role is to:</span>
+</p>
+<ul class="space-y-2">
+<li><span class="zh">為大眾提供有趣的划行機會</span><span class="en">Provide fun paddling opportunities for the general public</span></li>
+<li><span class="zh">讓划行教育與教學更具可及性</span><span class="en">Make paddling education and instruction more accessible</span></li>
+<li><span class="zh">改善所有划行水域的進出便利性</span><span class="en">Improve access to all paddling waters</span></li>
+<li><span class="zh">將划行運動擴展至不同能力及弱勢族群</span><span class="en">Expand paddling to people of all abilities and underserved populations</span></li>
+<li><span class="zh">影響與划行體驗相關的環境護理議題與公共政策</span><span class="en">Influence environmental stewardship issues and public policy that impacts the paddling experience</span></li>
+<li><span class="zh">促進地方、區域與全國層級的划行競賽</span><span class="en">Promote paddling competition at local, regional, and national levels</span></li>
+</ul>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">核心組織單位</span>
+<span class="en">Key Organizational Components</span>
+</h3>
+<div class="space-y-6">
+<div class="bg-gray-50 p-6 rounded-xl">
+<h4 class="font-bold text-[#4796cc] mb-2">
+<span class="zh">安全教育與教學部門 (SEI)</span>
+<span class="en">Safety Education & Instruction Department (SEI)</span>
+</h4>
+<p class="text-sm m-0">
+<span class="zh">負責促進划行安全與樂趣。從教練的角度來看，SEI 負責管理教練、保留教練記錄並確保政策的執行。</span>
+<span class="en">Responsible for promoting paddling safety and enjoyment. From an instructor perspective, the SEI is responsible for managing instructors, keeping instructor records and ensuring policies are followed.</span>
+</p>
+</div>
+
+<div class="bg-gray-50 p-6 rounded-xl">
+<h4 class="font-bold text-[#4796cc] mb-2">
+<span class="zh">安全教育與指導委員會 (SEIC)</span>
+<span class="en">Safety Education & Instruction Council (SEIC)</span>
+</h4>
+<p class="text-sm m-0">
+<span class="zh">SEIC 的使命是制定和實施有效的划槳運動安全、教育和指導項目與材料，為公眾提供各個技能水平的資訊、培訓和服務。</span>
+<span class="en">The SEIC mission is to develop and implement effective paddling safety, education, and instruction programs and materials, providing information, training, and services to the public at all skill levels.</span>
+</p>
+</div>
+
+<div class="bg-blue-50/30 p-6 rounded-xl border border-blue-100">
+<h4 class="font-bold text-[#4796cc] mb-6">
+<span class="zh">教練發展晉升體系</span>
+<span class="en">Instructor Development Pathway</span>
+</h4>
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 relative">
+<!-- Step 1 -->
+<div class="flex-1 bg-white p-4 rounded-xl shadow-sm border border-blue-100 text-center w-full z-10">
+<span class="text-sm font-black text-blue-600 block mb-1 uppercase text-xs">Step 1</span>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">教練</span><span class="en">Instructor</span></h5>
+<p class="text-xs text-gray-500 m-0"><span class="zh">授課予一般大眾</span><span class="en">Teaches General Public</span></p>
+</div>
+<!-- Arrow -->
+<div class="hidden md:block text-blue-300">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 bg-white p-4 rounded-xl shadow-sm border border-blue-100 text-center w-full z-10">
+<span class="text-sm font-black text-blue-600 block mb-1 uppercase text-xs">Step 2</span>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">教練培訓師 (IT)</span><span class="en">Instructor Trainer</span></h5>
+<p class="text-xs text-gray-500 m-0"><span class="zh">認證並培訓教練</span><span class="en">Trains & Certifies Instructors</span></p>
+</div>
+<!-- Arrow -->
+<div class="hidden md:block text-blue-300">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 bg-white p-4 rounded-xl shadow-sm border border-blue-100 text-center w-full z-10">
+<span class="text-sm font-black text-blue-600 block mb-1 uppercase text-xs">Step 3</span>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">培訓導師 (ITE)</span><span class="en">IT Educator</span></h5>
+<p class="text-xs text-gray-500 m-0"><span class="zh">培訓教練培訓師候選人</span><span class="en">Trains IT Candidates</span></p>
+</div>
+</div>
+<p class="text-xs text-gray-400 mt-6 italic text-right">
+<span class="zh">* 註：認證級別與維護要求各學科有所不同。</span>
+<span class="en">* Note: Requirements vary by discipline.</span>
+</p>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">歷史與傳統</span>
+<span class="en">History and Tradition</span>
+</h3>
+<p>
+<span class="zh">ACA 是美國划槳運動教育與指導領域公認的領導者。目前全美有超過 7,000 名認證教練與 300 名教練培訓師。每年有超過 80 萬人次透過 ACA 課程體驗安全且愉快的水上活動。</span>
+<span class="en">The ACA is the nationally recognized leader in the field of paddlesport education and instruction. There are over 7,000 certified instructors and 300 instructor trainers. Each year, over 800,000 people have a safe and enjoyable experience on the water through ACA programs.</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+<div class="bg-blue-900 text-white p-8 rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-2xl font-bold mb-4 italic opacity-90 leading-tight">
+<span class="zh">「教育，而非監管」</span>
+<span class="en">"Education, Not Regulation"</span>
+</h4>
+<p class="text-sm opacity-80 leading-relaxed">
+<span class="zh">這是 ACA 長期以來秉持的核心理念。我們相信教育是安全划槳與行為的根基，能有效減少水上意外的發生。</span>
+<span class="en">This is the long-standing philosophy of the ACA. We believe education is fundamental and provides the basis for safe boating, paddling, and behavior.</span>
+</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45L19.15 19H4.85L12 5.45zM11 16h2v2h-2v-2zm0-7h2v5h-2V9z"/></svg>
+</div>
+</div>
+
+<div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+<h4 class="font-bold text-gray-800 mb-4">
+<span class="zh">合作夥伴與安全性</span>
+<span class="en">Partnerships for Safety</span>
+</h4>
+<ul class="text-sm space-y-3 text-gray-600">
+<li><span class="zh">與美國海岸警衛隊 (USCG) 合作開發安全資訊</span><span class="en">Collaboration with USCG to develop safety information</span></li>
+<li><span class="zh">與 NASBLA 合作推廣划船法規與教育</span><span class="en">Partnering with NASBLA for boating laws and education</span></li>
+<li><span class="zh">與各州政府機構共同維護水域安全</span><span class="en">Working with state agencies to maintain water safety</span></li>
+</ul>
+</div>
+</div>

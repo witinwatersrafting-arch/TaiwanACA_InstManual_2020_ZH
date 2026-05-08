@@ -1,0 +1,108 @@
+---
+title: "第六單元：責任與風險管理"
+en_title: "Liability & Risk Management"
+description: "深入了解注意義務 (Duty of Care)、風險管理要素以及急救程序。"
+en_description: "In-depth look at Duty of Care, risk management elements, and emergency procedures."
+unit_number: 6
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 6</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">責任與風險管理</span>
+<span class="en">Liability & Risk Management</span>
+</h2>
+</div>
+
+<div class="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-2xl mb-10">
+<h3 class="text-red-900 font-bold mt-0 text-xl underline">
+<span class="zh">注意義務 (Duty of Care)</span>
+<span class="en">Duty of Care</span>
+</h3>
+<p class="text-red-800 text-sm mb-0 leading-relaxed">
+<span class="zh">教練負有法律責任，必須確保學員免於受傷。這包括監控「可預見的危害」（例如天氣突變）。教練不需要對無法預見的罕見意外負責，但必須對常見的水域危險做好充分準備。</span>
+<span class="en">As an instructor, you have a duty to your students to act as a reasonable and prudent instructor would. This extends to all foreseeable risks. While not responsible for unforeseeable events, you must plan for common hazards.</span>
+</p>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">風險管理的七大要素</span>
+<span class="en">Seven Elements of Risk Management</span>
+</h3>
+<ul class="list-none pl-0 space-y-4 text-gray-700 text-sm mb-12">
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">1. <span class="zh">適當監督：</span><span class="en">Adequate Supervision:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">確保隨時有人看顧學員，維持視線與通訊。</span><span class="en">Maintain visual and auditory contact with students.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">2. <span class="zh">完善計畫：</span><span class="en">Sound Planning:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">更新教案以符合當前「最佳實踐」。</span><span class="en">Maintain current competencies and update lesson plans.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">3. <span class="zh">風險警告：</span><span class="en">Warning of Risks:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">告知學員運動固有的風險（如溺水）。</span><span class="en">Explain inherent risks so participants can knowingly assume them.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">4. <span class="zh">安全環境：</span><span class="en">Safe Environment:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">檢查場地、氣候與裝備狀態。</span><span class="en">Inspect facilities, water areas, and equipment.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">5. <span class="zh">能力評估：</span><span class="en">Evaluate Abilities:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">確認學員的體能與技術足以參加該課程。</span><span class="en">Evaluate readiness to perform both physically and mentally.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">6. <span class="zh">急救程序：</span><span class="en">Emergency Procedures:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">受過 CPR/急救訓練並備有應急方案。</span><span class="en">Have established emergency response protocols.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+<strong class="text-slate-900 block mb-1">7. <span class="zh">紀錄保存：</span><span class="en">Documentation:</span></strong> 
+<span class="text-sm text-slate-500"><span class="zh">妥善保存免責聲明、醫療表格與意外報告，作為教學紀錄與法律保障。</span><span class="en">Maintain records of planning, implementation, and emergency responses.</span></span>
+</li>
+</ul>
+
+<div class="mt-12 bg-slate-100 p-8 rounded-3xl border border-slate-200">
+<h3 class="text-xl font-bold text-gray-800 mt-0 mb-4 flex items-center gap-2">
+<span class="zh">風險管理的核心：預防與救援</span>
+<span class="en">Core of Risk Management: Prevention & Rescue</span>
+</h3>
+<p class="text-sm text-gray-600 leading-relaxed mb-6">
+<span class="zh">風險管理不只是知道如何營救，更是從事故發生前就開始預防。然而，划槳運動具有固有危險性，預防並不總能成功。</span>
+<span class="en">Risk management is more than knowing how to rescue; it begins with prevention. However, paddling has inherent dangers, and prevention is not always successful.</span>
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+<h4 class="font-bold text-gray-800 mb-2 text-sm"><span class="zh">卓越的救援技能</span><span class="en">Superior Rescue Skills</span></h4>
+<p class="text-sm text-gray-500 m-0"><span class="zh">教練必須具備超強的救援技能，並能在事故發生時冷靜且果斷地為學員提供協助。</span><span class="en">Instructors must have exceptional rescue skills to provide decisive assistance during an incident.</span></p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+<h4 class="font-bold text-gray-800 mb-2 text-sm"><span class="zh">認證要求</span><span class="en">Certification Requirements</span></h4>
+<p class="text-sm text-gray-500 m-0"><span class="zh">所有教練必須在認證期間，持有國家認可機構（如紅十字會）發放的急救與 CPR 證書。</span><span class="en">All instructors must hold current first aid and CPR certifications from recognized agencies.</span></p>
+</div>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-red-500 decoration-4">
+<span class="zh">意外報告與紀錄保存</span>
+<span class="en">Incident Reporting & Documentation</span>
+</h3>
+<p class="text-sm text-gray-600 mb-8 leading-relaxed">
+<span class="zh">在法律訴訟中，記錄即事實。良好的紀錄保存是保護教練與組織的最佳方式。</span>
+<span class="en">In legal proceedings, documentation is fact. Good record-keeping is the best way to protect both the instructor and the organization.</span>
+</p>
+
+<div class="space-y-4">
+<div class="flex gap-6 items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
+<div class="flex-none w-12 h-12 bg-red-100 text-red-600 flex items-center justify-center rounded-xl font-bold">!</div>
+<div>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">意外報告 (Incident Reports)</span><span class="en">Incident Reports</span></h5>
+<p class="text-sm text-gray-500 leading-relaxed"><span class="zh">若發生任何涉及受傷或財產損失的事件，應立即填寫意外報告並提交至 ACA 辦公室。</span><span class="en">Complete and submit reports to ACA immediately for any incident involving injury or property damage.</span></p>
+</div>
+</div>
+<div class="flex gap-6 items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
+<div class="flex-none w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-xl font-bold">✓</div>
+<div>
+<h5 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">免責聲明 (Waivers)</span><span class="en">Waivers</span></h5>
+<p class="text-sm text-gray-500 leading-relaxed"><span class="zh">確保每位參與者在課程開始前簽署免責聲明。教練應妥善保存這些文件。</span><span class="en">Ensure every participant signs a waiver before the course begins. Maintain these records safely.</span></p>
+</div>
+</div>
+</div>

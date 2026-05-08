@@ -1,0 +1,149 @@
+---
+title: "第七單元：划行概念"
+en_title: "Concepts of Paddling"
+description: "探討槳葉原理 (C-P-R)、身體與船體概念以及基礎技巧與操控動作的區別。"
+en_description: "Explore blade principles (C-P-R), body and boat concepts, and the difference between skills and maneuvers."
+unit_number: 7
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 7</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">划行概念</span>
+<span class="en">Concepts of Paddling</span>
+</h2>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">1. 槳葉原理：C-P-R 週期</span>
+<span class="en">1. Blade Concepts: C-P-R Cycle</span>
+</h3>
+<p>
+<span class="zh">有效的槳法可以分解為三個階段：</span>
+<span class="en">Effective strokes can be broken down into three phases:</span>
+</p>
+<div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-4 my-6">
+<div class="p-4 border rounded-xl bg-blue-50/50 shadow-sm">
+<span class="font-bold text-blue-700 block mb-1 text-sm uppercase tracking-tighter">C - <span class="zh">入水</span><span class="en">Catch</span></span>
+<p class="text-xs m-0 text-slate-600 leading-relaxed">
+<span class="zh">槳葉垂直插入水中的瞬間，像把槳「埋進混凝土」一樣固定。</span>
+<span class="en">The catch is when the paddle is planted or thrust into the water.</span>
+</p>
+</div>
+<div class="p-4 border rounded-xl bg-blue-50/50 shadow-sm">
+<span class="font-bold text-blue-700 block mb-1 text-sm uppercase tracking-tighter">P - <span class="zh">動力</span><span class="en">Power</span></span>
+<p class="text-xs m-0 text-slate-600 leading-relaxed">
+<span class="zh">移動船體，而不是移動槳葉。想像船隻在槳葉旁滑過。</span>
+<span class="en">The power phase is when the boat is moved relative to the anchored paddle.</span>
+</p>
+</div>
+<div class="p-4 border rounded-xl bg-blue-50/50 shadow-sm">
+<span class="font-bold text-blue-700 block mb-1 text-sm uppercase tracking-tighter">R - <span class="zh">復位</span><span class="en">Recovery</span></span>
+<p class="text-xs m-0 text-slate-600 leading-relaxed">
+<span class="zh">將槳葉帶回水面，準備下一次的入水。</span>
+<span class="en">The recovery moves the paddle back into position for another catch.</span>
+</p>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">2. 身體與船體 (Body & Boat)</span>
+<span class="en">2. Body & Boat Concepts</span>
+</h3>
+<ul class="space-y-4 list-none pl-0 mb-12">
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+<strong class="text-slate-900 text-sm block mb-1"><span class="zh">划行者框架 (Paddler's Box)：</span><span class="en">Paddler's Box:</span></strong>
+<span class="text-sm text-slate-500 leading-relaxed"><span class="zh">雙手應始終保持在肩膀前方的空間內，以保護脆弱的肩關節。</span><span class="en">Keep both arms within the "Paddler's Box" at all times to protect the shoulder joint.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+<strong class="text-slate-900 text-sm block mb-1"><span class="zh">軀幹旋轉 (Torso Rotation)：</span><span class="en">Torso Rotation:</span></strong>
+<span class="text-sm text-slate-500 leading-relaxed"><span class="zh">利用大肌群的力量，減少手臂疲勞。</span><span class="en">Rotate the torso to utilize large muscle groups and increase power.</span></span>
+</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+<strong class="text-slate-900 text-sm block mb-1"><span class="zh">船體靜止 (Quiet Boat)：</span><span class="en">Quiet Boat:</span></strong>
+<span class="text-sm text-slate-500 leading-relaxed"><span class="zh">減少側傾、俯仰或偏移，以降低水中阻力，提高效率。</span><span class="en">Keep the hull "quiet" in the water to reduce frictional resistance or drag.</span></span>
+</li>
+</ul>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+<span class="zh">3. 基礎技巧 vs. 操控動作</span>
+<span class="en">3. Fundamental Skills vs. Maneuvers</span>
+</h3>
+<div class="p-6 bg-amber-50/50 border border-amber-100 rounded-2xl mb-8 text-sm">
+<p class="text-gray-700 leading-relaxed mb-0">
+<span class="zh"><strong>教學核心原則：</strong> 學員必須先學習如何有效地划行，初期的重點應放在「基礎技巧」而非「操控動作」。透過重複練習基礎技巧，能大大增加掌握操控動作的成功機會。若省略此過程，學員的操控表現往往不盡理想。</span>
+<span class="en"><strong>Core Pedagogical Principle:</strong> Initial emphasis must be on fundamental skills rather than maneuvers. Practicing basic skills first leads to an increased chance of success in mastering maneuvers. If the process is abbreviated, maneuvers may be poorly executed.</span>
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-5 border border-gray-100 rounded-2xl bg-white shadow-sm">
+<h4 class="font-bold text-gray-800 mb-3 border-b pb-2 text-sm"><span class="zh">基礎技巧 (Fundamental Skills)</span><span class="en">Fundamental Skills</span></h4>
+<ul class="text-sm space-y-2 text-gray-600 list-disc list-inside">
+<li><span class="zh">平衡 (Balance)：居中且相對挺直的身體重心</span><span class="en">Balance: Centered, upright body</span></li>
+<li><span class="zh">船體側傾 (Boat Lean)：透過體重轉移控制船體</span><span class="en">Boat Lean: Weight transfer control</span></li>
+<li><span class="zh">身體機制 (Body Mechanics)：有效利用上下半身</span><span class="en">Body Mechanics: Efficient use of torso</span></li>
+<li><span class="zh">基礎槳法 (Paddling Strokes)：動力、轉向與支撐</span><span class="en">Paddling Strokes: Power, turning, bracing</span></li>
+<li><span class="zh">協調性與流暢度 (Coordination & Fluidity)</span><span class="en">Coordination & Fluidity</span></li>
+</ul>
+</div>
+<div class="p-5 border border-gray-100 rounded-2xl bg-white shadow-sm">
+<h4 class="font-bold text-gray-800 mb-3 border-b pb-2 text-sm"><span class="zh">操控動作 (Maneuvers)</span><span class="en">Maneuvers</span></h4>
+<ul class="text-sm space-y-2 text-gray-600 list-disc list-inside">
+<li><span class="zh">直線划行 (Straight Line)：前進與後退</span><span class="en">Straight Line Paddling: Forward/Reverse</span></li>
+<li><span class="zh">迴流區進出 (Eddy Turns)</span><span class="en">Eddy Turns</span></li>
+<li><span class="zh">橫渡 (Ferries)</span><span class="en">Ferries</span></li>
+<li><span class="zh">旋轉與轉向 (Spins & Turns)：90/180 度轉向</span><span class="en">Spins & Turns: 90/180-degree turns</span></li>
+<li><span class="zh">側移與衝浪 (Sideslips & Surfing)</span><span class="en">Sideslips & Surfing</span></li>
+</ul>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6">
+<span class="zh">4. 身體、船體、槳葉：三位一體</span>
+<span class="en">4. Body, Boat, Blade: The Relationship</span>
+</h3>
+<p class="text-sm text-gray-600 mb-8">
+<span class="zh">划行技術的精髓在於這三者之間的動態協作。教練應引導學員理解：</span>
+<span class="en">The essence of paddling technique lies in the dynamic collaboration of these three elements. Instructors should guide students to understand:</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-6 mb-12">
+<div class="bg-slate-50 p-6 rounded-2xl text-center">
+<div class="text-2xl mb-2">🧘</div>
+<h5 class="font-bold text-gray-800 text-sm mb-2"><span class="zh">身體 (Body)</span><span class="en">Body</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">動力來源。透過軀幹旋轉將力量傳遞至槳葉。</span><span class="en">The power source. Transfers energy via torso rotation.</span></p>
+</div>
+<div class="bg-slate-50 p-6 rounded-2xl text-center border-x border-gray-200">
+<div class="text-2xl mb-2">🛶</div>
+<h5 class="font-bold text-gray-800 text-sm mb-2"><span class="zh">船體 (Boat)</span><span class="en">Boat</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">反應媒介。身體與槳葉的互動最終體現在船體的位移。</span><span class="en">The medium. The interaction is reflected in hull displacement.</span></p>
+</div>
+<div class="bg-slate-50 p-6 rounded-2xl text-center">
+<div class="text-2xl mb-2">🪄</div>
+<h5 class="font-bold text-gray-800 text-sm mb-2"><span class="zh">槳葉 (Blade)</span><span class="en">Blade</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">槓桿支點。與水接觸並提供推力或阻力。</span><span class="en">The fulcrum. Contacts water to provide thrust or resistance.</span></p>
+</div>
+</div>
+
+<div class="bg-blue-900 text-white p-8 rounded-3xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4">
+<span class="zh">教練示範標準</span>
+<span class="en">Instructor Demonstration Standards</span>
+</h4>
+<p class="text-sm opacity-80 leading-relaxed mb-6">
+<span class="zh">作為教練，您的動作必須是優雅、流暢且精準的。學員會模仿您的每一個細節：</span>
+<span class="en">As an instructor, your movements must be graceful, fluid, and precise. Students will mimic every detail:</span>
+</p>
+<ul class="text-sm space-y-3 opacity-90 list-none pl-0">
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">展現從入水、動力到復位的完整週期。</span><span class="en">Show the full C-P-R cycle clearly.</span></span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">強調「划行者選單」的安全性。</span><span class="en">Emphasize the safety of the Paddler's Box.</span></span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">演示如何利用環境（如水流）來輔助操控。</span><span class="en">Demo using the environment to aid maneuvers.</span></span></li>
+</ul>
+</div>
+</div>
+
+<p class="mt-12 text-xs text-gray-400 text-center italic">
+<span class="zh">※ 基礎技巧的熟練度直接決定了操控動作的成功率。</span>
+<span class="en">※ Mastery of fundamental skills directly determines the success of maneuvers.</span>
+</p>

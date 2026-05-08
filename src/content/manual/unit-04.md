@@ -1,0 +1,383 @@
+---
+title: "第四單元：教學與學習風格"
+en_title: "Teaching and Learning Styles"
+description: "深入了解不同學員的學習風格、學習障礙以及有效的教學策略。"
+en_description: "In-depth look at different student learning styles, barriers, and effective teaching strategies."
+unit_number: 4
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 4</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">教學與學習風格</span>
+<span class="en">Teaching and Learning Styles</span>
+</h2>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">1. 學習的本質</span>
+<span class="en">1. The Nature of Learning</span>
+</h3>
+<p class="text-sm text-gray-600 mb-8">
+<span class="zh">學習是獲得技能（身體能力）與知識（事實與想法）的過程。在划槳運動中，這涉及兩大核心能力：</span>
+<span class="en">Learning is the process of gaining skills (physical ability) and knowledge (facts and ideas). In paddling, this involves two core abilities:</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-blue-500">
+<h4 class="font-bold text-gray-800 mb-2">
+<span class="zh">運動能力 (Motor Skills)</span>
+<span class="en">Motor Skills</span>
+</h4>
+<p class="text-sm text-gray-500 leading-relaxed m-0">
+<span class="zh">涉及導致可測量的物理動作（例如：船尾拉動轉彎）。</span>
+<span class="en">Involves physical movements that result in measurable action (e.g., stern draw for a turn).</span>
+</p>
+</div>
+<div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-blue-500">
+<h4 class="font-bold text-gray-800 mb-2">
+<span class="zh">認知能力 (Cognitive Skills)</span>
+<span class="en">Cognitive Skills</span>
+</h4>
+<p class="text-sm text-gray-500 leading-relaxed m-0">
+<span class="zh">理解「如何」與「為何」使用特定技術來實現目標（決策過程）。</span>
+<span class="en">Understanding how and why to use specific techniques to achieve an objective (decision making).</span>
+</p>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">2. 影響學習的因素</span>
+<span class="en">2. Factors Affecting Learning</span>
+</h3>
+<div class="space-y-4 mb-12">
+<div class="flex gap-6 items-start">
+<div class="flex-none w-16 text-2xl text-center">🏋️</div>
+<div>
+<h5 class="font-bold text-gray-800 text-sm"><span class="zh">身體特徵</span><span class="en">Physical Characteristics</span></h5>
+<p class="text-sm text-gray-500"><span class="zh">體型、力量與柔韌性會影響表現。教練應調整課程以配合學員的個體極限。</span><span class="en">Size, strength, and flexibility impact performance. Adjust programs to individual limits.</span></p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-none w-16 text-2xl text-center">🎯</div>
+<div>
+<h5 class="font-bold text-gray-800 text-sm"><span class="zh">動機</span><span class="en">Motivation</span></h5>
+<p class="text-sm text-gray-500"><span class="zh">學員是為了樂趣、社交還是技能提升？了解動機有助於設計適合的活動。</span><span class="en">Are they here for fun, social, or skill? Understanding motivation helps tailor activities.</span></p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-none w-16 text-2xl text-center">⛅</div>
+<div>
+<h5 class="font-bold text-gray-800 text-sm"><span class="zh">環境因素</span><span class="en">Environment</span></h5>
+<p class="text-sm text-gray-500"><span class="zh">寒冷或惡劣天氣會分散注意力。教練應確保學員的生理舒適（溫暖、飽足、安全感）。</span><span class="en">Cold or poor weather distracts. Ensure physiological comfort (warmth, food, safety).</span></p>
+</div>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6">
+<span class="zh">3. 學習的障礙</span>
+<span class="en">3. Barriers to Learning</span>
+</h3>
+<p>
+<span class="zh">教練必須識別並排除學員在學習過程中的心理障礙：</span>
+<span class="en">Instructors must recognize and mitigate psychological barriers to learning:</span>
+</p>
+<div class="space-y-4 text-sm mb-12">
+<div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+<div class="font-bold text-red-600 mb-2 text-base">
+<span class="zh">恐懼</span>
+<span class="en">Fear</span>
+</div>
+<div class="text-gray-700 leading-relaxed">
+<span class="zh">學員通常比看起來更害怕。恐懼會阻礙新技能的獲取，因為大腦會優先處理「生存」而非「學習」。</span>
+<span class="en">Students are often more afraid than they appear. Fear blocks the acquisition of new skills as the brain prioritizes survival over learning.</span>
+</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+<div class="font-bold text-[#4796cc] mb-2 text-base">
+<span class="zh">首位/近位</span>
+<span class="en">Primacy / Recency</span>
+</div>
+<div class="text-gray-700 leading-relaxed">
+<span class="zh">學員最容易記住演示的最開始與最後一部分（Primacy / Recency）。因此「整體-局部-整體」教學法非常有效。</span>
+<span class="en">Students remember the beginning and end of a demonstration best. This is why the "Whole-Part-Whole" method is effective.</span>
+</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+<div class="font-bold text-[#4796cc] mb-2 text-base">
+<span class="zh">負遷移</span>
+<span class="en">Negative Transfer</span>
+</div>
+<div class="text-gray-700 leading-relaxed">
+<span class="zh">舊習慣難以打破。成人學員帶著舊有的運動矩陣來到課堂，教練需保持耐心。</span>
+<span class="en">Old habits are hard to break. Adult learners bring existing motor patterns; instructors must be patient.</span>
+</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+<div class="font-bold text-[#4796cc] mb-2 text-base">
+<span class="zh">自我</span>
+<span class="en">Ego</span>
+</div>
+<div class="text-gray-700 leading-relaxed">
+<span class="zh">當表現受到挑戰時，自衛反應會阻礙學習。避免在團體面前過度施壓。</span>
+<span class="en">Defensive reactions when performance is challenged can block learning. Avoid over-pressuring students in front of the group.</span>
+</div>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6">
+<span class="zh">2. 四大學習風格</span>
+<span class="en">2. Four Learning Styles</span>
+</h3>
+<p>
+<span class="zh">每個人吸收資訊的方式不同，優秀的教練會同時運用視覺、聽覺與觸覺。以下是四種典型學習者：</span>
+<span class="en">Everyone processes information differently. Good instructors use visual, auditory, and kinesthetic modes. Here are four typical learners:</span>
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+<div class="border border-blue-100 p-5 rounded-2xl bg-blue-50/20">
+<h4 class="font-bold text-blue-800 mb-2">👀 <span class="zh">觀察型</span><span class="en">Watchers</span></h4>
+<p class="text-sm text-blue-700 m-0 leading-relaxed">
+<span class="zh">需要先在腦中建立技能的「心像」。他們需要時間觀察，聽覺說明只是輔助。演示對他們至關重要。</span>
+<span class="en">Need to build a mental image of the skill. They need time to observe; verbal explanations are secondary. Demonstrations are critical.</span>
+</p>
+</div>
+<div class="border border-green-100 p-5 rounded-2xl bg-green-50/20">
+<h4 class="font-bold text-green-800 mb-2">🖐️ <span class="zh">感官型</span><span class="en">Feelers</span></h4>
+<p class="text-sm text-green-700 m-0 leading-relaxed">
+<span class="zh">依賴本體感覺與類比。比起口頭描述，他們更能從實際感受動作中獲益。適合使用生動的比喻。</span>
+<span class="en">Rely on proprioception and analogies. They benefit more from feeling the movement than hearing descriptions. Use vivid metaphors.</span>
+</p>
+</div>
+<div class="border border-purple-100 p-5 rounded-2xl bg-purple-50/20">
+<h4 class="font-bold text-purple-800 mb-2">🧠 <span class="zh">思考型</span><span class="en">Thinkers</span></h4>
+<p class="text-sm text-purple-700 m-0 leading-relaxed">
+<span class="zh">分析型學習者，需要詳細的技術細節與背後的科學原理。他們可能會讀書、看影片，並挑戰教練的知識深度。</span>
+<span class="en">Analytical learners who need technical details and the science behind the skills. They may read, watch videos, and challenge the instructor's depth of knowledge.</span>
+</p>
+</div>
+<div class="border border-orange-100 p-5 rounded-2xl bg-orange-50/20">
+<h4 class="font-bold text-orange-800 mb-2">🚀 <span class="zh">行動型</span><span class="en">Doers</span></h4>
+<p class="text-sm text-orange-700 m-0 leading-relaxed">
+<span class="zh">給他們槳就對了！冗長的解釋會讓他們分心。他們喜歡「先做再說」，且通常是最先自願嘗試的人。</span>
+<span class="en">Just give them a paddle! Long explanations distract them. They prefer "doing it first" and are often the first to volunteer.</span>
+</p>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+<span class="zh">3. 兒童 vs. 成人教學</span>
+<span class="en">3. Teaching Children vs. Adults</span>
+</h3>
+<div class="overflow-hidden border border-gray-200 rounded-2xl mb-12">
+<table class="min-w-full divide-y divide-gray-200 text-sm">
+<thead class="bg-gray-50">
+<tr>
+<th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">特性</span><span class="en">Characteristic</span></th>
+<th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">兒童 (Children)</span><span class="en">Children</span></th>
+<th class="px-6 py-3 text-left font-bold text-gray-500 uppercase tracking-wider"><span class="zh">成人 (Adults)</span><span class="en">Adults</span></th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200">
+<tr>
+<td class="px-6 py-4 font-medium text-gray-900"><span class="zh">資訊接受度</span><span class="en">Information Acceptance</span></td>
+<td class="px-6 py-4"><span class="zh">直接接受所呈現的內容。</span><span class="en">Accept presented material at face value.</span></td>
+<td class="px-6 py-4"><span class="zh">根據自身經驗與信念進行評估。</span><span class="en">Evaluate based on own experiences and beliefs.</span></td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-medium text-gray-900"><span class="zh">核心動力</span><span class="en">Core Motivation</span></td>
+<td class="px-6 py-4"><span class="zh">好玩、快速、實作。</span><span class="en">Fun, fast-paced, hands-on.</span></td>
+<td class="px-6 py-4"><span class="zh">追求立即的實用性。</span><span class="en">Seek immediate relevance and utility.</span></td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-medium text-gray-900"><span class="zh">同儕互動</span><span class="en">Peer Interaction</span></td>
+<td class="px-6 py-4"><span class="zh">還在學習如何學習。</span><span class="en">Still learning how to learn.</span></td>
+<td class="px-6 py-4"><span class="zh">本身就是豐富的資源。</span><span class="en">Are rich resources themselves.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+<span class="zh">4. 核心教學法</span>
+<span class="en">4. Core Teaching Methodologies</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<div class="p-6 bg-blue-50/30 border border-blue-100 rounded-2xl">
+<h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+<span class="zh">20-40-60-80 法則</span>
+<span class="en">The 20-40-60-80 Rule</span>
+</h4>
+<p class="text-sm text-blue-800 leading-relaxed mb-4">
+<span class="zh">這是一個關於「記憶留存率」的經驗法則，強調了「主動學習」的重要性：</span>
+<span class="en">A rule of thumb for memory retention, emphasizing active learning:</span>
+</p>
+<ul class="text-sm space-y-2 text-blue-900 font-medium list-none pl-0">
+<li class="flex justify-between border-b border-blue-100 pb-1"><span><span class="zh">聽到的</span> <span class="en">Heard</span></span> <span class="font-bold">20%</span></li>
+<li class="flex justify-between border-b border-blue-100 pb-1"><span><span class="zh">看到的</span> <span class="en">Seen</span></span> <span class="font-bold">40%</span></li>
+<li class="flex justify-between border-b border-blue-100 pb-1"><span><span class="zh">做到的</span> <span class="en">Done</span></span> <span class="font-bold">60%</span></li>
+<li class="flex justify-between text-blue-600"><span><span class="zh">自己發現的</span> <span class="en">Discovered</span></span> <span class="font-bold">80%</span></li>
+</ul>
+</div>
+<div class="p-6 bg-green-50/30 border border-green-100 rounded-2xl">
+<h4 class="font-bold text-green-900 mb-4 flex items-center gap-2">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+<span class="zh">KISS 原則</span>
+<span class="en">KISS Principle</span>
+</h4>
+<div class="text-sm text-green-800 space-y-3">
+<p class="font-black text-sm text-green-700 m-0">"Keep It Simple and Safe"</p>
+<p class="m-0 leading-relaxed">
+<span class="zh"><strong>保持簡單與安全：</strong> 教練應提供與技能直接相關的必要細節即可。過多的技術細節會讓學員感到困惑與負荷過重。</span>
+<span class="en">Instructors should provide only the necessary details directly related to the skill. Too much information can overwhelm and confuse students.</span>
+</p>
+<p class="m-0 leading-relaxed">
+<span class="zh">成功的教學在於「將重點放在最重要的事情上」。</span>
+<span class="en">Focus on what's most important to ensure success.</span>
+</p>
+</div>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+<span class="zh">5. 教練的專業精神與素養</span>
+<span class="en">5. Professionalism & Interpersonal Skills</span>
+</h3>
+<div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
+<p class="text-sm leading-relaxed mb-8 text-slate-700 italic">
+<span class="zh">「所有的認證教練都代表著 ACA 的形象。教練的知識、風度、道德標準和背景會直接影響課程與組織的可信度。」</span>
+<span class="en">"All certified instructors represent the image of the ACA. An instructor’s knowledge, demeanor, ethical standards, and background all impact the credibility of the program and organization."</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- 評價要點 -->
+<div class="space-y-4">
+<h4 class="text-sm font-black text-slate-900 mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-[#4796cc] rounded-full"></span>
+<span class="zh">教練能力評價要點</span>
+<span class="en">Core Evaluation Points</span>
+</h4>
+<ul class="text-sm space-y-3 text-slate-600 list-none pl-0">
+<li class="flex items-start gap-3 border-b border-slate-100 pb-2">
+<span class="text-[#4796cc] font-bold">01</span>
+<span><span class="zh">完全理解教學材料並能有效實施教學。</span><span class="en">Full understanding and implementation of materials.</span></span>
+</li>
+<li class="flex items-start gap-3 border-b border-slate-100 pb-2">
+<span class="text-[#4796cc] font-bold">02</span>
+<span><span class="zh">嚴格遵守課程規劃，不隨意偏離。</span><span class="en">Strict adherence to the course plan.</span></span>
+</li>
+<li class="flex items-start gap-3 border-b border-slate-100 pb-2">
+<span class="text-[#4796cc] font-bold">03</span>
+<span><span class="zh">能有效解決現場問題並保持清晰溝通。</span><span class="en">Effective problem solving and clear communication.</span></span>
+</li>
+<li class="flex items-start gap-3 border-b border-slate-100 pb-2">
+<span class="text-[#4796cc] font-bold">04</span>
+<span><span class="zh">展現守時與專業的職業素養。</span><span class="en">Demonstrate punctuality and professionalism.</span></span>
+</li>
+</ul>
+</div>
+
+<!-- 人際能力 -->
+<div class="space-y-4">
+<h4 class="text-sm font-black text-slate-900 mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+<span class="zh">卓越的人際交往技能</span>
+<span class="en">Interpersonal Excellence</span>
+</h4>
+<div class="grid grid-cols-1 gap-2">
+<div class="bg-white p-3 rounded-xl text-[11px] text-slate-600 border border-slate-50 shadow-sm">
+<span class="font-bold text-slate-800 block mb-1"><span class="zh">正向反饋</span><span class="en">Positive Feedback</span></span>
+<span class="zh">以準確且具鼓勵性的方式提供反饋，激發學員自信。</span>
+</div>
+<div class="bg-white p-3 rounded-xl text-[11px] text-slate-600 border border-slate-50 shadow-sm">
+<span class="font-bold text-slate-800 block mb-1"><span class="zh">包容與尊重</span><span class="en">Inclusion & Respect</span></span>
+<span class="zh">建立積極的學習環境，包容不同意見並尊重每位個體。</span>
+</div>
+<div class="bg-white p-3 rounded-xl text-[11px] text-slate-600 border border-slate-50 shadow-sm">
+<span class="font-bold text-slate-800 block mb-1"><span class="zh">開放與創新</span><span class="en">Open-Mindedness</span></span>
+<span class="zh">避免教條主義，以開放的心態鼓勵創新與學習。</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-[#4796cc] decoration-4">
+<span class="zh">6. M+D3 教學法</span>
+<span class="en">6. The M+D3 Method</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+<div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
+<div class="text-blue-600 font-black text-xl mb-1">M</div>
+<h5 class="text-sm font-bold mb-2"><span class="zh">動機 (Motivation)</span><span class="en">Motivation</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">告訴學員學習此技巧的重要性與目的。</span><span class="en">Explain why this skill is important and its purpose.</span></p>
+</div>
+<div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
+<div class="text-blue-600 font-black text-xl mb-1">D1</div>
+<h5 class="text-sm font-bold mb-2"><span class="zh">示範 (Demonstrate)</span><span class="en">Demonstrate</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">展示正確且優雅的動作，必要時使用慢動作。</span><span class="en">Show the correct technique, using slow motion if needed.</span></p>
+</div>
+<div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
+<div class="text-blue-600 font-black text-xl mb-1">D2</div>
+<h5 class="text-sm font-bold mb-2"><span class="zh">描述 (Describe)</span><span class="en">Describe</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">用簡潔的語言說明動作關鍵點。</span><span class="en">Briefly explain the key points of the movement.</span></p>
+</div>
+<div class="p-4 bg-white border border-gray-100 rounded-xl shadow-sm text-center">
+<div class="text-blue-600 font-black text-xl mb-1">D3</div>
+<h5 class="text-sm font-bold mb-2"><span class="zh">執行 (Do It!)</span><span class="en">Do It!</span></h5>
+<p class="text-xs text-gray-500"><span class="zh">給予學員充足的練習時間與及時反饋。</span><span class="en">Give students ample practice time and immediate feedback.</span></p>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-12 mb-6 font-black underline decoration-green-500 decoration-4">
+<span class="zh">優秀教練的十大核心特質</span>
+<span class="en">Ten Essential Qualities of a Great Instructor</span>
+</h3>
+
+<p class="text-sm text-gray-600 mb-8 leading-relaxed">
+<span class="zh">訓練有素的教練能比「嘗試錯誤法」更快地引導學員體驗划槳的樂趣。ACA 教練應致力於培養以下特質：</span>
+<span class="en">Well-trained instructors lead students to the joy of paddling much faster than trial-and-error methods. ACA instructors should strive for these qualities:</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🔥 <span class="zh">熱誠</span><span class="en">Enthusiasm</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">對划槳運動的熱愛能激發學員的興趣。這是教學中最具感染力的特質。</span><span class="en">A genuine love for paddling inspires students. This is the most contagious quality in teaching.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🎓 <span class="zh">能力與知識</span><span class="en">Competency</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">擁有高超的技術與教學理論。教練應持續教育，與行業趨勢同步。</span><span class="en">High technical skill and pedagogical knowledge. Instructors must pursue continuing education.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">📋 <span class="zh">組織力</span><span class="en">Organization</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">負責器材、後勤與教學計畫，確保課程在安全且有意義的進度下運行。</span><span class="en">Responsible for equipment, logistics, and planning to ensure meaningful, safe progress.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🛶 <span class="zh">精準示範</span><span class="en">Demonstration Skill</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">具備比學員更高水平的示範能力，能將複雜動作分解為易學的組件。</span><span class="en">Ability to model skills at a higher level than students, breaking down complex moves.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">✅ <span class="zh">成功導向</span><span class="en">Success Oriented</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">設定具挑戰性但「可實現」的目標。學員崇拜能引導他們獲得成就感的教練。</span><span class="en">Set challenging but achievable goals. Students admire instructors who lead them to success.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🎮 <span class="zh">趣味性</span><span class="en">Fun</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">將遊戲融入教學。學員希望獲得樂趣，遊戲是獎勵努力的最佳方式。</span><span class="en">Incorporate games into teaching. Fun is a reward and an effective learning tool.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">⚓ <span class="zh">領導才能</span><span class="en">Leadership</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">保持學員專注，嚴格遵守時間並堅持課程計畫，展現可靠的權威。</span><span class="en">Keep students focused, be punctual, and adhere to the course plan.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">✨ <span class="zh">積極態度</span><span class="en">Positive Attitude</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">肯定學員的努力而非瑣碎稱讚。批評應具建設性、敏感度與尊重。</span><span class="en">Affirm effort over trivial praise. Critiques must be constructive and respectful.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">🔍 <span class="zh">預估需求</span><span class="en">Anticipate Needs</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">預先考量環境、生理與心理壓力。在學員意識到之前就做好應對。</span><span class="en">Pre-plan for environmental and psychological stresses before students notice them.</span></p>
+</div>
+<div class="p-6 bg-white border border-green-100 rounded-2xl shadow-sm hover:border-green-400 transition-colors">
+<h4 class="font-bold text-green-900 mb-2 flex items-center gap-2">⚖️ <span class="zh">正確判斷</span><span class="en">Judgement</span></h4>
+<p class="text-sm text-gray-600 m-0"><span class="zh">深思熟慮且負責任地執行計畫，冷靜處理突發的複雜水上情況。</span><span class="en">Thoughtful execution of plans and calm handling of complex on-water situations.</span></p>
+</div>
+</div>

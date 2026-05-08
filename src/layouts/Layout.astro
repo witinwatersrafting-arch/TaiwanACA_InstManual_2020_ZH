@@ -1,0 +1,212 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const navItems = [
+    { id: 'preamble', zh: '前言與簡介', en: 'Preamble', slug: '00-preamble' },
+    { id: 'unit1', zh: 'Unit 1: 關於 ACA', en: 'About ACA', slug: 'unit-01' },
+    { id: 'unit2', zh: 'Unit 2: 教育標準', en: 'Education Standards', slug: 'unit-02' },
+    { id: 'unit3', zh: 'Unit 3: 環境管理與護理', en: 'Stewardship', slug: 'unit-03' },
+    { id: 'unit4', zh: 'Unit 4: 教學與學習風格', en: 'Teaching Styles', slug: 'unit-04' },
+    { id: 'unit5', zh: 'Unit 5: 課程組織與帶領', en: 'Course Org', slug: 'unit-05' },
+    { id: 'unit6', zh: 'Unit 6: 責任與風險管理', en: 'Risk Management', slug: 'unit-06' },
+    { id: 'unit7', zh: 'Unit 7: 划行概念', en: 'Paddling Concepts', slug: 'unit-07' },
+    { id: 'unit8', zh: 'Unit 8: 體能調整', en: 'Conditioning', slug: 'unit-08' },
+    { id: 'unit9', zh: 'Unit 9: 水域安全', en: 'Safety on Water', slug: 'unit-09' },
+    { id: 'conclusion', zh: '結語', en: 'Conclusion', slug: 'conclusion' },
+    { id: 'bibliography', zh: '參考文獻', en: 'Bibliography', slug: 'bibliography' },
+    { id: 'appendix-a', zh: '附錄 A', en: 'Appendix A', slug: 'appendix-a' },
+];
+---
+
+<!doctype html>
+<html lang="zh-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="ACA 獨木舟教練手冊 (2020) - 繁體中文版" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | ACA 教練手冊</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+		<div class="flex flex-col lg:flex-row min-h-screen">
+            <!-- Sidebar -->
+            <aside class="w-full lg:w-80 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto z-40">
+                <div class="mb-10">
+                    <a href="/" class="flex items-center gap-3 mb-8 group">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">A</div>
+                        <div>
+                            <h1 class="text-lg font-black tracking-tighter leading-none">ACA MANUAL</h1>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Version 2020</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Language Switcher -->
+                    <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200" id="lang-switcher">
+                        <button data-lang="zh" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">中文</button>
+                        <button data-lang="en" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">EN</button>
+                        <button data-lang="both" class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white">對照</button>
+                    </div>
+
+                    <!-- PDF Export Button -->
+                    <button onclick="window.print()" class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 mb-8">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        匯出 PDF 手冊
+                    </button>
+
+                    <nav class="space-y-1">
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
+                        {navItems.map(item => (
+                            <a 
+                                href={`/#${item.slug}`} 
+                                class="flex flex-col px-3 py-2 rounded-xl hover:bg-blue-50 transition-all group"
+                            >
+                                <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight">{item.zh}</span>
+                                <span class="en text-[11px] font-bold text-slate-400 group-hover:text-blue-400 leading-tight mt-0.5">{item.en}</span>
+                            </a>
+                        ))}
+                    </nav>
+                </div>
+
+                <div class="mt-auto pt-8 border-t border-slate-100 hidden lg:block">
+                    <p class="text-[10px] text-slate-400 leading-tight">
+                        American Canoe Association<br/>
+                        Instructor Manual v.2020
+                    </p>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 bg-white relative">
+                <slot />
+            </main>
+        </div>
+
+		<script is:inline>
+			const initLang = () => {
+				const savedLang = localStorage.getItem('aca-lang') || 'zh';
+				document.documentElement.className = `lang-${savedLang}`;
+				
+				const buttons = document.querySelectorAll('#lang-switcher button');
+				buttons.forEach(btn => {
+					if (btn.dataset.lang === savedLang) {
+						btn.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
+					} else {
+						btn.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
+					}
+					
+					btn.onclick = () => {
+						const lang = btn.dataset.lang;
+						localStorage.setItem('aca-lang', lang);
+						document.documentElement.className = `lang-${lang}`;
+						
+						buttons.forEach(b => b.classList.remove('bg-white', 'shadow-sm', 'text-blue-600'));
+						btn.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
+					};
+				});
+			};
+			
+			initLang();
+			document.addEventListener('astro:after-swap', initLang);
+
+            // ScrollSpy
+            const observeSections = () => {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('nav a');
+                
+                const observerOptions = {
+                    rootMargin: '-20% 0px -70% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach(link => {
+                                if (link.getAttribute('href') === `/#${id}`) {
+                                    link.classList.add('bg-blue-50', 'ring-1', 'ring-blue-100');
+                                    link.querySelector('.zh').classList.replace('text-slate-700', 'text-blue-600');
+                                } else {
+                                    link.classList.remove('bg-blue-50', 'ring-1', 'ring-blue-100');
+                                    link.querySelector('.zh').classList.replace('text-blue-600', 'text-slate-700');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => observer.observe(section));
+            };
+
+            window.addEventListener('scroll', observeSections, { once: true });
+            document.addEventListener('astro:after-swap', observeSections);
+		</script>
+	</body>
+</html>
+
+<style is:global>
+    html {
+        scroll-behavior: smooth;
+    }
+	.lang-zh .en { display: none !important; }
+	.lang-en .zh { display: none !important; }
+	.lang-both .zh { display: block; }
+	.lang-both .en { display: block; margin-top: 0.125rem; opacity: 0.6; }
+    
+    .serif { font-family: 'Noto Serif TC', serif; }
+
+	@media print {
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+		aside, button, #lang-switcher, nav { display: none !important; }
+		main { width: 100% !important; padding: 0 !important; }
+        .manual-unit { width: 100% !important; max-width: none !important; padding-top: 0 !important; margin-top: 0 !important; }
+        .max-w-4xl { padding-top: 0 !important; padding-bottom: 0 !important; }
+        
+        /* Force display based on current selection, but if 'both' is selected, ensure it prints well */
+        .lang-both .en, .lang-both .zh { display: block !important; }
+        
+        section { page-break-before: always; padding-top: 0 !important; margin-top: 0 !important; }
+        section:first-of-type { page-break-before: auto; }
+        
+        /* Typography optimizations for print */
+        body { background: white !important; font-size: 11pt; line-height: 1.5; color: black !important; }
+        .prose { max-width: none !important; color: black !important; }
+        .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-gray-50 { background-color: transparent !important; border: 1px solid #eee !important; }
+        .text-blue-600, .text-red-600 { color: black !important; font-weight: bold; }
+        .shadow-lg, .shadow-xl, .shadow-2xl { shadow: none !important; box-shadow: none !important; }
+
+        /* Prevent breaking elements across pages */
+        .grid > div,
+        .p-4, .p-5, .p-6, .p-8,
+        li, 
+        blockquote,
+        .rounded-2xl, .rounded-3xl,
+        h2, h3, h4 {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        /* Ensure images and headers stay with their following content */
+        h2, h3, h4 { break-after: avoid; }
+        img { break-inside: avoid; max-height: 40vh; object-fit: contain; }
+	}
+
+    /* Scrollbar Styling */
+    aside::-webkit-scrollbar { width: 4px; }
+    aside::-webkit-scrollbar-track { background: transparent; }
+    aside::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    aside::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+</style>

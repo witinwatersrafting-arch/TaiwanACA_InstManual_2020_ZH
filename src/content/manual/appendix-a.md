@@ -1,0 +1,41 @@
+---
+title: "附錄 A：課程回報與認證維護"
+en_title: "Appendix A: Reporting and Maintenance"
+description: "了解如何回報課程以及維持 ACA 教練認證的有效性。"
+en_description: "Learn how to report courses and maintain the validity of your ACA instructor certification."
+unit_number: 12
+---
+
+<div class="flex items-center gap-4 mb-8">
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">附錄 A：課程回報與認證維護</span>
+<span class="en">Appendix A: Reporting and Certification Maintenance</span>
+</h2>
+</div>
+
+<p class="mb-10 text-slate-600 leading-relaxed">
+<span class="zh">為了滿足教練 (Instructor)、教練培訓師 (IT) 或教練培訓教育師 (ITE) 的維護要求，必須回報最低數量的課程。</span>
+<span class="en">To satisfy maintenance requirements for Instructors, ITs, or ITEs, a minimum number of courses must be reported.</span>
+</p>
+
+<div class="bg-blue-50 border border-blue-100 p-8 rounded-3xl mb-12">
+<h3 class="text-xl font-bold text-blue-900 mt-0 mb-6">
+<span class="zh">教練認證維護要求</span>
+<span class="en">Instructor Certification Maintenance</span>
+</h3>
+<p class="text-blue-800 text-sm mb-6"><span class="zh">在 4 年認證期結束前，必須滿足以下最低維護要求：</span><span class="en">The following requirements must be met within each 4-year certification period:</span></p>
+<ul class="list-none pl-0 space-y-4">
+<li class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-blue-50">
+<span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">1</span>
+<span class="text-sm text-slate-700 leading-relaxed"><span class="zh">維持年度 ACA 會員資格與 SEIC 註冊。</span><span class="en">Maintain annual ACA membership and SEIC registration.</span></span>
+</li>
+<li class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-blue-50">
+<span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">2</span>
+<span class="text-sm text-slate-700 leading-relaxed"><span class="zh">每四年教授並回報至少兩門課程。</span><span class="en">Teach and report at least two courses every four years.</span></span>
+</li>
+<li class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-blue-50">
+<span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">3</span>
+<span class="text-sm text-slate-700 leading-relaxed"><span class="zh">完成一次教練更新 (Instructor Update)。</span><span class="en">Successfully complete an Instructor Update.</span></span>
+</li>
+</ul>
+</div>

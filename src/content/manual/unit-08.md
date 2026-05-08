@@ -1,0 +1,92 @@
+---
+title: "第八單元：體能調整"
+en_title: "Conditioning"
+description: "探討划行運動的熱量消耗以及體能的四大要素。"
+en_description: "Explore the calorie consumption of paddling and the four components of conditioning."
+unit_number: 8
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 8</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">體能調整</span>
+<span class="en">Conditioning</span>
+</h2>
+</div>
+
+<p>
+<span class="zh">划行是一項高熱量消耗的運動（激烈時每小時可燃燒 600 卡）。良好的體能能顯著提升運動樂趣並降低受傷風險。</span>
+<span class="en">Paddling can be a demanding activity; recreational paddlers can burn an estimated 600 calories an hour. Conditioning will make the experience more rewarding and safer.</span>
+</p>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">體能四大要素</span>
+<span class="en">Four Components of Conditioning</span>
+</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-12">
+<div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">力量</span><span class="en">Strength</span></span>
+<span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">爆發力與速度</span><span class="en">Power & Speed</span></span>
+</div>
+<div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">耐力</span><span class="en">Endurance</span></span>
+<span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">持續運動能力</span><span class="en">Repeated Motion</span></span>
+</div>
+<div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">柔韌性</span><span class="en">Flexibility</span></span>
+<span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">關節活動度</span><span class="en">Range of Motion</span></span>
+</div>
+<div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+<span class="font-bold block text-slate-800 mb-1 text-sm"><span class="zh">心肺功能</span><span class="en">Cardio</span></span>
+<span class="text-xs text-slate-500 uppercase tracking-wider"><span class="zh">氧氣輸送效率</span><span class="en">Oxygen Delivery</span></span>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">為什麼需要體能調整？</span>
+<span class="en">Why Condition?</span>
+</h3>
+<p class="text-sm text-gray-600 mb-8 leading-relaxed">
+<span class="zh">體能調整不僅是為了競技，對於休閒划行者同樣重要。它能帶來以下好處：</span>
+<span class="en">Conditioning is not just for competitive athletes; it is equally important for recreational paddlers. It offers several key benefits:</span>
+</p>
+
+<div class="space-y-4 mb-12">
+<div class="p-6 bg-blue-50/50 border border-blue-100 rounded-2xl flex items-start gap-4">
+<div class="text-2xl">🛡️</div>
+<div>
+<h4 class="font-bold text-blue-900 text-sm mb-1"><span class="zh">減少受傷</span><span class="en">Injury Prevention</span></h4>
+<p class="text-sm text-blue-800/70 m-0"><span class="zh">強化肩部、背部與核心肌群，能有效分散划槳時產生的壓力，避免慢性勞損。</span><span class="en">Stronger shoulders, back, and core help distribute paddling stresses and prevent strain.</span></p>
+</div>
+</div>
+<div class="p-6 bg-blue-50/50 border border-blue-100 rounded-2xl flex items-start gap-4">
+<div class="text-2xl">⚡</div>
+<div>
+<h4 class="font-bold text-blue-900 text-sm mb-1"><span class="zh">提升表現</span><span class="en">Performance Enhancement</span></h4>
+<p class="text-sm text-blue-800/70 m-0"><span class="zh">更好的心肺功能與耐力能讓您划得更遠、更久，並在強風或逆流中保持穩定。</span><span class="en">Better cardio and endurance allow you to paddle further and maintain stability in wind or current.</span></p>
+</div>
+</div>
+</div>
+
+<div class="bg-gray-900 text-white p-8 rounded-3xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4">
+<span class="zh">能量消耗與熱量</span>
+<span class="en">Energy Expenditure & Calories</span>
+</h4>
+<p class="text-sm opacity-80 leading-relaxed mb-6">
+<span class="zh">划行是一項高效的全身運動。研究顯示，激烈划行每小時可消耗高達 600 卡路里。教練應提醒學員：</span>
+<span class="en">Paddling is an efficient full-body workout. Intense paddling can burn up to 600 calories an hour. Instructors should remind students:</span>
+</p>
+<ul class="text-sm space-y-3 opacity-90 list-none pl-0">
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">保持適當的能量補充（零食與餐點）。</span><span class="en">Maintain proper energy intake (snacks and meals).</span></span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">預防脫水，隨時補充水分。</span><span class="en">Stay hydrated; supplement fluids regularly.</span></span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span><span class="zh">注意低體溫症風險，熱量消耗會加速體溫流失。</span><span class="en">Be aware of hypothermia; calorie burn can accelerate heat loss.</span></span></li>
+</ul>
+</div>
+</div>
+
+<p class="mt-12 text-xs text-gray-400 text-right italic">
+<span class="zh">「最理想的划行訓練就是持續且有規律地去划船。」</span>
+<span class="en">"The most specific conditioning for paddling is to paddle."</span>
+</p>

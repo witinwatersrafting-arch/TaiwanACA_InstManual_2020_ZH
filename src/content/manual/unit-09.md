@@ -1,0 +1,98 @@
+---
+title: "第九單元：水域安全"
+en_title: "Safety on the Water"
+description: "探討救生衣的重要性、冷水休克以及 120 法則。"
+en_description: "Explore the importance of PFDs, cold water shock, and the 120 rule."
+unit_number: 9
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 9</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">水域安全</span>
+<span class="en">Safety on the Water</span>
+</h2>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">1. PFD (救生衣)：救命關鍵</span>
+<span class="en">1. PFD: The Key to Survival</span>
+</h3>
+<p>
+<span class="zh">每年有數千人因溺水死亡，許多是發生在沒穿 PFD 的情況下。船體的簡單設計常讓人誤以為它「天生安全」，但其實划行者落水的機率遠高於其他船種。</span>
+<span class="en">Thousands drown annually, many without a PFD. Small craft require special attention to balance; a responsible paddler should always assume they are likely to get wet.</span>
+</p>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">2. 冷水與 120 法則</span>
+<span class="en">2. Cold Water and the 120 Rule</span>
+</h3>
+<div class="bg-blue-600 text-white p-8 rounded-3xl my-8 shadow-xl shadow-blue-900/20 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-500/50 to-transparent"></div>
+<h4 class="font-bold text-xl mb-4 text-white relative z-10">🌡️ <span class="zh">什麼是「120 法則」？</span><span class="en">What is the "120 Rule"?</span></h4>
+<p class="mb-0 relative z-10 leading-relaxed">
+<span class="zh">當「空氣溫度」＋「水溫」＜ 120°F (約 49°C) 時，必須穿著防寒衣 (Wetsuit) 或乾衣 (Drysuit)。</span>
+<span class="en">When the Air Temperature + Water Temperature < 120°F, protective gear (wetsuit or drysuit) is mandatory.</span>
+</p>
+</div>
+
+<p class="text-sm font-black text-red-600 mb-2">
+<span class="zh">冷水休克 (Cold Water Shock)：</span>
+<span class="en">Cold Water Shock:</span>
+</p>
+<p class="text-sm text-slate-600 leading-relaxed mb-12">
+<span class="zh">浸泡在 10-15°C 的水中會引發吸氣反射（喘氣）、血壓飆升甚至心跳驟停。沒有 PFD 的情況下，這通常是致命的。</span>
+<span class="en">Immersion in 50-60°F water can cause gasp reflex, spike in blood pressure, or cardiac arrest. This is often fatal without a PFD.</span>
+</p>
+
+<div class="space-y-6 mb-12">
+<div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+<h4 class="font-bold text-red-800 mb-2 text-sm">🚫 <span class="zh">酒精、藥物與划行</span><span class="en">Alcohol, Drugs & Paddling</span></h4>
+<p class="text-sm text-red-700 m-0 leading-relaxed">
+<span class="zh">在酒精或藥物影響下划行是極其危險且違法的。酒精會削弱平衡感、協調性與判斷力，並加速低體溫症的發生。教練應對此採取零容忍態度。</span>
+<span class="en">Operating a vessel under the influence is dangerous and illegal. Alcohol impairs balance, coordination, and judgment, while accelerating hypothermia. Instructors should have zero tolerance.</span>
+</p>
+</div>
+
+<div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
+<h4 class="font-bold text-amber-800 mb-2 text-sm">🌪️ <span class="zh">環境中的隱藏危險</span><span class="en">Environmental Hazards</span></h4>
+<ul class="text-sm text-amber-900 space-y-2 list-none pl-0">
+<li class="flex items-start gap-2"><span>●</span> <span><span class="zh">風與浪：即使是溫和的風也能讓船隻偏航或翻覆。</span><span class="en">Wind & Waves: Even mild wind can blow a craft off course or cause capsize.</span></span></li>
+<li class="flex items-start gap-2"><span>●</span> <span><span class="zh">流水與急流：水流產生的壓力極大，應避免被推向障礙物。</span><span class="en">Current & Moving Water: The pressure of moving water is immense; avoid being pinned against obstacles.</span></span></li>
+<li class="flex items-start gap-2"><span>●</span> <span><span class="zh">人造設施：水壩、橋墩與碼頭可能產生致命的渦流或吸力。</span><span class="en">Man-made Objects: Dams, bridge pilings, and docks can create deadly eddies or suction.</span></span></li>
+</ul>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">3. 基本航行規則 (Rules of the Road)</span>
+<span class="en">3. Standard Rules of the Road</span>
+</h3>
+<p class="text-sm text-gray-600 mb-8">
+<span class="zh">雖然划行者通常不需要執照，但仍須遵守基本的國際與地方航行守則：</span>
+<span class="en">While paddlers may not need a license, they must follow basic international and local navigation rules:</span>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<div class="border-l-4 border-blue-500 pl-6 py-2">
+<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">避讓大型船隻</span><span class="en">Yield to Large Vessels</span></h4>
+<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">動力船或大型貨輪在航道內的轉向與煞停能力極其有限。划行者應始終主動避開。</span><span class="en">Power vessels and large ships have limited maneuverability in channels; paddlers must always give way.</span></p>
+</div>
+<div class="border-l-4 border-blue-500 pl-6 py-2">
+<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">靠右行駛</span><span class="en">Keep to the Right</span></h4>
+<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">在狹窄航道或對向遇船時，應保持在航道的右側通行。</span><span class="en">In narrow channels or when meeting head-on, keep to the right side of the channel.</span></p>
+</div>
+<div class="border-l-4 border-blue-500 pl-6 py-2">
+<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">清晰的可見度</span><span class="en">Be Visible</span></h4>
+<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">使用鮮豔的船隻與服裝。若在黎明、黃昏或夜間划行，必須配備符合法規的白光燈具。</span><span class="en">Use bright colors. At dawn, dusk, or night, a white light is legally required.</span></p>
+</div>
+<div class="border-l-4 border-blue-500 pl-6 py-2">
+<h4 class="font-bold text-gray-800 text-sm mb-1"><span class="zh">避免航道停留</span><span class="en">Avoid Channels</span></h4>
+<p class="text-xs text-gray-500 leading-relaxed"><span class="zh">除非必須橫渡，否則應盡量靠近岸邊，不要在交通頻繁的航道中停留或釣魚。</span><span class="en">Stay close to shore and avoid lingering or fishing in high-traffic commercial channels.</span></p>
+</div>
+</div>
+
+<div class="bg-slate-900 text-slate-400 p-6 rounded-2xl text-xs italic">
+<span class="zh">安全建議：隨身攜帶哨子或其他聲響設備。這是法律要求，也是在緊急情況下引起注意的最有效方式。</span>
+<span class="en">Safety Tip: Carry a whistle or sound signaling device. It's a legal requirement and essential for signaling in an emergency.</span>
+</div>

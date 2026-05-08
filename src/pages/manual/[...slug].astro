@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ManualUnit from '../../components/ManualUnit.astro';
+import Copyright from '../../components/Copyright.astro';
+
+export async function getStaticPaths() {
+  const manualEntries = await getCollection('manual');
+  
+  return manualEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const displayTitle = entry.data.title || entry.id;
+---
+
+<Layout title={displayTitle}>
+    <div class="max-w-4xl mx-auto py-20 px-8">
+        <ManualUnit slug={entry.id} />
+        
+        <div class="mt-20 pt-12 border-t border-slate-100 text-center">
+            <a href="/" class="inline-flex items-center gap-2 text-slate-400 hover:text-blue-600 font-bold transition-all text-sm group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                返回完整手冊目錄
+            </a>
+        </div>
+        
+        <Copyright />
+    </div>
+</Layout>

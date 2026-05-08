@@ -1,0 +1,120 @@
+---
+title: "前言與導言"
+en_title: "Preamble & Introduction"
+description: "致謝、導言以及 ACA 教練培訓過程的目標。"
+en_description: "Acknowledgements, introduction, and the goals of the ACA instructor development process."
+unit_number: 0
+---
+
+<header class="mb-20 text-center max-w-3xl mx-auto">
+<span class="text-[#4796cc] font-bold tracking-widest uppercase text-sm">Instructor's Manual</span>
+<h1 class="text-5xl font-black mt-4 mb-6 leading-tight serif">
+<span class="zh">美國獨木舟協會<br>教練手冊</span>
+<span class="en">American Canoe Association<br>Instructor's Manual</span>
+</h1>
+<p class="text-gray-500 text-lg max-w-lg mx-auto leading-relaxed">
+<span class="zh">本手冊旨在支持所有 ACA 划行領域的教練培訓課程，凝聚了划行專家、教練與培訓師的集體智慧。</span>
+<span class="en">This manual is intended to support Instructor Development and Certification processes for all ACA disciplines.</span>
+</p>
+<div class="h-1 w-20 bg-[#4796cc] mx-auto mt-8"></div>
+</header>
+
+<section id="acknowledgments" class="mb-20 scroll-mt-24">
+<h2 class="text-3xl font-bold border-b-2 border-gray-100 pb-4 mb-8 serif">
+<span class="zh">致謝</span>
+<span class="en">Acknowledgements</span>
+</h2>
+<p class="text-sm text-gray-600 leading-relaxed mb-6">
+<span class="zh">本手冊的編寫與製作凝聚了美國獨木舟協會受薪職員與志工的共同努力。若非多位專業人士的慷慨貢獻，本手冊將無法問世。</span>
+<span class="en">The writing and production of this manual is a collective effort of the American Canoe Association’s paid staff and volunteers. This manual would not be possible without the generous contributions of many professionals.</span>
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-500 italic border-t border-slate-50 pt-8">
+<div>
+<p class="mb-2 font-bold text-slate-700 not-italic"><span class="zh">專業指導與貢獻：</span><span class="en">Professional Guidance:</span></p>
+<p>Virgil Chambers, Leeann Rhoades, Leslie White, Charlie Wilson, Jeremy Oyen, Gregory Wolfe, Kim Whitley, Julian Basham, Gordon Black, Wyatt G. Boughter, Paul Sanford, Janet Zeller.</p>
+</div>
+<div>
+<p class="mb-2 font-bold text-slate-700 not-italic"><span class="zh">手冊修訂團隊 (02/2013)：</span><span class="en">Revision Team:</span></p>
+<p>Trey Knight (教育外聯), Kelsey Bracewell (安全教育), Chris Stec (首席運營官).</p>
+</div>
+</div>
+</section>
+
+<!-- 導言 (Introduction) -->
+<section id="introduction" class="mb-20 scroll-mt-24">
+<h2 class="text-3xl font-bold border-b-2 border-gray-100 pb-4 mb-8 serif">
+<span class="zh">導言</span>
+<span class="en">Introduction</span>
+</h2>
+<p class="leading-relaxed">
+<span class="zh">ACA 教練培訓過程的目標，是協助教練候選人成為具備專業知識且高效的划行運動教練。除了運動本身的技術資訊外，教練候選人還需要掌握以下範疇：</span>
+<span class="en">The goal of the ACA Instructor Development process is to assist instructor candidates to become knowledgeable, effective paddlesport instructors. In addition to technical information about the sport, instructor candidates are expected to know information about:</span>
+</p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-600 mt-6 list-none pl-0">
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">美國獨木舟協會：使命與價值觀</span><span class="en">ACA: Mission and Values</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">安全教育與教學政策及程序</span><span class="en">SEI Policies and Procedures</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">環境管理與護理</span><span class="en">Environmental Stewardship</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">教學原則與學習過程</span><span class="en">Teaching and Learning</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">活動組織與規劃</span><span class="en">Program Organization</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">風險管理</span><span class="en">Risk Management</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">無障礙要求</span><span class="en">Accessibility Requirements</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">課堂組織與規劃</span><span class="en">Lesson Organization</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">學員指導與評量</span><span class="en">Coaching and Evaluation</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">行政要求與課程回報</span><span class="en">Administrative & Reporting</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">體能調整</span><span class="en">Conditioning</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">安全與救援程序</span><span class="en">Safety and Rescue</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">船隻與裝備</span><span class="en">Boats and Equipment</span></span>
+</li>
+<li class="flex items-start gap-2 border-b border-slate-50 pb-1">
+<span class="text-blue-500">•</span>
+<span><span class="zh">特定領域專業資訊</span><span class="en">Course Specific Info</span></span>
+</li>
+</ul>
+<p class="mt-8 leading-relaxed">
+<span class="zh">本教練手冊的編撰旨在提供全方位的支持，適用於所有 ACA 領域的教練開發工作坊。它代表了划行界專家、培訓師與教練們多年來累積的集體智慧。</span>
+<span class="en">This instructor’s manual was developed to provide the necessary broad-based approach to support all ACA Instructor Development Workshops in all disciplines. It represents the collective knowledge gained by paddlesports instructors and trainers and experts in the paddling field.</span>
+</p>
+<div class="bg-amber-50 border-l-4 border-amber-400 p-6 my-12 text-sm rounded-r-xl">
+<strong class="block mb-2 text-amber-800 font-black uppercase tracking-tighter"><span class="zh">⚠ 重要備註：</span><span class="en">Note:</span></strong>
+<span class="zh text-slate-700 leading-relaxed">戶外活動被視為具有承擔風險的運動。本書不能取代專業的划行、游泳或救生技術指導。儘管我們已盡力確保本指南的準確性，但判定自身能力並採取相應行動，終究是划行者自身的最終責任。</span>
+<span class="en text-slate-500 italic block mt-1">Outdoor activities are assumed-risk sports. This book cannot take the place of appropriate instruction for paddling, swimming, or lifesaving techniques.</span>
+</div>
+</section>

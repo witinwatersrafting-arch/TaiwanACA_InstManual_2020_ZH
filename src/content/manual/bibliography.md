@@ -1,0 +1,31 @@
+---
+title: "參考文獻"
+en_title: "Bibliography"
+description: "ACA 教練手冊所引用的學術資源與參考書籍。"
+en_description: "Academic resources and reference books cited in the ACA Instructor Manual."
+unit_number: 11
+---
+
+<div class="flex items-center gap-4 mb-8">
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">參考文獻</span>
+<span class="en">Bibliography</span>
+</h2>
+</div>
+
+<ul class="list-none pl-0 text-sm text-gray-600 space-y-4 mb-12">
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Canoe Association. (2008). <em>Canoeing</em>. Human Kinetics.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Canoe Association. (2009). <em>Kayaking</em>. Human Kinetics.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Canoe Association. (1996). <em>Introduction to Paddling</em>. Birmingham: Menasha Ridge Press.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Canoe Association. (2004). <em>Essentials of River Kayaking</em>. Birmingham: Menasha Ridge Press.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Canoe Association. (2005). <em>Essentials of Kayak Touring</em>. Birmingham: Menasha Ridge Press.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">American Whitewater. (1998). <em>Safety Code of American Whitewater [Brochure]</em>. Margaretville: American Whitewater.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Gullion, L. (1987). <em>Canoeing and Kayaking Instruction Manual</em>. Birmingham: Menasha Ridge Press.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Human Resource Development Press, Inc. (1988). <em>Train-The-Trainer: Practical Skills That Work</em>. Amherst: Human Resource Development Press, Inc.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Ohio Department of Natural Resources Division of Watercraft. (2000). <em>Ohio Boating Education Course</em>. Unpublished Manuscript.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Recreational Boating & Fishing Foundation. (2003). <em>Best Practices Workbook for Boating, Fishing, and Aquatic Resources Stewardship Education</em>. Unpublished Manuscript.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Snow-Jones, A., Black, G., Dillon, P. S., & Jenkins, D. (2004). <em>Critical Judgment II: Understanding and Preventing Canoe and Kayak Fatalities 1996-2002 [Brochure]</em>. Springfield, VA: American Canoe Association, Inc.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">The American National Red Cross. (1995). <em>American Red Cross Lifeguarding Instructor’s Manual</em>. St. Louis: Mosby Lifeline.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Webre, A. W., & Zeller, J. A. (1990). <em>Canoeing and Kayaking for Persons with Physical Disabilities</em>. Newington: American Canoe Association, Inc.</li>
+<li class="p-4 bg-slate-50 rounded-xl border border-slate-100">Whitley, K. (n.d.). <em>ACA Instruction Manual</em>. Unpublished Manuscript.</li>
+</ul>

@@ -1,0 +1,241 @@
+---
+title: "第二單元：獨木舟教育標準"
+en_title: "Canoe Education Standards"
+description: "探討 ACA 的教育課程最低標準、基本資格標準 (EEC) 以及必備裝備。"
+en_description: "Explore ACA's minimum standards for educational programs, EEC, and essential equipment."
+unit_number: 2
+---
+
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">Unit 2</span>
+<h2 class="text-3xl font-bold serif m-0">
+<span class="zh">獨木舟教育標準</span>
+<span class="en">Canoe Education Standards</span>
+</h2>
+</div>
+
+<p>
+<span class="zh">ACA 相信，提升划行安全最好的方式是透過「自願性的教育課程」。為此，ACA 為休閒划行者制定了一套教育課程的最低標準。這些標準旨在提供划行者在平靜、受保護水域開始划行時所需的最低限度資訊。</span>
+<span class="en">The ACA believes the best way to increase paddling safety is through voluntary education programs. To this end, the ACA has established a set of minimum standards for educational programs for recreational paddlers. These standards are designed to provide the minimum amount of information that a paddler needs to begin paddling in calm, protected waters.</span>
+</p>
+
+<!-- EEC Section -->
+<div class="my-10 p-6 bg-red-50/30 border-l-4 border-red-500 rounded-r-2xl">
+<h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+<svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+<span class="zh">基本資格標準 (EEC)</span>
+<span class="en">Essential Eligibility Criteria (EEC)</span>
+</h4>
+<p class="text-sm text-red-800 leading-relaxed mb-4">
+<span class="zh"><strong>重要性：</strong> EEC 是為了確保所有學員的安全而制定的核心標準。教練必須根據這些準則來評估學員是否具備參與特定課程的生理與心理基礎能力。</span>
+<span class="en"><strong>Importance:</strong> EECs are core standards established to ensure the safety of all participants. Instructors must use these criteria to evaluate whether a student possesses the physical and mental capabilities required for a specific course.</span>
+</p>
+<ul class="text-sm space-y-2 text-red-900/80 m-0">
+<li><span class="zh">1. 能夠獨立或在最少輔助下閉氣並將頭部浮出水面。</span><span class="en">1. Ability to hold breath underwater and keep head above water independently or with minimal assistance.</span></li>
+<li><span class="zh">2. 能夠在發生翻船時獨立脫離船隻。</span><span class="en">2. Ability to independently exit the craft in the event of a capsize.</span></li>
+<li><span class="zh">3. 能夠遵守指令並與教練及團隊有效溝通。</span><span class="en">3. Ability to follow instructions and communicate effectively with the instructor and group.</span></li>
+</ul>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">1. 從基礎出發：必備裝備</span>
+<span class="en">1. Starting from the Basics: Essential Equipment</span>
+</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+<div class="border border-gray-100 p-6 rounded-2xl shadow-sm">
+<h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+<span class="w-2 h-2 bg-[#4796cc] rounded-full"></span> 
+<span class="zh">船隻與槳</span>
+<span class="en">The Boat & Paddle</span>
+</h4>
+<ul class="text-sm text-gray-600 space-y-2">
+<li><span class="zh">根據划行者與活動需求選擇合適的船隻。</span><span class="en">Select the appropriate boat for the paddler and activity.</span></li>
+<li><span class="zh">遵守製造商的使用與維護指南。</span><span class="en">Follow manufacturer’s guidelines for use and maintenance.</span></li>
+<li><span class="zh">嚴禁超載；出發前檢查船身與硬體完整性。</span><span class="en">Never overload; check the hull and hardware integrity before launching.</span></li>
+<li><span class="zh">槳的尺寸應與划行者及活動類型匹配。</span><span class="en">Paddle size should match the paddler and the activity.</span></li>
+</ul>
+</div>
+<div class="border border-gray-100 p-6 rounded-2xl shadow-sm bg-blue-50/30">
+<h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+<span class="w-2 h-2 bg-[#4796cc] rounded-full"></span> 
+<span class="zh">救生衣 (PFD)</span>
+<span class="en">Personal Flotation Devices (PFDs)</span>
+</h4>
+<ul class="text-sm text-gray-600 space-y-2 font-medium">
+<li class="text-[#4796cc]"><span class="zh">船上每個人都必須備有符合體重標準且合格的 PFD。</span><span class="en">Everyone on board must have a properly fitted, USCG approved PFD.</span></li>
+<li class="text-[#4796cc]"><span class="zh">划行時應全程穿著並正確調整鬆緊。</span><span class="en">Wear it! And keep it properly adjusted at all times while on the water.</span></li>
+<li><span class="zh">翻船與落水極其常見，穿著 PFD 能大幅降低受傷或死亡風險。</span><span class="en">Capsizing and falling overboard are extremely common; wearing a PFD significantly reduces the risk of injury or death.</span></li>
+</ul>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4">
+<span class="zh">2. 法律與划行者的責任</span>
+<span class="en">2. Law & Paddler Responsibility</span>
+</h3>
+<p>
+<span class="zh">法律規定因地區而異，教練應提醒學員：</span>
+<span class="en">Legal requirements vary by jurisdiction; instructors should remind students about:</span>
+</p>
+<ul class="space-y-3">
+<li><strong><span class="zh">登記與法規：</span><span class="en">Registration & Regulations:</span></strong> <span class="zh">了解當地水域的船隻登記要求。動力船或帆船的法規與人力船隻大不相同。</span><span class="en">Be aware of vessel registration requirements. Regulations for power or sail vessels differ significantly from human-powered craft.</span></li>
+<li><strong><span class="zh">操作者責任：</span><span class="en">Operator Responsibility:</span></strong> <span class="zh">划行者須對自己的行為負責。在水面上應保持禮貌並尊重他人。</span><span class="en">Paddlers are responsible for their actions. Be courteous and respectful of others on the water.</span></li>
+<li><strong><span class="zh">避讓大型船隻：</span><span class="en">Give Way to Large Vessels:</span></strong> <span class="zh">主動避開大型船隻與航道，大型船隻的機動性受限。</span><span class="en">Proactively avoid large vessels and shipping channels; larger craft have limited maneuverability.</span></li>
+</ul>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">3. 行程規劃與準備</span>
+<span class="en">3. Planning and Preparation</span>
+</h3>
+<p><span class="zh">規劃是安全的核心。一個完整的「浮動計畫 (Float Plan)」應包含：</span><span class="en">Planning is central to safety. A complete "Float Plan" should include:</span></p>
+<div class="bg-gray-100 p-8 rounded-2xl mb-8">
+<ul class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm m-0 list-none pl-0">
+<li class="flex items-start gap-3">
+<span class="flex-shrink-0 mt-1">✅</span>
+<div>
+<strong class="block mb-1"><span class="zh">技能匹配</span><span class="en">Skill Match</span></strong>
+<span class="text-gray-600"><span class="zh">確保技能足以應對目的地。</span><span class="en">Ensure skills are adequate for the destination.</span></span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="flex-shrink-0 mt-1">✅</span>
+<div>
+<strong class="block mb-1"><span class="zh">環境評估</span><span class="en">Environmental Assessment</span></strong>
+<span class="text-gray-600"><span class="zh">檢查天氣、水況與局部危害。</span><span class="en">Check weather, water conditions, and local hazards.</span></span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="flex-shrink-0 mt-1">✅</span>
+<div>
+<strong class="block mb-1"><span class="zh">備案計畫</span><span class="en">Alternative Plans</span></strong>
+<span class="text-gray-600"><span class="zh">擁有備選路線。</span><span class="en">Have alternative routes.</span></span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="flex-shrink-0 mt-1">✅</span>
+<div>
+<strong class="block mb-1"><span class="zh">通報系統</span><span class="en">Notification System</span></strong>
+<span class="text-gray-600"><span class="zh">告知他人預計回報時間與逾時處理方案。</span><span class="en">Tell someone your expected return time and what to do if you are overdue.</span></span>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="space-y-6 mb-12">
+<div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm">
+<h4 class="font-bold text-gray-800 mb-2">
+<span class="zh">準備入水</span>
+<span class="en">Preparing to Launch</span>
+</h4>
+<p class="text-sm text-gray-600">
+<span class="zh">在水邊應確保每個人都有合適裝備，並了解計劃路線。避開航行水道，盡可能靠近岸邊。</span>
+<span class="en">At the water's edge, ensure everyone has proper gear and understands the planned route. Avoid shipping channels and stay as close to the shore as possible.</span>
+</p>
+</div>
+
+<div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm">
+<h4 class="font-bold text-gray-800 mb-2">
+<span class="zh">在水上：登船與行動</span>
+<span class="en">On the Water: Boarding and Movement</span>
+</h4>
+<ul class="text-sm text-gray-600 list-disc pl-5 space-y-1">
+<li><span class="zh">登船與下船時應緩慢移動並保持重心平衡，避免翻船。</span><span class="en">Move slowly and maintain balance during boarding and disembarking to avoid capsizing.</span></li>
+<li><span class="zh">離岸後避免隨意移動位置，若需移動應遵守「一次一人」與「低重心」原則。</span><span class="en">Avoid unnecessary movement once offshore; follow "one person at a time" and "low center of gravity" principles.</span></li>
+<li><span class="zh">保持小組行動（建議 3 人以上），絕對禁止酒後划行。</span><span class="en">Maintain group travel (3+ recommended) and strictly prohibit paddling under the influence.</span></li>
+</ul>
+</div>
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mt-10 mb-4 font-black">
+<span class="zh">4. ACA 教練能力與證照體系</span>
+<span class="en">4. ACA Instructor Competency & Certification</span>
+</h3>
+
+<div class="bg-blue-50/50 p-8 rounded-2xl mb-8 border border-blue-100">
+<h4 class="font-bold text-blue-900 mb-4">
+<span class="zh">教練能力要求</span>
+<span class="en">Instructor Competency Requirements</span>
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+<div>
+<h5 class="font-bold mb-2 text-blue-700 underline decoration-blue-200">
+<span class="zh">安全意識與風險管理</span>
+<span class="en">Safety & Risk Management</span>
+</h5>
+<p class="text-blue-800/80">
+<span class="zh">教練必須能識別風險、預測危險並具備卓越的救援技能。必須持有認可機構的 CPR 與急救證書。</span>
+<span class="en">Instructors must identify risks, anticipate hazards, and possess superior rescue skills. Must hold recognized CPR and First Aid certifications.</span>
+</p>
+</div>
+<div>
+<h5 class="font-bold mb-2 text-blue-700 underline decoration-blue-200">
+<span class="zh">技術與教學能力</span>
+<span class="en">Technical & Teaching Ability</span>
+</h5>
+<p class="text-blue-800/80">
+<span class="zh">必須能示範優雅且有效的划行技術，並能運用多元教學風格（視覺、聽覺、實踐）來引導學員。</span>
+<span class="en">Must demonstrate graceful, effective technique and use diverse teaching styles (visual, auditory, kinesthetic) to guide students.</span>
+</p>
+</div>
+</div>
+</div>
+
+<p class="text-sm text-gray-600 mb-6"><span class="zh">ACA 提供不同等級的課程以滿足不同需求：</span><span class="en">The ACA provides various course levels to meet different needs:</span></p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 gap-6">
+<!-- Intro Courses -->
+<div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-blue-300 transition-colors">
+<h4 class="text-blue-600 font-bold mb-2">
+<span class="zh">入門課程</span>
+<span class="en text-xs block opacity-60">Intro Courses</span>
+</h4>
+<div class="text-sm text-gray-600 leading-relaxed">
+<p class="mb-2"><strong>Introduction (1/4/8 hrs)</strong></p>
+<p class="m-0"><span class="zh">在受保護的平靜水域練習基礎技巧，強調安全教育。</span><span class="en">Practice basic skills in protected calm water, emphasizing safety education.</span></p>
+</div>
+</div>
+
+<!-- Essential Courses -->
+<div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-blue-300 transition-colors">
+<h4 class="text-blue-600 font-bold mb-2">
+<span class="zh">基礎課程</span>
+<span class="en text-xs block opacity-60">Essential Courses</span>
+</h4>
+<div class="text-sm text-gray-600 leading-relaxed">
+<p class="mb-2"><strong>Essentials (1 day)</strong></p>
+<p class="m-0"><span class="zh">針對特定領域，讓初學者能在平水或簡單流速水域安全划行。</span><span class="en">Discipline specific, allowing beginners to paddle safely in flat or slow-moving water.</span></p>
+</div>
+</div>
+
+<!-- Advanced Courses -->
+<div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-blue-300 transition-colors">
+<h4 class="text-blue-600 font-bold mb-2">
+<span class="zh">進階課程</span>
+<span class="en text-xs block opacity-60">Advanced Courses</span>
+</h4>
+<div class="text-sm text-gray-600 leading-relaxed">
+<p class="mb-2"><strong>Basic through Advanced</strong></p>
+<p class="m-0"><span class="zh">掌握特定領域的精妙之處，包括在高難度水況下的操控與救援。</span><span class="en">Help enthusiasts master the nuances of a specific discipline, including maneuvering and safety rescues.</span></p>
+</div>
+</div>
+</div>
+
+<div class="mt-12 p-8 bg-gray-900 text-white rounded-3xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-4">
+<span class="zh">有效項目的要素</span>
+<span class="en">Elements of Effective Programs</span>
+</h4>
+<p class="text-sm opacity-80 mb-6">
+<span class="zh">一個成功的划槳運動項目不僅在於教學，還包含完善的遴選與推廣：</span>
+<span class="en">A successful paddlesport program is about more than just teaching; it involves sound selection and promotion:</span>
+</p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm opacity-90 m-0 list-none pl-0">
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span class="zh">聘任有經驗且認證的教練</span><span class="en">Hire experienced, certified instructors</span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span class="zh">建立清晰的訓練目標</span><span class="en">Establish clear training goals</span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span class="zh">提供多層次的培訓機會</span><span class="en">Provide multi-level training opportunities</span></li>
+<li class="flex items-center gap-2"><span class="text-blue-400">●</span> <span class="zh">積極利用創意方式推廣安全</span><span class="en">Use creative ways to promote safety</span></li>
+</ul>
+</div>
+</div>

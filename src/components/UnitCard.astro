@@ -1,0 +1,39 @@
+---
+interface Props {
+  slug: string;
+  id: string;
+  title: string;
+  en_title?: string;
+  description?: string;
+  en_description?: string;
+  unitNumber?: number;
+}
+
+const { slug, id, title, en_title, description, en_description, unitNumber } = Astro.props;
+---
+
+<a 
+  href={`/manual/${slug}`}
+  class="group relative p-8 bg-white border border-slate-200 rounded-2xl hover:border-blue-400 hover:shadow-xl transition-all duration-300"
+>
+  <div class="absolute top-8 right-8 text-4xl font-black text-slate-50 group-hover:text-blue-50 transition-colors">
+    {unitNumber !== undefined ? unitNumber.toString().padStart(2, '0') : (id.match(/\d+/)?.[0] ?? '00')}
+  </div>
+  <div class="relative z-10">
+    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+      <span class="zh">{title}</span>
+      {en_title && <span class="en text-sm font-normal text-slate-400 block mt-1">{en_title}</span>}
+    </h3>
+    <div class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+      <span class="zh">{description || "探索本單元的詳細教學內容與核心指導原則。"}</span>
+      {en_description && <span class="en text-sm italic">{en_description}</span>}
+    </div>
+    <div class="flex items-center text-blue-600 font-semibold text-sm">
+      <span class="zh">閱讀全文</span>
+      <span class="en">Read More</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+</a>
