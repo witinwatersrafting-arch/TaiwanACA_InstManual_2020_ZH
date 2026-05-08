@@ -1,0 +1,63 @@
+---
+import Icon from './LucideIcon.astro';
+
+interface Props {
+  type?: 'info' | 'success' | 'warning' | 'danger' | 'note';
+  title?: string;
+  enTitle?: string;
+}
+
+const { type = 'info', title, enTitle } = Astro.props;
+
+const styles = {
+  info: {
+    container: 'bg-blue-50 border-blue-200 text-blue-900',
+    icon: 'Info',
+    iconColor: 'text-blue-500',
+    titleColor: 'text-blue-900'
+  },
+  success: {
+    container: 'bg-green-50 border-green-200 text-green-900',
+    icon: 'CheckCircle',
+    iconColor: 'text-green-500',
+    titleColor: 'text-green-900'
+  },
+  warning: {
+    container: 'bg-amber-50 border-amber-200 text-amber-900',
+    icon: 'TriangleAlert',
+    iconColor: 'text-amber-500',
+    titleColor: 'text-amber-900'
+  },
+  danger: {
+    container: 'bg-red-50 border-red-200 text-red-900',
+    icon: 'AlertOctagon',
+    iconColor: 'text-red-500',
+    titleColor: 'text-red-900'
+  },
+  note: {
+    container: 'bg-slate-50 border-slate-200 text-slate-900',
+    icon: 'StickyNote',
+    iconColor: 'text-slate-400',
+    titleColor: 'text-slate-700'
+  }
+};
+
+const currentStyle = styles[type];
+---
+
+<div class={`p-6 my-8 border rounded-2xl shadow-sm ${currentStyle.container}`}>
+  {(title || enTitle) && (
+    <div class="flex items-center gap-2 mb-3">
+      <div class={currentStyle.iconColor}>
+        <Icon name={currentStyle.icon} size={20} />
+      </div>
+      <h4 class={`text-base font-bold m-0 ${currentStyle.titleColor}`}>
+        {title && <span class="zh">{title}</span>}
+        {enTitle && <span class="en block md:inline md:ml-2 text-sm opacity-60 font-normal">{enTitle}</span>}
+      </h4>
+    </div>
+  )}
+  <div class="prose-sm leading-relaxed opacity-90">
+    <slot />
+  </div>
+</div>

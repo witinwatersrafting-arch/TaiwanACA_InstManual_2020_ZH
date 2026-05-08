@@ -1,26 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ManualUnit from '../components/ManualUnit.astro';
-import Copyright from '../components/Copyright.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import ManualUnit from "../components/ManualUnit.astro";
+import Copyright from "../components/Copyright.astro";
+import { getCollection } from "astro:content";
 
-const manualUnits = await getCollection('manual');
+const manualUnits = await getCollection("manual");
 // Sort units by unit_number
 manualUnits.sort((a, b) => {
-	const orderA = a.data.unit_number ?? 999;
-	const orderB = b.data.unit_number ?? 999;
-	return orderA - orderB;
+    const orderA = a.data.unit_number ?? 999;
+    const orderB = b.data.unit_number ?? 999;
+    return orderA - orderB;
 });
 ---
 
 <Layout title="手冊全集">
     <div class="max-w-4xl mx-auto py-20 px-5 md:px-8">
         <div class="space-y-32">
-            {manualUnits.map((unit) => (
-                <section id={unit.id} class="scroll-mt-24">
-                    <ManualUnit slug={unit.id} />
-                </section>
-            ))}
+            {
+                manualUnits.map((unit) => (
+                    <section id={unit.id} class="scroll-mt-24">
+                        <ManualUnit slug={unit.id} />
+                    </section>
+                ))
+            }
         </div>
 
         <Copyright />
