@@ -2,6 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import Icon from './LucideIcon.astro';
 import Callout from './Callout.astro';
+import ExerciseIllustration from './ExerciseIllustration.astro';
 
 interface Props {
   slug: string;
@@ -34,6 +35,6 @@ const { Content } = await render(entry);
   )}
 
   <article class="prose prose-slate max-w-none prose-headings:font-black prose-p:leading-relaxed prose-li:my-1">
-    <Content components={{ Icon, Callout }} />
+    <Content components={{ Icon, Callout, ExerciseIllustration }} />
   </article>
 </div>

@@ -1,0 +1,155 @@
+---
+interface Props {
+  action: 'triceps' | 'shoulder' | 'chest' | 'lunge';
+  class?: string;
+}
+
+const { action, class: className } = Astro.props;
+
+// SVG Path definitions for minimalist exercises
+const paths: Record<string, string> = {
+  triceps: `
+    <circle cx="50" cy="18" r="7" />
+    <path d="M35 30 L65 30" /> <!-- 肩線 -->
+    <path d="M50 30 L50 55" /> <!-- 軀幹 -->
+    <!-- 被拉的手臂：手肘向上，手掌在背後 -->
+    <path class="animate-triceps-arm" d="M65 30 L65 15 L50 15 L50 25" />
+    <!-- 拉人的手臂：橫跨頭後方抓住對側手肘 -->
+    <path class="animate-triceps-pull" d="M35 30 L35 10 L65 10" />
+    <path d="M50 55 L40 85 M50 55 L60 85" />
+  `,
+  shoulder: `
+    <circle cx="50" cy="18" r="7" />
+    <path d="M35 30 L65 30" /> <!-- 肩線 -->
+    <path d="M50 30 L50 60" /> <!-- 軀幹 -->
+    <!-- 被伸展的手臂：從右肩橫跨到左側 -->
+    <path class="animate-shoulder-across" d="M65 30 L20 30" />
+    <!-- 拉人的手臂：從左肩伸出並向上勾住對側手臂 -->
+    <path class="animate-shoulder-hold" d="M35 30 L35 45 L25 45 L25 22" />
+    <path d="M50 60 L40 90 M50 60 L60 90" />
+  `,
+  chest: `
+    <g class="animate-chest-rotate">
+      <circle cx="50" cy="18" r="7" />
+      <path d="M35 30 L65 30" />
+      <path d="M50 30 L50 60" />
+      <!-- 固定在牆上的手臂 -->
+      <path d="M65 30 L90 30" />
+      <!-- 另一隻手自然下垂 -->
+      <path d="M35 30 L25 50" />
+      <path d="M50 60 L40 90 M50 60 L60 90" />
+    </g>
+    <!-- 牆壁/支撐物示意線 -->
+    <path d="M90 15 L90 45" stroke-dasharray="2 2" class="opacity-30" />
+  `,
+  lunge: `
+    <g class="animate-lunge-pulse">
+      <circle cx="50" cy="22" r="7" />
+      <path d="M35 35 L65 35" />
+      <path d="M50 35 L50 55" />
+      <!-- 彎曲的腿 (重心腳) -->
+      <path d="M50 55 L75 55 L75 85" />
+      <!-- 伸直的腿 (伸展腳) -->
+      <path d="M50 55 L20 85" />
+      <!-- 叉腰或平舉平衡 -->
+      <path d="M35 35 L20 45 M65 35 L80 45" />
+    </g>
+  `,
+  quad: `
+    <g class="animate-quad-pull">
+      <circle cx="50" cy="18" r="7" />
+      <path d="M50 30 L50 55" />
+      <path d="M50 55 L40 85" /> <!-- Standing leg -->
+      <path d="M50 55 L65 55 L65 35" /> <!-- Bent leg -->
+      <path d="M50 30 L70 30 L70 35" /> <!-- Arm reaching back -->
+    </g>
+  `,
+  downward: `
+    <g class="animate-downward-push">
+      <path d="M15 85 L35 45 L60 45 L85 85" /> <!-- Hands to Feet arc -->
+      <path d="M35 45 L35 35" /> <!-- Neck/Head angle -->
+      <circle cx="35" cy="30" r="6" />
+    </g>
+  `,
+  fold: `
+    <g class="animate-fold-pulse">
+      <path d="M50 85 L50 55" /> <!-- Legs -->
+      <path d="M50 55 L80 55 L80 45" /> <!-- Torso folded -->
+      <circle cx="85" cy="45" r="7" />
+      <path d="M80 55 L80 80" /> <!-- Arms reaching down -->
+    </g>
+  `,
+  wrist: `
+    <g class="animate-wrist-pull">
+      <path d="M10 40 L50 40" /> <!-- Arm -->
+      <path d="M50 40 L50 20" /> <!-- Hand up -->
+      <path d="M45 15 L65 15 L65 40" /> <!-- Pulling hand -->
+    </g>
+  `,
+  side: `
+    <g class="animate-side-sway">
+      <circle cx="50" cy="18" r="7" />
+      <path d="M50 30 L50 60" />
+      <path d="M50 60 L40 90 M50 60 L60 90" />
+      <path d="M50 30 Q70 10 50 -5" /> <!-- Arms arched overhead -->
+    </g>
+  `
+};
+---
+
+<svg 
+  viewBox="0 0 100 100" 
+  class:list={["fill-none stroke-current stroke-[3] rounded-sm", className]}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <Fragment set:html={paths[action]} />
+</svg>
+
+<style is:global>
+  @keyframes triceps-move {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+  @keyframes shoulder-squeeze {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+  @keyframes chest-sway {
+    0%, 100% { transform: rotate(0deg); transform-origin: 90px 30px; }
+    50% { transform: rotate(-5deg); transform-origin: 90px 30px; }
+  }
+  @keyframes lunge-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+  @keyframes quad-stretch {
+    0%, 100% { transform: scaleX(1); transform-origin: 50px 55px; }
+    50% { transform: scaleX(0.95); transform-origin: 50px 55px; }
+  }
+  @keyframes downward-stretch {
+    0%, 100% { transform: scaleY(1); transform-origin: center bottom; }
+    50% { transform: scaleY(1.05); transform-origin: center bottom; }
+  }
+  @keyframes fold-stretch {
+    0%, 100% { transform: rotate(0deg); transform-origin: 50px 55px; }
+    50% { transform: rotate(5deg); transform-origin: 50px 55px; }
+  }
+  @keyframes wrist-stretch {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+  }
+  @keyframes side-stretch {
+    0%, 100% { transform: rotate(0deg); transform-origin: 50px 60px; }
+    50% { transform: rotate(10deg); transform-origin: 50px 60px; }
+  }
+
+  .animate-triceps-arm, .animate-triceps-pull { animation: triceps-move 3s ease-in-out infinite; }
+  .animate-shoulder-across, .animate-shoulder-hold { animation: shoulder-squeeze 3s ease-in-out infinite; }
+  .animate-chest-rotate { animation: chest-sway 4s ease-in-out infinite; }
+  .animate-lunge-pulse { animation: lunge-down 3s ease-in-out infinite; }
+  .animate-quad-pull { animation: quad-stretch 3s ease-in-out infinite; }
+  .animate-downward-push { animation: downward-stretch 4s ease-in-out infinite; }
+  .animate-fold-pulse { animation: fold-stretch 3s ease-in-out infinite; }
+  .animate-wrist-pull { animation: wrist-stretch 2s ease-in-out infinite; }
+  .animate-side-sway { animation: side-stretch 4s ease-in-out infinite; }
+</style>
