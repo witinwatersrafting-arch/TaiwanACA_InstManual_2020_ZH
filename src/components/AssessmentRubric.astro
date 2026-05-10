@@ -1,0 +1,86 @@
+---
+interface RubricRow {
+  name: string;
+  levels: string[]; // [L2, L3, L4, L5]
+}
+
+interface Props {
+  title: string;
+  description: string;
+  rows: RubricRow[];
+}
+
+const { title, description, rows } = Astro.props;
+---
+
+<section class="mb-16 scroll-mt-24" id={title.toLowerCase().replace(/\s+/g, '-')}>
+  <div class="border-l-4 border-[#4796cc] pl-6 mb-8">
+    <h3 class="text-2xl md:text-3xl font-black serif mb-4 text-slate-800">{title}</h3>
+    <p class="text-slate-600 leading-relaxed max-w-3xl">{description}</p>
+  </div>
+
+  <div class="rubric-container overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <!-- Desktop Header -->
+    <div class="hidden md:grid grid-cols-12 bg-slate-50 border-b border-slate-200 font-bold text-sm tracking-wider text-slate-500 uppercase">
+      <div class="col-span-3 p-4 border-r border-slate-200">項目 / 技能</div>
+      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-50/30">Level 2</div>
+      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-50/50">Level 3</div>
+      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-100/30">Level 4</div>
+      <div class="col-span-3 p-4 bg-blue-100/50">Level 5</div>
+    </div>
+
+    <!-- Rows -->
+    <div class="divide-y divide-slate-100">
+      {rows.map((row) => (
+        <div class="group">
+          <!-- Desktop Row -->
+          <div class="hidden md:grid grid-cols-12 hover:bg-slate-50 transition-colors">
+            <div class="col-span-3 p-4 border-r border-slate-100 font-bold text-slate-800 flex items-center">
+              {row.name}
+            </div>
+            {row.levels.map((text, i) => (
+              <div class={`col-span-${i === 3 ? '3' : '2'} p-4 text-sm leading-relaxed text-slate-600 border-r border-slate-100 last:border-r-0 ${i >= 1 ? 'bg-blue-50/10' : ''}`}>
+                {text || <span class="text-slate-300 italic">不適用</span>}
+              </div>
+            ))}
+          </div>
+
+          <!-- Mobile Card -->
+          <div class="md:hidden p-6 space-y-4">
+            <h4 class="text-lg font-black text-[#4796cc] border-b pb-2 mb-4">{row.name}</h4>
+            <div class="grid gap-4">
+              {row.levels.map((text, i) => (
+                text && (
+                  <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded text-white ${
+                        i === 0 ? 'bg-slate-400' : 
+                        i === 1 ? 'bg-[#4796cc]' : 
+                        i === 2 ? 'bg-[#357abd]' : 'bg-[#1e4b8a]'
+                      }`}>
+                        Level {i + 2}
+                      </span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">{text}</p>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rubric-container {
+    /* Responsive Defense */
+    word-break: break-word;
+  }
+  
+  /* Smooth transitions for hover effects */
+  .group:hover {
+    z-index: 10;
+  }
+</style>

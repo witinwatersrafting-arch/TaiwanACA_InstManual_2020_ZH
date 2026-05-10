@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AssessmentRubric from "../components/AssessmentRubric.astro";
+import Copyright from "../components/Copyright.astro";
+
+const technicalKnowledgeRows = [
+  { name: "美國激流安全規範", levels: ["理解並掌握 AW 安全規範之概念", "同等級 2 描述", "同等級 2 描述", "同等級 2 描述"] },
+  { name: "法規條例", levels: ["理解其經常造訪水域之相關法規與管理系統", "同等級 2 描述", "同等級 2 描述", "同等級 2 描述"] },
+  { name: "行程規劃", levels: ["具備在各種水文條件下規劃行程之能力", "能在 I 級水域規劃並執行三英里之單日行程", "能在 I/II 級水域規劃並執行五英里之單日行程", "能在 II/III 級水域規劃並執行五英里之單日行程\n(Level 5 另見下方)"] },
+  { name: "行程規劃 (L5 補充)", levels: ["", "", "", "能於 III/IV 級水域規劃並執行五英里之單日行程"] },
+  { name: "個人技能評估", levels: ["划船者具備精確的個人技能評核能力，能冷靜且受控地於 I 級水域導航環境特徵", "能冷靜且受控地於 I/II 級水域導航環境特徵", "能冷靜且受控地於 II/III 級水域導航環境特徵", "能冷靜且受控地於 III/IV 級水域導航環境特徵"] },
+  { name: "團隊意識與凝聚力", levels: ["能覺察他人並在 I 級水域維持團隊凝聚力", "能在 I/II 級水域維持團隊凝聚力", "能在 II/III 級水域維持團隊凝聚力", "能在 III/IV 級水域維持團隊凝聚力"] },
+  { name: "環境議題 (LNT)", levels: ["展現對 LNT 原則之理解與應用", "同等級 2 描述", "同等級 2 描述", "同等級 2 描述"] },
+  { name: "冷熱危害預防", levels: ["理解風險並能在河流環境中進行自我管理", "同等級 2 描述", "同等級 2 描述", "同等級 2 描述"] },
+  { name: "裝備知識", levels: ["展現對 I 級水域所需獨木舟裝備之實務知識", "展現對 I/II 級水域所需裝備之實務知識", "展現對 II/III 級水域所需裝備之實務知識", "展現對 III/IV 級水域所需裝備之實務知識"] },
+  { name: "車輛載運固定", levels: ["能示範多種將獨木舟安全固定於車輛或拖車之方法", "同等級 2 描述", "同等級 2 描述", "同等級 2 描述"] },
+];
+
+const flatWaterRows = [
+  { name: "搬運與抬放", levels: ["於平坦地面使用正確搬運技術以降低受傷風險", "於不平整地面使用正確搬運技術", "於具挑戰性之地形使用正確搬運技術", "於複雜且具挑戰性之地形使用正確搬運技術"] },
+  { name: "下水與上岸", levels: ["能有效地由低矮碼頭或淺岸進出船隻", "能有效地由陡峭碼頭或岸邊進出船隻", "能由陡峭岸邊進出，並於 II/III 級水域示範坐艙式下水 (Seal launch)", "能由陡峭岸邊進出，並於 III/IV 級水域示範坐艙式下水"] },
+  { name: "脫艇 (Wet Exit)", levels: ["展現受控且冷靜之脫艇，含噴裙脫離（若使用噴裙船，須示範兩次）", "同等級 2 描述", "展現受控且冷靜之脫艇，含噴裙脫離（須示範兩次）", "同等級 4 描述"] },
+  { name: "前進划行", levels: ["利用良好姿勢、核心參與及安靜邊緣移動船隻", "於 20 碼內使船隻維持相對直線移動", "於 30 碼內使船隻維持直線移動", "於 50 碼至 100 碼內使船隻維持直線移動"] },
+  { name: "停止", levels: ["於前進或後退時停止船隻，同時維持方向控制", "同等級 2 描述", "於前進或後退時停止船隻，同時維持方向控制（5 槳以內）", "於前進或後退時停止船隻，同時維持方向控制（3 槳以內）"] },
+  { name: "後退划行", levels: ["於 10 碼內使船隻維持相對直線後退", "於 15 碼內以良好姿勢維持相對直線後退", "於 20 碼內以良好姿勢及核心參與維持直線後退", "於 25 碼內以良好姿勢、核心參與及安靜邊緣維持直線後退"] },
+  { name: "原地旋轉 360°", levels: ["利用前後掃槳原地旋轉船隻", "利用前後掃槳旋轉，並維持良好姿勢與核心參與", "維持良好姿勢與核心。能組合槳法執行「連續掃槳」(Pinwheels)", "維持良好姿勢、核心與安靜邊緣。能組合槳法執行「連續掃槳」"] },
+  { name: "行進轉向", levels: ["具備動量時，能有效運用掃槳改變角度", "運用掃槳改變角度，並嘗試配合壓邊", "有效運用掃槳與壓邊執行刻劃轉向 (Carve turns)", "有效運用邊緣轉換，組合掃槳與橫移槳執行刻劃轉向"] },
+  { name: "動力圓周 (Carving)", levels: ["繞固定點刻劃圓周，利用多種槳法維持動量", "刻劃圓周並利用壓邊輔助", "刻劃圓周，槳法主要位於轉向內側，利用壓邊輔助", "槳法主要在內側，利用壓邊（挑戰在回收槳葉不離水之情況下執行）"] },
+  { name: "8 字型划行", levels: ["利用視覺聚焦與多種槳法划出 8 字型", "划出 8 字型並維持動量、良好姿勢與核心參與", "划出 8 字型並維持動量、姿勢、核心及邊緣轉換", "划出 8 字型並維持動量與邊緣轉換，能靈活改變 8 字大小"] },
+  { name: "側橫移 (Side Draws)", levels: ["利用側橫移移動船隻 10 英尺（兩側）", "利用側橫移移動 15 英尺，嘗試羽化與撥水橫移 (Sculling draws)", "利用側橫移移動 20 英尺，掌握羽化與撥水橫移", "利用側橫移移動 25 英尺，精確運用羽化與撥水橫移"] },
+  { name: "後橫移 (Stern Draws)", levels: ["嘗試利用後橫移控制偏航", "運用後橫移精確控制偏航", "運用後橫移控制偏航並維持動量", "有效組合前後橫移執行多種複雜操縱"] },
+  { name: "前橫移 (Bow Draws)", levels: ["", "嘗試在行進轉向時配合前橫移", "行進轉向時有效運用前橫移", "有效組合前後橫移執行多種複雜操縱"] },
+  { name: "舵槳 (Ruddering)", levels: ["行進間利用後舵槳控制方向角度", "行進間利用後舵槳控制，嘗試在後退時運用前舵槳", "前進與後退時皆能靈活運用後、前舵槳控制角度", "同等級 4 描述"] },
+  { name: "側滑與側移 (Duffeks)", levels: ["", "靜水執行 Duffek，並於 I/II 級水域運用", "靜水執行 Duffek 與側滑，並於 II/III 級水域運用", "靜水執行 Duffek 與側滑，並於 III/IV 級水域運用"] },
+  { name: "支撐 (Bracing)", levels: ["運用低支撐 (Low brace)（兩側）", "運用低支撐，嘗試在受傷風險最小化下運用高支撐", "運用高、低支撐並最小化風險，嘗試動態支撐", "熟練運用高、低支撐，掌握動態支撐技巧"] },
+];
+
+const movingWaterRows = [
+  { name: "動量管理", levels: ["於 I 級水域建立並管理動量", "於 I/II 級水域建立並管理動量", "於 II/III 級水域建立並管理動量", "於 III/IV 級水域建立並管理動量"] },
+  { name: "槳法綜合運用", levels: ["於 I 級水域運用推進與轉向槳法", "於 I/II 級水域綜合運用推進、轉向與橫移槳法", "於 II/III 級水域綜合運用多種槳法", "於 III/IV 級水域綜合運用多種槳法"] },
+  { name: "進出迴流 (Eddy Turns)", levels: ["展現進出迴流之控制力與姿態 | 於 I 級水域辨識並進出迴流", "於 I/II 級水域辨識並進出迴流", "於 II/III 級水域辨識並進出迴流，展現多樣角度、壓邊、槳法與動量組合", "於 III/IV 級水域辨識並進出迴流，熟練運用各種角度、壓邊、槳法與動量"] },
+  { name: "橫渡 (Ferrying)", levels: ["於 I 級水域執行前進橫渡", "於 I/II 級水域執行前進橫渡；I 級水域執行後退橫渡 (Back ferry)", "III 級水域前進橫渡並高效利用水環境特徵；II 級水域執行後退橫渡", "IV 級水域前進橫渡並利用動態特徵；III 級水域執行後退橫渡"] },
+  { name: "C 型轉向 (C-Turns)", levels: ["", "於 I/II 級水域示範出迴流並轉回同一個迴流", "於 II/III 級水域出迴流並轉回，運用壓邊與槳法維持動量", "於 III/IV 級水域出迴流並轉回，展現精確角度與動量控制"] },
+  { name: "S 型轉向 (S-Turns)", levels: ["", "於 I/II 級水域示範出迴流並切換至下游對向之迴流", "於 II/III 級水域出迴流並切換，運用壓邊維持動量", "於 III/IV 級水域出迴流並切換，展現精確角度與動量控制"] },
+  { name: "衝浪 (Surfing)", levels: ["", "於 I/II 級水域能進出並維持在 1 呎以下之波浪衝浪", "於 II/III 級水域維持在 1-2 呎之波浪衝浪", "於 III/IV 級水域維持在 1-3 呎之波浪或洞 (Holes) 中衝浪"] },
+  { name: "流水中翻滾 (Roll)", levels: ["", "白水船：於水流中執行安全翻滾。平台舟：於水流中重新登船", "於水流中從「非預備姿勢」執行安全翻滾", "掌握多種技術 (C2C, Sweep, Hybrid, Hand Rolls 等)"] },
+];
+
+const riskManagementRows = [
+  { name: "救援原則", levels: ["理解原則與風險，並應用於 I 級水域", "應用於 I/II 級水域", "應用於 II/III 級水域", "應用於 III/IV 級水域"] },
+  { name: "救援優先順序", levels: ["理解順序並應用於 I 級水域", "應用於 I/II 級水域", "應用於 II/III 級水域", "應用於 III/IV 級水域"] },
+  { name: "救援責任", levels: ["理解責任並應用於 I 級水域", "應用於 I/II 級水域", "應用於 II/III 級水域", "應用於 III/IV 級水域"] },
+  { name: "客觀危害辨識與管理", levels: ["辨識並管理 I 級危害（石頭、倒木、人工建物等）", "管理 I/II 級危害", "管理 II/III 級危害（含過濾器、水下洞穴、洞等）", "管理 III/IV 級危害"] },
+  { name: "主觀危害辨識與管理", levels: ["於 I 級水域辨識危害、評估後果並降低風險", "於 I/II 級水域降低風險", "於 II/III 級水域降低風險", "於 III/IV 級水域降低風險"] },
+  { name: "激流偵察與決策", levels: ["具備偵察激流並做出「跑河/過陸」決策之能力 (I 級)", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "避免腳部卡住之策略", levels: ["理解風險並示範防禦式游泳技術 (I 級)", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "攻擊式游泳與轉換", levels: ["理解並示範攻擊式游泳與轉換 (I 級)", "包含波浪、洞與落差之應對 (I/II 級)", "同等級 3 描述 (II/III 級)", "同等級 3 描述 (III/IV 級)"] },
+  { name: "自我救援", levels: ["成功完成船隻與裝備之自我救援 (I 級)", "成功完成 (I/II 級)", "成功完成 (II/III 級) ", "成功完成 (III/IV 級)"] },
+  { name: "船基救援 (Contact/T-rescue)", levels: ["理解風險，能執行輔助式獨木舟救援 (I 級)", "執行輔助救援 (I/II 級)", "執行輔助救援 (II/III 級)", "執行輔助救援 (III/IV 級)"] },
+  { name: "受困者協助 (口頭/拖帶)", levels: ["理解風險，能提供受困者協助 (I 級)", "提供協助 (I/II 級)", "提供協助 (II/III 級)", "提供協助 (III/IV 級)"] },
+  { name: "獨木舟回收 (頂推/拖帶)", levels: ["理解風險，能執行船隻回收 (I 級)", "執行回收 (I/II 級)", "執行回收 (II/III 級)", "執行回收 (III/IV 級)"] },
+  { name: "船槳回收 (Stacking/Javelin)", levels: ["執行船槳回收技術 (I 級)", "執行技術 (I/II 級)", "執行技術 (II/III 級)", "執行技術 (III/IV 級)"] },
+  { name: "排水技術", levels: ["執行各種排水技術 (I 級)", "執行技術 (I/II 級)", "執行技術 (II/III 級)", "執行技術 (III/IV 級)"] },
+  { name: "重新登船技術", levels: ["理解風險並執行重新登船 (I 級)", "執行技術 (I/II 級)", "執行技術 (II/III 級)", "執行技術 (III/IV 級)"] },
+  { name: "意識不清舟友救援", levels: ["確保呼吸道保護並拖帶至安全處 (I 級)", "執行救援 (I/II 級)", "執行救援 (II/III 級)", "執行救援 (III/IV 級)"] },
+  { name: "拋繩包部署", levels: ["30 呎距離投過 4 呎目標", "投過 4 呎移動目標 (I/II 級)", "投過 4 呎移動目標 (II/III 級)", "投過 4 呎移動目標 (III/IV 級)"] },
+  { name: "收繩與二次投擲", levels: ["30 秒內完成二次投擲準備", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "接繩技術 (受困者)", levels: ["執行接繩技術 (I 級)", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "確保技術 (協助投擲者)", levels: ["為投擲救援者提供確保協助 (I 級)", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "向量拉力協助上岸", levels: ["執行向量拉力協助受困者上岸 (I 級)", "同等級 2 描述 (I/II 級)", "同等級 2 描述 (II/III 級)", "同等級 2 描述 (III/IV 級)"] },
+  { name: "處理卡住 (Entrapments)", levels: ["", "", "建立並管理穩定線 (Stabilization line)", "同等級 4 描述 (III/IV 級)"] },
+  { name: "受困船隻救援 (Pinned Kayak)", levels: ["", "", "執行強力拉拽救援 (Strong arm rescue) 與向量拉力", "同等級 4 描述 (III/IV 級)"] },
+  { name: "涉水技術", levels: ["執行有效之涉水技術 (I 級)", "執行技術 (I/II 級)", "執行技術 (II/III 級)", "執行技術 (III/IV 級)"] },
+];
+---
+
+<Layout title="ACA 溪流獨木舟指導員技能評估量表">
+  <div class="bg-slate-50 min-h-screen">
+    <div class="max-w-6xl mx-auto py-12 px-6 md:py-20 lg:px-8">
+      
+      <!-- Hero Section -->
+      <header class="mb-16 text-center">
+        <div class="inline-block bg-[#4796cc] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+          Whitewater Instructor Assessment
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black serif text-slate-900 mb-6 leading-tight">
+          ACA 溪流獨木舟指導員<br/><span class="text-[#4796cc]">技能評估指標量表</span>
+        </h1>
+        <div class="max-w-3xl mx-auto space-y-6 text-left bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+          <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+             ACA 指導員技能評估程序與指標 (Rubric)
+          </h2>
+          <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+            本量表是專門為 <strong>ACA 溪流獨木舟指導員 (Whitewater Kayak Instructor)</strong> 認證設計的技術標準。評估員將根據此量表，針對各級別 (Level 2-5) 候選人的技術知識、划行槳法、流水操縱以及風險管理能力進行全方位的專業評核。
+          </p>
+          <ul class="space-y-3 text-slate-600 text-sm md:text-base leading-relaxed list-disc pl-5">
+            <li><strong>認證資格</strong>：候選人必須由取得認證的 ACA 教練導師 (IT) 或資深導師 (ITE) 進行評估。</li>
+            <li><strong>場地標準</strong>：評估場地必須與申請之等級相符（如 L4 應於 II/III 級水域進行）。</li>
+            <li><strong>標竿指標</strong>：候選人需在各項技能中展現出該等級所要求的「角色楷模 (Role Model)」示範水準。</li>
+          </ul>
+          <div class="pt-4 border-t border-slate-100 italic text-sm text-slate-400">
+            教練認證考試 (ICE) 亦適用此量表，教練候選人應具備示範與教學之深度能力。
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation (Quick Links) -->
+      <nav class="sticky top-20 z-30 mb-12 flex justify-center gap-2 md:gap-4 overflow-x-auto pb-4 px-2 no-scrollbar">
+        {["技術知識", "靜水槳法", "動態水域", "風險管理"].map((name, i) => (
+          <a href={`#${name === '動態水域' ? '動態水域技術' : name}`} 
+             class="whitespace-nowrap px-4 py-2 bg-white rounded-full border border-slate-200 text-sm font-bold text-slate-500 hover:border-[#4796cc] hover:text-[#4796cc] shadow-sm transition-all">
+            {name}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Rubric Sections -->
+      <AssessmentRubric 
+        title="技術知識" 
+        description="涵蓋槳類運動安全、裝備、划船理論、河流判讀、跑河策略及救援之通識。須具備以淺顯易懂的語言解釋專業概念之能力。"
+        rows={technicalKnowledgeRows}
+      />
+
+      <AssessmentRubric 
+        title="靜水槳法" 
+        description="靜水技能是划船技術的基石。透過靜水練習，能專注於槳法效率與技術修正，而不受水流干擾。"
+        rows={flatWaterRows}
+      />
+
+      <AssessmentRubric 
+        title="動態水域技術" 
+        description="候選人應能在其申請評定之水域場地中，自信且有效地操縱船隻，展現動作的優雅與受控感。"
+        rows={movingWaterRows}
+      />
+
+      <AssessmentRubric 
+        title="風險管理" 
+        description="候選人能正確評估並管理與其申請評等相關之划船風險。重視救援之速度、簡易性與安全性（簡單、安全、迅速為最高原則）。"
+        rows={riskManagementRows}
+      />
+
+      <!-- Footer Info -->
+      <footer class="mt-20 pt-12 border-t border-slate-200">
+        <div class="grid md:grid-cols-2 gap-12 text-sm text-slate-500 mb-12">
+          <div>
+            <h4 class="font-bold text-slate-800 mb-2">關於本量表</h4>
+            <p>本課程由 ACA 溪流獨木舟委員會 (River Kayaking Committee) 管理。欲聯繫該委員會領導層，請查看 ACA 網站上的 SEIC 委員會名單。</p>
+          </div>
+          <div class="text-right">
+             <p>© American Canoe Association (美國獨木舟協會)</p>
+             <p>最後修訂日期：2025 年 3 月 18 日</p>
+             <a href="https://americancanoe.org" class="text-[#4796cc] underline">americancanoe.org</a>
+          </div>
+        </div>
+        <Copyright />
+      </footer>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .serif { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
