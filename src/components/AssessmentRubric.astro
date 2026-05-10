@@ -1,69 +1,118 @@
 ---
-interface RubricRow {
-  name: string;
-  levels: string[]; // [L2, L3, L4, L5]
-}
-
 interface Props {
-  title: string;
-  description: string;
-  rows: RubricRow[];
+  title_zh: string;
+  title_en: string;
+  description_zh: string;
+  description_en: string;
+  evalMethod_zh?: string;
+  evalMethod_en?: string;
+  meetsStandard_zh?: string;
+  meetsStandard_en?: string;
+  belowStandard_zh?: string;
+  belowStandard_en?: string;
+  rows: {
+    name_zh: string;
+    name_en: string;
+    levels: { zh: string; en: string }[];
+  }[];
 }
 
-const { title, description, rows } = Astro.props;
+const {
+  title_zh,
+  title_en,
+  description_zh,
+  description_en,
+  evalMethod_zh,
+  evalMethod_en,
+  meetsStandard_zh,
+  meetsStandard_en,
+  belowStandard_zh,
+  belowStandard_en,
+  rows,
+} = Astro.props;
 ---
 
-<section class="mb-16 scroll-mt-24" id={title.toLowerCase().replace(/\s+/g, '-')}>
-  <div class="border-l-4 border-[#4796cc] pl-6 mb-8">
-    <h3 class="text-2xl md:text-3xl font-black serif mb-4 text-slate-800">{title}</h3>
-    <p class="text-slate-600 leading-relaxed max-w-3xl">{description}</p>
+<section class="mb-24 scroll-mt-24" id={title_en.toLowerCase().replace(/\s+/g, '-')}>
+  <!-- Simple Header: Matches Initial Style -->
+  <div class="border-l-8 border-[#4796cc] pl-8 mb-12">
+    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
+      <span class="zh">{title_zh}</span>
+      <span class="en text-xl md:text-2xl text-slate-400 font-medium tracking-tight uppercase italic">{title_en}</span>
+    </h2>
+    <div class="max-w-4xl space-y-4">
+      <p class="zh text-slate-600 text-lg leading-relaxed">{description_zh}</p>
+      <p class="en text-slate-400 text-base italic leading-relaxed">{description_en}</p>
+    </div>
   </div>
 
-  <div class="rubric-container overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-    <!-- Desktop Header -->
-    <div class="hidden md:grid grid-cols-12 bg-slate-50 border-b border-slate-200 font-bold text-sm tracking-wider text-slate-500 uppercase">
-      <div class="col-span-3 p-4 border-r border-slate-200">項目 / 技能</div>
-      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-50/30">Level 2</div>
-      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-50/50">Level 3</div>
-      <div class="col-span-2 p-4 border-r border-slate-200 bg-blue-100/30">Level 4</div>
-      <div class="col-span-3 p-4 bg-blue-100/50">Level 5</div>
+  <!-- Evaluation Criteria Grid -->
+  <div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    {evalMethod_zh && (
+      <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+        <h4 class="text-xs font-black uppercase tracking-widest text-[#4796cc] mb-3">Evaluation Method</h4>
+        <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{evalMethod_zh}</p>
+        <p class="en text-slate-400 text-[12px] italic leading-tight">{evalMethod_en}</p>
+      </div>
+    )}
+    {meetsStandard_zh && (
+      <div class="p-6 bg-emerald-50/50 rounded-2xl border border-emerald-100">
+        <h4 class="text-xs font-black uppercase tracking-widest text-emerald-600 mb-3">Meets Standard</h4>
+        <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{meetsStandard_zh}</p>
+        <p class="en text-slate-400 text-[12px] italic leading-tight">{meetsStandard_en}</p>
+      </div>
+    )}
+    {belowStandard_zh && (
+      <div class="p-6 bg-rose-50/50 rounded-2xl border border-rose-100">
+        <h4 class="text-xs font-black uppercase tracking-widest text-rose-600 mb-3">Below Standard</h4>
+        <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{belowStandard_zh}</p>
+        <p class="en text-slate-400 text-[12px] italic leading-tight">{belowStandard_en}</p>
+      </div>
+    )}
+  </div>
+
+  <!-- Rubric Table / Grid -->
+  <div class="rounded-3xl border border-slate-200 overflow-hidden shadow-sm bg-white">
+    <!-- Desktop Header: 5 Equal Columns (Brand Blue) -->
+    <div class="hidden lg:grid grid-cols-5 bg-[#4796cc] text-white font-black text-[10px] uppercase tracking-[0.2em] py-6 px-4">
+      <div class="px-6 border-r border-white/10 flex items-center">技能指標</div>
+      {[2, 3, 4, 5].map(level => (
+        <div class="px-4 border-r border-white/10 last:border-r-0 text-center flex items-center justify-center">Level {level}</div>
+      ))}
     </div>
 
     <!-- Rows -->
     <div class="divide-y divide-slate-100">
       {rows.map((row) => (
         <div class="group">
-          <!-- Desktop Row -->
-          <div class="hidden md:grid grid-cols-12 hover:bg-slate-50 transition-colors">
-            <div class="col-span-3 p-4 border-r border-slate-100 font-bold text-slate-800 flex items-center">
-              {row.name}
+          <!-- Desktop Row: 5 Equal Columns -->
+          <div class="hidden lg:grid grid-cols-5 hover:bg-blue-50/30 transition-colors">
+            <div class="p-6 border-r border-slate-100 font-bold text-slate-800 flex flex-col justify-center">
+              <span class="zh block text-base leading-tight">{row.name_zh}</span>
+              <span class="en block text-[9px] text-[#4796cc] uppercase tracking-tighter mt-1 opacity-70">{row.name_en}</span>
             </div>
-            {row.levels.map((text, i) => (
-              <div class={`col-span-${i === 3 ? '3' : '2'} p-4 text-sm leading-relaxed text-slate-600 border-r border-slate-100 last:border-r-0 ${i >= 1 ? 'bg-blue-50/10' : ''}`}>
-                {text || <span class="text-slate-300 italic">不適用</span>}
+            {row.levels.map((level, i) => (
+              <div class="p-6 border-r border-slate-100 last:border-r-0">
+                <div class="zh text-[13px] text-slate-700 leading-relaxed mb-2 font-medium whitespace-pre-wrap">{level.zh}</div>
+                <div class="en text-[11px] text-slate-400 italic leading-snug whitespace-pre-wrap">{level.en}</div>
               </div>
             ))}
           </div>
 
-          <!-- Mobile Card -->
-          <div class="md:hidden p-6 space-y-4">
-            <h4 class="text-lg font-black text-[#4796cc] border-b pb-2 mb-4">{row.name}</h4>
-            <div class="grid gap-4">
-              {row.levels.map((text, i) => (
-                text && (
-                  <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
-                    <div class="flex items-center gap-2 mb-2">
-                      <span class={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded text-white ${
-                        i === 0 ? 'bg-slate-400' : 
-                        i === 1 ? 'bg-[#4796cc]' : 
-                        i === 2 ? 'bg-[#357abd]' : 'bg-[#1e4b8a]'
-                      }`}>
-                        Level {i + 2}
-                      </span>
-                    </div>
-                    <p class="text-sm text-slate-700 leading-relaxed">{text}</p>
+          <!-- Mobile View: Simple Cards -->
+          <div class="lg:hidden p-8 space-y-6">
+            <h4 class="text-xl font-black text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">
+              <span class="zh block">{row.name_zh}</span>
+              <span class="en block text-[11px] text-[#4796cc] uppercase tracking-widest mt-1">{row.name_en}</span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {row.levels.map((level, i) => (
+                <div class="bg-slate-50/50 rounded-2xl p-6 border border-slate-100">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="text-[9px] font-black uppercase tracking-widest bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full">Level {i+2}</span>
                   </div>
-                )
+                  <p class="zh text-slate-700 text-sm font-medium leading-relaxed mb-2">{level.zh}</p>
+                  <p class="en text-slate-400 text-xs italic leading-snug">{level.en}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -74,13 +123,6 @@ const { title, description, rows } = Astro.props;
 </section>
 
 <style>
-  .rubric-container {
-    /* Responsive Defense */
-    word-break: break-word;
-  }
-  
-  /* Smooth transitions for hover effects */
-  .group:hover {
-    z-index: 10;
-  }
+  .zh { word-break: break-all; }
+  .en { word-break: break-word; }
 </style>

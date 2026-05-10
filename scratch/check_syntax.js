@@ -1,4 +1,3 @@
----
 import Layout from "../layouts/Layout.astro";
 import AssessmentRubric from "../components/AssessmentRubric.astro";
 import Copyright from "../components/Copyright.astro";
@@ -486,6 +485,16 @@ const riskManagementRows = [
     ] 
   },
   { 
+    name_zh: "重新登船技術", 
+    name_en: "Re-entry Techniques", 
+    levels: [
+      { zh: "理解風險並執行重新登船 (I 級) (Stern/Heel hook/Scoop)", en: "Understands risks and can perform remount techniques in class I venues" },
+      { zh: "執行技術 (I/II 級)", en: "Understands risks and can perform remount techniques in class I/II venues" },
+      { zh: "執行技術 (II/III 級)", en: "Understands risks and can perform remount techniques in class II/III venues" },
+      { zh: "執行技術 (III/IV 級)", en: "Understands risks and can perform remount techniques in class III/IV venues" }
+    ] 
+  },
+  { 
     name_zh: "意識不清舟友救援", 
     name_en: "Unresponsive Paddler Rescue", 
     levels: [
@@ -576,133 +585,4 @@ const riskManagementRows = [
     ] 
   }
 ];
----
 
-<Layout title="ACA 溪流獨木舟技能評估量表">
-  <div class="max-w-5xl mx-auto py-16 px-6 md:py-28">
-    
-    <!-- Hero Section (Manual Style) -->
-    <header class="text-center mb-28">
-      <div class="inline-block bg-[#4796cc] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12 shadow-md">
-        <span class="zh">Whitewater Instructor Assessment</span>
-      </div>
-      
-      <h1 class="text-4xl md:text-7xl font-black serif leading-[1.1] mb-10 tracking-tight">
-        <span class="zh">
-          <span class="text-slate-900 block mb-4">ACA 溪流獨木舟指導員</span>
-          <span class="text-[#4796cc] block">技能評估指標量表</span>
-        </span>
-        <span class="en">
-          <span class="text-slate-900 block mb-4 text-3xl md:text-5xl uppercase tracking-tighter">ACA Whitewater Kayak Instructor</span>
-          <span class="text-[#4796cc] block text-3xl md:text-6xl">Skills Assessment Rubric</span>
-        </span>
-      </h1>
-      
-      <div class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl leading-relaxed mb-12 font-medium">
-        <p class="zh">本量表是專門為 ACA 溪流獨木舟指導員認證設計的技術標準。評估員將根據此量表，針對候選人的各項能力進行全方位的專業評核。</p>
-        <p class="en italic text-base">This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation.</p>
-      </div>
-      
-      <div class="flex justify-center">
-        <div class="w-16 h-1.5 bg-[#4796cc] rounded-full"></div>
-      </div>
-    </header>
-
-    <!-- Introductory Info (Bilingual Redesign) -->
-    <section class="mb-40">
-      <div class="border-b-2 border-slate-100 pb-5 mb-10">
-        <h2 class="text-4xl font-black text-slate-900 tracking-tight">
-          <span class="zh">評估程序與指標</span>
-          <span class="en uppercase tracking-widest text-3xl block text-slate-300 mt-1">Process & Rubric</span>
-        </h2>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div class="space-y-6">
-          <h3 class="text-lg font-black text-slate-900">
-            <span class="zh">認證說明與權限：</span>
-            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1">Certification & Authority:</span>
-          </h3>
-          <ul class="text-slate-500 leading-[1.8] text-base font-medium space-y-4">
-            <li class="zh">● 候選人必須由取得認證的 ACA 教練導師 (IT) 或資深導師 (ITE) 進行評估。</li>
-            <li class="zh">● 評估員僅能評核與其自身認證等級相同或更低之等級。</li>
-            <li class="zh">● 場地標準必須與申請之等級相符（如 L4 應於 II/III 級水域進行）。</li>
-          </ul>
-        </div>
-        <div class="space-y-6">
-          <h3 class="text-lg font-black text-slate-900">
-            <span class="zh">ICE 認證考試指南：</span>
-            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1">ICE Certification Guide:</span>
-          </h3>
-          <p class="text-slate-500 italic leading-[1.8] text-base font-medium">
-            此量表亦適用於教練候選人之認證評核。教練候選人應具備更深層次的理解，並能執行、示範（角色楷模）、教學並排除其認證等級內所有技能之障礙。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Rubric Sections -->
-    <div class="space-y-40">
-        <AssessmentRubric 
-          title_zh="技術知識" 
-          title_en="Technical Knowledge"
-          description_zh="涵蓋槳類運動安全、裝備、划船理論、河流判讀、跑河策略及救援之通識。豐富的實務經驗是技術知識的核心。"
-          description_en="Covers paddlesport safety, equipment, paddling theory, river reading, and rescue knowledge. Experience is a key factor in Technical Knowledge."
-          evalMethod_zh="透過對話、安全講習及觀察候選人之準備情況（如：裝備是否適用、保養狀況）進行評估。"
-          evalMethod_en="Assessed via conversations, safety talks and observations of candidates’ readiness (e.g. proper gear, maintenance)."
-          meetsStandard_zh="候選人對其評等具備相符的理解深度與知識，並能有效溝通。"
-          meetsStandard_en="Candidates have the appropriate understanding and depth of knowledge for their level and can communicate it effectively."
-          belowStandard_zh="缺乏該評等應具備之知識。無法以易懂語言解釋專業概念。"
-          belowStandard_en="Lack of knowledge appropriate for the level. Lack of ability to explain concepts in layperson's terms."
-          rows={technicalKnowledgeRows}
-        />
-
-        <AssessmentRubric 
-          title_zh="靜態水域技術" 
-          title_en="Flatwater Skills"
-          description_zh="靜水技能是划船技術的基石。透過靜水練習，能專注於槳法效率與技術修正，而不受水流干擾。"
-          description_en="Flatwater skills are the foundation of paddling. Practicing on flatwater allows focus on stroke efficiency and technical refinement without current."
-          evalMethod_zh="觀察候選人之靜水槳法與技能。候選人須依等級描述展現各項技能。"
-          evalMethod_en="Observation of candidate paddling strokes and skills on flat water per level description."
-          meetsStandard_zh="掌握技能要領，並能配合積極姿勢、核心旋轉、壓邊控制及心理平靜。"
-          meetsStandard_en="Knowledge of skills and ability to meet standards with engaged posture, core rotation, edge control and mental tranquility."
-          belowStandard_zh="缺乏技能知識。姿勢不良、核心未參與、無法控制邊緣、缺乏心理平靜。於船上感到不穩定。"
-          belowStandard_en="Lack of knowledge of skills. Poor posture, lack of core engagement, inability to control boat edges, or lack of mental tranquility."
-          rows={flatWaterRows}
-        />
-
-        <AssessmentRubric 
-          title_zh="動態水域技術" 
-          title_en="Moving Water Maneuvers"
-          description_zh="候選人應能在其申請評定之水域場地中，自信且有效地操縱船隻，展現動作的優雅與受控感。"
-          description_en="Candidates should confidently and effectively maneuver their boat in appropriate water, showing grace and control."
-          evalMethod_zh="觀察候選人於動態水域中之個人槳法與技能。候選人須依描述展現技能。"
-          evalMethod_en="Observation of personal paddling strokes and skills on moving water per level description."
-          meetsStandard_zh="掌握技能要領，並能配合積極姿勢、核心旋轉、壓邊控制。划行展現優雅與受控。"
-          meetsStandard_en="Knowledge of skills and ability to meet standards with engaged posture, core rotation and edge control. Paddles with grace and control."
-          belowStandard_zh="缺乏技能知識。姿勢不良、核心未參與、無法控制邊緣。表現不穩定。"
-          belowStandard_en="Lack of knowledge of skills. Poor posture, lack of core rotation and engagement, or inability to control boat edges."
-          rows={movingWaterRows}
-        />
-
-        <AssessmentRubric 
-          title_zh="風險管理" 
-          title_en="Risk Management"
-          description_zh="候選人能正確評估並管理相關之划船風險。重視救援之速度、簡易性與安全性 (S.S.S. 原則)。"
-          description_en="Candidates must correctly assess and manage risks. Emphasizes speed, simplicity, and safety in rescue (S.S.S. principle)."
-          evalMethod_zh="透過觀察候選人之準備程度、對救援優先順序之理解，以及於該等級場地實際觀察救援技能。"
-          evalMethod_en="Assessed via observations of readiness, understanding of rescue priorities, and practical rescue skill execution in venue."
-          meetsStandard_zh="具備相符之理解深度，並能有效溝通及展現各項技能。"
-          meetsStandard_en="Appropriate understanding and depth of knowledge for assessment level. Can perform skills to level description."
-          belowStandard_zh="缺乏知識。執行技能時缺乏自信與冷靜。無法清晰解釋相關概念。"
-          belowStandard_en="Lack of knowledge appropriate for the level. Lack of ability to perform skills with confidence and tranquility."
-          rows={riskManagementRows}
-        />
-      </div>
-
-      <footer class="mt-40 pt-16 border-t border-slate-200">
-        <Copyright />
-      </footer>
-    </div>
-  </div>
-</Layout>

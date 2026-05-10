@@ -365,6 +365,7 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                 document.body.style.overflow = "";
 
                 const toggleMenu = (shouldOpen) => {
+                    const isDesktop = window.innerWidth >= 1024;
                     const nextState = shouldOpen !== undefined ? shouldOpen : !sidebar.classList.contains("translate-x-0");
                     
                     if (nextState) {
@@ -375,7 +376,11 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                         overlay.classList.add("opacity-100", "pointer-events-auto");
                         hamburgerIcon.classList.add("hidden");
                         closeIcon.classList.remove("hidden");
-                        document.body.style.overflow = "hidden";
+                        
+                        // ONLY lock body on mobile
+                        if (!isDesktop) {
+                            document.body.style.overflow = "hidden";
+                        }
                     } else {
                         // Close menu
                         sidebar.classList.remove("translate-x-0");
@@ -388,10 +393,21 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                     }
                 };
 
-                // Auto-open if ?menu=open is present
+                // Auto-open if ?menu=open is present (Mobile Only feature)
                 const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.get('menu') === 'open') {
-                    toggleMenu(true); // Explicitly open
+                if (urlParams.get('menu') === 'open' && window.innerWidth < 1024) {
+                    // Disable transition temporarily to prevent re-animation
+                    sidebar.style.transition = 'none';
+                    overlay.style.transition = 'none';
+                    
+                    toggleMenu(true); 
+                    
+                    // Re-enable transitions after a tiny delay
+                    setTimeout(() => {
+                        sidebar.style.transition = '';
+                        overlay.style.transition = '';
+                    }, 10);
+
                     // Clean up URL without reload
                     const newUrl = window.location.pathname + window.location.hash;
                     window.history.replaceState({}, '', newUrl);
@@ -399,13 +415,13 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 
                 if (toggleBtn && sidebar && overlay) {
                     toggleBtn.onclick = () => toggleMenu();
-                    overlay.onclick = () => toggleMenu(false); // Explicitly close
-                    if (sidebarClose) sidebarClose.onclick = () => toggleMenu(false); // Explicitly close
+                    overlay.onclick = () => toggleMenu(false); 
+                    if (sidebarClose) sidebarClose.onclick = () => toggleMenu(false); 
 
                     navLinks.forEach((link) => {
                         link.onclick = () => {
                             if (window.innerWidth < 1024) {
-                                toggleMenu(false); // Explicitly close on link click
+                                toggleMenu(false); 
                             }
                         };
                     });
@@ -552,6 +568,8 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 
     @media print {
         #mobile-menu-toggle,
+        /* Language Switching */
+        
         #sidebar-overlay,
         .lg\:hidden {
             display: none !important;
@@ -672,6 +690,9 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     }
 
     /* Scrollbar Styling */
+    aside {
+        scrollbar-gutter: stable;
+    }
     aside::-webkit-scrollbar {
         width: 4px;
     }
