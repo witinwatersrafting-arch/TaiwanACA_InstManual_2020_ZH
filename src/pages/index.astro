@@ -15,17 +15,6 @@ manualUnits.sort((a, b) => {
 
 <Layout title="手冊全集">
     <div class="max-w-4xl mx-auto py-20 px-5 md:px-8">
-        <!-- New Link to Assessment Guide -->
-        <div class="mb-20 p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-center md:text-left">
-                <h3 class="text-xl font-bold text-slate-800 mb-1">ACA 溪流獨木舟指導員技能量表</h3>
-                <p class="text-sm text-slate-500">查看完整 L2-L5 指導員級別技能指標與評分量表</p>
-            </div>
-            <a href={`${import.meta.env.BASE_URL}/assessment-guide`} class="bg-[#4796cc] hover:bg-[#357abd] text-white px-6 py-3 rounded-full font-bold transition-all shadow-md hover:shadow-lg">
-                前往評估指南 →
-            </a>
-        </div>
-
         <div class="space-y-32">
             {
                 manualUnits.map((unit) => (

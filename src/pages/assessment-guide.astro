@@ -104,16 +104,6 @@ const riskManagementRows = [
         </div>
       </header>
 
-      <!-- Navigation (Quick Links) -->
-      <nav class="sticky top-20 z-30 mb-12 flex justify-center gap-2 md:gap-4 overflow-x-auto pb-4 px-2 no-scrollbar">
-        {["技術知識", "靜水槳法", "動態水域", "風險管理"].map((name, i) => (
-          <a href={`#${name === '動態水域' ? '動態水域技術' : name}`} 
-             class="whitespace-nowrap px-4 py-2 bg-white rounded-full border border-slate-200 text-sm font-bold text-slate-500 hover:border-[#4796cc] hover:text-[#4796cc] shadow-sm transition-all">
-            {name}
-          </a>
-        ))}
-      </nav>
-
       <!-- Rubric Sections -->
       <AssessmentRubric 
         title="技術知識" 

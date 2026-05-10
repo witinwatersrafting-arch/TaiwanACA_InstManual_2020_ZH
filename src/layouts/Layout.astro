@@ -7,83 +7,35 @@ interface Props {
 
 const { title } = Astro.props;
 
-const navItems = [
-    {
-        id: "assessment-guide",
-        zh: "指導員技能量表",
-        en: "Instructor Skills Rubric",
-        slug: "assessment-guide",
-        isPage: true,
-    },
+const isAssessmentPage = Astro.url.pathname.includes("assessment-guide");
 
-    {
-        id: "unit1",
-        zh: "第一單元：關於 ACA",
-        en: "Unit 1: About the ACA",
-        slug: "unit-01",
-    },
-    {
-        id: "unit2",
-        zh: "第二單元：獨木舟教育標準",
-        en: "Unit 2: Canoe Education Standards",
-        slug: "unit-02",
-    },
-    {
-        id: "unit3",
-        zh: "第三單元：環境守護與倫理",
-        en: "Unit 3: Environmental Stewardship",
-        slug: "unit-03",
-    },
-    {
-        id: "unit4",
-        zh: "第四單元：教學與學習風格",
-        en: "Unit 4: Teaching and Learning Styles",
-        slug: "unit-04",
-    },
-    {
-        id: "unit5",
-        zh: "第五單元：課程組織與帶領",
-        en: "Unit 5: Organizing and Conducting a Class",
-        slug: "unit-05",
-    },
-    {
-        id: "unit6",
-        zh: "第六單元：法律責任與風險管理",
-        en: "Unit 6: Liability & Risk Management",
-        slug: "unit-06",
-    },
-    {
-        id: "unit7",
-        zh: "第七單元：划行概念",
-        en: "Unit 7: Concepts of Paddling",
-        slug: "unit-07",
-    },
-    {
-        id: "unit8",
-        zh: "第八單元：體能調整",
-        en: "Unit 8: Conditioning",
-        slug: "unit-08",
-    },
-    {
-        id: "unit9",
-        zh: "第九單元：水域安全",
-        en: "Unit 9: Safety on the Water",
-        slug: "unit-09",
-    },
+const manualNav = [
+    { id: "unit1", zh: "第一單元：關於 ACA", en: "Unit 1: About the ACA", slug: "unit-01" },
+    { id: "unit2", zh: "第二單元：獨木舟教育標準", en: "Unit 2: Canoe Education Standards", slug: "unit-02" },
+    { id: "unit3", zh: "第三單元：環境守護與倫理", en: "Unit 3: Environmental Stewardship", slug: "unit-03" },
+    { id: "unit4", zh: "第四單元：教學與學習風格", en: "Unit 4: Teaching and Learning Styles", slug: "unit-04" },
+    { id: "unit5", zh: "第五單元：課程組織與帶領", en: "Unit 5: Organizing and Conducting a Class", slug: "unit-05" },
+    { id: "unit6", zh: "第六單元：法律責任與風險管理", en: "Unit 6: Liability & Risk Management", slug: "unit-06" },
+    { id: "unit7", zh: "第七單元：划行概念", en: "Unit 7: Concepts of Paddling", slug: "unit-07" },
+    { id: "unit8", zh: "第八單元：體能調整", en: "Unit 8: Conditioning", slug: "unit-08" },
+    { id: "unit9", zh: "第九單元：水域安全", en: "Unit 9: Safety on the Water", slug: "unit-09" },
     { id: "conclusion", zh: "結語", en: "Conclusion", slug: "conclusion" },
-    {
-        id: "bibliography",
-        zh: "參考文獻",
-        en: "Bibliography",
-        slug: "bibliography",
-    },
-    {
-        id: "appendix-a",
-        zh: "附錄 A：課程回報與認證維護",
-        en: "Appendix A: Reporting and Maintenance",
-        slug: "appendix-a",
-    },
+    { id: "bibliography", zh: "參考文獻", en: "Bibliography", slug: "bibliography" },
+    { id: "appendix-a", zh: "附錄 A：課程回報與認證維護", en: "Appendix A: Reporting and Maintenance", slug: "appendix-a" },
 ];
+
+const rubricNav = [
+    { id: "tech", zh: "技術知識", en: "Technical Knowledge", slug: "技術知識" },
+    { id: "flat", zh: "靜水槳法", en: "Flat Water Strokes", slug: "靜水槳法" },
+    { id: "moving", zh: "動態水域技術", en: "Dynamic Water Skills", slug: "動態水域技術" },
+    { id: "risk", zh: "風險管理", en: "Risk Management", slug: "風險管理" },
+];
+
+const currentNav = isAssessmentPage ? rubricNav : manualNav;
+const rawBaseUrl = import.meta.env.BASE_URL;
+// Ensure baseUrl ends with exactly one slash for safe joining
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+
 ---
 
 <!DOCTYPE html>
@@ -95,7 +47,7 @@ const navItems = [
             content="ACA 獨木舟教練手冊 (2020) - 繁體中文版"
         />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+        <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
         <meta name="generator" content={Astro.generator} />
         <title>{title} | ACA 教練手冊</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -220,6 +172,21 @@ const navItems = [
                             </svg>
                         </button>
                     </div>
+                    <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-6 border border-slate-200" id="mode-switcher">
+                        <a
+                            href={`${baseUrl}?menu=open`}
+                            class={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold text-center transition-all ${!isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                        >
+                            指導員手冊
+                        </a>
+                        <a
+                            href={`${baseUrl}assessment-guide?menu=open`}
+                            class={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold text-center transition-all ${isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                        >
+                            評估量表
+                        </a>
+                    </div>
+
                     <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200"
                         id="lang-switcher"
                     >
@@ -255,30 +222,40 @@ const navItems = [
                         匯出 PDF 手冊
                     </button>
 
-                    <nav class="space-y-2" id="main-nav">
-                        <p
-                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2"
-                        >
-                            目錄 Table of Contents
-                        </p>
-                        {
-                            navItems.map((item) => (
-                                <a
-                                    href={`${import.meta.env.BASE_URL}/${
-                                        item.isPage ? "" : "#"
-                                    }${item.slug}`}
-                                    data-nav-id={item.slug}
-                                    class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                >
-                                    <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">
-                                        {item.zh}
-                                    </span>
-                                    <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">
-                                        {item.en}
-                                    </span>
-                                </a>
-                            ))
-                        }
+                    <nav class="space-y-6" id="main-nav">
+                        <!-- Manual Section -->
+                        <div id="nav-section-manual" class={isAssessmentPage ? 'hidden' : ''}>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
+                            <div class="space-y-2">
+                                {manualNav.map((item) => (
+                                    <a
+                                        href={`${baseUrl}#${item.slug}`}
+                                        data-nav-id={item.slug}
+                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
+                                    >
+                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
+                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        <!-- Rubric Section -->
+                        <div id="nav-section-rubric" class={!isAssessmentPage ? 'hidden' : ''}>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">量表章節 Sections</p>
+                            <div class="space-y-2">
+                                {rubricNav.map((item) => (
+                                    <a
+                                        href={`${baseUrl}assessment-guide#${item.slug}`}
+                                        data-nav-id={item.slug}
+                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
+                                    >
+                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
+                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </nav>
                 </div>
 
@@ -340,7 +317,39 @@ const navItems = [
                 });
             };
 
-            initLang();
+            const initModeSwitcher = () => {
+                const buttons = document.querySelectorAll("#mode-switcher button, #mode-switcher a");
+                const manualSection = document.getElementById("nav-section-manual");
+                const rubricSection = document.getElementById("nav-section-rubric");
+
+                buttons.forEach(btn => {
+                    const isLink = btn.tagName === 'A';
+                    
+                    btn.onclick = (e) => {
+                        const mode = btn.getAttribute('data-mode') || (btn.getAttribute('href').includes('assessment-guide') ? 'rubric' : 'manual');
+                        
+                        // If it's desktop, we might want to just toggle without navigating if it's already on the right page
+                        // But since we want to keep it simple, we let the <a> handle navigation and only use JS for buttons or 
+                        // to handle the UI state before navigation begins.
+                        
+                        // Update UI
+                        buttons.forEach(b => {
+                            b.classList.remove("bg-white", "shadow-sm", "text-blue-600", "active-mode");
+                            b.classList.add("text-slate-500");
+                        });
+                        btn.classList.add("bg-white", "shadow-sm", "text-blue-600", "active-mode");
+                        btn.classList.remove("text-slate-500");
+
+                        if (mode === "manual") {
+                            manualSection?.classList.remove("hidden");
+                            rubricSection?.classList.add("hidden");
+                        } else {
+                            manualSection?.classList.add("hidden");
+                            rubricSection?.classList.remove("hidden");
+                        }
+                    };
+                });
+            };
 
             // Mobile Menu Logic
             const initMobileMenu = () => {
@@ -352,52 +361,59 @@ const navItems = [
                 const sidebarClose = document.getElementById("sidebar-close");
                 const navLinks = document.querySelectorAll(".nav-link");
 
-                const toggleMenu = () => {
-                    const isOpen = sidebar.classList.contains("translate-x-0");
-                    if (isOpen) {
-                        sidebar.classList.remove("translate-x-0");
-                        sidebar.classList.add("-translate-x-full");
-                        overlay.classList.remove(
-                            "opacity-100",
-                            "pointer-events-auto"
-                        );
-                        overlay.classList.add(
-                            "opacity-0",
-                            "pointer-events-none"
-                        );
-                        hamburgerIcon.classList.remove("hidden");
-                        closeIcon.classList.add("hidden");
-                        document.body.style.overflow = "";
-                    } else {
+                // Reset body overflow on init to be safe
+                document.body.style.overflow = "";
+
+                const toggleMenu = (shouldOpen) => {
+                    const nextState = shouldOpen !== undefined ? shouldOpen : !sidebar.classList.contains("translate-x-0");
+                    
+                    if (nextState) {
+                        // Open menu
                         sidebar.classList.add("translate-x-0");
                         sidebar.classList.remove("-translate-x-full");
-                        overlay.classList.add(
-                            "opacity-100",
-                            "pointer-events-auto"
-                        );
-                        overlay.classList.remove(
-                            "opacity-0",
-                            "pointer-events-none"
-                        );
+                        overlay.classList.remove("hidden", "opacity-0", "pointer-events-none");
+                        overlay.classList.add("opacity-100", "pointer-events-auto");
                         hamburgerIcon.classList.add("hidden");
                         closeIcon.classList.remove("hidden");
                         document.body.style.overflow = "hidden";
+                    } else {
+                        // Close menu
+                        sidebar.classList.remove("translate-x-0");
+                        sidebar.classList.add("-translate-x-full");
+                        overlay.classList.add("hidden", "opacity-0", "pointer-events-none");
+                        overlay.classList.remove("opacity-100", "pointer-events-auto");
+                        hamburgerIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                        document.body.style.overflow = "";
                     }
                 };
 
-                toggleBtn?.addEventListener("click", toggleMenu);
-                sidebarClose?.addEventListener("click", toggleMenu);
-                overlay?.addEventListener("click", toggleMenu);
+                // Auto-open if ?menu=open is present
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('menu') === 'open') {
+                    toggleMenu(true); // Explicitly open
+                    // Clean up URL without reload
+                    const newUrl = window.location.pathname + window.location.hash;
+                    window.history.replaceState({}, '', newUrl);
+                }
 
-                navLinks.forEach((link) => {
-                    link.addEventListener("click", () => {
-                        if (window.innerWidth < 1024) {
-                            toggleMenu();
-                        }
+                if (toggleBtn && sidebar && overlay) {
+                    toggleBtn.onclick = () => toggleMenu();
+                    overlay.onclick = () => toggleMenu(false); // Explicitly close
+                    if (sidebarClose) sidebarClose.onclick = () => toggleMenu(false); // Explicitly close
+
+                    navLinks.forEach((link) => {
+                        link.onclick = () => {
+                            if (window.innerWidth < 1024) {
+                                toggleMenu(false); // Explicitly close on link click
+                            }
+                        };
                     });
-                });
+                }
             };
 
+            initLang();
+            initModeSwitcher();
             initMobileMenu();
 
             // ScrollSpy
@@ -484,13 +500,11 @@ const navItems = [
 <style is:global>
     html {
         scroll-behavior: smooth;
-        overflow-x: hidden;
     }
     
     body {
         width: 100%;
         position: relative;
-        /* 移除此處的 overflow-x: hidden 以恢復桌面版 sticky 功能 */
         -webkit-overflow-scrolling: touch;
     }
 
