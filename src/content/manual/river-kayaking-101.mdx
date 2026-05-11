@@ -185,6 +185,7 @@ import GearCard from '../../components/curriculum/GearCard.astro';
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• 精確刻劃 (Carving)</li>
             <li>• 側滑 (Sideslips) 移動</li>
+            <li>• 同側與異側自旋 (機制)</li>
             <li>• Duffek 槳法技術</li>
             <li>• C型 / S型組合操縱</li>
             <li>• 拉槳 (Draw) 介紹</li>
@@ -246,7 +247,7 @@ import GearCard from '../../components/curriculum/GearCard.astro';
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• 翻滾：C2C / Sweep</li>
             <li>• 後甲板翻滾技術</li>
-            <li>• 同側異側自旋練習</li>
+            <li>• 複雜亂流中的自旋控位</li>
             <li>• 複雜倒捲流操縱 (Holes)</li>
             <li>• 強流中精確橫渡技術</li>
             <li>• 衝浪與波穴動能利用</li>
@@ -306,48 +307,168 @@ import GearCard from '../../components/curriculum/GearCard.astro';
   </div>
 
   <TimelineStep title="暖身、出席與文化建立" time="15 MINS">
-    - **出席確認與介紹**：圍成一圈，分享姓名、經驗、最喜歡的 _________。
-    - **陸上安全說明**：注意岩石、樹根、毒藤 (Poison Ivy)、咬人貓、狗大便。
-    - **安全與文化**：強調互相支持、包容，在水上特別要彼此照應。
-
-    <LessonNote type="safety">必須全程穿鞋以防魚鉤、碎玻璃或銳利岩石。</LessonNote>
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">出席</span>
+        <h5 class="font-bold text-slate-900 mb-1">出席確認與開場介紹</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">圍成一圈，分享姓名、划艇經驗、最喜歡的事。</p>
+      </div>
+      <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
+        <span class="inline-block px-2 py-1 bg-amber-500 text-white text-[10px] font-black rounded mb-2 uppercase">安全</span>
+        <h5 class="font-bold text-slate-900 mb-1">陸上安全說明</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">注意岩石、樹根、毒藤、咬人貓。必須全程穿鞋——防魚鉤、碎玻璃、銳利岩石。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-500 text-white text-[10px] font-black rounded mb-2 uppercase">文化</span>
+        <h5 class="font-bold text-slate-900 mb-1">團隊安全文化</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">強調互相支持與包容，在水上特別要彼此照應。</p>
+      </div>
+    </div>
   </TimelineStep>
 
   <TimelineStep title="裝備介紹 (含穿戴演練)" time="30 MINS">
-    - **助浮衣 (PFD)**：說明為何使用 Type V (激流專用)、調整鬆緊度及穿著感受。
-    - **頭盔**：調整鬆緊、貼合度、側邊及下巴扣帶。
-    - **防水裙 (Skirt)**：說明用途、穿法、座艙罩尺寸 (Cockpit) 及軀幹隧道尺寸 (Tunnel)。
-    - **划槳**：長度與槳葉偏角 (Feather 角度) 的操作原理。
-    - **船隻設定**：一般尺寸合適度。調整腳踏板 (Bulkhead)、背帶 (Back Band) 及座位。
-
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">PFD</span>
+        <h5 class="font-bold text-slate-900 mb-1">助浮衣介紹</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">說明為何使用 Type V (激流專用)，調整鬆緊度及穿著感受。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">頭盔</span>
+        <h5 class="font-bold text-slate-900 mb-1">頭盔配戴</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">調整鬆緊、貼合度、側邊及下巴扣帶。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">防水裙</span>
+        <h5 class="font-bold text-slate-900 mb-1">防水裙介紹</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">說明用途、穿法、座艙罩 (Cockpit) 及軀幹隧道 (Tunnel) 尺寸選擇。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">划槳</span>
+        <h5 class="font-bold text-slate-900 mb-1">划槳設定</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">長度調整與槳葉偏角 (Feather 角度) 的操作原理。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">船隻</span>
+        <h5 class="font-bold text-slate-900 mb-1">船隻調整</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">確認一般尺寸合適度，調整腳踏板 (Bulkhead)、背帶 (Back Band) 及座位。</p>
+      </div>
+    </div>
     <LessonNote type="normalize">引導學員親手操作，消除對裝備的陌生感並建立操作直覺。</LessonNote>
   </TimelineStep>
 
   <TimelineStep title="翻船脫困與水域適應" time="40 MINS">
-    - **陸上練習 (Dry Land)**：防水裙套法與翻船脫困步驟演練。
-    - **水中脫困 (On Water)**：指導員示範翻轉志願者，進行立即、5s、10s、15s、30s 計時練習。
-    - **水上進出**：示範如何進入與離開獨木舟。
-    - **排水技術**：練習如何排除船內的積水。
-
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">陸上</span>
+        <h5 class="font-bold text-slate-900 mb-1">陸上脫困演練</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">練習防水裙套法及翻船脫困步驟（Dry Land 演練）。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">水中</span>
+        <h5 class="font-bold text-slate-900 mb-1">水中脫困計時</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">指導員示範翻轉志願者，進行立即、5s、10s、15s、30s 計時練習。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">進出</span>
+        <h5 class="font-bold text-slate-900 mb-1">水上進出練習</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">示範並練習如何進入與離開獨木舟。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">排水</span>
+        <h5 class="font-bold text-slate-900 mb-1">排水技術</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">練習如何排除船內積水。</p>
+      </div>
+    </div>
     <LessonNote type="key">**水下倒置心理壓力**：旁觀者將發現受困者在水下的時間感會顯著加速；教學重點在於引導學員覺察自身壓力水平，並對水下倒置的感官刺激進行「去敏感化 (Desensitize)」訓練。</LessonNote>
   </TimelineStep>
 
   <TimelineStep title="髖部翻正 (Hip Snaps)" time="45 MINS">
-    - **演練方式**：指導員示範後，兩人一組練習 3 組各 10 次。
-    - **細節要求**：配戴鼻夾練習、強調船隻必須**完全翻轉到底**。
-    - **甩髮技巧 (Flip hair)**：利用動作慣性協助。
-
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">動作</span>
+        <h5 class="font-bold text-slate-900 mb-1">演練方式</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">指導員示範後，兩人一組練習 3 組各 10 次，配戴鼻夾。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-red-600 text-white text-[10px] font-black rounded mb-2 uppercase">重點</span>
+        <h5 class="font-bold text-slate-900 mb-1">動作核心要求</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">船隻必須**完全翻轉到底**，頭部最後抬起。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">技巧</span>
+        <h5 class="font-bold text-slate-900 mb-1">甩髮技巧 (Flip Hair)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">利用動作慣性協助，讓動作更自然流暢。</p>
+      </div>
+    </div>
     <LessonNote type="normalize">核心心法：將「頭部最後抬起」轉化為本能反應，這是未來成功翻滾的基石。</LessonNote>
   </TimelineStep>
 
-  <TimelineStep title="T型救援 (T-Rescue)" time="45 MINS">
-    - **舒適感練習**：兩人一組練習在倒置狀態下等待的舒適感。
-    - **多種情境範例**：
-      - 雙手扶船，頭部在水中。
-      - 單手扶船，頭部與船隻都在倒置狀態。
-      - 鬆開船隻後再抓取、倒置等待 15 秒。
-      - 在倒置狀態下完全等待。
+  <TimelineStep title="複習與常態化練習" time="30 MINS">
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">出席</span>
+        <h5 class="font-bold text-slate-900 mb-1">暖身與出席確認</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">圍成一圈，分享姓名、划艇經驗、最喜歡的事。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">複習</span>
+        <h5 class="font-bold text-slate-900 mb-1">技術複習</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">兩人一組，練習髖部翻正 (3x10) 與 T 型救援 (3 次)。</p>
+      </div>
+    </div>
+    <LessonNote type="normalize">再次強調「頭部最後抬起」與船隻完全翻到底的重要性。</LessonNote>
+  </TimelineStep>
 
+  <TimelineStep title="槳法技巧深度演練 (Strokes)" time="120 MINS">
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">框架</span>
+        <h5 class="font-bold text-slate-900 mb-1">槳手框架 (Paddler's Box)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">學習維持安全的肢體受力結構，確保關節不超出承受範圍。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">旋轉</span>
+        <h5 class="font-bold text-slate-900 mb-1">旋轉動能 (Spinning)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">前後掃槳 (Sweeps) 練習，強調軀幹旋轉 (Rotation) 帶動划槳。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">移動</span>
+        <h5 class="font-bold text-slate-900 mb-1">移動動能 (Moving)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">前進/後退槳、前後橫移 (Draws)、髖部拉槳、撥水橫移。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">傾斜</span>
+        <h5 class="font-bold text-slate-900 mb-1">傾斜動能 (Tilt)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">低位支撐與高位支撐的發力機制。</p>
+      </div>
+    </div>
+    <LessonNote type="safety">**高位支撐 (High Brace)**：肘部務必朝下產生阻力。若對側肘部抬起，槳葉會潛入水中導致受傷。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="T型救援 (T-Rescue)" time="45 MINS">
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">等級 1</span>
+        <h5 class="font-bold text-slate-900 mb-1">雙手扶船</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">頭部在水中，保持與船隻的接觸感。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">等級 2</span>
+        <h5 class="font-bold text-slate-900 mb-1">單手扶船</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">頭部與船隻均倒置，練習單手抓握穩定性。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">等級 3</span>
+        <h5 class="font-bold text-slate-900 mb-1">鬆手再抓</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">鬆開船隻後重新抓取，在倒置狀態下等待 15 秒。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">等級 4</span>
+        <h5 class="font-bold text-slate-900 mb-1">完全等待</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">在完全倒置狀態下等待救援，建立心理舒適感。</p>
+      </div>
+    </div>
     <LessonNote type="normalize">將陌生的水下動作「常態化 (Normalize)」，使其轉化為直覺本能；這能有效降低正式翻滾時的大腦認知負荷，讓學員依靠肌肉記憶自然反應。</LessonNote>
   </TimelineStep>
 
@@ -385,30 +506,70 @@ import GearCard from '../../components/curriculum/GearCard.astro';
   </div>
 
   <TimelineStep title="複習與常態化練習" time="30 MINS">
-    - **暖身與出席確認**：姓名、經驗、最喜歡的 _________。
-    - **技術複習**：兩人一組，練習髖部翻正 (3x10) 與 T型救援 (3次)。
-
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">出席</span>
+        <h5 class="font-bold text-slate-900 mb-1">暖身與出席確認</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">圍成一圈，分享姓名、划艇經驗、最喜歡的事。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">複習</span>
+        <h5 class="font-bold text-slate-900 mb-1">技術複習</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">兩人一組，練習髖部翻正 (3x10) 與 T 型救援 (3 次)。</p>
+      </div>
+    </div>
     <LessonNote type="normalize">再次強調「頭部最後抬起」與船隻完全翻到底的重要性。</LessonNote>
   </TimelineStep>
 
   <TimelineStep title="槳法技巧深度演練 (Strokes)" time="120 MINS">
-    - **槳手框架 (Paddler’s Box)**：維持安全的肢體受力結構。
-    - **旋轉動能 (Spinning)**：前後掃槳 (Sweeps)，強調運用軀幹旋轉 (Rotation)。
-    - **移動動能 (Moving)**：前進/後退槳、前/後橫移 (Draws)、髖部拉槳、撥水橫移。
-    - **傾斜動能 (Tilt)**：低位支撐與高位支撐發力機制。
-
+    <div class="grid grid-cols-1 gap-3 mb-4">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">框架</span>
+        <h5 class="font-bold text-slate-900 mb-1">槳手框架 (Paddler's Box)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">學習維持安全的肢體受力結構，確保關節不超出承受範圍。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">旋轉</span>
+        <h5 class="font-bold text-slate-900 mb-1">旋轉動能 (Spinning)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">前後掃槳 (Sweeps) 練習，強調軀幹旋轉 (Rotation) 帶動划槳。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">移動</span>
+        <h5 class="font-bold text-slate-900 mb-1">移動動能 (Moving)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">前進/後退槳、前後橫移 (Draws)、髖部拉槳、撥水橫移。</p>
+      </div>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">傾斜</span>
+        <h5 class="font-bold text-slate-900 mb-1">傾斜動能 (Tilt)</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">低位支撐與高位支撐的發力機制。</p>
+      </div>
+    </div>
     <LessonNote type="safety">**高位支撐 (High Brace) 解釋**：肘部務必朝下產生阻力。若對側肘部抬起，槳葉會潛入水中導致受傷。</LessonNote>
   </TimelineStep>
 
   <TimelineStep title="翻滾教學入門 (Roll Lesson)" time="60 MINS">
-    - **C to C 示範**：以右手為主（右手控制槳葉）。
-    - **步驟解析**：
-      1. **Set up** (設定位置)。
-      2. **左拇指靠臀/座艙**，右手向下推向左側。
-      3. **拉槳 + 髖部翻正 + 頭保持朝下**，右肘向右膝抬起 + 左肘下壓。
-    - **觸覺引導**：指導員在水中協助調整身體位置，協助學員「感覺」反向空間。
+    <div class="grid grid-cols-1 gap-4 mb-6">
+      <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100/50">
+        <span class="inline-block px-2 py-1 bg-blue-600 text-white text-[10px] font-black rounded mb-2 uppercase">Step 01</span>
+        <h5 class="font-bold text-slate-900 mb-1">C to C 示範與位置設定</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">以右手控制槳葉為主，首先進入 **Set up** (設定位置)。</p>
+      </div>
+      
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-400 text-white text-[10px] font-black rounded mb-2 uppercase">Step 02</span>
+        <h5 class="font-bold text-slate-900 mb-1">關鍵觸覺連結</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">左拇指緊貼座艙後緣（或臀部），右手向下推向左側。建立身體與船隻的空間連結。</p>
+      </div>
 
-    <LessonNote type="key">**心理建設**：水下一切都是反向且倒置的，單用認知解釋很難理解，必須透過體驗來感受正確位置。</LessonNote>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/50">
+        <span class="inline-block px-2 py-1 bg-slate-900 text-white text-[10px] font-black rounded mb-2 uppercase">Step 03</span>
+        <h5 class="font-bold text-slate-900 mb-1">動力轉移與翻正</h5>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">拉槳並配合髖部翻正，**右肘往右膝靠攏並帶動上提**，同時**左肘不要上抬（避免雞翅膀動作）**。關鍵：頭部保持朝下並防止槳葉下鑽。</p>
+      </div>
+    </div>
+
+
+    <LessonNote type="key">**心理建設**：指導員在水中協助調整身體位置，水下一切都是反向且倒置的，單用認知解釋很難理解，必須透過體驗來感受正確位置，幫助學員「感覺」反向空間。</LessonNote>
   </TimelineStep>
 
 </CurriculumSection>

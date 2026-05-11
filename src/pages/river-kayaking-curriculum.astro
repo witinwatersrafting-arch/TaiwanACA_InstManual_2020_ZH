@@ -59,8 +59,20 @@ const { Content } = await render(entry);
   /* Remove default prose styling that interferes with timeline */
   .curriculum-timeline h1 { @apply hidden; }
   /* .curriculum-timeline p { @apply m-0; } */
-  .curriculum-timeline ul { @apply list-none pl-0 space-y-2; }
-  .curriculum-timeline li { @apply flex items-start gap-2 text-slate-600 font-medium; }
+  .curriculum-timeline ul { @apply list-none pl-0 space-y-4; }
+  .curriculum-timeline li { 
+    @apply flex flex-col md:flex-row md:items-start gap-1 md:gap-6 text-slate-600 font-medium leading-relaxed; 
+  }
+  .curriculum-timeline li strong {
+    @apply text-slate-900 shrink-0 md:w-32 lg:w-40 pb-1 md:pb-0 flex items-center justify-between md:justify-start;
+  }
+  /* 僅在桌面版自動補齊冒號 */
+  @media (min-width: 768px) {
+    .curriculum-timeline li strong::after {
+      content: "：";
+      @apply ml-auto md:ml-0;
+    }
+  }
   
   .serif { font-family: "Noto Serif TC", serif; }
   .zh { word-break: break-all; }
