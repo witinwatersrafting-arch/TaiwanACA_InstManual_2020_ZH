@@ -5,20 +5,19 @@ import GearCard from '../../components/curriculum/GearCard.astro';
 
 # 激流獨木舟教學進度表
 
-<div class="mb-32">
+<section id="aca-outline">
   <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
     <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
       <span class="zh">ACA 官方技術大綱 (L1-L4)</span>
-      <span class="en text-sm md:text-base text-slate-500 font-normal tracking-wider uppercase">Official Skills Curriculum</span>
+      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Official Technical Skills progression</span>
     </h2>
     <div class="max-w-4xl">
-      <p class="zh text-slate-600 text-lg leading-relaxed">
-        涵蓋槳類運動安全、裝備、划船理論、河流判讀、跑河策略及救援之通識。豐富的實務經驗是技術知識的核心。
+      <p class="zh text-slate-600 text-lg leading-relaxed italic">
+        本大綱整合了 ACA 激流獨木舟 L1 至 L4 的核心技術指標，旨在為指導員提供一套具備「深度演進 (Deep Water Progression)」邏輯的教學清單，確保學員能從平靜水域穩步過渡至複雜激流環境。
       </p>
     </div>
   </div>
 
-  {/* Curriculum Per-Level Narrative */}
   <div class="space-y-6 mb-24">
 
     {/* Level 1 */}
@@ -34,12 +33,12 @@ import GearCard from '../../components/curriculum/GearCard.astro';
         <div class="pb-6 lg:pb-0 lg:pr-6">
           <p class="text-sm font-black text-slate-900 border-l-4 border-[#4796cc] pl-2 mb-6">出發與準備</p>
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
-            <li>• 行程規劃與 Float Plan</li>
+            <li>• 行程規劃 Float Plan 報備</li>
             <li>• 裝備調整與貼合度 (Fit)</li>
             <li>• 正確握槳與有效抓握</li>
             <li>• LNT 原則與安全規範</li>
             <li>• 團隊責任與良好判斷</li>
-            <li>• Float Plan 報備程序</li>
+            <li>• 船隻搬運與攜帶方式</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -50,6 +49,8 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 旋轉 180° / 側移 3 米</li>
             <li>• 受控登船與下水技術</li>
             <li>• 前進中 90 度轉向技術</li>
+            <li>• 8 字型旋轉移動練習</li>
+            <li>• 受控到達並安全離船</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -59,6 +60,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 輔助救援 (T-rescue)</li>
             <li>• 輔助登船 (Heel hook)</li>
             <li>• 船隻頂推 (Bulldozing)</li>
+            <li>• 自我與溺者救援技術</li>
+            <li>• 識別救援安全裝備</li>
+            <li>• 槳浮板輔助重上船</li>
           </ul>
         </div>
         <div class="pt-6 lg:pt-0 lg:pl-6">
@@ -70,6 +74,8 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 急救與 CPR 重要性</li>
             <li>• 酒精與物質濫用規範</li>
             <li>• 課程評量與結業回饋</li>
+            <li>• 訓練階梯與社團介紹</li>
+            <li>• ACA 會員入會登記</li>
           </ul>
         </div>
       </div>
@@ -93,6 +99,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 三點接觸與維持低重心</li>
             <li>• 水域舒適度與信心建立</li>
             <li>• 裝備維修與選配套件</li>
+            <li>• 裝備保養與個人配備</li>
+            <li>• 個人游泳能力評估</li>
+            <li>• 個人體能暖身訓練</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -100,9 +109,11 @@ import GearCard from '../../components/curriculum/GearCard.astro';
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• J型壓邊 / 船體側傾</li>
             <li>• 槳法 CPR 三要素</li>
-            <li>• 進出迴流與主流橫渡</li>
             <li>• 後舵槳技術與低支撐</li>
-            <li>• 進階橫移技術練習</li>
+            <li>• 前後掃槳技術應用</li>
+            <li>• 橫渡技術 (Ferry)</li>
+            <li>• 迴流進出技術</li>
+            <li>• 借水流橫移技術</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -112,6 +123,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 腳部卡住預防 (Entrap)</li>
             <li>• 攻防式游泳姿勢轉換</li>
             <li>• 意識不清舟友救援</li>
+            <li>• 船內排水與水瓢使用</li>
+            <li>• 拋繩救援技術</li>
+            <li>• 游泳者拖帶技術</li>
           </ul>
         </div>
         <div class="pt-6 lg:pt-0 lg:pl-6">
@@ -161,6 +175,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 力量傳遞：葉面到船體</li>
             <li>• 座艙調整：靠背、臀墊</li>
             <li>• 個人行為與藥物規範</li>
+            <li>• 個人游泳能力評估</li>
+            <li>• PFD 全程正確穿著</li>
+            <li>• 風險與危險宣導</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -168,9 +185,11 @@ import GearCard from '../../components/curriculum/GearCard.astro';
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• 精確刻劃 (Carving)</li>
             <li>• 側滑 (Sideslips) 移動</li>
-            <li>• Duffek 橫移結合側移</li>
+            <li>• Duffek 槳法技術</li>
             <li>• C型 / S型組合操縱</li>
-            <li>• 側拉槳與撥水槳技術</li>
+            <li>• 拉槳 (Draw) 介紹</li>
+            <li>• 原地拉槳側移</li>
+            <li>• 撥水拉槳技術</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
@@ -181,6 +200,8 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 防水裙脫困：拉 vs 撥</li>
             <li>• 各類船種划船救援差異</li>
             <li>• 冷水效應與失溫管理</li>
+            <li>• 拋繩接收技術</li>
+            <li>• 翻船冷靜脫困姿勢</li>
           </ul>
         </div>
         <div class="pt-6 lg:pt-0 lg:pl-6">
@@ -192,6 +213,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 國際難度等級 I–VI</li>
             <li>• V型流與斜槽特徵辨識</li>
             <li>• 結業回饋與技術回顧</li>
+            <li>• Sieves 水下縫隙辨識</li>
+            <li>• 迴流線動力辨識</li>
+            <li>• AW 安全守則手冊</li>
           </ul>
         </div>
       </div>
@@ -214,12 +238,15 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 高壓環境下的動作穩定</li>
             <li>• 團隊後勤與緊急應變</li>
             <li>• 搬運危害評估 (Portage)</li>
+            <li>• 個人風格與焦慮覺察</li>
           </ul>
         </div>
         <div class="py-6 lg:py-0 lg:px-6">
           <p class="text-sm font-black text-slate-900 border-l-4 border-[#1a364a] pl-2 mb-6">操縱與槳法</p>
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• 翻滾：C2C / Sweep</li>
+            <li>• 後甲板翻滾技術</li>
+            <li>• 同側異側自旋練習</li>
             <li>• 複雜倒捲流操縱 (Holes)</li>
             <li>• 強流中精確橫渡技術</li>
             <li>• 衝浪與波穴動能利用</li>
@@ -230,8 +257,10 @@ import GearCard from '../../components/curriculum/GearCard.astro';
           <ul class="text-sm text-slate-600 space-y-2 list-none pl-0">
             <li>• 划船救援、拖繩管理</li>
             <li>• 地形確保、繩索管理</li>
-            <li>• 河流用信號、應變程序</li>
+            <li>• 通用河流信號與通訊</li>
             <li>• 團隊風險耐受管理</li>
+            <li>• 意識不清舟友救援</li>
+            <li>• 地形救援執行策略</li>
           </ul>
         </div>
         <div class="pt-6 lg:pt-0 lg:pl-6">
@@ -240,11 +269,13 @@ import GearCard from '../../components/curriculum/GearCard.astro';
             <li>• 偵察 (Scouting) 路線</li>
             <li>• 領頭船與掃尾船組織</li>
             <li>• 避免隧道視野 (Tunnel)</li>
+            <li>• 間距管理規範</li>
             <li>• 自我風險耐受度評估</li>
             <li>• 應變計畫 Plan B 建立</li>
-            <li>• 焦慮感與後果分析自省</li>
             <li>• 船上與岸上偵察差異</li>
             <li>• 結業回饋與綜合自省</li>
+            <li>• 團隊規模與可及性評估</li>
+            <li>• 在地知識與導引冊</li>
           </ul>
         </div>
       </div>
@@ -252,16 +283,13 @@ import GearCard from '../../components/curriculum/GearCard.astro';
 
 
   </div>
-</div>
+</section>
 
-
-
-
-
+<section id="intro-course">
   <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
     <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">激流獨木舟「入門/初階」課程設計範例</span>
-      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Instruction Field Guide Example</span>
+      <span class="zh">課程設計範例</span>
+      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Course Design Example (L1)</span>
     </h2>
     <div class="max-w-4xl">
       <p class="zh text-slate-600 text-lg leading-relaxed">
@@ -270,7 +298,7 @@ import GearCard from '../../components/curriculum/GearCard.astro';
     </div>
   </div>
 
-<CurriculumSection title="河流激流獨木舟 入門課程" subtitle="實務進度表：基礎、安全與本能建立">
+<CurriculumSection title="課程設計範例" subtitle="實務進度表：基礎、安全與本能建立">
   
   <div class="bg-amber-50 p-6 rounded-2xl mb-12 border border-amber-100">
     <h4 class="text-sm font-black text-amber-900 uppercase mb-2">課前準備</h4>
@@ -332,8 +360,22 @@ import GearCard from '../../components/curriculum/GearCard.astro';
     </ul>
   </div>
 </CurriculumSection>
+</section>
 
-<CurriculumSection title="河流激流獨木舟 初階課程" subtitle="實務進度表：進階槳法與翻滾入門">
+<section id="basic-course">
+  <div class="border-l-8 border-[#3a7ba5] pl-8 mb-16">
+    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
+      <span class="zh">初階課程範例</span>
+      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Basic Course (L2)</span>
+    </h2>
+    <div class="max-w-4xl">
+      <p class="zh text-slate-600 text-lg leading-relaxed">
+        初階課程將場域轉移至具備真實水流的環境，學員將開始學習如何利用船體側傾 (Heeling) 與水流互動，並初步理解河流閱讀與技術性救援策略。
+      </p>
+    </div>
+  </div>
+
+<CurriculumSection title="初階課程範例" subtitle="實務進度表：進階槳法與翻滾入門">
   
   <div class="bg-amber-50 p-6 rounded-2xl mb-12 border border-amber-100">
     <h4 class="text-sm font-black text-amber-900 uppercase mb-2">初階課程 課前準備</h4>
@@ -370,7 +412,9 @@ import GearCard from '../../components/curriculum/GearCard.astro';
   </TimelineStep>
 
 </CurriculumSection>
+</section>
 
+<section id="resources">
 <CurriculumSection title="教學資源與後續發展" subtitle="裝備採購與在地社群連結">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="p-6 bg-white rounded-2xl border border-slate-200">
@@ -386,6 +430,30 @@ import GearCard from '../../components/curriculum/GearCard.astro';
       </p>
     </div>
   </div>
+
+  <div class="mt-12">
+    <h4 class="font-black text-slate-900 mb-6 px-2 border-l-4 border-blue-600">John Taylor 翻滾教學示範</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-3">
+        <div class="relative aspect-video w-full rounded-xl shadow-lg overflow-hidden bg-black group cursor-pointer" onclick="this.innerHTML = '<iframe class=\'absolute inset-0 w-full h-full\' src=\'https://www.youtube.com/embed/56dL54jBBT4?autoplay=1&rel=0\' title=\'YouTube video player\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen loading=\'lazy\'></iframe>'">
+          <img src="https://img.youtube.com/vi/56dL54jBBT4/maxresdefault.jpg" alt="Video Preview" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300" />
+          <button class="absolute inset-0 m-auto w-[4rem] h-[4rem] bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-xl transition transform group-hover:scale-110" aria-label="Play Video">
+            <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+          </button>
+        </div>
+        <p class="text-xs text-slate-400 text-center italic">示範影片 (一)</p>
+      </div>
+      <div class="space-y-3">
+        <div class="relative aspect-video w-full rounded-xl shadow-lg overflow-hidden bg-black group cursor-pointer" onclick="this.innerHTML = '<iframe class=\'absolute inset-0 w-full h-full\' src=\'https://www.youtube.com/embed/hg2Ej3La4SM?autoplay=1&rel=0\' title=\'YouTube video player\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen loading=\'lazy\'></iframe>'">
+          <img src="https://img.youtube.com/vi/hg2Ej3La4SM/maxresdefault.jpg" alt="Video Preview" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300" />
+          <button class="absolute inset-0 m-auto w-[4rem] h-[4rem] bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-xl transition transform group-hover:scale-110" aria-label="Play Video">
+            <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+          </button>
+        </div>
+        <p class="text-xs text-slate-400 text-center italic">示範影片 (二)</p>
+      </div>
+    </div>
+  </div>
 </CurriculumSection>
 
 <div class="mt-20 p-8 bg-slate-900 text-white rounded-3xl">
@@ -394,3 +462,4 @@ import GearCard from '../../components/curriculum/GearCard.astro';
     教學在大綱描述完畢後才真正開始。上述「入門/初階」範例完整展示了如何將枯燥的技術標準轉化為具備心理建設層次的教案。優秀的教練應熟讀官方標準，並靈活運用實務心法來引導學員克服障礙。
   </p>
 </div>
+</section>

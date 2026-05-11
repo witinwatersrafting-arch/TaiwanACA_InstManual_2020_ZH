@@ -33,7 +33,15 @@ const rubricNav = [
     { id: "risk", zh: "風險管理", en: "Risk Management", slug: "risk-management" },
 ];
 
-const currentNav = isAssessmentPage ? rubricNav : manualNav;
+const curriculumNav = [
+    { id: "aca-outline", zh: "ACA 官方技術大綱", en: "ACA Official Outline", slug: "aca-outline" },
+    { id: "intro-course", zh: "入門課程範例", en: "Introductory Course", slug: "intro-course" },
+    { id: "basic-course", zh: "初階課程範例", en: "Basic Course", slug: "basic-course" },
+    { id: "resources", zh: "教學資源與後續發展", en: "Resources & Development", slug: "resources" },
+];
+
+const isCurriculumPage = Astro.url.pathname.includes("river-kayaking-curriculum");
+const currentNav = isCurriculumPage ? curriculumNav : (isAssessmentPage ? rubricNav : manualNav);
 const rawBaseUrl = import.meta.env.BASE_URL;
 // Ensure baseUrl ends with exactly one slash for safe joining
 const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
@@ -177,15 +185,21 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                     <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-6 border border-slate-200" id="mode-switcher">
                         <a
                             href={`${baseUrl}?menu=open`}
-                            class={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold text-center transition-all ${!isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${!isAssessmentPage && !isCurriculumPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
                         >
-                            指導員手冊
+                            手冊
                         </a>
                         <a
                             href={`${baseUrl}assessment-guide?menu=open`}
-                            class={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold text-center transition-all ${isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
                         >
-                            評估量表
+                            量表
+                        </a>
+                        <a
+                            href={`${baseUrl}river-kayaking-curriculum?menu=open`}
+                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isCurriculumPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                        >
+                            進度表
                         </a>
                     </div>
 
@@ -226,7 +240,7 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 
                     <nav class="space-y-6" id="main-nav">
                         <!-- Manual Section -->
-                        <div id="nav-section-manual" class={isAssessmentPage ? 'hidden' : ''}>
+                        <div id="nav-section-manual" class={isAssessmentPage || isCurriculumPage ? 'hidden' : ''}>
                             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
                             <div class="space-y-2">
                                 {manualNav.map((item) => {
@@ -256,6 +270,23 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                                 {rubricNav.map((item) => (
                                     <a
                                         href={`${baseUrl}assessment-guide#${item.slug}`}
+                                        data-nav-id={item.slug}
+                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
+                                    >
+                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
+                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        <!-- Curriculum Section -->
+                        <div id="nav-section-curriculum" class={!isCurriculumPage ? 'hidden' : ''}>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">進度目錄 Contents</p>
+                            <div class="space-y-2">
+                                {curriculumNav.map((item) => (
+                                    <a
+                                        href={`${baseUrl}river-kayaking-curriculum#${item.slug}`}
                                         data-nav-id={item.slug}
                                         class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
                                     >
@@ -352,9 +383,15 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                         if (mode === "manual") {
                             manualSection?.classList.remove("hidden");
                             rubricSection?.classList.add("hidden");
-                        } else {
+                            document.getElementById("nav-section-curriculum")?.classList.add("hidden");
+                        } else if (mode === "rubric") {
                             manualSection?.classList.add("hidden");
                             rubricSection?.classList.remove("hidden");
+                            document.getElementById("nav-section-curriculum")?.classList.add("hidden");
+                        } else {
+                            manualSection?.classList.add("hidden");
+                            rubricSection?.classList.add("hidden");
+                            document.getElementById("nav-section-curriculum")?.classList.remove("hidden");
                         }
                     };
                 });
