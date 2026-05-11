@@ -584,7 +584,8 @@ const riskManagementRows = [
     <!-- Hero Section (Manual Style) -->
     <header class="text-center mb-28">
       <div class="inline-block bg-[#4796cc] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12 shadow-md">
-        <span class="zh">Whitewater Instructor Assessment</span>
+        <span class="zh">溪流獨木舟指導員評估</span>
+        <span class="en">Whitewater Instructor Assessment</span>
       </div>
       
       <h1 class="text-4xl md:text-7xl font-black serif leading-[1.1] mb-10 tracking-tight">
@@ -600,7 +601,7 @@ const riskManagementRows = [
       
       <div class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl leading-relaxed mb-12 font-medium">
         <p class="zh">本量表是專門為 ACA 溪流獨木舟指導員認證設計的技術標準。評估員將根據此量表，針對候選人的各項能力進行全方位的專業評核。</p>
-        <p class="en italic text-base">This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation.</p>
+        <p class="en text-base">This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation.</p>
       </div>
       
       <div class="flex justify-center">
@@ -609,11 +610,11 @@ const riskManagementRows = [
     </header>
 
     <!-- Introductory Info (Bilingual Redesign) -->
-    <section class="mb-40">
+    <section id="process-and-rubric" class="mb-40 scroll-mt-24">
       <div class="border-b-2 border-slate-100 pb-5 mb-10">
         <h2 class="text-4xl font-black text-slate-900 tracking-tight">
           <span class="zh">評估程序與指標</span>
-          <span class="en uppercase tracking-widest text-3xl block text-slate-300 mt-1">Process & Rubric</span>
+          <span class="en uppercase tracking-widest text-3xl block text-slate-900 mt-1">Process & Rubric</span>
         </h2>
       </div>
       
@@ -621,21 +622,31 @@ const riskManagementRows = [
         <div class="space-y-6">
           <h3 class="text-lg font-black text-slate-900">
             <span class="zh">認證說明與權限：</span>
-            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1">Certification & Authority:</span>
+            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1 font-bold">Certification & Authority:</span>
           </h3>
           <ul class="text-slate-500 leading-[1.8] text-base font-medium space-y-4">
-            <li class="zh">● 候選人必須由取得認證的 ACA 教練導師 (IT) 或資深導師 (ITE) 進行評估。</li>
-            <li class="zh">● 評估員僅能評核與其自身認證等級相同或更低之等級。</li>
-            <li class="zh">● 場地標準必須與申請之等級相符（如 L4 應於 II/III 級水域進行）。</li>
+            <li>
+              <span class="zh">● 候選人必須由取得認證的 ACA 教練導師 (IT) 或資深導師 (ITE) 進行評估。</span>
+              <span class="en block text-sm text-slate-600 mt-1">● Candidates must be evaluated by a certified ACA Instructor Trainer (IT) or Instructor Trainer Educator (ITE).</span>
+            </li>
+            <li>
+              <span class="zh">● 評估員僅能評核與其自身認證等級相同或更低之等級。</span>
+              <span class="en block text-sm text-slate-600 mt-1">● Assessors may only evaluate at or below their own certification level.</span>
+            </li>
+            <li>
+              <span class="zh">● 場地標準必須與申請之等級相符（如 L4 應於 II/III 級水域進行）。</span>
+              <span class="en block text-sm text-slate-600 mt-1">● The venue must meet the standards for the level being assessed (e.g., L4 in Class II/III water).</span>
+            </li>
           </ul>
         </div>
         <div class="space-y-6">
           <h3 class="text-lg font-black text-slate-900">
             <span class="zh">ICE 認證考試指南：</span>
-            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1">ICE Certification Guide:</span>
+            <span class="en block text-sm uppercase tracking-wider text-[#4796cc] mb-1 font-bold">ICE Certification Guide:</span>
           </h3>
-          <p class="text-slate-500 italic leading-[1.8] text-base font-medium">
-            此量表亦適用於教練候選人之認證評核。教練候選人應具備更深層次的理解，並能執行、示範（角色楷模）、教學並排除其認證等級內所有技能之障礙。
+          <p class="text-slate-500 leading-[1.8] text-base font-medium">
+            <span class="zh">此量表亦適用於教練候選人之認證評核。教練候選人應具備更深層次的理解，並能執行、示範（角色楷模）、教學並排除其認證等級內所有技能之障礙。</span>
+            <span class="en block text-sm text-slate-600 mt-2">This rubric also applies to instructor candidate certification. Candidates are expected to have a deeper level of understanding and must be able to perform, model, teach, and troubleshoot all skills within their certification level.</span>
           </p>
         </div>
       </div>
@@ -704,5 +715,4 @@ const riskManagementRows = [
         <Copyright />
       </footer>
     </div>
-  </div>
 </Layout>

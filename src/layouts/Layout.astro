@@ -25,10 +25,11 @@ const manualNav = [
 ];
 
 const rubricNav = [
-    { id: "tech", zh: "技術知識", en: "Technical Knowledge", slug: "技術知識" },
-    { id: "flat", zh: "靜水槳法", en: "Flat Water Strokes", slug: "靜水槳法" },
-    { id: "moving", zh: "動態水域技術", en: "Dynamic Water Skills", slug: "動態水域技術" },
-    { id: "risk", zh: "風險管理", en: "Risk Management", slug: "風險管理" },
+    { id: "process", zh: "評估程序與指標", en: "Process & Rubric", slug: "process-and-rubric" },
+    { id: "tech", zh: "技術知識", en: "Technical Knowledge", slug: "technical-knowledge" },
+    { id: "flat", zh: "靜態水域技術", en: "Flatwater Skills", slug: "flatwater-skills" },
+    { id: "moving", zh: "動態水域技術", en: "Moving Water Maneuvers", slug: "moving-water-maneuvers" },
+    { id: "risk", zh: "風險管理", en: "Risk Management", slug: "risk-management" },
 ];
 
 const currentNav = isAssessmentPage ? rubricNav : manualNav;
@@ -428,11 +429,6 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                 }
             };
 
-            initLang();
-            initModeSwitcher();
-            initMobileMenu();
-
-            // ScrollSpy
             const initScrollSpy = () => {
                 const sections = document.querySelectorAll("section[id]");
                 const navLinks = document.querySelectorAll(".nav-link");
@@ -451,8 +447,9 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                     return;
                 }
 
+                // Intersection Observer for scroll tracking
                 const observerOptions = {
-                    rootMargin: "-10% 0px -80% 0px",
+                    rootMargin: "-15% 0px -75% 0px",
                     threshold: 0,
                 };
 
@@ -470,22 +467,12 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 
                                     // Update Mobile Header Title
                                     if (mobileUnitDisplay) {
-                                        const unitZh =
-                                            link.querySelector(
-                                                ".zh"
-                                            )?.textContent;
-                                        if (
-                                            unitZh &&
-                                            mobileUnitDisplay.textContent !==
-                                                unitZh
-                                        ) {
-                                            mobileUnitDisplay.style.opacity =
-                                                "0";
+                                        const unitZh = link.querySelector(".zh")?.textContent;
+                                        if (unitZh && mobileUnitDisplay.textContent !== unitZh) {
+                                            mobileUnitDisplay.style.opacity = "0";
                                             setTimeout(() => {
-                                                mobileUnitDisplay.textContent =
-                                                    unitZh;
-                                                mobileUnitDisplay.style.opacity =
-                                                    "1";
+                                                mobileUnitDisplay.textContent = unitZh;
+                                                mobileUnitDisplay.style.opacity = "1";
                                             }, 200);
                                         }
                                     }
@@ -501,11 +488,15 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
             };
 
             // Run on initial load
+            initLang();
+            initModeSwitcher();
+            initMobileMenu();
             initScrollSpy();
 
             // Support Astro view transitions
             document.addEventListener("astro:after-swap", () => {
                 initLang();
+                initModeSwitcher();
                 initMobileMenu();
                 initScrollSpy();
             });
@@ -546,6 +537,10 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     }
     .lang-en .zh {
         display: none !important;
+    }
+
+    .en {
+        font-family: 'Inter', sans-serif;
     }
 
     .serif {

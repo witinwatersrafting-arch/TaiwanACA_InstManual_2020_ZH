@@ -37,11 +37,11 @@ const {
   <div class="border-l-8 border-[#4796cc] pl-8 mb-12">
     <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
       <span class="zh">{title_zh}</span>
-      <span class="en text-xl md:text-2xl text-slate-400 font-medium tracking-tight uppercase italic">{title_en}</span>
+      <span class="en text-sm md:text-base text-slate-500 font-normal tracking-wider uppercase">{title_en}</span>
     </h2>
     <div class="max-w-4xl space-y-4">
       <p class="zh text-slate-600 text-lg leading-relaxed">{description_zh}</p>
-      <p class="en text-slate-400 text-base italic leading-relaxed">{description_en}</p>
+      <p class="en text-slate-600 text-[15px] leading-relaxed">{description_en}</p>
     </div>
   </div>
 
@@ -51,21 +51,21 @@ const {
       <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-[#4796cc] mb-3">Evaluation Method</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{evalMethod_zh}</p>
-        <p class="en text-slate-400 text-[12px] italic leading-tight">{evalMethod_en}</p>
+        <p class="en text-slate-600 text-[12px] leading-tight">{evalMethod_en}</p>
       </div>
     )}
     {meetsStandard_zh && (
       <div class="p-6 bg-emerald-50/50 rounded-2xl border border-emerald-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-emerald-600 mb-3">Meets Standard</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{meetsStandard_zh}</p>
-        <p class="en text-slate-400 text-[12px] italic leading-tight">{meetsStandard_en}</p>
+        <p class="en text-slate-600 text-[12px] leading-tight">{meetsStandard_en}</p>
       </div>
     )}
     {belowStandard_zh && (
       <div class="p-6 bg-rose-50/50 rounded-2xl border border-rose-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-rose-600 mb-3">Below Standard</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{belowStandard_zh}</p>
-        <p class="en text-slate-400 text-[12px] italic leading-tight">{belowStandard_en}</p>
+        <p class="en text-slate-600 text-[12px] leading-tight">{belowStandard_en}</p>
       </div>
     )}
   </div>
@@ -88,12 +88,12 @@ const {
           <div class="hidden lg:grid grid-cols-5 hover:bg-blue-50/30 transition-colors">
             <div class="p-6 border-r border-slate-100 font-bold text-slate-800 flex flex-col justify-center">
               <span class="zh block text-base leading-tight">{row.name_zh}</span>
-              <span class="en block text-[9px] text-[#4796cc] uppercase tracking-tighter mt-1 opacity-70">{row.name_en}</span>
+              <span class="en block text-[10px] text-[#4796cc] font-bold uppercase tracking-wider mt-1">{row.name_en}</span>
             </div>
             {row.levels.map((level, i) => (
               <div class="p-6 border-r border-slate-100 last:border-r-0">
                 <div class="zh text-[13px] text-slate-700 leading-relaxed mb-2 font-medium whitespace-pre-wrap">{level.zh}</div>
-                <div class="en text-[11px] text-slate-400 italic leading-snug whitespace-pre-wrap">{level.en}</div>
+                <div class="en text-[11px] text-slate-600 leading-snug whitespace-pre-wrap">{level.en}</div>
               </div>
             ))}
           </div>
@@ -111,7 +111,7 @@ const {
                     <span class="text-[9px] font-black uppercase tracking-widest bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full">Level {i+2}</span>
                   </div>
                   <p class="zh text-slate-700 text-sm font-medium leading-relaxed mb-2">{level.zh}</p>
-                  <p class="en text-slate-400 text-xs italic leading-snug">{level.en}</p>
+                  <p class="en text-slate-600 text-xs leading-snug">{level.en}</p>
                 </div>
               ))}
             </div>
