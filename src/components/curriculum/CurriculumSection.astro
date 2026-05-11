@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  time?: string;
+}
+
+const { title, subtitle, time } = Astro.props;
+---
+
+<section class="mb-20 scroll-mt-24">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-l-4 border-slate-200 pl-6">
+    <div class="flex-1">
+      <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-2">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest m-0">{subtitle}</p>
+      )}
+    </div>
+    {time && (
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest self-start md:self-center shadow-lg shadow-slate-200">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        {time}
+      </div>
+    )}
+  </div>
+  <div class="space-y-8 text-slate-600 leading-relaxed">
+    <slot />
+  </div>
+</section>

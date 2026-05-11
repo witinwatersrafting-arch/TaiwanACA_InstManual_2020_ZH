@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Copyright from "../components/Copyright.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("manual", "river-kayaking-101");
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await render(entry);
+---
+
+<Layout title="激流獨木舟教學進度表">
+  <div class="max-w-5xl mx-auto py-16 px-6 md:py-28">
+    
+    <!-- Hero Section (Manual Style) -->
+    <header class="text-center mb-28">
+      <div class="inline-block bg-[#4796cc] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12 shadow-md">
+        <span class="zh">激流獨木舟課程</span>
+        <span class="en">Whitewater Kayaking Curriculum</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-7xl font-black serif leading-[1.1] mb-10 tracking-tight">
+        <span class="zh">
+          <span class="text-slate-900 block mb-4">激流獨木舟</span>
+          <span class="text-[#4796cc] block">教學進度表</span>
+        </span>
+        <span class="en">
+          <span class="text-slate-900 block mb-4 text-3xl md:text-5xl uppercase tracking-tighter">Whitewater Kayaking</span>
+          <span class="text-[#4796cc] block text-3xl md:text-6xl">Instruction Field Guide</span>
+        </span>
+      </h1>
+      
+      <div class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl leading-relaxed mb-12 font-medium">
+        <p class="zh">專為教練現場參考設計的時序排版。結合 ACA 技術大綱與「入門/初階」實務教學流程，確保教學邏輯嚴謹且符合現場安全規範。</p>
+        <p class="en text-base">A time-based instruction guide designed for field reference. Integrates ACA technical standards with Introductory and Elementary practical teaching flows.</p>
+      </div>
+      
+      <div class="flex justify-center">
+        <div class="w-16 h-1.5 bg-[#4796cc] rounded-full"></div>
+      </div>
+    </header>
+
+    <!-- Timeline Container -->
+    <div class="curriculum-timeline max-w-4xl mx-auto">
+      <Content />
+    </div>
+
+    <footer class="mt-40">
+      <div class="flex flex-col md:flex-row justify-end items-start gap-8 opacity-60">
+        <Copyright />
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Remove default prose styling that interferes with timeline */
+  .curriculum-timeline h1 { @apply hidden; }
+  .curriculum-timeline p { @apply m-0; }
+  .curriculum-timeline ul { @apply list-none pl-0 space-y-2; }
+  .curriculum-timeline li { @apply flex items-start gap-2 text-slate-600 font-medium; }
+  .curriculum-timeline li::before {
+    content: "•";
+    @apply text-[#4796cc] font-black;
+  }
+  
+  .serif { font-family: "Noto Serif TC", serif; }
+  .zh { word-break: break-all; }
+  .en { word-break: break-word; }
+</style>

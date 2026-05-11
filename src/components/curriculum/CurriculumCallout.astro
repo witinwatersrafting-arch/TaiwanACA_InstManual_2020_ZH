@@ -1,0 +1,62 @@
+---
+import Icon from '../LucideIcon.astro';
+
+interface Props {
+  type: 'emphasize' | 'normalize' | 'safety' | 'tip';
+}
+
+const { type } = Astro.props;
+
+const styles = {
+  emphasize: {
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    text: 'text-amber-900',
+    iconColor: 'text-amber-500',
+    icon: 'AlertCircle',
+    label: '重點強調'
+  },
+  normalize: {
+    bg: 'bg-indigo-50',
+    border: 'border-indigo-200',
+    text: 'text-indigo-900',
+    iconColor: 'text-indigo-500',
+    icon: 'Activity',
+    label: '常態化訓練'
+  },
+  safety: {
+    bg: 'bg-red-50',
+    border: 'border-red-200',
+    text: 'text-red-900',
+    iconColor: 'text-red-500',
+    icon: 'ShieldAlert',
+    label: '安全警告'
+  },
+  tip: {
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    text: 'text-emerald-900',
+    iconColor: 'text-emerald-500',
+    icon: 'Lightbulb',
+    label: '教練小撇步'
+  }
+};
+
+const currentStyle = styles[type];
+---
+
+<div class={`p-6 rounded-2xl border-l-4 ${currentStyle.bg} ${currentStyle.border} my-8 shadow-sm transition-all hover:shadow-md`}>
+  <div class="flex items-start gap-4">
+    <div class={`mt-1 ${currentStyle.iconColor}`}>
+      <Icon name={currentStyle.icon} size={24} />
+    </div>
+    <div class="flex-1">
+      <p class={`text-[10px] font-black uppercase tracking-widest ${currentStyle.iconColor} mb-2`}>
+        {currentStyle.label}
+      </p>
+      <div class={`text-sm md:text-base font-bold leading-relaxed ${currentStyle.text}`}>
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>

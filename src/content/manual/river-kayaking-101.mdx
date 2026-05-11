@@ -1,0 +1,268 @@
+import TimelineStep from '../../components/curriculum/TimelineStep.astro';
+import LessonNote from '../../components/curriculum/LessonNote.astro';
+import CurriculumSection from '../../components/curriculum/CurriculumSection.astro';
+import GearCard from '../../components/curriculum/GearCard.astro';
+
+# 激流獨木舟教學進度表
+
+<div class="mb-32">
+  <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
+    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
+      <span class="zh">ACA 官方技術大綱 (L1-L4)</span>
+      <span class="en text-sm md:text-base text-slate-500 font-normal tracking-wider uppercase">Official Skills Curriculum</span>
+    </h2>
+    <div class="max-w-4xl">
+      <p class="zh text-slate-600 text-lg leading-relaxed">
+        涵蓋槳類運動安全、裝備、划船理論、河流判讀、跑河策略及救援之通識。豐富的實務經驗是技術知識的核心。
+      </p>
+    </div>
+  </div>
+
+  {/* Curriculum Matrix - Rubric Style Layout */}
+  <div class="rounded-[2rem] border border-slate-200 overflow-hidden shadow-xl bg-white mb-24">
+    {/* Table Header */}
+    <div class="hidden lg:grid grid-cols-5 bg-[#4796cc] text-white font-black text-[10px] uppercase tracking-[0.2em] py-8 px-4">
+      <div class="px-8 border-r border-white/10 flex items-center">核心技能類別</div>
+      <div class="px-4 border-r border-white/10 text-center flex items-center justify-center">Level 1：入門</div>
+      <div class="px-4 border-r border-white/10 text-center flex items-center justify-center">Level 2：基礎</div>
+      <div class="px-4 border-r border-white/10 text-center flex items-center justify-center">Level 3：技術</div>
+      <div class="px-4 text-center flex items-center justify-center">Level 4：進階</div>
+    </div>
+
+    <div class="divide-y divide-slate-100">
+      {/* Row 1: Preparation */}
+      <div class="lg:grid lg:grid-cols-5 hover:bg-slate-50 transition-colors">
+        <div class="p-8 bg-slate-50/50 lg:bg-transparent border-r border-slate-100 font-black text-slate-900 flex flex-col justify-center">
+          <span class="zh text-lg">出發與準備</span>
+          <span class="en text-[10px] text-[#4796cc] uppercase tracking-wider mt-1">Preparation</span>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L1</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">行程規劃、後勤與天氣判斷。裝備調整、搬運方式與 LNT 原則。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L2</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">心理判斷、水域信心。車頂載運與固定、進出水域原則。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L3</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">強調「划者方框」預防受傷。船體貼合度與力量傳遞調整。</p>
+        </div>
+        <div class="p-8">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L4</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">高壓力環境表現。裝備、後勤與環境條件之深度評估。</p>
+        </div>
+      </div>
+
+      {/* Row 2: Strokes */}
+      <div class="lg:grid lg:grid-cols-5 hover:bg-slate-50 transition-colors">
+        <div class="p-8 bg-slate-50/50 lg:bg-transparent border-r border-slate-100 font-black text-slate-900 flex flex-col justify-center">
+          <span class="zh text-lg">操縱與槳法</span>
+          <span class="en text-[10px] text-[#4796cc] uppercase tracking-wider mt-1">Strokes & Maneuvers</span>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L1</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">8字型划行、直線進退、180度原地旋轉、橫移技術。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L2</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">J型壓邊與平衡。基礎進出迴流、橫渡技術。掃槳與支撐。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L3</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">Duffek、S/C型轉向組合。側滑移動。激流衝浪 (Surfing)。</p>
+        </div>
+        <div class="p-8">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L4</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">精確的掃槳橫移組合。翻滾技術 (C2C, Sweep, Back Deck)。</p>
+        </div>
+      </div>
+
+      {/* Row 3: Rescue */}
+      <div class="lg:grid lg:grid-cols-5 hover:bg-slate-50 transition-colors">
+        <div class="p-8 bg-slate-50/50 lg:bg-transparent border-r border-slate-100 font-black text-slate-900 flex flex-col justify-center">
+          <span class="zh text-lg">安全與救援</span>
+          <span class="en text-[10px] text-[#4796cc] uppercase tracking-wider mt-1">Safety & Rescue</span>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L1</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">人船槳裝備優先順序。自我救援 (游泳登船)、輔助登船。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L2</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">RETHROG 策略 (Talk, Reach, Throw, Row, Go)。防禦式游泳、腳部卡住預防、頂推技術。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L3</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">拋繩包技術演練。防水裙脫困兩法。舟基救援與排水。</p>
+        </div>
+        <div class="p-8">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L4</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">進階舟基救援、拋繩管理與確保。緊急應變程序執行。</p>
+        </div>
+      </div>
+
+      {/* Row 4: Environment/Strategy */}
+      <div class="lg:grid lg:grid-cols-5 hover:bg-slate-50 transition-colors">
+        <div class="p-8 bg-slate-50/50 lg:bg-transparent border-r border-slate-100 font-black text-slate-900 flex flex-col justify-center">
+          <span class="zh text-lg">判讀與策略</span>
+          <span class="en text-[10px] text-[#4796cc] uppercase tracking-wider mt-1">Reading & Strategy</span>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L1</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">安全航行規範。Float Plan 審視、水上陸上禮儀意識。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L2</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">河流判讀基礎 (CFS、流向)。迴流辨識、基本風險意識。</p>
+        </div>
+        <div class="p-8 border-r border-slate-100">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L3</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">下游V、障礙物影響、地平線流。危險特徵：過濾器、孔洞。</p>
+        </div>
+        <div class="p-8">
+          <span class="lg:hidden text-[9px] font-black uppercase bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full mb-3 inline-block">L4</span>
+          <p class="text-sm text-slate-600 leading-relaxed m-0">跑河策略、偵察、Plan B。團隊組織 (Lead/Sweep)、訊號。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="border-l-8 border-blue-200 pl-8 mb-16">
+    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
+      <span class="zh">激流獨木舟「入門/初階」課程設計範例</span>
+      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Instruction Field Guide Example</span>
+    </h2>
+    <div class="max-w-4xl">
+      <p class="zh text-slate-600 text-lg leading-relaxed">
+        本章節完整還原了「入門」與「初階」實務教案內容，展示如何將 ACA 大綱轉化為具體的現場教學節奏，並特別強調「水下倒置心理壓力」的去敏感化管理。
+      </p>
+    </div>
+  </div>
+
+<CurriculumSection title="河流激流獨木舟 入門課程" subtitle="實務進度表：基礎、安全與本能建立">
+  
+  <div class="bg-amber-50 p-6 rounded-2xl mb-12 border border-amber-100">
+    <h4 class="text-sm font-black text-amber-900 uppercase mb-2">課前準備</h4>
+    <p class="text-slate-600 m-0">佈置所有裝備，但先不要發放。</p>
+  </div>
+
+  <TimelineStep title="暖身、出席與文化建立" time="15 MINS">
+    - **出席確認與介紹**：圍成一圈，分享姓名、經驗、最喜歡的 _________。
+    - **陸上安全說明**：注意岩石、樹根、毒藤 (Poison Ivy)、咬人貓、狗大便。
+    - **安全與文化**：強調互相支持、包容，在水上特別要彼此照應。
+
+    <LessonNote type="safety">必須全程穿鞋以防魚鉤、碎玻璃或銳利岩石。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="裝備介紹 (含穿戴演練)" time="30 MINS">
+    - **助浮衣 (PFD)**：說明為何使用 Type V (激流專用)、調整鬆緊度及穿著感受。
+    - **頭盔**：調整鬆緊、貼合度、側邊及下巴扣帶。
+    - **防水裙 (Skirt)**：說明用途、穿法、座艙罩尺寸 (Cockpit) 及軀幹隧道尺寸 (Tunnel)。
+    - **划槳**：長度與羽化角 (Feather) 的操作原理。
+    - **船隻設定**：一般尺寸合適度。調整腳踏板 (Bulkhead)、背帶 (Back Band) 及座位。
+
+    <LessonNote type="normalize">引導學員親手操作，消除對裝備的陌生感並建立操作直覺。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="翻船脫困與水域適應" time="40 MINS">
+    - **陸上練習 (Dry Land)**：防水裙套法與翻船脫困步驟演練。
+    - **水中脫困 (On Water)**：指導員示範翻轉志願者，進行立即、5s、10s、15s、30s 計時練習。
+    - **水上進出**：示範如何進入與離開獨木舟。
+    - **排水技術**：練習如何排除船內的積水。
+
+    <LessonNote type="key">**水下倒置心理壓力**：旁觀者將發現受困者在水下的時間感會顯著加速；教學重點在於引導學員覺察自身壓力水平，並對水下倒置的感官刺激進行「去敏感化 (Desensitize)」訓練。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="髖部翻正 (Hip Snaps)" time="45 MINS">
+    - **演練方式**：指導員示範後，兩人一組練習 3 組各 10 次。
+    - **細節要求**：配戴鼻夾練習、強調船隻必須**完全翻轉到底**。
+    - **甩髮技巧 (Flip hair)**：利用動作慣性協助。
+
+    <LessonNote type="normalize">核心心法：將「頭部最後抬起」轉化為本能反應，這是未來成功翻滾的基石。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="T型救援 (T-Rescue)" time="45 MINS">
+    - **舒適感練習**：兩人一組練習在倒置狀態下等待的舒適感。
+    - **多種情境範例**：
+      - 雙手扶船，頭部在水中。
+      - 單手扶船，頭部與船隻都在倒置狀態。
+      - 鬆開船隻後再抓取、倒置等待 15 秒。
+      - 在倒置狀態下完全等待。
+
+    <LessonNote type="normalize">將陌生的水下動作「常態化 (Normalize)」，使其轉化為直覺本能；這能有效降低正式翻滾時的大腦認知負荷，讓學員依靠肌肉記憶自然反應。</LessonNote>
+  </TimelineStep>
+
+  <div class="bg-slate-50 p-6 rounded-2xl mt-12 border border-slate-100">
+    <h4 class="text-sm font-black text-slate-900 uppercase mb-4">入門課程 總結 (Debrief)</h4>
+    <ul class="text-sm space-y-2 text-slate-500 list-none pl-0">
+      <li>• 圍成一圈：分享喜歡的部分、做得好的地方、對未來的期待。</li>
+      <li>• 初階課程及後續練習建議、Potomac Pizza 聚餐。</li>
+      <li>• 裝備購買與穿著建議。</li>
+    </ul>
+  </div>
+</CurriculumSection>
+
+<CurriculumSection title="河流激流獨木舟 初階課程" subtitle="實務進度表：進階槳法與翻滾入門">
+  
+  <div class="bg-amber-50 p-6 rounded-2xl mb-12 border border-amber-100">
+    <h4 class="text-sm font-black text-amber-900 uppercase mb-2">初階課程 課前準備</h4>
+    <p class="text-slate-600 m-0 leading-relaxed">
+      佈置裝備讓學員自行領取。預先分配好船隻。主題延續：**常態化 (NORMALIZE)**。
+    </p>
+  </div>
+
+  <TimelineStep title="複習與常態化練習" time="30 MINS">
+    - **暖身與出席確認**：姓名、經驗、最喜歡的 _________。
+    - **技術複習**：兩人一組，練習髖部翻正 (3x10) 與 T型救援 (3次)。
+
+    <LessonNote type="normalize">再次強調「頭部最後抬起」與船隻完全翻到底的重要性。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="槳法技巧深度演練 (Strokes)" time="120 MINS">
+    - **槳手框架 (Paddler’s Box)**：維持安全的肢體受力結構。
+    - **旋轉動能 (Spinning)**：前後掃槳 (Sweeps)，強調運用軀幹旋轉 (Rotation)。
+    - **移動動能 (Moving)**：前進/後退槳、前/後橫移 (Draws)、髖部拉槳、撥水橫移。
+    - **傾斜動能 (Tilt)**：低位支撐與高位支撐發力機制。
+
+    <LessonNote type="safety">**高位支撐 (High Brace) 解釋**：肘部務必朝下產生阻力。若對側肘部抬起，槳葉會潛入水中導致受傷。</LessonNote>
+  </TimelineStep>
+
+  <TimelineStep title="翻滾教學入門 (Roll Lesson)" time="60 MINS">
+    - **C to C 示範**：以右手為主（右手控制槳葉）。
+    - **步驟解析**：
+      1. **Set up** (設定位置)。
+      2. **左拇指靠臀/座艙**，右手向下推向左側。
+      3. **拉槳 + 髖部翻正 + 頭保持朝下**，右肘向右膝抬起 + 左肘下壓。
+    - **觸覺引導**：指導員在水中協助調整身體位置，協助學員「感覺」反向空間。
+
+    <LessonNote type="key">**心理建設**：水下一切都是反向且倒置的，單用認知解釋很難理解，必須透過體驗來感受正確位置。</LessonNote>
+  </TimelineStep>
+
+</CurriculumSection>
+
+<CurriculumSection title="教學資源與後續發展" subtitle="裝備採購與在地社群連結">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="p-6 bg-white rounded-2xl border border-slate-200">
+      <h4 class="font-black text-slate-900 mb-2">裝備採購建議</h4>
+      <p class="text-sm text-slate-500 leading-relaxed m-0">
+        可前往 Highwater Hobbies、Paddle Praddle 洽詢，或加入 Facebook 社群 (PPS STUDENT PAGE, Potomac River Gear Exchange) 尋找合適器材。
+      </p>
+    </div>
+    <div class="p-6 bg-white rounded-2xl border border-slate-200">
+      <h4 class="font-black text-slate-900 mb-2">社群連結</h4>
+      <p class="text-sm text-slate-500 leading-relaxed m-0">
+        透過 Little Falls, Potomac Paddlers, Potomac Whitewater 等社群建立連結，參與在地練習聚會。
+      </p>
+    </div>
+  </div>
+</CurriculumSection>
+
+<div class="mt-20 p-8 bg-slate-900 text-white rounded-3xl">
+  <h4 class="text-lg font-black mb-4">教練總結建議</h4>
+  <p class="text-slate-400 text-sm leading-relaxed m-0">
+    教學在大綱描述完畢後才真正開始。上述「入門/初階」範例完整展示了如何將枯燥的技術標準轉化為具備心理建設層次的教案。優秀的教練應熟讀官方標準，並靈活運用實務心法來引導學員克服障礙。
+  </p>
+</div>

@@ -1,0 +1,52 @@
+---
+import Icon from '../LucideIcon.astro';
+
+interface Props {
+  type: 'key' | 'safety' | 'normalize';
+  title?: string;
+}
+
+const { type, title } = Astro.props;
+
+const config = {
+  key: {
+    icon: 'Star',
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    text: 'text-amber-900',
+    iconColor: 'text-amber-500',
+    label: '教學重點'
+  },
+  safety: {
+    icon: 'ShieldAlert',
+    bg: 'bg-red-50',
+    border: 'border-red-200',
+    text: 'text-red-900',
+    iconColor: 'text-red-500',
+    label: '安全注意'
+  },
+  normalize: {
+    icon: 'RefreshCw',
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
+    text: 'text-blue-900',
+    iconColor: 'text-blue-500',
+    label: '常態化目標'
+  }
+};
+
+const style = config[type];
+---
+
+<div class={`flex gap-3 p-4 rounded-xl border mt-6 ${style.bg} ${style.border}`}>
+  <div class={`shrink-0 mt-0.5 ${style.iconColor}`}>
+    <Icon name={style.icon} size={18} strokeWidth={3} />
+  </div>
+  <div class="flex-1">
+    {title && <h4 class={`text-sm font-black uppercase tracking-wider mb-1 ${style.text}`}>{title}</h4>}
+    {!title && <h4 class={`text-[10px] font-black uppercase tracking-widest mb-1 opacity-70 ${style.text}`}>{style.label}</h4>}
+    <div class={`text-sm md:text-base font-medium leading-relaxed ${style.text}`}>
+      <slot />
+    </div>
+  </div>
+</div>

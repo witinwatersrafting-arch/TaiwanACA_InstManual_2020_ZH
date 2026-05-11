@@ -1,0 +1,39 @@
+---
+import Icon from '../LucideIcon.astro';
+
+interface Props {
+  time?: string;
+  title: string;
+  isStep?: boolean;
+}
+
+const { time, title, isStep = true } = Astro.props;
+---
+
+<div class="relative pl-8 md:pl-12 pb-12 group last:pb-0">
+  <!-- Vertical Line -->
+  <div class="absolute left-0 top-0 bottom-0 w-px bg-slate-200 group-last:bg-transparent ml-[11px] md:ml-[15px]"></div>
+  
+  <!-- Dot/Indicator -->
+  <div class="absolute left-0 top-0 w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white bg-blue-600 shadow-sm flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+    <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full"></div>
+  </div>
+
+  <div class="flex flex-col w-full">
+    <!-- Time Badge (Mobile & Desktop) -->
+    {time && (
+      <div class="inline-flex items-center gap-1.5 text-blue-600 font-black text-[10px] uppercase tracking-widest mb-1 bg-blue-50 px-2 py-0.5 rounded self-start">
+        <Icon name="Clock" size={12} strokeWidth={3} />
+        {time}
+      </div>
+    )}
+
+    <h3 class="text-xl md:text-2xl font-black text-slate-900 leading-tight tracking-tight mb-4">
+      {title}
+    </h3>
+
+    <div class="space-y-4 text-slate-600 w-full block">
+      <slot />
+    </div>
+  </div>
+</div>

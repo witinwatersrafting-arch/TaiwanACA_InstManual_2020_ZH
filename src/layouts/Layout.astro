@@ -19,6 +19,7 @@ const manualNav = [
     { id: "unit7", zh: "第七單元：划行概念", en: "Unit 7: Concepts of Paddling", slug: "unit-07" },
     { id: "unit8", zh: "第八單元：體能調整", en: "Unit 8: Conditioning", slug: "unit-08" },
     { id: "unit9", zh: "第九單元：水域安全", en: "Unit 9: Safety on the Water", slug: "unit-09" },
+    { id: "curriculum", zh: "激流獨木舟教學進度表", en: "Instruction Field Guide", slug: "river-kayaking-curriculum" },
     { id: "conclusion", zh: "結語", en: "Conclusion", slug: "conclusion" },
     { id: "bibliography", zh: "參考文獻", en: "Bibliography", slug: "bibliography" },
     { id: "appendix-a", zh: "附錄 A：課程回報與認證維護", en: "Appendix A: Reporting and Maintenance", slug: "appendix-a" },
@@ -228,16 +229,23 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                         <div id="nav-section-manual" class={isAssessmentPage ? 'hidden' : ''}>
                             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
                             <div class="space-y-2">
-                                {manualNav.map((item) => (
-                                    <a
-                                        href={`${baseUrl}#${item.slug}`}
-                                        data-nav-id={item.slug}
-                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                    >
-                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                    </a>
-                                ))}
+                                {manualNav.map((item) => {
+                                    const isExternalPage = item.slug === "river-kayaking-curriculum";
+                                    const href = isExternalPage 
+                                        ? `${baseUrl}${item.slug}`
+                                        : `${baseUrl}#${item.slug}`;
+                                    
+                                    return (
+                                        <a
+                                            href={href}
+                                            data-nav-id={item.slug}
+                                            class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
+                                        >
+                                            <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
+                                            <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
 
