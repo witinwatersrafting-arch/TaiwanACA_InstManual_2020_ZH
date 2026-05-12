@@ -1,0 +1,1568 @@
+{
+  "Big Dog": {
+    "DropZone": {
+      "8.4": "XLarge"
+    },
+    "Flux": {
+      "7.3": "Not Available",
+      "7.7": "Large"
+    },
+    "Force": {
+      "8": "Large",
+      "7.7": "Not Available"
+    },
+    "Havoc": {
+      "6.11": "Not Available",
+      "6.5": "Large",
+      "6.9": "Not Available"
+    },
+    "Kaos": {
+      "5.1": "Large",
+      "6.05": "Not Available",
+      "6.2": "Large"
+    },
+    "Karma": {
+      "Not Available": "Not Available"
+    },
+    "Storm": {
+      "Not Available": "Not Available"
+    }
+  },
+  "Bliss Stick": {
+    "Blitz Special": {
+      "Large": "Large"
+    },
+    "Flipstick": {
+      "Not Available": "Not Available"
+    },
+    "Freestyler": {
+      "Not Available": "Not Available"
+    },
+    "Huka": {
+      "91.25\"": "XLarge"
+    },
+    "Lifestyler": {
+      "Not Available": "Not Available"
+    },
+    "MAC 1": {
+      "97\"": "XXLarge"
+    },
+    "Mini Mystic": {
+      "88\"": "Large"
+    },
+    "Mystic": {
+      "91\"": "XLarge"
+    },
+    "Rad": {
+      "175": "Large",
+      "185": "Large",
+      "195": "Large"
+    },
+    "Rad (Super)": {
+      "180": "Large"
+    },
+    "S.C.U.D.": {
+      "90\"": "Large"
+    },
+    "Slick-Stick": {
+      "88\"": "Large"
+    },
+    "Smoothy": {
+      "90\"": "Large"
+    },
+    "Specialist": {
+      "90\"": "Large"
+    },
+    "Tuna": {
+      "92\"": "XLarge"
+    }
+  },
+  "Dagger": {
+    "Agent (All)": {
+      "88\"": "Large"
+    },
+    "Animas": {
+      "Large": "Large"
+    },
+    "AQ II": {
+      "80\"": "Medium"
+    },
+    "Atom": {
+      "79\"": "IR does not make a skirt that fits this boat"
+    },
+    "Axiom": {
+      "8": "Large",
+      "9": "Large",
+      "6.9": "Medium",
+      "8.5": "Large"
+    },
+    "Blast": {
+      "Medium": "Medium"
+    },
+    "Cascade": {
+      "77.5\"": "IR does not make a skirt that fits this boat"
+    },
+    "Centrfuge": {
+      "Large": "Large"
+    },
+    "CFS": {
+      "88\"": "Large"
+    },
+    "Code": {
+      "Large": "Large",
+      "Medium": "Large",
+      "Small": "Large"
+    },
+    "Crazy 88": {
+      "Large": "Large"
+    },
+    "Crossfire": {
+      "Medium": "Medium"
+    },
+    "Dynamo": {
+      "Medium": "Medium"
+    },
+    "Ego": {
+      "88.5\"": "Large"
+    },
+    "Freefall": {
+      "Large": "Large"
+    },
+    "FX": {
+      "89\"": "Large"
+    },
+    "G Force (All)": {
+      "88.5\"": "Large"
+    },
+    "G-Ride": {
+      "Large": "Large"
+    },
+    "Green Boat": {
+      "89\"": "Large"
+    },
+    "GT": {
+      "Large": "Large"
+    },
+    "GTX": {
+      "Large": "Large"
+    },
+    "Honcho": {
+      "88\"": "Large"
+    },
+    "Id": {
+      "89\"": "Large"
+    },
+    "Indra": {
+      "M/L": "Large",
+      "S/M": "Large"
+    },
+    "Infrared": {
+      "89\"": "Large"
+    },
+    "Jitsu": {
+      "6": "Large",
+      "5.5": "Large",
+      "5.9": "Large"
+    },
+    "Juice": {
+      "Large": "Large"
+    },
+    "Kingpin (All)": {
+      "Large": "Large"
+    },
+    "Kingpin Icon": {
+      "Large": "Large"
+    },
+    "Mamba": {
+      "8": "Large",
+      "7.5": "Large",
+      "7.6": "Large",
+      "8.1": "Large",
+      "8.5": "Large",
+      "8.6": "Large"
+    },
+    "Medieval": {
+      "Large": "Large"
+    },
+    "Newmad": {
+      "L": "Large",
+      "M": "Large",
+      "S": "Large"
+    },
+    "Nomad": {
+      "8.1": "Large",
+      "8.5": "Large"
+    },
+    "Nova": {
+      "Large": "Large"
+    },
+    "Outburst": {
+      "Large": "Large"
+    },
+    "Outlaw": {
+      "89\"": "Large"
+    },
+    "Phantom": {
+      "88.5\"": "Large"
+    },
+    "Piedra": {
+      "Large": "Large"
+    },
+    "Predator II": {
+      "78.5\"": "Medium"
+    },
+    "Redline": {
+      "88\"": "Large"
+    },
+    "Response": {
+      "Medium": "Medium"
+    },
+    "Rewind": {
+      "LG": "Large",
+      "MD": "Large",
+      "SM": "Large",
+      "XS": "Medium"
+    },
+    "RPM": {
+      "87\"": "Large"
+    },
+    "RPM Max": {
+      "Large": "Large"
+    },
+    "Rx": {
+      "6.7": "Large",
+      "6.9": "Large"
+    },
+    "Showdown": {
+      "Large": "Large"
+    },
+    "Super Ego": {
+      "Large": "Large"
+    },
+    "Supernova": {
+      "Large": "Large"
+    },
+    "Ultrafuge": {
+      "88\"": "Large"
+    },
+    "Vanguard": {
+      "Large": "Large"
+    },
+    "Vengeance": {
+      "Large": "Large"
+    },
+    "Vertigo": {
+      "Large": "Large"
+    },
+    "Vortex": {
+      "87\"": "Large"
+    }
+  },
+  "Dragorossi": {
+    "77": {
+      "88\"": "Large"
+    },
+    "88": {
+      "88\"": "Large"
+    },
+    "Critical Mass": {
+      "Not Available": "Not Available"
+    },
+    "DRX": {
+      "93\"": "XLarge"
+    },
+    "Fish": {
+      "83\"": "Medium"
+    },
+    "Gangster": {
+      "Not Available": "Not Available"
+    },
+    "Mad Boy": {
+      "Not Available": "Not Available"
+    },
+    "Mafia": {
+      "Medium": "Medium"
+    },
+    "Naga": {
+      "96\"": "XXLarge"
+    },
+    "Pin Tail": {
+      "Not Available": "Not Available"
+    },
+    "Squash Tail": {
+      "Not Available": "Not Available"
+    },
+    "Stinger": {
+      "82\"": "Medium"
+    },
+    "Thruster": {
+      "87\"": "Large"
+    }
+  },
+  "Eskimo": {
+    "Cerro": {
+      "Large": "Large"
+    },
+    "Diablo": {
+      "Large": "Large"
+    },
+    "Gambler": {
+      "Not Available": "Not Available"
+    },
+    "Kendo": {
+      "2005 and newer": "Large",
+      "Pre 2005": "Large"
+    },
+    "Nano": {
+      "Large": "Large"
+    },
+    "Salto": {
+      "88\"": "Large"
+    },
+    "Salto Evolution": {
+      "89\"": "Large"
+    },
+    "Topolino-Duo": {
+      "1st Generation": "Medium"
+    },
+    "ZWO": {
+      "Large": "Large"
+    }
+  },
+  "Exo": {
+    "Rexy": {
+      "88.2\"": "Large"
+    },
+    "T-Rex": {
+      "L": "XLarge",
+      "S": "Large"
+    },
+    "Zion Slalom": {
+      "L": "XLarge"
+    }
+  },
+  "Fluid": {
+    "Bang": {
+      "Large": "Large"
+    },
+    "Bazooka": {
+      "LG": "Large",
+      "MD": "Large",
+      "SM": "Large"
+    },
+    "Big Bang": {
+      "Large": "Large"
+    },
+    "Detox": {
+      "LG": "Large",
+      "MD": "Large",
+      "SM": "Large"
+    },
+    "Donsa": {
+      "MD": "Medium"
+    },
+    "Dope": {
+      "LG": "Large",
+      "MD": "Large",
+      "SM": "Large"
+    },
+    "Element": {
+      "All Rotomold": "Large",
+      "Composite": "Not Available"
+    },
+    "Flirt": {
+      "All": "Large"
+    },
+    "Nemesis": {
+      "All Rotomold": "Large",
+      "Composite": "Not Available"
+    },
+    "Solo": {
+      "All": "Large"
+    },
+    "Spice": {
+      "LG": "Large",
+      "MD": "Large",
+      "SM": "Medium"
+    },
+    "Vuvubat": {
+      "81\"": "Medium"
+    }
+  },
+  "Jackson": {
+    "2 Fun": {
+      "2010": "Large",
+      "Classic": "Large"
+    },
+    "2012 Rockstar (1st Gen)": {
+      "L": "XLarge",
+      "M": "Large",
+      "S": "Large"
+    },
+    "2014 Rockstar (2nd Gen)": {
+      "L": "XLarge",
+      "M": "Large",
+      "S": "Large",
+      "XS": "Medium"
+    },
+    "2015 Zen": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "Large"
+    },
+    "2016 Rockstar (3rd Gen)": {
+      "L": "XLarge",
+      "M": "Large",
+      "S": "Large"
+    },
+    "4 Fun": {
+      "All versions": "XLarge"
+    },
+    "All Water": {
+      "9": "XLarge",
+      "10": "XXLarge"
+    },
+    "All-Star": {
+      "v. '04-'06": "Large",
+      "v. ‘10": "Large",
+      "v.’07-09’": "Large"
+    },
+    "AntiX": {
+      "Large": "XXLarge",
+      "Medium": "XLarge",
+      "Small": "Large"
+    },
+    "AntiX 2.0": {
+      "Large": "XLarge",
+      "Medium": "XLarge",
+      "Small": "Large"
+    },
+    "Antix 3.0": {
+      "Large": "XLarge",
+      "Medium": "Large",
+      "Small": "Large"
+    },
+    "Clutch": {
+      "91\"": "XLarge"
+    },
+    "DynamicDuo": {
+      "Back": "XLarge",
+      "Front": "Large"
+    },
+    "Flow": {
+      "Large": "XLarge",
+      "M": "XLarge",
+      "Small": "Large"
+    },
+    "Fun": {
+      "2010": "Large",
+      "2015": "XLarge",
+      "Classic": "XLarge"
+    },
+    "Fun 1": {
+      "73\"": "Medium"
+    },
+    "Fun 1.5": {
+      "Medium": "Medium"
+    },
+    "Fun Runner": {
+      "60": "Large",
+      "70": "XXLarge"
+    },
+    "Gnarvana": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "LG"
+    },
+    "Hero": {
+      "Classic": "Large",
+      "v. '07-'10": "XLarge",
+      "v. '11": "XLarge"
+    },
+    "Karma": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "RG (Rock Garden)": "XLarge",
+      "S": "Large",
+      "UL (Unlimited)": "XLarge"
+    },
+    "Little Hero": {
+      "85.5\"": "Large"
+    },
+    "Mega Rocker": {
+      "96.5\"": "XXLarge"
+    },
+    "Mixmaster": {
+      "7": "Large",
+      "7.5": "Large"
+    },
+    "MonStar": {
+      "98\"": "XXLarge"
+    },
+    "Nirvana": {
+      "L": "XXLarge",
+      "M": "XLarge"
+    },
+    "Punk Rocker": {
+      "Large": "Large"
+    },
+    "Rocker": {
+      "91\"": "XLarge"
+    },
+    "Rockstar 4.0": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "Large"
+    },
+    "Rockstar V": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "Large"
+    },
+    "Shooting Star": {
+      "76\"": "Medium"
+    },
+    "Sidekick": {
+      "Medium": "Medium"
+    },
+    "Star": {
+      "86\"": "Large"
+    },
+    "Super Fun": {
+      "All versions": "XXLarge"
+    },
+    "Super Hero": {
+      "Classic": "Large",
+      "v. '07-'10": "XXLarge",
+      "v. '11": "XXLarge"
+    },
+    "Super Star": {
+      "Classic": "XXLarge",
+      "v. '10": "XLarge"
+    },
+    "Villian": {
+      "L": "XXLarge",
+      "S": "Large"
+    },
+    "Zen": {
+      "55/ Small": "Large",
+      "65/ Medium": "Large",
+      "75/ Large": "XLarge"
+    },
+    "Zen 3": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "Large"
+    }
+  },
+  "Lettmann": {
+    "Granate": {
+      "L": "Large",
+      "M": "Large",
+      "XL": "XLarge"
+    }
+  },
+  "Liquidlogic": {
+    "Air Head": {
+      "Large": "Large"
+    },
+    "Alpha": {
+      "75": "Large",
+      "90": "XLarge"
+    },
+    "Big Wheel": {
+      "86\"": "Large"
+    },
+    "Biscuit": {
+      "45": "Medium",
+      "55": "Large",
+      "65": "Large"
+    },
+    "Braaap": {
+      "91\"": "XLarge"
+    },
+    "Cross River": {
+      "50": "Medium",
+      "80": "Medium",
+      "125": "Large",
+      "250": "Large"
+    },
+    "Delta V": {
+      "73": "Large",
+      "88": "Large"
+    },
+    "Flying Squirrel": {
+      "85": "Large",
+      "95": "Large"
+    },
+    "Freeride": {
+      "57": "XLarge",
+      "67": "XLarge"
+    },
+    "Gus": {
+      "Large": "Large"
+    },
+    "Homeslice": {
+      "89.5\"": "Large"
+    },
+    "Hoss": {
+      "Large": "Large"
+    },
+    "Hot Whip": {
+      "XLarge": "XLarge"
+    },
+    "Huck": {
+      "Large": "Large"
+    },
+    "Jefe": {
+      "87\"": "Large"
+    },
+    "Jefe Chico": {
+      "86\"": "Medium"
+    },
+    "Jefe Grande": {
+      "88\"": "Large"
+    },
+    "Jester": {
+      "85\"": "Not Available"
+    },
+    "Little Joe": {
+      "Large": "Large"
+    },
+    "Mullet": {
+      "87\"": "Large"
+    },
+    "Party Braaap": {
+      "XLarge": "XLarge"
+    },
+    "Pocket Rocket": {
+      "90\"": "Large"
+    },
+    "Pop": {
+      "91\"": "Large"
+    },
+    "Powerslide": {
+      "XLarge": "XLarge"
+    },
+    "Remix": {
+      "47": "Medium",
+      "59": "Large",
+      "69": "Large",
+      "79": "Large",
+      "XP-10": "XXLarge",
+      "XP-9": "XLarge"
+    },
+    "RMX": {
+      "76": "Large",
+      "86": "XLarge",
+      "96": "XLarge"
+    },
+    "Ronin": {
+      "49": "Large",
+      "59": "Large"
+    },
+    "Scooter": {
+      "86\"": "Large"
+    },
+    "Session": {
+      "113\"": "Large"
+    },
+    "Skip": {
+      "Large": "Large"
+    },
+    "Space Cadet": {
+      "87\"": "Large"
+    },
+    "Stinger": {
+      "2013 and later": "XLarge",
+      "pre 2013": "Large"
+    },
+    "Stomper": {
+      "80": "XLarge",
+      "90": "XLarge"
+    },
+    "Sweet Ride": {
+      "87\"": "XLarge"
+    },
+    "Trigger": {
+      "92\"": "Large"
+    },
+    "Vision 44- 56": {
+      "Large": "Large"
+    }
+  },
+  "Necky": {
+    "Attitude": {
+      "Not Available": "Not Available"
+    },
+    "Bliss": {
+      "84\"": "Medium"
+    },
+    "Blunt": {
+      "94\"": "XLarge"
+    },
+    "Chronic": {
+      "83\"": "Large"
+    },
+    "Crux": {
+      "Large": "Large"
+    },
+    "Gliss": {
+      "Medium": "Medium"
+    },
+    "Jive": {
+      "Medium": "Medium"
+    },
+    "Mission": {
+      "88\"": "Large"
+    },
+    "Orbit Fish": {
+      "Large": "Large"
+    },
+    "Rip": {
+      "Medium": "Medium"
+    },
+    "Spyder": {
+      "Medium": "Medium"
+    },
+    "Switch": {
+      "Not Available": "Not Available"
+    },
+    "Vibe": {
+      "Large": "Large"
+    },
+    "Witch": {
+      "Not Available": "Not Available"
+    },
+    "Zip": {
+      "Medium": "Medium"
+    }
+  },
+  "New Wave": {
+    "Attitude": {
+      "Not Available": "Not Available"
+    },
+    "Big Foot": {
+      "Not Available": "Not Available"
+    },
+    "Cruise Control": {
+      "85\"": "Large"
+    },
+    "Mongoose": {
+      "90.5\"": "Large"
+    },
+    "Probe": {
+      "Not Available": "Not Available"
+    },
+    "Sleek": {
+      "Large": "Large"
+    }
+  },
+  "Perception": {
+    "3D": {
+      "83.5\"": "Medium"
+    },
+    "Amp": {
+      "Large": "Large"
+    },
+    "Arc": {
+      "Large": "Large"
+    },
+    "Blaze (All)": {
+      "88\"": "Large"
+    },
+    "Corsica": {
+      "Matrix": "Large"
+    },
+    "Dancer": {
+      "77.5\"": "Medium"
+    },
+    "Dancer Pro": {
+      "87\"": "Large"
+    },
+    "Dancer XT": {
+      "82\"": "Medium"
+    },
+    "Full Tilt": {
+      "Large": "Large"
+    },
+    "Java": {
+      "Large": "Large"
+    },
+    "Jib": {
+      "Medium": "Medium"
+    },
+    "Lucid": {
+      "Large": "Large"
+    },
+    "Madness": {
+      "Large": "Large"
+    },
+    "Method": {
+      "87\"": "Large"
+    },
+    "Method Air": {
+      "87\"": "Large"
+    },
+    "Mirage": {
+      "Special Edition": "Medium"
+    },
+    "Mr. Clean": {
+      "86\"": "Large"
+    },
+    "Overflow": {
+      "87\"": "Large"
+    },
+    "Overflow X": {
+      "90.75\"": "Large"
+    },
+    "Phat": {
+      "85\"": "Large"
+    },
+    "Pirouette": {
+      "86.5\"": "Large"
+    },
+    "Shock": {
+      "Large": "Large"
+    },
+    "Slasher": {
+      "Not Available": "Not Available"
+    },
+    "Sonic": {
+      "Large": "Large"
+    },
+    "Sparc": {
+      "Large": "Large"
+    },
+    "Spin": {
+      "Large": "Large"
+    },
+    "Stikine": {
+      "Large": "Large"
+    },
+    "Super Sport": {
+      "Medium": "Medium"
+    },
+    "Supersonic": {
+      "Large": "Large"
+    },
+    "Ultra Clean": {
+      "Large": "Large"
+    },
+    "Wavehopper": {
+      "Medium": "Medium"
+    },
+    "Whip-It": {
+      "84\"": "Medium"
+    },
+    "Whiplash": {
+      "Medium": "Medium"
+    }
+  },
+  "Prijon": {
+    "Athlete": {
+      "88\"": "Large"
+    },
+    "Bala": {
+      "Wildwater": "IR does not make a skirt that fits this boat"
+    },
+    "Boxer": {
+      "93.375\"": "XLarge"
+    },
+    "Cali Pro": {
+      "92\"": "XLarge"
+    },
+    "Chopper": {
+      "Large": "Large"
+    },
+    "Creeker": {
+      "225": "Large"
+    },
+    "Cross": {
+      "87.5\"": "Large"
+    },
+    "Curve": {
+      "3": "Large",
+      "2.5": "XLarge",
+      "3.5": "Large",
+      "Creeker": "Large"
+    },
+    "Cyclone": {
+      "Medium": "Medium"
+    },
+    "Delirious": {
+      "Large": "Large"
+    },
+    "Delirium": {
+      "Large": "Large"
+    },
+    "Embudo": {
+      "Large": "Large"
+    },
+    "F-262": {
+      "Large": "Large"
+    },
+    "Fever": {
+      "Large": "Large"
+    },
+    "Fly": {
+      "Medium": "Medium"
+    },
+    "Hercules": {
+      "92\"": "XLarge"
+    },
+    "Hurricane": {
+      "84\"": "Medium"
+    },
+    "Invader": {
+      "Light": "Medium"
+    },
+    "Kaituna": {
+      "89.5\"": "Large"
+    },
+    "Kompressor": {
+      "Large": "Large"
+    },
+    "Luv": {
+      "Large": "Large"
+    },
+    "Machine": {
+      "Large": "Large"
+    },
+    "Performance": {
+      "Large": "Large"
+    },
+    "Pike": {
+      "88\"": "Large"
+    },
+    "Pure": {
+      "S": "Large",
+      "XL": "XLarge"
+    },
+    "Release": {
+      "Large": "Large"
+    },
+    "Rockit": {
+      "82\"": "Medium"
+    },
+    "T Canyon": {
+      "86\"": "Large"
+    },
+    "Tornado": {
+      "94\"": "XLarge"
+    },
+    "Water Devil": {
+      "Large": "Large"
+    },
+    "Wizard": {
+      "Large": "Large"
+    }
+  },
+  "Pyranha": {
+    "12R": {
+      "94.5\"": "XLarge"
+    },
+    "4-Twenty": {
+      "M": "Large",
+      "S": "Large"
+    },
+    "9R": {
+      "L": "XLarge",
+      "M": "XLarge"
+    },
+    "9R2": {
+      "L": "XXLarge",
+      "M": "XLarge"
+    },
+    "Acro (Bat) 270": {
+      "88\"": "Large"
+    },
+    "Acro (Bat) 275": {
+      "88\"": "Large"
+    },
+    "Ammo": {
+      "L": "XLarge",
+      "M": "Large",
+      "S": "Large"
+    },
+    "Blade": {
+      "87\"": "Large"
+    },
+    "Burn (1st Gen)": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "XLarge"
+    },
+    "Burn II": {
+      "L": "XXLarge",
+      "M": "XXLarge",
+      "S": "XXLarge"
+    },
+    "Burn III": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "XLarge",
+      "XL": "XLarge"
+    },
+    "Creek 280": {
+      "XLarge": "XLarge"
+    },
+    "Everest": {
+      "96\"": "XXLarge"
+    },
+    "Firecracker": {
+      "232": "XLarge",
+      "242": "XLarge",
+      "252": "XLarge"
+    },
+    "Fusion": {
+      "90\"": "Large"
+    },
+    "Fusion 2.0": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "XLarge"
+    },
+    "Fusion Duo": {
+      "Front": "XLarge",
+      "Rear": "XXLarge"
+    },
+    "G3": {
+      "XLarge": "XLarge"
+    },
+    "H2 (All)": {
+      "92\"": "XLarge"
+    },
+    "H3 (All)": {
+      "XLarge": "XLarge"
+    },
+    "i3": {
+      "88\"": "Large"
+    },
+    "i4": {
+      "Large": "Large"
+    },
+    "Inazone": {
+      "212": "Medium",
+      "222": "Large",
+      "232": "Large",
+      "242": "Large"
+    },
+    "Ion": {
+      "Large": "Large"
+    },
+    "JED": {
+      "S/M/L": "Large"
+    },
+    "Karnali L": {
+      "91\"": "XLarge"
+    },
+    "Karnali M": {
+      "90\"": "Large"
+    },
+    "Loki": {
+      "All Sizes": "Large"
+    },
+    "m3": {
+      "XLarge": "XLarge"
+    },
+    "Machno": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "XLarge"
+    },
+    "Magic Bat": {
+      "Not Available": "Not Available"
+    },
+    "Master TG": {
+      "XLarge": "XLarge"
+    },
+    "Micro": {
+      "240": "XLarge"
+    },
+    "Molan": {
+      "L": "Large",
+      "M": "Large",
+      "S": "Large"
+    },
+    "Mountain": {
+      "300": "Large"
+    },
+    "Nano": {
+      "XLarge": "XLarge"
+    },
+    "Ozone": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "Large"
+    },
+    "ProZone": {
+      "Medium": "Medium"
+    },
+    "Razor": {
+      "Medium": "Medium"
+    },
+    "ReactR": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "Large"
+    },
+    "Rebel": {
+      "76\"": "Medium"
+    },
+    "Recoil": {
+      "L": "Large"
+    },
+    "Rev": {
+      "M": "Large"
+    },
+    "Ripper": {
+      "L": "XXLarge",
+      "M": "XLarge",
+      "S": "XLarge"
+    },
+    "Ripper 2": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "XLarge"
+    },
+    "s6f": {
+      "Large": "Large"
+    },
+    "s6x": {
+      "Large": "Large"
+    },
+    "S7": {
+      "88.5\"": "Large"
+    },
+    "S:6": {
+      "190": "Large",
+      "200": "Large"
+    },
+    "S:8": {
+      "235": "Large"
+    },
+    "Scorch": {
+      "L": "XLarge",
+      "M": "XLarge",
+      "S": "XLarge",
+      "X": "XLarge"
+    },
+    "Seven 0": {
+      "Large": "Large"
+    },
+    "Shiva": {
+      "LG": "XLarge",
+      "MD": "XLarge",
+      "SM": "XLarge"
+    },
+    "Speeder": {
+      "90\"": "Large"
+    },
+    "Storm": {
+      "86\"": "Large"
+    },
+    "Stretch": {
+      "Large": "Large"
+    },
+    "Stunt Bat": {
+      "Not Available": "Not Available"
+    },
+    "TG": {
+      "Lite": "Medium"
+    },
+    "Varun": {
+      "All Sizes": "Large"
+    },
+    "Z.One": {
+      "LG": "XLarge",
+      "MD": "Large",
+      "SM": "Large"
+    }
+  },
+  "Rainbow": {
+    "DNA": {
+      "Large": "Large"
+    },
+    "Idra": {
+      "Large": "Large"
+    },
+    "Mephisto": {
+      "Large": "Large"
+    },
+    "Ninja": {
+      "Large": "Large"
+    },
+    "Rave": {
+      "Large": "Large"
+    },
+    "Reaction": {
+      "Large": "Large"
+    },
+    "SL": {
+      "350 Club": "Medium",
+      "350 Club Max": "Medium",
+      "350 Performance": "Medium",
+      "350 Performance Max": "Medium"
+    },
+    "Vector": {
+      "Large": "Large"
+    },
+    "Zulu": {
+      "Large": "Large"
+    }
+  },
+  "Riot": {
+    "Air": {
+      "45": "Medium"
+    },
+    "Astro": {
+      "54": "Large",
+      "58": "Large"
+    },
+    "Big Gun": {
+      "Large": "Large"
+    },
+    "Boogie": {
+      "1st Generation": "Medium"
+    },
+    "Booster": {
+      "Medium": "Medium"
+    },
+    "Disco": {
+      "Medium": "Medium"
+    },
+    "Dominatrix": {
+      "Medium": "Medium"
+    },
+    "Flair": {
+      "47": "Medium",
+      "57": "Medium"
+    },
+    "Glide": {
+      "Medium": "Medium"
+    },
+    "Grind": {
+      "Large": "Large"
+    },
+    "Hammer": {
+      "Medium": "Medium"
+    },
+    "Inferno": {
+      "Large": "Large"
+    },
+    "Kix": {
+      "Large": "Large"
+    },
+    "Magnum": {
+      "72": "Large",
+      "80": "Large"
+    },
+    "Ninja": {
+      "Medium": "Medium"
+    },
+    "Nitro": {
+      "58": "Large"
+    },
+    "OO7": {
+      "Medium": "Medium"
+    },
+    "Orbit": {
+      "Large": "Large"
+    },
+    "Prankster": {
+      "Medium": "Medium"
+    },
+    "Show Biz": {
+      "Medium": "Medium"
+    },
+    "Sick": {
+      "Medium": "Medium"
+    },
+    "Slice": {
+      "Not Available": "Not Available"
+    },
+    "Sniper": {
+      "Large": "Large"
+    },
+    "Superstar": {
+      "Medium": "Medium"
+    },
+    "Tekno": {
+      "Medium": "Medium"
+    },
+    "Thunder": {
+      "65": "Large",
+      "76": "Large"
+    },
+    "Trickster": {
+      "Medium": "Medium"
+    },
+    "Turbo": {
+      "47": "Medium",
+      "52": "Medium"
+    }
+  },
+  "Soul": {
+    "Booty Call": {
+      "90\"": "Large"
+    },
+    "District 11": {
+      "90\"": "Large"
+    },
+    "Gonzo": {
+      "90\"": "Large"
+    },
+    "Main Squeeze": {
+      "90\"": "Large"
+    },
+    "Swallow": {
+      "90\"": "Large"
+    }
+  },
+  "Spade": {
+    "Ace of Spades": {
+      "89.75\"": "Large"
+    },
+    "Blackjack": {
+      "2": "XLarge"
+    },
+    "Joker": {
+      "95.6\"": "XXLarge"
+    },
+    "Royal Flush": {
+      "95.6\"": "XXLarge"
+    }
+  },
+  "Teksport": {
+    "Rockhopper RH340": {
+      "Not Available": "Not Available"
+    },
+    "Xcess": {
+      "240 Ignite": "XLarge",
+      "240 Sport": "XLarge"
+    },
+    "Xile": {
+      "260 Ignite": "Not Available",
+      "260 Sport": "Not Available"
+    }
+  },
+  "Titan": {
+    "Exile": {
+      "Creeker": "XLarge",
+      "Crossover": "XLarge"
+    },
+    "Genesis": {
+      "CV:II": "XLarge",
+      "V:I": "Large",
+      "V:II": "XLarge",
+      "V:III": "XLarge"
+    },
+    "Nymph": {
+      "Not Available": "Not Available"
+    },
+    "Yantra": {
+      "7’9”": "Large",
+      "8’5”": "Large"
+    }
+  },
+  "Verus": {
+    "Gladiator": {
+      "Not Available": "Not Available"
+    },
+    "Gladiator 2.0": {
+      "90\"": "Large"
+    },
+    "Hellbender": {
+      "85\"": "Large"
+    },
+    "Sagitta": {
+      "Not Available": "Not Available"
+    },
+    "Volant": {
+      "Carbon/Kevlar": "Not Available",
+      "Full Carbon": "Not Available"
+    }
+  },
+  "Waka": {
+    "Billy Goat": {
+      "92\"": "XLarge"
+    },
+    "Gangsta": {
+      "92\"": "XLarge"
+    },
+    "Goat": {
+      "93.5\"": "XLarge"
+    },
+    "OG": {
+      "93\"": "XLarge"
+    },
+    "Skuxx": {
+      "XLarge": "XLarge"
+    },
+    "Steeze": {
+      "92.5\"": "XLarge"
+    },
+    "Stoke": {
+      "XLarge": "XLarge"
+    },
+    "Stout": {
+      "91\"": "XLarge"
+    },
+    "Tuna 1": {
+      "93\"": "XLarge"
+    },
+    "Tuna 2": {
+      "93\"": "XLarge"
+    },
+    "Tutea": {
+      "89\"": "Large"
+    }
+  },
+  "Wavesport": {
+    "Ace": {
+      "4.7": "Large",
+      "5.1": "Not Available"
+    },
+    "Big EZ": {
+      "86\"": "Large"
+    },
+    "Descente": {
+      "Not Available": "Not Available"
+    },
+    "Diesel": {
+      "60": "Large",
+      "65": "Large",
+      "70": "Large",
+      "75": "Large",
+      "80": "Large"
+    },
+    "Ethos": {
+      "9": "XLarge",
+      "10": "XXLarge"
+    },
+    "Evo": {
+      "73\"": "Medium"
+    },
+    "Extreme": {
+      "Not Available": "Not Available"
+    },
+    "EZ": {
+      "87\"": "Large"
+    },
+    "EZG": {
+      "42": "Medium",
+      "60": "Large"
+    },
+    "Flyer": {
+      "85\"": "Large"
+    },
+    "Forplay": {
+      "87\"": "Large"
+    },
+    "Frankenstein": {
+      "Not Available": "Not Available"
+    },
+    "Fuse": {
+      "35": "Medium",
+      "48": "Large",
+      "56": "Large",
+      "64": "XLarge"
+    },
+    "Godzilla": {
+      "86\"": "Large"
+    },
+    "Habitat": {
+      "74": "Large",
+      "80": "Large"
+    },
+    "Kinetic": {
+      "85\"": "Large"
+    },
+    "Micro X": {
+      "86\"": "Large"
+    },
+    "Mobius": {
+      "57": "Large",
+      "65": "XLarge"
+    },
+    "Mutant": {
+      "85.5\"": "Large"
+    },
+    "Project": {
+      "All": "Large"
+    },
+    "Project X": {
+      "48": "Large",
+      "56": "Large",
+      "64": "XLarge"
+    },
+    "Recon": {
+      "70": "Large",
+      "83": "Large",
+      "93": "Large"
+    },
+    "Score": {
+      "Large": "Large"
+    },
+    "Siren": {
+      "83\"": "Medium"
+    },
+    "Stubby": {
+      "Not Available": "Not Available"
+    },
+    "Super EZ": {
+      "96\"": "XXLarge"
+    },
+    "Transformer": {
+      "1": "Not Available",
+      "2": "Not Available",
+      "3": "Not Available",
+      "4": "Not Available"
+    },
+    "X": {
+      "87\"": "Large"
+    },
+    "XXX": {
+      "87\"": "Large"
+    },
+    "Y": {
+      "87\"": "Large"
+    },
+    "Z": {
+      "87\"": "Large"
+    },
+    "ZG": {
+      "87\"": "Large"
+    }
+  },
+  "Zet": {
+    "Chili": {
+      "89\"": "Large"
+    },
+    "Cross": {
+      "94\"": "XLarge"
+    },
+    "Director": {
+      "94.5\"": "XLarge"
+    },
+    "Five": {
+      "92.25\"": "XLarge"
+    },
+    "Ninja": {
+      "XLarge": "XLarge"
+    },
+    "Raptor": {
+      "92.5\"": "XLarge"
+    },
+    "Sago": {
+      "Large": "Large"
+    },
+    "Toro": {
+      "96.5\"": "XXLarge"
+    },
+    "Veloc": {
+      "Large": "Large"
+    }
+  }
+}

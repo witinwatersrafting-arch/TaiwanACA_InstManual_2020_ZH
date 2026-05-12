@@ -1,0 +1,11 @@
+Bungee vs. Rand Style Spray Skirts
+bungee-or-rand-skirts
+In the world of spray skirts, there are two standard construction methods used to make the skirt grip the cockpit rim:
+Bungee Style | Sew a ring of shock cord around the outer edge of the skirt.
+Rand Style | Glue an extruded rubber ring or “rand” around the outer edge of the skirt.
+The bungee method is the most common, the easiest to build, most natural to put on, and provides the driest seal. Bungee cords filled with latex strands stretch well in all varieties of temperatures (including frigid weather), and as a result, the bungee ring sewn onto the spray skirt tends to be much smaller than the cockpit rim it is designed to fit. Bungee skirts then work by stretching the bungee opening big enough to fit over the cockpit rim. The bone dry seal is made by the bungee retracting from all directions under the lip of the cockpit rim. The result is generally a drier seal on a wide variety of rims. However, this easy stretchability of the latex bungee cord also means that bungee skirts implode/explode off the rim easier. Therefore, bungee skirts aren’t always the best choice where skirt implosion is a serious issue such as paddling big water class V, running 30ft+ waterfalls, or paddling boats with very poorly shaped rims which are prone to implosion.
+
+Another way to make a spray skirt seal is with a "rand," which is a ring of extruded rubber glued on to the edge of the skirt. Rands tend to have a lot less stretch than bungees. Although our rand compound is formulated to maintain stretch as much as possible in cold weather, they can still require some pre-stretching on freezing days to ease them before use. Rand skirts seal around a rim much like a Tupperware lid seal – its more of a mechanical lip-locking seal than a bungee seal. As a result, rand skirts are very resistant to implosion/explosion. This makes them an excellent choice for people who primarily paddle big water class V, run 30ft+ waterfalls regularly, or for boats with poorly designed rims that are prone to implosion.
+
+Please note that these are general guidelines – there are many exceptions to the exact rim shape and paddler's needs. Many paddlers find a personal preference to either a rand or bungee is a more significant factor than any other consideration.
+

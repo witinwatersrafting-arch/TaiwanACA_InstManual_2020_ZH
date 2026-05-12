@@ -1,0 +1,182 @@
+---
+import StandardPage from "../components/StandardPage.astro";
+import kayaksData from "../data/kayaks.json";
+
+const manufacturers = [...new Set(kayaksData.map(k => k.Manufacture).filter(Boolean))].sort();
+const types = [...new Set(kayaksData.map(k => k.Type).filter(Boolean))].sort();
+---
+
+<StandardPage 
+  title="激流獨木舟規格資料庫"
+  badgeZh="裝備百科"
+  badgeEn="Gear Encyclopedia"
+  heroTitleMainZh="激流獨木舟"
+  heroTitleSubZh="規格資料庫"
+  heroTitleMainEn="Whitewater Kayak"
+  heroTitleSubEn="Specifications Database"
+  descriptionZh="收錄超過 1000 款激流獨木舟的技術規格，包含排水量、長度、寬度與建議體重，方便教練與學員根據體型選擇適合的船款。"
+  descriptionEn="A comprehensive database of over 1,000 whitewater kayaks, featuring technical specs like volume, length, width, and weight ranges to help paddlers find the perfect fit."
+  maxW="max-w-7xl"
+>
+    <!-- Sticky Control Panel (Search + Headers) -->
+    <div class="sticky top-[64px] md:top-0 z-[40] -mx-6 px-6 bg-white border-b border-slate-200 shadow-xl shadow-slate-200/20">
+      
+      <!-- Search Inputs -->
+      <div class="py-4 md:py-6">
+        <div class="grid grid-cols-12 gap-2">
+          <div class="col-span-5 relative">
+            <input 
+              type="text" 
+              id="boat-search" 
+              placeholder="搜尋..." 
+              class="w-full px-3 py-2.5 rounded-xl border border-slate-100 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-xs"
+            />
+          </div>
+          <div class="col-span-3">
+            <select id="brand-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
+              <option value="">品牌</option>
+              {manufacturers.map(m => <option value={m}>{m}</option>)}
+            </select>
+          </div>
+          <div class="col-span-4">
+            <select id="type-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
+              <option value="">類型</option>
+              {types.map(t => <option value={t}>{t}</option>)}
+            </select>
+          </div>
+        </div>
+        <div class="mt-3 text-[9px] text-slate-400 flex justify-between items-center px-1">
+          <span id="results-count">正在載入...</span>
+          <span class="hidden md:inline">提示：搜尋列與標題列已固定在頂部</span>
+        </div>
+      </div>
+
+      <!-- Real-time Sticky Table Header -->
+      <div class="hidden md:grid grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-4 bg-slate-50 border-t border-slate-100 text-[11px] font-black text-slate-500 uppercase tracking-wider">
+        <div>品牌 Manufacture</div>
+        <div>型號 Model</div>
+        <div>類型 Type</div>
+        <div class="text-center">容量 (L)</div>
+        <div class="text-center">長度 (cm)</div>
+        <div class="text-center">寬度 (cm)</div>
+        <div>建議體重 (kg)</div>
+      </div>
+    </div>
+
+    <!-- Data List Container -->
+    <div id="kayak-list" class="divide-y divide-slate-100 border-x border-slate-100 bg-white">
+        <!-- Rows will be injected here via Grid -->
+        <div class="py-20 text-center text-slate-400 text-sm">正在準備資料庫...</div>
+    </div>
+
+    <!-- Mobile Header (Visible only on mobile inside the list) -->
+    <div id="load-more-container" class="text-center py-12">
+        <button id="load-all-btn" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-lg shadow-blue-200">
+            顯示所有 1000+ 筆資料
+        </button>
+  </div>
+</StandardPage>
+
+<script define:vars={{ kayaksData }}>
+  const searchInput = document.getElementById('boat-search');
+  const brandFilter = document.getElementById('brand-filter');
+  const typeFilter = document.getElementById('type-filter');
+  const listContainer = document.getElementById('kayak-list');
+  const countDisplay = document.getElementById('results-count');
+  const loadAllBtn = document.getElementById('load-all-btn');
+
+  let limit = 150;
+
+  function renderRows(data) {
+    const displayList = data.slice(0, limit);
+    
+    if (displayList.length === 0) {
+        listContainer.innerHTML = `<div class="py-20 text-center text-slate-400">找不到符合條件的船隻</div>`;
+        return;
+    }
+
+    listContainer.innerHTML = displayList.map(k => `
+      <div class="grid grid-cols-2 md:grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-5 hover:bg-blue-50/30 transition-colors items-center text-sm">
+        <!-- Brand & Model (Primary Info) -->
+        <div class="text-slate-500 font-medium md:border-0">${k.Manufacture || '-'}</div>
+        <div class="text-slate-900 font-bold">
+            ${k["Model Name"] || '-'}
+            ${k["Year Intro"] ? `<span class="text-[10px] text-slate-400 font-normal ml-1">(${k["Year Intro"]})</span>` : ''}
+        </div>
+        
+        <!-- Other Specs -->
+        <div class="flex items-center gap-2 md:block">
+            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">類型:</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded text-[10px] text-slate-600 font-medium">${k.Type || '-'}</span>
+        </div>
+        
+        <div class="flex items-center justify-between md:justify-center gap-2">
+            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">容量:</span>
+            <span class="text-slate-600 font-mono">${k["Vol. Liter"] || '-'}</span>
+        </div>
+        
+        <div class="flex items-center justify-between md:justify-center gap-2">
+            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">長度:</span>
+            <span class="text-slate-600 font-mono">${k["Length CM"] || '-'}</span>
+        </div>
+  
+        <div class="flex items-center justify-between md:justify-center gap-2">
+            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">寬度:</span>
+            <span class="text-slate-600 font-mono">${k["Width CM"] || '-'}</span>
+        </div>
+        
+        <div class="col-span-2 md:col-span-1 border-t md:border-0 pt-2 md:pt-0 mt-2 md:mt-0">
+            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase mr-2">建議體重:</span>
+            <span class="text-slate-500 text-xs">${(k["Min KG"] && k["Max KG"]) ? `${k["Min KG"]} - ${k["Max KG"]}` : (k["Max KG"] || k["Min KG"] || '-')}</span>
+        </div>
+      </div>
+    `).join('');
+
+    countDisplay.textContent = `找到 ${data.length} 款符合的船隻 (目前顯示前 ${displayList.length} 筆)`;
+    
+    const container = document.getElementById('load-more-container');
+    if (data.length <= limit) {
+        container.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+    }
+  }
+
+  function updateTable() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedBrand = brandFilter.value;
+    const selectedType = typeFilter.value;
+
+    const filtered = kayaksData.filter(k => {
+      const brand = (k.Manufacture || "").toLowerCase();
+      const model = (k["Model Name"] || "").toLowerCase();
+      
+      const matchSearch = brand.includes(searchTerm) || model.includes(searchTerm);
+      const matchBrand = !selectedBrand || k.Manufacture === selectedBrand;
+      const matchType = !selectedType || k.Type === selectedType;
+      
+      return matchSearch && matchBrand && matchType;
+    });
+
+    renderRows(filtered);
+  }
+
+  loadAllBtn.addEventListener('click', () => {
+      limit = 2000;
+      updateTable();
+  });
+
+  searchInput.addEventListener('input', updateTable);
+  brandFilter.addEventListener('change', updateTable);
+  typeFilter.addEventListener('change', updateTable);
+
+  // Initial Render
+  updateTable();
+</script>
+
+<style>
+  /* Custom scrollbar for the long list */
+  #kayak-list {
+    min-height: 500px;
+  }
+</style>
