@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import AssessmentRubric from "../components/AssessmentRubric.astro";
 import Copyright from "../components/Copyright.astro";
 import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 
 // FULL BILINGUAL DATA RESTORATION
 
@@ -594,19 +595,13 @@ const riskManagementRows = [
       descriptionEn="This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation."
     />
 
-    <!-- Introductory Info (Bilingual Redesign) -->
-    <section id="process-and-rubric" class="mb-40 scroll-mt-24">
-      <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
-        <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-          <span class="zh">評估程序與指標</span>
-          <span class="en text-sm md:text-base text-slate-500 font-normal tracking-wider uppercase">Process & Rubric</span>
-        </h2>
-        <div class="max-w-4xl">
-          <p class="zh text-slate-600 text-lg leading-relaxed">
-            本量表定義了從基礎到進階指導員應具備的技術標準。評估員將依據各單元的具體指標，對候選人的知識、技能與風險管理能力進行全方位的專業評核。
-          </p>
-        </div>
-      </div>
+    <section class="mb-40">
+      <SectionHeader 
+        id="process-and-rubric"
+        titleZh="評估程序與指標"
+        titleEn="Process & Rubric"
+        descZh="本量表定義了從基礎到進階指導員應具備的技術標準。評估員將依據各單元的具體指標，對候選人的知識、技能與風險管理能力進行全方位的專業評核。"
+      />
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div class="space-y-6">

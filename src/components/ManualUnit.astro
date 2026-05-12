@@ -3,6 +3,7 @@ import { getEntry, render } from 'astro:content';
 import Icon from './LucideIcon.astro';
 import Callout from './Callout.astro';
 import ExerciseIllustration from './ExerciseIllustration.astro';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   slug: string;
@@ -19,19 +20,14 @@ const { Content } = await render(entry);
 ---
 
 <div class="manual-unit max-w-4xl mx-auto">
-  <!-- Automated Unit Header -->
+  <!-- Automated Unit Header (Componentized) -->
   {entry.data.unit_number > 0 && (
-    <div class="flex items-center gap-4 mb-8">
-      <span class="bg-[#4796cc] text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider shrink-0">
-        Unit {entry.data.unit_number}
-      </span>
-      <h2 class="text-2xl md:text-3xl font-bold serif m-0 flex flex-col gap-1">
-        <span class="zh">{entry.data.title.replace(/^第.*單元：/, '')}</span>
-        <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wide italic">
-          {entry.data.en_title}
-        </span>
-      </h2>
-    </div>
+    <SectionHeader 
+      titleZh={entry.data.title.replace(/^第.*單元：/, '')}
+      titleEn={entry.data.en_title}
+      descZh={entry.data.description}
+      descEn={entry.data.en_description}
+    />
   )}
 
   <article class="prose prose-slate max-w-none prose-headings:font-black prose-p:leading-relaxed prose-li:my-1">

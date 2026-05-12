@@ -1,4 +1,6 @@
 ---
+import SectionHeader from "./SectionHeader.astro";
+
 interface Props {
   title_zh: string;
   title_en: string;
@@ -33,17 +35,12 @@ const {
 ---
 
 <section class="mb-24 scroll-mt-24" id={title_en.toLowerCase().replace(/\s+/g, '-')}>
-  <!-- Simple Header: Matches Initial Style -->
-  <div class="border-l-8 border-[#4796cc] pl-8 mb-12">
-    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">{title_zh}</span>
-      <span class="en text-sm md:text-base text-slate-500 font-normal tracking-wider uppercase">{title_en}</span>
-    </h2>
-    <div class="max-w-4xl space-y-4">
-      <p class="zh text-slate-600 text-lg leading-relaxed">{description_zh}</p>
-      <p class="en text-slate-600 text-[15px] leading-relaxed">{description_en}</p>
-    </div>
-  </div>
+  <SectionHeader 
+    titleZh={title_zh}
+    titleEn={title_en}
+    descZh={description_zh}
+    descEn={description_en}
+  />
 
   <!-- Evaluation Criteria Grid -->
   <div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-8">

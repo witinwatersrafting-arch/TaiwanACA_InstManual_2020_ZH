@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import ManualUnit from "../components/ManualUnit.astro";
 import Copyright from "../components/Copyright.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import { getCollection } from "astro:content";
 
 const manualUnits = await getCollection("manual");
@@ -49,20 +50,25 @@ const baseUrl = import.meta.env.BASE_URL;
             </div>
         </header>
 
-        <!-- Acknowledgments Section (Bilingual Redesign) -->
-        <section class="mb-40">
-            <div class="border-b-2 border-slate-100 pb-5 mb-10">
-                <h2 class="text-4xl font-black text-slate-900 tracking-tight">
-                    <span class="zh">致謝</span>
-                    <span class="en uppercase tracking-widest text-3xl">Acknowledgments</span>
-                </h2>
-            </div>
-            
-            <div class="text-slate-600 text-lg leading-relaxed mb-16">
-                <p class="zh">本手冊的編寫與製作凝聚了美國獨木舟協會受薪職員與志工的共同努力。若非多位專業人士的慷慨貢獻，本手冊將無法問世。</p>
-                <p class="en italic text-base">The compilation and production of this manual represents the collective effort of ACA staff and volunteers. Without the generous contributions of many professionals, this manual would not be possible.</p>
-            </div>
-            
+        <!-- Manual Units Sections -->
+        <div class="space-y-40">
+            {
+                filteredUnits.map((unit) => (
+                    <section id={unit.id} class="scroll-mt-32">
+                        <ManualUnit slug={unit.id} />
+                    </section>
+                ))
+            }
+        </div>
+
+        <section id="acknowledgments" class="mt-40 scroll-mt-40">
+            <SectionHeader 
+                titleZh="致謝"
+                titleEn="Acknowledgments"
+                descZh="本手冊的編寫與製作凝聚了美國獨木舟協會受薪職員與志工的共同努力。若非多位專業人士的慷慨貢獻，本手冊將無法問世。"
+                descEn="The compilation and production of this manual represents the collective effort of ACA staff and volunteers. Without the generous contributions of many professionals, this manual would not be possible."
+            />
+                
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-6">
                     <h3 class="text-lg font-black text-slate-900">
@@ -84,17 +90,6 @@ const baseUrl = import.meta.env.BASE_URL;
                 </div>
             </div>
         </section>
-
-        <!-- Manual Units Sections -->
-        <div class="space-y-40">
-            {
-                filteredUnits.map((unit) => (
-                    <section id={unit.id} class="scroll-mt-32">
-                        <ManualUnit slug={unit.id} />
-                    </section>
-                ))
-            }
-        </div>
 
         <div class="mt-40">
             <Copyright />

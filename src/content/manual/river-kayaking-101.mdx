@@ -2,22 +2,15 @@ import TimelineStep from '../../components/curriculum/TimelineStep.astro';
 import LessonNote from '../../components/curriculum/LessonNote.astro';
 import CurriculumSection from '../../components/curriculum/CurriculumSection.astro';
 import GearCard from '../../components/curriculum/GearCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
-# 激流獨木舟教學進度表
+<SectionHeader 
+  titleZh="激流獨木舟教學進度表" 
+  titleEn="ACA Technical Skills Progression" 
+  descZh="本大綱整合了 ACA 激流獨木舟 L1 至 L4 的核心技術指標，旨在為指導員提供一套具備「深度演進 (Deep Water Progression)」邏輯的教學清單，確保學員能從平靜水域穩步過渡至複雜激流環境。"
+/>
 
 <section id="aca-outline">
-  <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
-    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">ACA 官方技術大綱 (L1-L4)</span>
-      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Official Technical Skills progression</span>
-    </h2>
-    <div class="max-w-4xl">
-      <p class="zh text-slate-600 text-lg leading-relaxed italic">
-        本大綱整合了 ACA 激流獨木舟 L1 至 L4 的核心技術指標，旨在為指導員提供一套具備「深度演進 (Deep Water Progression)」邏輯的教學清單，確保學員能從平靜水域穩步過渡至複雜激流環境。
-      </p>
-    </div>
-  </div>
-
   <div class="space-y-6 mb-24">
 
     {/* Level 1 */}
@@ -287,17 +280,11 @@ import GearCard from '../../components/curriculum/GearCard.astro';
 </section>
 
 <section id="intro-course">
-  <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
-    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">入門課程範例</span>
-      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Course Design Example (L1)</span>
-    </h2>
-    <div class="max-w-4xl">
-      <p class="zh text-slate-600 text-lg leading-relaxed">
-        本章節完整還原了「入門」與「初階」實務教案內容，展示如何將 ACA 大綱轉化為具體的現場教學節奏，並特別強調「水下倒置心理壓力」的去敏感化管理。
-      </p>
-    </div>
-  </div>
+<SectionHeader 
+  titleZh="入門課程範例" 
+  titleEn="Course Design Example (L1)" 
+  descZh="本章節完整還原了「入門」與「初階」實務教案內容，展示如何將 ACA 大綱轉化為具體的現場教學節奏，並特別強調「水下倒置心理壓力」的去敏感化管理。"
+/>
 
 <CurriculumSection subtitle="實務進度表：基礎、安全與本能建立">
   
@@ -484,17 +471,11 @@ import GearCard from '../../components/curriculum/GearCard.astro';
 </section>
 
 <section id="basic-course">
-  <div class="border-l-8 border-[#3a7ba5] pl-8 mb-16">
-    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">初階課程範例</span>
-      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Basic Course (L2)</span>
-    </h2>
-    <div class="max-w-4xl">
-      <p class="zh text-slate-600 text-lg leading-relaxed">
-        初階課程將場域轉移至具備真實水流的環境，學員將開始學習如何利用船體側傾 (Heeling) 與水流互動，並初步理解河流閱讀與技術性救援策略。
-      </p>
-    </div>
-  </div>
+<SectionHeader 
+  titleZh="初階課程範例" 
+  titleEn="Basic Course (L2)" 
+  descZh="初階課程將場域轉移至具備真實水流的環境，學員將開始學習如何利用船體側傾 (Heeling) 與水流互動，並初步理解河流閱讀與技術性救援策略。"
+/>
 
 <CurriculumSection subtitle="實務進度表：進階槳法與翻滾入門">
   
@@ -576,17 +557,11 @@ import GearCard from '../../components/curriculum/GearCard.astro';
 </section>
 
 <section id="resources">
-  <div class="border-l-8 border-[#4796cc] pl-8 mb-16">
-    <h2 class="text-3xl md:text-5xl font-black serif mb-6 text-slate-900 flex flex-col gap-2">
-      <span class="zh">教學資源與後續發展</span>
-      <span class="en text-sm md:text-base text-slate-400 font-normal tracking-wider uppercase">Resources & Development</span>
-    </h2>
-    <div class="max-w-4xl">
-      <p class="zh text-slate-600 text-lg leading-relaxed">
-        提供裝備採購建議、在地社群連結以及精選的技術教學影片，協助學員在課程結束後持續精進划行技巧。
-      </p>
-    </div>
-  </div>
+<SectionHeader 
+  titleZh="教學資源與後續發展" 
+  titleEn="Resources & Development" 
+  descZh="提供裝備採購建議、在地社群連結以及精選的技術教學影片，協助學員在課程結束後持續精進划行技巧。"
+/>
 
 <CurriculumSection subtitle="裝備採購與在地社群連結">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
