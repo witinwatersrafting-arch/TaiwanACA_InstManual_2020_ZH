@@ -73,7 +73,7 @@ const {
   <!-- Rubric Table / Grid -->
   <div class="rounded-3xl border border-slate-200 overflow-hidden shadow-sm bg-white">
     <!-- Desktop Header: 5 Equal Columns (Brand Blue) -->
-    <div class="hidden lg:grid grid-cols-5 bg-[#4796cc] text-white font-black text-[10px] uppercase tracking-[0.2em] py-6 px-4">
+    <div class="hidden lg:grid print:grid grid-cols-5 bg-[#4796cc] text-white font-black text-[10px] uppercase tracking-[0.2em] py-6 px-4">
       <div class="px-6 border-r border-white/10 flex items-center">技能指標</div>
       {[2, 3, 4, 5].map(level => (
         <div class="px-4 border-r border-white/10 last:border-r-0 text-center flex items-center justify-center">Level {level}</div>
@@ -85,7 +85,7 @@ const {
       {rows.map((row) => (
         <div class="group">
           <!-- Desktop Row: 5 Equal Columns -->
-          <div class="hidden lg:grid grid-cols-5 hover:bg-blue-50/30 transition-colors">
+          <div class="hidden lg:grid print:grid grid-cols-5 hover:bg-blue-50/30 transition-colors">
             <div class="p-6 border-r border-slate-100 font-bold text-slate-800 flex flex-col justify-center">
               <span class="zh block text-base leading-tight">{row.name_zh}</span>
               <span class="en block text-[10px] text-[#4796cc] font-bold uppercase tracking-wider mt-1">{row.name_en}</span>
@@ -99,7 +99,7 @@ const {
           </div>
 
           <!-- Mobile View: Simple Cards -->
-          <div class="lg:hidden p-8 space-y-6">
+          <div class="lg:hidden print:hidden p-8 space-y-6">
             <h4 class="text-xl font-black text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">
               <span class="zh block">{row.name_zh}</span>
               <span class="en block text-[11px] text-[#4796cc] uppercase tracking-widest mt-1">{row.name_en}</span>
@@ -125,4 +125,44 @@ const {
 <style>
   .zh { word-break: break-all; }
   .en { word-break: break-word; }
+
+  @media print {
+    /* 縮小量表字體以適應 A4 寬度 */
+    .zh {
+      font-size: 11px !important;
+    }
+    .en {
+      font-size: 9px !important;
+    }
+    .font-black.text-\[10px\] {
+      font-size: 9px !important;
+    }
+
+    /* 強化表格邊框 */
+    .border-slate-100, .border-slate-200 {
+      border-color: #cbd5e1 !important;
+    }
+
+    /* 避免表格行在分頁時被切斷 */
+    .group {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    /* 強制顯示背景顏色（特別是表頭） */
+    .bg-\[\#4796cc\] {
+      background-color: #4796cc !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    
+    .text-white {
+      color: white !important;
+    }
+
+    /* 移除陰影 */
+    .shadow-sm {
+      box-shadow: none !important;
+    }
+  }
 </style>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Copyright from "../components/Copyright.astro";
+import PageHero from "../components/PageHero.astro";
 import { getEntry, render } from "astro:content";
 
 const entry = await getEntry("manual", "river-kayaking-101");
@@ -14,33 +15,17 @@ const { Content } = await render(entry);
 <Layout title="激流獨木舟教學進度表">
   <div class="max-w-5xl mx-auto py-16 px-6 md:py-28">
     
-    <!-- Hero Section (Manual Style) -->
-    <header class="text-center mb-28">
-      <div class="inline-block bg-[#4796cc] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12 shadow-md">
-        <span class="zh">激流獨木舟課程</span>
-        <span class="en">Whitewater Kayaking Curriculum</span>
-      </div>
-      
-      <h1 class="text-4xl md:text-7xl font-black serif leading-[1.1] mb-10 tracking-tight">
-        <span class="zh">
-          <span class="text-slate-900 block mb-4">激流獨木舟</span>
-          <span class="text-[#4796cc] block">教學進度表</span>
-        </span>
-        <span class="en">
-          <span class="text-slate-900 block mb-4 text-3xl md:text-5xl uppercase tracking-tighter">Whitewater Kayaking</span>
-          <span class="text-[#4796cc] block text-3xl md:text-6xl">Instruction Field Guide</span>
-        </span>
-      </h1>
-      
-      <div class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl leading-relaxed mb-12 font-medium">
-        <p class="zh">專為教練現場參考設計的時序排版。結合 ACA 技術大綱與「入門/初階」實務教學流程，確保教學邏輯嚴謹且符合現場安全規範。</p>
-        <p class="en text-base">A time-based instruction guide designed for field reference. Integrates ACA technical standards with Introductory and Elementary practical teaching flows.</p>
-      </div>
-      
-      <div class="flex justify-center">
-        <div class="w-16 h-1.5 bg-[#4796cc] rounded-full"></div>
-      </div>
-    </header>
+    <!-- Hero Section (Componentized) -->
+    <PageHero 
+      badgeZh="激流獨木舟課程"
+      badgeEn="Whitewater Kayaking Curriculum"
+      titleMainZh="激流獨木舟"
+      titleSubZh="教學進度表"
+      titleMainEn="Whitewater Kayaking"
+      titleSubEn="Instruction Field Guide"
+      descriptionZh="專為教練現場參考設計的時序排版。結合 ACA 技術大綱與「入門/初階」實務教學流程，確保教學邏輯嚴謹且符合現場安全規範。"
+      descriptionEn="A time-based instruction guide designed for field reference. Integrates ACA technical standards with Introductory and Elementary practical teaching flows."
+    />
 
     <!-- Timeline Container -->
     <div class="curriculum-timeline max-w-4xl mx-auto">
@@ -77,4 +62,89 @@ const { Content } = await render(entry);
   .serif { font-family: "Noto Serif TC", serif; }
   .zh { word-break: break-all; }
   .en { word-break: break-word; }
+
+  @media print {
+    /* 優化列印基礎設定 */
+    .max-w-5xl, .max-w-4xl {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    
+    header, .page-hero {
+      /* PageHero handles its own internal global print styles */
+    }
+    
+    footer {
+      display: none !important;
+    }
+    
+    /* 避免技術卡片與區塊被切斷 */
+    .rounded-2xl, .curriculum-timeline > div {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* 確保大標題與其下方的內容保持在一起，避免標題孤立 */
+    .border-l-8 {
+      break-after: avoid;
+      page-break-after: avoid;
+      margin-bottom: 1.5rem !important;
+    }
+
+    h2, h3 {
+      break-after: avoid !important;
+      page-break-after: avoid !important;
+    }
+    
+    /* 強化時間軸視覺 - 在列印時線條要更明顯 */
+    .curriculum-timeline .relative.pl-8 {
+      padding-left: 2rem !important;
+    }
+    
+    .curriculum-timeline .absolute.left-0.w-px {
+      width: 2px !important;
+      background-color: #e2e8f0 !important;
+    }
+    
+    .curriculum-timeline .absolute.left-0.rounded-full {
+      border: 2px solid #4796cc !important;
+      background-color: #4796cc !important;
+    }
+
+    /* 調整內容網格 */
+    .grid-cols-1 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 1.5rem !important;
+    }
+    
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    /* 隱藏影片區塊與互動元素 */
+    .aspect-video, button, .shadow-lg, iframe {
+      display: none !important;
+    }
+    
+    /* 調整顏色以利列印 */
+    .bg-slate-50, .bg-blue-50, .bg-amber-50 {
+      background-color: #f8fafc !important; /* 統一使用極淺灰色 */
+      border: 1px solid #e2e8f0 !important;
+    }
+
+    /* 強制顏色顯示 */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    /* 移除裝飾用線條或圓角陰影 */
+    .shadow-md, .shadow-xl, .shadow-2xl {
+      box-shadow: none !important;
+    }
+  }
 </style>

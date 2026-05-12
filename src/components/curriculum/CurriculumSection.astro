@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
   subtitle?: string;
   time?: string;
 }
@@ -11,9 +11,11 @@ const { title, subtitle, time } = Astro.props;
 <section class="mb-20 scroll-mt-24">
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-l-4 border-slate-200 pl-6">
     <div class="flex-1">
-      <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-2">
-        {title}
-      </h2>
+      {title && (
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-2">
+          {title}
+        </h2>
+      )}
       {subtitle && (
         <p class="text-sm font-bold text-slate-400 uppercase tracking-widest m-0">{subtitle}</p>
       )}

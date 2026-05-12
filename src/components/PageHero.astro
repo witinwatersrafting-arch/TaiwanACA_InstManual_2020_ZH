@@ -1,0 +1,82 @@
+---
+interface Props {
+  badgeZh: string;
+  badgeEn: string;
+  titleMainZh: string;
+  titleSubZh: string;
+  titleMainEn: string;
+  titleSubEn: string;
+  descriptionZh: string;
+  descriptionEn: string;
+}
+
+const {
+  badgeZh,
+  badgeEn,
+  titleMainZh,
+  titleSubZh,
+  titleMainEn,
+  titleSubEn,
+  descriptionZh,
+  descriptionEn,
+} = Astro.props;
+---
+
+<header class="text-center mb-28 page-hero">
+  <div class="inline-block bg-[#4796cc] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-12 shadow-md">
+    <span class="zh">{badgeZh}</span>
+    <span class="en">{badgeEn}</span>
+  </div>
+  
+  <h1 class="text-4xl md:text-7xl font-black serif leading-[1.1] mb-10 tracking-tight">
+    <span class="zh">
+      <span class="text-slate-900 block mb-4">{titleMainZh}</span>
+      <span class="text-[#4796cc] block">{titleSubZh}</span>
+    </span>
+    <span class="en">
+      <span class="text-slate-900 block mb-4 text-3xl md:text-5xl uppercase tracking-tighter">{titleMainEn}</span>
+      <span class="text-[#4796cc] block text-3xl md:text-6xl">{titleSubEn}</span>
+    </span>
+  </h1>
+  
+  <div class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl leading-relaxed mb-12 font-medium">
+    <p class="zh">{descriptionZh}</p>
+    <p class="en text-base">{descriptionEn}</p>
+  </div>
+  
+  <div class="flex justify-center">
+    <div class="w-16 h-1.5 bg-[#4796cc] rounded-full"></div>
+  </div>
+</header>
+
+<style is:global>
+  @media print {
+    .page-hero {
+      margin-bottom: 3rem !important;
+      text-align: left !important;
+    }
+    
+    .page-hero .inline-block {
+      box-shadow: none !important;
+      border: 1px solid #4796cc !important;
+      background-color: #4796cc !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .page-hero h1 {
+      font-size: 2.5rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .page-hero .max-w-2xl {
+      max-width: 100% !important;
+      font-size: 1rem !important;
+      margin: 0 !important;
+    }
+
+    .page-hero .flex.justify-center {
+      display: none !important;
+    }
+  }
+</style>
