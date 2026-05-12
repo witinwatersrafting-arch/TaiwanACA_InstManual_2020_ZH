@@ -7,22 +7,25 @@ interface Props {
 
 const { title } = Astro.props;
 
+import { getCollection } from "astro:content";
+import { modes } from "../config/navigation";
+
 const isAssessmentPage = Astro.url.pathname.includes("assessment-guide");
+const isCurriculumPage = Astro.url.pathname.includes("river-kayaking-curriculum");
+
+const manualUnits = await getCollection("manual");
+const sortedUnits = manualUnits
+    .filter(u => u.id !== 'river-kayaking-101')
+    .sort((a, b) => (a.data.unit_number ?? 999) - (b.data.unit_number ?? 999));
 
 const manualNav = [
-    { id: "unit1", zh: "第一單元：關於 ACA", en: "Unit 1: About the ACA", slug: "unit-01" },
-    { id: "unit2", zh: "第二單元：獨木舟教育標準", en: "Unit 2: Canoe Education Standards", slug: "unit-02" },
-    { id: "unit3", zh: "第三單元：環境守護與倫理", en: "Unit 3: Environmental Stewardship", slug: "unit-03" },
-    { id: "unit4", zh: "第四單元：教學與學習風格", en: "Unit 4: Teaching and Learning Styles", slug: "unit-04" },
-    { id: "unit5", zh: "第五單元：課程組織與帶領", en: "Unit 5: Organizing and Conducting a Class", slug: "unit-05" },
-    { id: "unit6", zh: "第六單元：法律責任與風險管理", en: "Unit 6: Liability & Risk Management", slug: "unit-06" },
-    { id: "unit7", zh: "第七單元：划行概念", en: "Unit 7: Concepts of Paddling", slug: "unit-07" },
-    { id: "unit8", zh: "第八單元：體能調整", en: "Unit 8: Conditioning", slug: "unit-08" },
-    { id: "unit9", zh: "第九單元：水域安全", en: "Unit 9: Safety on the Water", slug: "unit-09" },
-    { id: "conclusion", zh: "結語", en: "Conclusion", slug: "conclusion" },
-    { id: "bibliography", zh: "參考文獻", en: "Bibliography", slug: "bibliography" },
-    { id: "appendix-a", zh: "附錄 A：課程回報與認證維護", en: "Appendix A: Reporting and Maintenance", slug: "appendix-a" },
-    { id: "acknowledgments", zh: "致謝", en: "Acknowledgments", slug: "acknowledgments" },
+    ...sortedUnits.map(u => ({
+        id: u.id,
+        zh: u.data.title,
+        en: u.data.en_title,
+        slug: u.id
+    })),
+    { id: "acknowledgments", zh: "致謝", en: "Acknowledgments", slug: "acknowledgments" }
 ];
 
 const rubricNav = [
@@ -40,7 +43,6 @@ const curriculumNav = [
     { id: "resources", zh: "教學資源與後續發展", en: "Resources & Development", slug: "resources" },
 ];
 
-const isCurriculumPage = Astro.url.pathname.includes("river-kayaking-curriculum");
 const currentNav = isCurriculumPage ? curriculumNav : (isAssessmentPage ? rubricNav : manualNav);
 const rawBaseUrl = import.meta.env.BASE_URL;
 // Ensure baseUrl ends with exactly one slash for safe joining
@@ -183,24 +185,20 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
                         </button>
                     </div>
                     <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-6 border border-slate-200" id="mode-switcher">
-                        <a
-                            href={`${baseUrl}?menu=open`}
-                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${!isAssessmentPage && !isCurriculumPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
-                        >
-                            手冊
-                        </a>
-                        <a
-                            href={`${baseUrl}assessment-guide?menu=open`}
-                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isAssessmentPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
-                        >
-                            量表
-                        </a>
-                        <a
-                            href={`${baseUrl}river-kayaking-curriculum?menu=open`}
-                            class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isCurriculumPage ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
-                        >
-                            進度表
-                        </a>
+                        {modes.map(mode => {
+                            const isActive = mode.id === 'manual' 
+                                ? (!isAssessmentPage && !isCurriculumPage)
+                                : (mode.id === 'assessment' ? isAssessmentPage : isCurriculumPage);
+                            
+                            return (
+                                <a
+                                    href={`${baseUrl}${mode.path}${mode.path ? '' : ''}?menu=open`}
+                                    class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isActive ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
+                                >
+                                    {mode.name}
+                                </a>
+                            );
+                        })}
                     </div>
 
                     <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200"

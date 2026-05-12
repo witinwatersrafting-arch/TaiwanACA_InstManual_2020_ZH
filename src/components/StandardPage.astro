@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "./PageHero.astro";
+import Copyright from "./Copyright.astro";
+
+interface Props {
+  title: string;
+  badgeZh: string;
+  badgeEn: string;
+  heroTitleMainZh: string;
+  heroTitleSubZh: string;
+  heroTitleMainEn: string;
+  heroTitleSubEn: string;
+  descriptionZh: string;
+  descriptionEn: string;
+  maxW?: string;
+}
+
+const {
+  title,
+  badgeZh,
+  badgeEn,
+  heroTitleMainZh,
+  heroTitleSubZh,
+  heroTitleMainEn,
+  heroTitleSubEn,
+  descriptionZh,
+  descriptionEn,
+  maxW = "max-w-5xl",
+} = Astro.props;
+---
+
+<Layout title={title}>
+  <div class={`${maxW} mx-auto py-16 px-6 md:py-28`}>
+    <PageHero 
+      badgeZh={badgeZh}
+      badgeEn={badgeEn}
+      titleMainZh={heroTitleMainZh}
+      titleSubZh={heroTitleSubZh}
+      titleMainEn={heroTitleMainEn}
+      titleSubEn={heroTitleSubEn}
+      descriptionZh={descriptionZh}
+      descriptionEn={descriptionEn}
+    />
+
+    <slot />
+
+    <footer class="mt-40">
+      <Copyright />
+    </footer>
+  </div>
+</Layout>

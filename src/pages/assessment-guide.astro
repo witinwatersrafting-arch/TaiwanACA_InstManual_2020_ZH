@@ -1,9 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import AssessmentRubric from "../components/AssessmentRubric.astro";
-import Copyright from "../components/Copyright.astro";
-import PageHero from "../components/PageHero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import StandardPage from "../components/StandardPage.astro";
 
 // FULL BILINGUAL DATA RESTORATION
 
@@ -580,20 +578,17 @@ const riskManagementRows = [
 ];
 ---
 
-<Layout title="ACA 溪流獨木舟技能評估量表">
-  <div class="max-w-5xl mx-auto py-16 px-6 md:py-28">
-    
-    <!-- Hero Section (Componentized) -->
-    <PageHero 
-      badgeZh="溪流獨木舟指導員評估"
-      badgeEn="Whitewater Instructor Assessment"
-      titleMainZh="ACA 溪流獨木舟指導員"
-      titleSubZh="技能評估指標量表"
-      titleMainEn="ACA Whitewater Kayak Instructor"
-      titleSubEn="Skills Assessment Rubric"
-      descriptionZh="本量表是專門為 ACA 溪流獨木舟指導員認證設計的技術標準。評估員將根據此量表，針對候選人的各項能力進行全方位的專業評核。"
-      descriptionEn="This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation."
-    />
+<StandardPage 
+  title="ACA 溪流獨木舟技能評估量表"
+  badgeZh="溪流獨木舟指導員評估"
+  badgeEn="Whitewater Instructor Assessment"
+  heroTitleMainZh="ACA 溪流獨木舟指導員"
+  heroTitleSubZh="技能評估指標量表"
+  heroTitleMainEn="ACA Whitewater Kayak Instructor"
+  heroTitleSubEn="Skills Assessment Rubric"
+  descriptionZh="本量表是專門為 ACA 溪流獨木舟指導員認證設計的技術標準。評估員將根據此量表，針對候選人的各項能力進行全方位的專業評核。"
+  descriptionEn="This rubric is designed as a technical standard for the ACA Whitewater Kayak Instructor certification, used by assessors for comprehensive professional evaluation."
+>
 
     <section class="mb-40">
       <SectionHeader 
@@ -696,8 +691,4 @@ const riskManagementRows = [
         />
       </div>
 
-      <footer class="mt-40">
-        <Copyright />
-      </footer>
-    </div>
-</Layout>
+</StandardPage>
