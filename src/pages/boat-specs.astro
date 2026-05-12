@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "../components/SectionHeader.astro";
 import StandardPage from "../components/StandardPage.astro";
 import kayaksData from "../data/kayaks.json";
 
@@ -18,63 +19,98 @@ const types = [...new Set(kayaksData.map(k => k.Type).filter(Boolean))].sort();
   descriptionEn="A comprehensive database of over 1,000 whitewater kayaks, featuring technical specs like volume, length, width, and weight ranges to help paddlers find the perfect fit."
   maxW="max-w-7xl"
 >
-    <!-- Sticky Control Panel (Search + Headers) -->
-    <div class="sticky top-[64px] md:top-0 z-[40] -mx-6 px-6 bg-white border-b border-slate-200 shadow-xl shadow-slate-200/20">
-      
-      <!-- Search Inputs -->
-      <div class="py-4 md:py-6">
-        <div class="grid grid-cols-12 gap-2">
-          <div class="col-span-5 relative">
-            <input 
-              type="text" 
-              id="boat-search" 
-              placeholder="搜尋..." 
-              class="w-full px-3 py-2.5 rounded-xl border border-slate-100 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-xs"
-            />
-          </div>
-          <div class="col-span-3">
-            <select id="brand-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
-              <option value="">品牌</option>
-              {manufacturers.map(m => <option value={m}>{m}</option>)}
-            </select>
-          </div>
-          <div class="col-span-4">
-            <select id="type-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
-              <option value="">類型</option>
-              {types.map(t => <option value={t}>{t}</option>)}
-            </select>
-          </div>
+    <section class="mb-24">
+        <SectionHeader 
+            id="specs-tool"
+            titleZh="規格查詢工具"
+            titleEn="Specs Tool"
+            descZh="收錄超過 1000 款激流獨木舟的詳細規格。您可以透過搜尋品牌或型號，快速找到排水量、長度及建議體重等數據。"
+        />
+        <div class="sticky top-[64px] md:top-0 z-[40] -mx-6 px-6 bg-white border-b border-slate-200 shadow-xl shadow-slate-200/20">
+        
+        <!-- Search Inputs -->
+        <div class="py-4 md:py-6">
+            <div class="grid grid-cols-12 gap-2">
+            <div class="col-span-5 relative">
+                <input 
+                type="text" 
+                id="boat-search" 
+                placeholder="搜尋..." 
+                class="w-full px-3 py-2.5 rounded-xl border border-slate-100 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-xs"
+                />
+            </div>
+            <div class="col-span-3">
+                <select id="brand-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
+                <option value="">品牌</option>
+                {manufacturers.map(m => <option value={m}>{m}</option>)}
+                </select>
+            </div>
+            <div class="col-span-4">
+                <select id="type-filter" class="w-full px-2 py-2.5 rounded-xl border border-slate-100 bg-slate-50 outline-none text-[11px] focus:bg-white transition-all appearance-none text-center">
+                <option value="">類型</option>
+                {types.map(t => <option value={t}>{t}</option>)}
+                </select>
+            </div>
+            </div>
+            <div class="mt-3 text-[9px] text-slate-400 flex justify-between items-center px-1">
+            <span id="results-count">正在載入...</span>
+            <span class="hidden md:inline">提示：搜尋列與標題列已固定在頂部</span>
+            </div>
         </div>
-        <div class="mt-3 text-[9px] text-slate-400 flex justify-between items-center px-1">
-          <span id="results-count">正在載入...</span>
-          <span class="hidden md:inline">提示：搜尋列與標題列已固定在頂部</span>
+
+        <!-- Real-time Sticky Table Header -->
+        <div class="hidden md:grid grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-4 bg-slate-50 border-t border-slate-100 text-[11px] font-black text-slate-500 uppercase tracking-wider">
+            <div>品牌 Manufacture</div>
+            <div>型號 Model</div>
+            <div>類型 Type</div>
+            <div class="text-center">容量 (L)</div>
+            <div class="text-center">長度 (cm)</div>
+            <div class="text-center">寬度 (cm)</div>
+            <div>建議體重 (kg)</div>
         </div>
-      </div>
+        </div>
 
-      <!-- Real-time Sticky Table Header -->
-      <div class="hidden md:grid grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-4 bg-slate-50 border-t border-slate-100 text-[11px] font-black text-slate-500 uppercase tracking-wider">
-        <div>品牌 Manufacture</div>
-        <div>型號 Model</div>
-        <div>類型 Type</div>
-        <div class="text-center">容量 (L)</div>
-        <div class="text-center">長度 (cm)</div>
-        <div class="text-center">寬度 (cm)</div>
-        <div>建議體重 (kg)</div>
-      </div>
-    </div>
+        <!-- Data List Container -->
+        <div id="kayak-list" class="divide-y divide-slate-100 border-x border-slate-100 bg-white">
+            <!-- Rows will be injected here via Grid -->
+            <div class="py-20 text-center text-slate-400 text-sm">正在準備資料庫...</div>
+        </div>
 
-    <!-- Data List Container -->
-    <div id="kayak-list" class="divide-y divide-slate-100 border-x border-slate-100 bg-white">
-        <!-- Rows will be injected here via Grid -->
-        <div class="py-20 text-center text-slate-400 text-sm">正在準備資料庫...</div>
-    </div>
+        <!-- Load More Container -->
+        <div id="load-more-container" class="text-center py-12 border-x border-b border-slate-100 rounded-b-[2rem] bg-slate-50/30 mb-16">
+            <button id="load-all-btn" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-lg shadow-blue-200">
+                顯示所有 1000+ 筆資料
+            </button>
+        </div>
+    </section>
 
-    <!-- Mobile Header (Visible only on mobile inside the list) -->
-    <div id="load-more-container" class="text-center py-12">
-        <button id="load-all-btn" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-lg shadow-blue-200">
-            顯示所有 1000+ 筆資料
-        </button>
-  </div>
+    <!-- 技術術語解釋 (Glossary) -->
+    <section class="mb-24">
+        <SectionHeader 
+            id="glossary"
+            titleZh="技術術語解釋"
+            titleEn="Glossary"
+            descZh="為了幫助您更準確地解讀規格表，我們針對常見的技術名詞提供了詳細的解釋與應用建議。"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/20">
+                <h4 class="font-bold text-slate-900 mb-2">排水量 (Volume / L)</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">船隻內部的總空間大小。排水量越高，船隻在水中的浮力越大，適合較重的划手或需要載運裝備的行程。</p>
+            </div>
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/20">
+                <h4 class="font-bold text-slate-900 mb-2">建議體重 (Weight Range)</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">這是最重要的參考指標。若划手體重低於下限，船會太浮難以控制；若超過上限，船身會下沉過深，導致穩定性下降且容易進水。</p>
+            </div>
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/20">
+                <h4 class="font-bold text-slate-900 mb-2">長度與寬度 (L/W)</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">較長的船通常直線速度較快，但在窄小的溪流中較難轉向；較寬的船通常擁有更好的初始穩定性，但前進阻力較大。</p>
+            </div>
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/20">
+                <h4 class="font-bold text-slate-900 mb-2">船型 (Type)</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Creek 為溪降設計，擁有大容量與圓潤船身；Playboat 專為花式動作設計，體積小且船底扁平；Half-slice 則結合了兩者特點。</p>
+            </div>
+        </div>
+    </section>
 </StandardPage>
 
 <script define:vars={{ kayaksData }}>

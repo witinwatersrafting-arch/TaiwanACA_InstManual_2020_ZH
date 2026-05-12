@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "../components/SectionHeader.astro";
 import StandardPage from "../components/StandardPage.astro";
 import skirtData from "../data/ir_skirt_database.json";
 
@@ -18,55 +19,70 @@ const manufacturers = Object.keys(skirtData).sort();
 >
   <div class="w-full -mt-10 md:-mt-14 relative z-10">
     
-    <!-- 核心查詢卡片 -->
-    <div class="w-full bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden mb-12">
-      <div class="p-6 md:p-12">
-        <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-          <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
-          選擇你的船型
-        </h3>
+    <section class="mb-24">
+        <SectionHeader 
+            id="fit-assistant"
+            titleZh="尺寸查詢助手"
+            titleEn="Fit Assistant"
+            descZh="輸入您的船隻型號，快速獲取 Immersion Research 官方推薦的噴水裙尺寸。這是一個基於真實測試數據的查詢工具。"
+        />
+        <!-- 核心查詢卡片 -->
+        <div class="w-full bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden mb-12">
+            <div class="p-6 md:p-12">
+                <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
+                選擇你的船型
+                </h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="space-y-2">
-            <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">品牌 Manufacturer</label>
-            <select id="brand-select" class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 font-bold text-slate-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
-              <option value="">請選擇品牌...</option>
-              {manufacturers.map(m => <option value={m}>{m}</option>)}
-            </select>
-          </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">品牌 Manufacturer</label>
+                    <select id="brand-select" class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 font-bold text-slate-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
+                    <option value="">請選擇品牌...</option>
+                    {manufacturers.map(m => <option value={m}>{m}</option>)}
+                    </select>
+                </div>
 
-          <div class="space-y-2 opacity-30 pointer-events-none transition-all duration-300" id="model-container">
-            <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">型號 Model</label>
-            <select id="model-select" class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 font-bold text-slate-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
-              <option value="">請先選擇品牌</option>
-            </select>
-          </div>
+                <div class="space-y-2 opacity-30 pointer-events-none transition-all duration-300" id="model-container">
+                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">型號 Model</label>
+                    <select id="model-select" class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 font-bold text-slate-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
+                    <option value="">請先選擇品牌</option>
+                    </select>
+                </div>
 
-          <div class="space-y-2 hidden transition-all duration-300" id="variant-container">
-            <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">規格 Variation</label>
-            <select id="variant-select" class="w-full bg-blue-50 border-2 border-blue-200 rounded-2xl px-5 py-4 font-bold text-blue-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
-              <option value="">請選擇規格...</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- 結果顯示區 -->
-      <div id="result-area" class="hidden bg-slate-50 border-t border-slate-100 p-8 md:p-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div class="max-w-4xl">
-            <div class="mb-4">
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">對應船型 Boat Detail</p>
-                <div class="text-lg font-bold text-slate-700" id="boat-detail-name"></div>
+                <div class="space-y-2 hidden transition-all duration-300" id="variant-container">
+                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">規格 Variation</label>
+                    <select id="variant-select" class="w-full bg-blue-50 border-2 border-blue-200 rounded-2xl px-5 py-4 font-bold text-blue-700 focus:border-blue-500 focus:bg-white transition-all outline-none appearance-none cursor-pointer">
+                    <option value="">請選擇規格...</option>
+                    </select>
+                </div>
+                </div>
             </div>
 
-            <p class="text-xs font-black text-blue-500 uppercase tracking-widest mb-4">推薦尺寸 Recommended Size</p>
-            <div id="skirt-size-display"></div>
-        </div>
-      </div>
-    </div>
+            <!-- 結果顯示區 -->
+            <div id="result-area" class="hidden bg-slate-50 border-t border-slate-100 p-8 md:p-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div class="max-w-4xl">
+                    <div class="mb-4">
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">對應船型 Boat Detail</p>
+                        <div class="text-lg font-bold text-slate-700" id="boat-detail-name"></div>
+                    </div>
 
-    <!-- 並排對照區域 (現代精練網格佈局) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <p class="text-xs font-black text-blue-500 uppercase tracking-widest mb-4">推薦尺寸 Recommended Size</p>
+                    <div id="skirt-size-display"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-24">
+        <SectionHeader 
+            id="size-reference"
+            titleZh="規格對照表"
+            titleEn="Size Reference"
+            descZh="針對不同品牌的座艙規格，提供噴水裙裙面尺寸的建議範圍。請注意，除了周長，座艙形狀也會影響安裝感。"
+        />
+        <!-- 並排對照區域 (現代精練網格佈局) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <!-- Deck Size Card -->
         <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
             <div class="flex items-center gap-4 mb-8">
@@ -120,51 +136,53 @@ const manufacturers = Object.keys(skirtData).sort();
                 ))}
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 選購核心觀念 (Sprayskirt 101) -->
-    <div class="mb-12">
-        <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-            <span class="w-2 h-8 bg-amber-500 rounded-full"></span>
-            選購核心觀念
-        </h3>
+    <section class="mb-24">
+        <SectionHeader 
+            id="buying-principles"
+            titleZh="選購核心觀念"
+            titleEn="Buying Principles"
+            descZh="選擇噴水裙不僅僅是看尺寸，還需考慮安全性、舒適度以及您的使用環境。以下是來自專業教練的選購建議。"
+        />
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
                 </div>
-                <h4 class="font-bold text-slate-900 mb-3">周長是關鍵</h4>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    雖然長度與寬度是基礎，但 <strong>周長 (Circumference)</strong> 才是決定合適與否的最重要數據。即使長寬相同，形狀差異可能導致周長產生 5-6 英吋的落差。
+                <h4 class="font-bold text-slate-900 mb-3 text-sm">周長是關鍵數據</h4>
+                <p class="text-[13px] text-slate-500 leading-relaxed">
+                    雖然長度與寬度是基礎，但 <strong>周長 (Circumference)</strong> 才是決定合適與否的最重要數據。即使長寬相同，形狀差異可能導致周長產生 5-6 英吋的落差。測量時應包含座艙緣的最外圍。
                 </p>
             </div>
             <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
                 </div>
-                <h4 class="font-bold text-slate-900 mb-3">乾爽與穿脫的權衡</h4>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    噴水裙通常「越緊越乾」，但也「越難穿上」。強韌材質通常延伸性較差。在追求極致乾爽的同時，也需考慮自己體力是否能應付穿脫。
+                <h4 class="font-bold text-slate-900 mb-3 text-sm">乾爽與穿脫的權衡</h4>
+                <p class="text-[13px] text-slate-500 leading-relaxed">
+                    噴水裙通常「越緊越乾」，但也「越難穿上」。強韌材質通常延伸性較差。在追求極致乾爽的同時，也需考慮自己體力與技術是否能應付緊急情況下的穿脫。
                 </p>
             </div>
             <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                <h4 class="font-bold text-slate-900 mb-3">現場試穿最準確</h4>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    噴水裙的合適度非常主觀。如果可能，帶著你的愛船前往經銷門市實地穿戴，找到你個人偏好的「乾爽度」與「穿脫難易度」平衡點。
+                <h4 class="font-bold text-slate-900 mb-3 text-sm">尺寸是非常主觀的</h4>
+                <p class="text-[13px] text-slate-500 leading-relaxed">
+                    數據查詢工具能幫你找到「大致範圍」，但最終選擇仍取決於個人偏好。有些人喜歡極緊的包覆感，有些人則偏好容易套上的舒適。若可能，建議實地測試。
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 結構類型對照 (Bungee vs Rand) -->
-    <div class="mb-16">
-        <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-            <span class="w-2 h-8 bg-indigo-500 rounded-full"></span>
-            結構類型對照：鬆緊帶式 vs. 橡膠圈式
-        </h3>
+    <section class="mb-24">
+        <SectionHeader 
+            id="construction-comparison"
+            titleZh="結構類型對照"
+            titleEn="Construction Style"
+            descZh="噴水裙主要分為鬆緊帶 (Bungee) 與橡膠圈 (Rand) 兩種結構。了解它們的機械原理有助於您選擇適合的等級。"
+        />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Bungee Style -->
             <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-[2rem] border border-slate-100 shadow-lg">
@@ -175,21 +193,21 @@ const manufacturers = Object.keys(skirtData).sort();
                     </div>
                 </div>
                 <h4 class="text-2xl font-black text-slate-900 mb-4">鬆緊帶式 (Bungee)</h4>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    最常見且最友善的選擇。使用內含乳膠絲的強力彈力繩縫製在邊緣，透過繩子收縮產生的拉力將裙面固定在座艙緣下方。
+                <p class="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                    使用內含乳膠絲的強力彈力繩縫製在邊緣。即使在嚴寒天氣，乳膠絲也能保持極佳的彈性，讓穿脫過程更加輕鬆自然。
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
-                        <div class="text-xs text-slate-500 font-bold leading-relaxed">穿脫極為容易，即使在嚴寒天氣也能保持極佳彈性。</div>
+                        <div class="text-xs text-slate-500 font-bold leading-relaxed">提供最乾爽的密封感（向心收縮力均勻）。</div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
-                        <div class="text-xs text-slate-500 font-bold leading-relaxed">收縮力均勻，能適配多種形狀的座艙緣，提供極佳的密封性。</div>
+                        <div class="text-xs text-slate-500 font-bold leading-relaxed">彈力繩環通常比座艙緣小很多，透過大幅延伸來套入。</div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✕</div>
-                        <div class="text-xs text-slate-500 font-bold leading-relaxed italic text-rose-400">抗內爆/外爆能力較弱，在大水量或高落差環境下較易脫落。</div>
+                        <div class="text-xs text-slate-500 font-bold leading-relaxed italic text-rose-400">因為延伸性太好，在大水量環境下較容易因受壓而「內爆」脫落。</div>
                     </div>
                 </div>
             </div>
@@ -203,42 +221,101 @@ const manufacturers = Object.keys(skirtData).sort();
                     </div>
                 </div>
                 <h4 class="text-2xl font-black mb-4">橡膠圈式 (Rand)</h4>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    專為極端環境設計。將整圈成型的擠出橡膠（Rand）黏合於裙邊，運作原理類似「保鮮盒蓋」的機械式扣鎖密封。
+                <p class="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
+                    運作原理類似「保鮮盒蓋」的機械鎖定。這種結構的彈性遠低於鬆緊帶，旨在極端水壓下維持絕對的穩固性。
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
-                        <div class="text-xs text-slate-300 font-bold leading-relaxed">極強的抗脫落能力，是挑戰大水量 Class V 與瀑布的首選。</div>
+                        <div class="text-xs text-slate-300 font-bold leading-relaxed">極強的抗脫落能力，是挑戰大水量與高落差的首選。</div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
-                        <div class="text-xs text-slate-300 font-bold leading-relaxed">結構極其堅固，適合應對極高水壓的衝擊。</div>
+                        <div class="text-xs text-slate-300 font-bold leading-relaxed">即使座艙緣設計不理想，Rand 仍能提供相對穩固的鎖定。</div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="mt-1 w-5 h-5 bg-amber-400 text-slate-900 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold">!</div>
-                        <div class="text-xs text-slate-400 font-bold leading-relaxed">穿脫非常困難。在低溫下橡膠會變硬，建議使用前先在水中預浸或手動預拉。</div>
+                        <div class="text-xs text-slate-400 font-bold leading-relaxed italic">在寒冷環境下橡膠會變硬。建議使用前先浸水，或在套入前進行手動預拉。</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 專家建議區塊 (更新) -->
-    <div class="mb-16 flex flex-col md:flex-row items-center gap-8 bg-blue-600 rounded-[2rem] p-8 md:p-10 text-white shadow-xl shadow-blue-100">
-      <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/><circle cx="12" cy="12" r="3"/></svg>
-      </div>
-      <div>
-        <h5 class="text-xl font-bold mb-2">何時該升級至 Rand 噴水裙？</h5>
-        <p class="text-blue-100 text-sm leading-relaxed max-w-2xl">
-            如果您主要從事大水量激流、挑戰 30 英呎以上的瀑布，或是您的船隻座艙邊緣（Rim）形狀設計不佳導致 Bungee 裙容易脫落，那麼升級至 Rand 橡膠圈式結構是保障安全的最佳投資。
-        </p>
-      </div>
-    </div>
+    <section class="mb-24">
+        <SectionHeader 
+            id="expert-faq"
+            titleZh="專家建議與 FAQ"
+            titleEn="Expert FAQ"
+            descZh="針對初學者與專業划手最常遇到的問題，我們整理了進階的使用建議與常見困惑解答。"
+        />
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-blue-600 rounded-[2rem] p-8 md:p-10 text-white shadow-xl shadow-blue-100 mb-8">
+            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+                <h5 class="text-xl font-bold mb-2">何時該升級至 Rand 噴水裙？</h5>
+                <p class="text-blue-100 text-sm leading-relaxed max-w-2xl">
+                    如果您主要從事大水量激流、挑戰 30 英呎以上的瀑布，或是您的船隻座艙邊緣（Rim）形狀設計不佳導致 Bungee 裙容易脫落，那麼升級至 Rand 橡膠圈式結構是保障安全的最佳投資。
+                </p>
+            </div>
+        </div>
 
-    <!-- 底部說明 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-lg">
+                <h4 class="font-bold text-slate-900 mb-4 text-sm flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                    關於 J-Lo 噴水裙 (女性專用)
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    女性通常擁有較寬的髖部與較窄的腰部，IR 的 J-Lo 系列專為此身形設計，擁有更短且更錐形的隧道結構 (Tunnel)，能避免裙面因腰圍過大而產生的皺褶。
+                </p>
+                <div class="mt-4 grid grid-cols-3 gap-2">
+                    <div class="bg-slate-50 p-2 rounded-lg text-center">
+                        <div class="text-[10px] font-black text-slate-400">SMALL</div>
+                        <div class="text-xs font-bold text-slate-700">Size 4</div>
+                    </div>
+                    <div class="bg-slate-50 p-2 rounded-lg text-center">
+                        <div class="text-[10px] font-black text-slate-400">MEDIUM</div>
+                        <div class="text-xs font-bold text-slate-700">Size 4-10</div>
+                    </div>
+                    <div class="bg-slate-50 p-2 rounded-lg text-center">
+                        <div class="text-[10px] font-black text-slate-400">LARGE</div>
+                        <div class="text-xs font-bold text-slate-700">Size 8-12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-lg">
+                <h4 class="font-bold text-slate-900 mb-4 text-sm flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                    低溫環境穿戴技巧
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                    在零度以下的低溫環境，Rand 噴水裙可能會變得非常僵硬，難以套上座艙緣。以下是專家的解決方案：
+                </p>
+                <ul class="space-y-2">
+                    <li class="text-[11px] text-slate-500 flex gap-2">
+                        <span class="text-blue-500 font-bold">•</span> 先將噴水裙浸泡在河水中軟化橡膠。
+                    </li>
+                    <li class="text-[11px] text-slate-500 flex gap-2">
+                        <span class="text-blue-500 font-bold">•</span> 在岸上先進行幾次預拉 (Pre-stretching)。
+                    </li>
+                    <li class="text-[11px] text-slate-500 flex gap-2">
+                        <span class="text-blue-500 font-bold">•</span> 出發前請隊友協助拉住後方邊緣。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-24">
+        <SectionHeader 
+            id="measure-tips"
+            titleZh="測量與官方數據"
+            titleEn="Measurement Tips"
+            descZh="如果您無法在清單中找到您的船隻，可以透過手動測量座艙周長來判斷所需的裙面尺寸。"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-24">
       <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100">
         <h4 class="font-bold text-slate-900 mb-3 text-base">關於官方數據與測量</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
@@ -251,7 +328,7 @@ const manufacturers = Object.keys(skirtData).sort();
             周長是沿著座艙邊緣的最外緣（而非下方安裝凹槽）測量。對於複合材料（玻纖/碳纖）船隻，通常對尺寸的精確度要求會比塑膠船更高，務必謹慎測量。
         </p>
       </div>
-    </div>
+    </section>
   </div>
 </StandardPage>
 

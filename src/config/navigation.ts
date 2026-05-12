@@ -18,13 +18,13 @@ export const modes = [
     id: "curriculum"
   },
   {
-    name: "船隻規格",
+    name: "船隻規格表",
     en_name: "Boat Specs",
     path: "/boat-specs",
     id: "boat-specs"
   },
   {
-    name: "噴水裙尺寸",
+    name: "噴水裙選擇工具",
     en_name: "Skirt Fit",
     path: "/skirt-fit",
     id: "skirt-fit"
