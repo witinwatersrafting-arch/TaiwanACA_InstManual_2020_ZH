@@ -17,6 +17,7 @@ interface Props {
     name_en: string;
     levels: { zh: string; en: string }[];
   }[];
+  id?: string;
 }
 
 const {
@@ -31,10 +32,11 @@ const {
   belowStandard_zh,
   belowStandard_en,
   rows,
+  id,
 } = Astro.props;
 ---
 
-<section class="mb-24 scroll-mt-24" id={title_en.toLowerCase().replace(/\s+/g, '-')}>
+<section class="mb-24 scroll-mt-24" id={id || title_en.toLowerCase().replace(/\s+/g, '-')}>
   <SectionHeader 
     titleZh={title_zh}
     titleEn={title_en}

@@ -117,6 +117,8 @@ const manualNav = [
                 items={manualNav}
                 active={!isAssessmentPage && !isCurriculumPage && !isSkirtFitPage && !isBoatSpecsPage}
                 baseUrl={baseUrl}
+                isHashNav={true}
+                pathPrefix=""
             />
 
             <NavSection 
@@ -126,7 +128,7 @@ const manualNav = [
                 items={rubricNav}
                 active={isAssessmentPage}
                 baseUrl={baseUrl}
-                pathPrefix="assessment-guide"
+                pathPrefix="assessment-guide/"
             />
 
             <NavSection 
@@ -136,7 +138,7 @@ const manualNav = [
                 items={curriculumNav}
                 active={isCurriculumPage}
                 baseUrl={baseUrl}
-                pathPrefix="river-kayaking-curriculum"
+                pathPrefix="river-kayaking-curriculum/"
             />
 
             <NavSection 
@@ -146,7 +148,7 @@ const manualNav = [
                 items={skirtNav}
                 active={isSkirtFitPage}
                 baseUrl={baseUrl}
-                pathPrefix="skirt-fit"
+                pathPrefix="skirt-fit/"
             />
 
             <NavSection 
@@ -156,7 +158,7 @@ const manualNav = [
                 items={boatSpecsNav}
                 active={isBoatSpecsPage}
                 baseUrl={baseUrl}
-                pathPrefix="boat-specs"
+                pathPrefix="boat-specs/"
             />
         </nav>
     </div>

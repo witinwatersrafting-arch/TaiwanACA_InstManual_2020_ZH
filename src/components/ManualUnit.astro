@@ -23,6 +23,7 @@ const { Content } = await render(entry);
   <!-- Automated Unit Header (Componentized) -->
   {entry.data.unit_number > 0 && (
     <SectionHeader 
+      id={slug}
       titleZh={entry.data.title}
       titleEn={entry.data.en_title}
       descZh={entry.data.description}

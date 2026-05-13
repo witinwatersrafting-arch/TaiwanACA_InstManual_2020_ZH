@@ -335,17 +335,42 @@ const manufacturers = Object.keys(skirtData).sort();
 </StandardPage>
 
 <script define:vars={{ skirtData }}>
-  const brandSelect = document.getElementById('brand-select');
-  const modelSelect = document.getElementById('model-select');
-  const variantSelect = document.getElementById('variant-select');
-  const modelContainer = document.getElementById('model-container');
-  const variantContainer = document.getElementById('variant-container');
-  const resultArea = document.getElementById('result-area');
-  const skirtSizeDisplay = document.getElementById('skirt-size-display');
-  const boatDetailName = document.getElementById('boat-detail-name');
+  function initSkirtFit() {
+    const brandSelect = document.getElementById('brand-select');
+    const modelSelect = document.getElementById('model-select');
+    const variantSelect = document.getElementById('variant-select');
+    const modelContainer = document.getElementById('model-container');
+    const variantContainer = document.getElementById('variant-container');
+    const resultArea = document.getElementById('result-area');
+    const skirtSizeDisplay = document.getElementById('skirt-size-display');
+    const boatDetailName = document.getElementById('boat-detail-name');
 
-  function initSelectors() {
     if (!brandSelect) return;
+
+    function showResult(brand, model, variant) {
+      const sizeStr = skirtData[brand][model][variant];
+      if (!sizeStr || !skirtSizeDisplay || !resultArea) return;
+
+      skirtSizeDisplay.innerHTML = `
+        <div class="flex items-baseline gap-4">
+          <div class="text-6xl md:text-8xl font-black text-slate-900 leading-tight">
+            ${sizeStr}
+          </div>
+          <div class="flex items-center gap-2 text-blue-500 font-bold text-[10px] tracking-wider uppercase mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>Official Recommendation</span>
+          </div>
+        </div>
+      `;
+      
+      if (boatDetailName) {
+        boatDetailName.textContent = `${brand} ${model} ${variant !== 'None' ? variant : ''}`;
+      }
+      
+      resultArea.classList.remove('hidden');
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
     brandSelect.addEventListener('change', () => {
       const brand = brandSelect.value;
       if (!brand) {
@@ -402,29 +427,7 @@ const manufacturers = Object.keys(skirtData).sort();
     });
   }
 
-  initSelectors();
-
-  function showResult(brand, model, variant) {
-    const sizeStr = skirtData[brand][model][variant];
-    if (!sizeStr || !skirtSizeDisplay || !resultArea) return;
-
-    skirtSizeDisplay.innerHTML = `
-      <div class="flex items-baseline gap-4">
-        <div class="text-6xl md:text-8xl font-black text-slate-900 leading-tight">
-          ${sizeStr}
-        </div>
-        <div class="flex items-center gap-2 text-blue-500 font-bold text-[10px] tracking-wider uppercase mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>Official Recommendation</span>
-        </div>
-      </div>
-    `;
-    
-    if (boatDetailName) {
-      boatDetailName.textContent = `${brand} ${model} ${variant !== 'None' ? variant : ''}`;
-    }
-    
-    resultArea.classList.remove('hidden');
-    resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+  // Initialize on first load and on subsequent SPA navigations
+  initSkirtFit();
+  document.addEventListener('astro:page-load', initSkirtFit);
 </script>

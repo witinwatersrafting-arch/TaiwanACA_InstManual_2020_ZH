@@ -30,7 +30,7 @@ const { titleZh, titleEn, items, id, active = false, baseUrl, isHashNav = true, 
     {items.map((item) => {
       const href = isHashNav 
         ? `${baseUrl}${pathPrefix}#${item.slug}`
-        : `${baseUrl}${item.slug}`;
+        : `${baseUrl}${pathPrefix}${item.slug}`;
       
       return (
         <NavLink 

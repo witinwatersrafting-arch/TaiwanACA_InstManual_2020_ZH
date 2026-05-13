@@ -234,3 +234,48 @@ export const initScrollSpy = () => {
 
     sections.forEach((section) => observer.observe(section));
 };
+
+export const initAnchorLinks = () => {
+    const navLinks = document.querySelectorAll(".nav-link");
+    
+    navLinks.forEach(el => {
+        const link = el as HTMLAnchorElement;
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.includes('#')) {
+                const [path, hash] = href.split('#');
+                const currentPath = window.location.pathname.replace(/\/$/, '');
+                const targetPath = path.replace(/\/$/, '');
+                
+                // If it's the same page, scroll manually
+                if (targetPath === '' || targetPath === currentPath) {
+                    const targetId = hash;
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close mobile menu if open
+                        const sidebar = document.getElementById("main-sidebar");
+                        if (sidebar && sidebar.classList.contains("translate-x-0")) {
+                            const overlay = document.getElementById("sidebar-overlay");
+                            const hamburgerIcon = document.getElementById("hamburger-icon");
+                            const closeIcon = document.getElementById("close-icon");
+                            
+                            sidebar.classList.remove("translate-x-0");
+                            sidebar.classList.add("-translate-x-full");
+                            if (overlay) {
+                                overlay.classList.add("hidden", "opacity-0", "pointer-events-none");
+                                overlay.classList.remove("opacity-100", "pointer-events-auto");
+                            }
+                            if (hamburgerIcon) hamburgerIcon.classList.remove("hidden");
+                            if (closeIcon) closeIcon.classList.add("hidden");
+                            document.body.style.overflow = "";
+                        }
+                    }
+                }
+            }
+        });
+    });
+};
