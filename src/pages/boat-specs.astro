@@ -114,100 +114,98 @@ const types = [...new Set(kayaksData.map(k => k.Type).filter(Boolean))].sort();
 </StandardPage>
 
 <script define:vars={{ kayaksData }}>
-  const searchInput = document.getElementById('boat-search');
-  const brandFilter = document.getElementById('brand-filter');
-  const typeFilter = document.getElementById('type-filter');
-  const listContainer = document.getElementById('kayak-list');
-  const countDisplay = document.getElementById('results-count');
-  const loadAllBtn = document.getElementById('load-all-btn');
+  function initBoatSpecs() {
+    const searchInput = document.getElementById('boat-search');
+    const brandFilter = document.getElementById('brand-filter');
+    const typeFilter = document.getElementById('type-filter');
+    const listContainer = document.getElementById('kayak-list');
+    const countDisplay = document.getElementById('results-count');
+    const loadAllBtn = document.getElementById('load-all-btn');
 
-  let limit = 150;
+    if (!searchInput || !listContainer) return;
 
-  function renderRows(data) {
-    const displayList = data.slice(0, limit);
-    
-    if (displayList.length === 0) {
-        listContainer.innerHTML = `<div class="py-20 text-center text-slate-400">找不到符合條件的船隻</div>`;
-        return;
+    let limit = 150;
+
+    function renderRows(data) {
+      const displayList = data.slice(0, limit);
+      
+      if (displayList.length === 0) {
+          listContainer.innerHTML = `<div class="py-20 text-center text-slate-400">找不到符合條件的船隻</div>`;
+          return;
+      }
+
+      listContainer.innerHTML = displayList.map(k => `
+        <div class="grid grid-cols-2 md:grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-5 hover:bg-blue-50/30 transition-colors items-center text-sm">
+          <div class="text-slate-500 font-medium md:border-0">${k.Manufacture || '-'}</div>
+          <div class="text-slate-900 font-bold">
+              ${k["Model Name"] || '-'}
+              ${k["Year Intro"] ? `<span class="text-[10px] text-slate-400 font-normal ml-1">(${k["Year Intro"]})</span>` : ''}
+          </div>
+          <div class="flex items-center gap-2 md:block">
+              <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">類型:</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded text-[10px] text-slate-600 font-medium">${k.Type || '-'}</span>
+          </div>
+          <div class="flex items-center justify-between md:justify-center gap-2">
+              <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">容量:</span>
+              <span class="text-slate-600 font-mono">${k["Vol. Liter"] || '-'}</span>
+          </div>
+          <div class="flex items-center justify-between md:justify-center gap-2">
+              <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">長度:</span>
+              <span class="text-slate-600 font-mono">${k["Length CM"] || '-'}</span>
+          </div>
+          <div class="flex items-center justify-between md:justify-center gap-2">
+              <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">寬度:</span>
+              <span class="text-slate-600 font-mono">${k["Width CM"] || '-'}</span>
+          </div>
+          <div class="col-span-2 md:col-span-1 border-t md:border-0 pt-2 md:pt-0 mt-2 md:mt-0">
+              <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase mr-2">建議體重:</span>
+              <span class="text-slate-500 text-xs">${(k["Min KG"] && k["Max KG"]) ? `${k["Min KG"]} - ${k["Max KG"]}` : (k["Max KG"] || k["Min KG"] || '-')}</span>
+          </div>
+        </div>
+      `).join('');
+
+      countDisplay.textContent = `找到 ${data.length} 款符合的船隻 (目前顯示前 ${displayList.length} 筆)`;
+      
+      const container = document.getElementById('load-more-container');
+      if (container) {
+          container.style.display = data.length <= limit ? 'none' : 'block';
+      }
     }
 
-    listContainer.innerHTML = displayList.map(k => `
-      <div class="grid grid-cols-2 md:grid-cols-[1.5fr_1.5fr_1fr_0.8fr_0.8fr_0.8fr_1.2fr] gap-4 px-6 py-5 hover:bg-blue-50/30 transition-colors items-center text-sm">
-        <!-- Brand & Model (Primary Info) -->
-        <div class="text-slate-500 font-medium md:border-0">${k.Manufacture || '-'}</div>
-        <div class="text-slate-900 font-bold">
-            ${k["Model Name"] || '-'}
-            ${k["Year Intro"] ? `<span class="text-[10px] text-slate-400 font-normal ml-1">(${k["Year Intro"]})</span>` : ''}
-        </div>
-        
-        <!-- Other Specs -->
-        <div class="flex items-center gap-2 md:block">
-            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">類型:</span>
-            <span class="px-2 py-0.5 bg-slate-100 rounded text-[10px] text-slate-600 font-medium">${k.Type || '-'}</span>
-        </div>
-        
-        <div class="flex items-center justify-between md:justify-center gap-2">
-            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">容量:</span>
-            <span class="text-slate-600 font-mono">${k["Vol. Liter"] || '-'}</span>
-        </div>
-        
-        <div class="flex items-center justify-between md:justify-center gap-2">
-            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">長度:</span>
-            <span class="text-slate-600 font-mono">${k["Length CM"] || '-'}</span>
-        </div>
-  
-        <div class="flex items-center justify-between md:justify-center gap-2">
-            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase">寬度:</span>
-            <span class="text-slate-600 font-mono">${k["Width CM"] || '-'}</span>
-        </div>
-        
-        <div class="col-span-2 md:col-span-1 border-t md:border-0 pt-2 md:pt-0 mt-2 md:mt-0">
-            <span class="md:hidden text-[10px] text-slate-400 font-bold uppercase mr-2">建議體重:</span>
-            <span class="text-slate-500 text-xs">${(k["Min KG"] && k["Max KG"]) ? `${k["Min KG"]} - ${k["Max KG"]}` : (k["Max KG"] || k["Min KG"] || '-')}</span>
-        </div>
-      </div>
-    `).join('');
+    function updateTable() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedBrand = brandFilter.value;
+      const selectedType = typeFilter.value;
 
-    countDisplay.textContent = `找到 ${data.length} 款符合的船隻 (目前顯示前 ${displayList.length} 筆)`;
-    
-    const container = document.getElementById('load-more-container');
-    if (data.length <= limit) {
-        container.style.display = 'none';
-    } else {
-        container.style.display = 'block';
+      const filtered = kayaksData.filter(k => {
+        const brand = (k.Manufacture || "").toLowerCase();
+        const model = (k["Model Name"] || "").toLowerCase();
+        const matchSearch = brand.includes(searchTerm) || model.includes(searchTerm);
+        const matchBrand = !selectedBrand || k.Manufacture === selectedBrand;
+        const matchType = !selectedType || k.Type === selectedType;
+        return matchSearch && matchBrand && matchType;
+      });
+
+      renderRows(filtered);
     }
+
+    if (loadAllBtn) {
+        loadAllBtn.onclick = () => {
+            limit = 2000;
+            updateTable();
+        };
+    }
+
+    searchInput.oninput = updateTable;
+    brandFilter.onchange = updateTable;
+    typeFilter.onchange = updateTable;
+
+    updateTable();
   }
 
-  function updateTable() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const selectedBrand = brandFilter.value;
-    const selectedType = typeFilter.value;
-
-    const filtered = kayaksData.filter(k => {
-      const brand = (k.Manufacture || "").toLowerCase();
-      const model = (k["Model Name"] || "").toLowerCase();
-      
-      const matchSearch = brand.includes(searchTerm) || model.includes(searchTerm);
-      const matchBrand = !selectedBrand || k.Manufacture === selectedBrand;
-      const matchType = !selectedType || k.Type === selectedType;
-      
-      return matchSearch && matchBrand && matchType;
-    });
-
-    renderRows(filtered);
-  }
-
-  loadAllBtn.addEventListener('click', () => {
-      limit = 2000;
-      updateTable();
-  });
-
-  searchInput.addEventListener('input', updateTable);
-  brandFilter.addEventListener('change', updateTable);
-  typeFilter.addEventListener('change', updateTable);
-
-  // Initial Render
-  updateTable();
+  // Handle initial load and view transitions
+  initBoatSpecs();
+  document.addEventListener('astro:page-load', initBoatSpecs);
 </script>
 
 <style>
