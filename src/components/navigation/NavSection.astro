@@ -1,0 +1,45 @@
+---
+import NavLink from './NavLink.astro';
+
+interface NavItem {
+  id: string;
+  zh: string;
+  en: string;
+  slug: string;
+}
+
+interface Props {
+  titleZh: string;
+  titleEn: string;
+  items: NavItem[];
+  id: string;
+  active?: boolean;
+  baseUrl: string;
+  isHashNav?: boolean;
+  pathPrefix?: string;
+}
+
+const { titleZh, titleEn, items, id, active = false, baseUrl, isHashNav = true, pathPrefix = "" } = Astro.props;
+---
+
+<div id={id} class={active ? '' : 'hidden'}>
+  <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">
+    {titleZh} {titleEn}
+  </p>
+  <div class="space-y-2">
+    {items.map((item) => {
+      const href = isHashNav 
+        ? `${baseUrl}${pathPrefix}#${item.slug}`
+        : `${baseUrl}${item.slug}`;
+      
+      return (
+        <NavLink 
+          href={href}
+          id={item.slug}
+          zh={item.zh}
+          en={item.en}
+        />
+      );
+    })}
+  </div>
+</div>

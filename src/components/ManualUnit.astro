@@ -23,7 +23,7 @@ const { Content } = await render(entry);
   <!-- Automated Unit Header (Componentized) -->
   {entry.data.unit_number > 0 && (
     <SectionHeader 
-      titleZh={entry.data.title.replace(/^第.*單元：/, '')}
+      titleZh={entry.data.title}
       titleEn={entry.data.en_title}
       descZh={entry.data.description}
       descEn={entry.data.en_description}

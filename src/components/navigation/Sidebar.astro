@@ -1,0 +1,170 @@
+---
+import { getCollection } from "astro:content";
+import { modes, rubricNav, curriculumNav, skirtNav, boatSpecsNav } from "../../config/navigation";
+import ModeSwitcher from "./ModeSwitcher.astro";
+import NavSection from "./NavSection.astro";
+
+interface Props {
+  baseUrl: string;
+  currentPath: string;
+}
+
+const { baseUrl, currentPath } = Astro.props;
+
+const isAssessmentPage = currentPath.includes("assessment-guide");
+const isCurriculumPage = currentPath.includes("river-kayaking-curriculum");
+const isBoatSpecsPage = currentPath.includes("boat-specs");
+const isSkirtFitPage = currentPath.includes("skirt-fit");
+
+const manualUnits = await getCollection("manual");
+const sortedUnits = manualUnits
+    .filter(u => u.id !== 'river-kayaking-101' && u.id !== '00-preamble')
+    .sort((a, b) => (a.data.unit_number ?? 999) - (b.data.unit_number ?? 999));
+
+const manualNav = [
+    ...sortedUnits.map(u => ({
+        id: u.id,
+        zh: u.data.title,
+        en: u.data.en_title,
+        slug: u.id
+    })),
+    { id: "acknowledgments", zh: "致謝", en: "Acknowledgments", slug: "acknowledgments" }
+];
+---
+
+<aside
+    id="main-sidebar"
+    class="fixed inset-y-0 left-0 w-80 lg:w-[340px] bg-white z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto custom-scrollbar transition-transform duration-300 ease-in-out border-r border-slate-200"
+>
+    <div class="mb-10">
+        <div class="flex items-center justify-between lg:block mb-8">
+            <a
+                href={baseUrl}
+                class="flex items-center gap-3 group"
+            >
+                <div
+                    class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform"
+                >
+                    A
+                </div>
+                <div>
+                    <h1
+                        class="text-lg font-black tracking-tighter leading-none"
+                    >
+                        ACA MANUAL
+                    </h1>
+                    <p
+                        class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1"
+                    >
+                        Version 2020
+                    </p>
+                </div>
+            </a>
+            <!-- Mobile Close Button -->
+            <button
+                id="sidebar-close"
+                class="lg:hidden p-2 -mr-2 text-slate-400 hover:text-blue-600 transition-colors"
+                aria-label="Close Menu"
+            >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <ModeSwitcher baseUrl={baseUrl} currentPath={currentPath} />
+
+        <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200"
+            id="lang-switcher"
+        >
+            <button
+                data-lang="zh"
+                class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
+                >中文</button
+            >
+            <button
+                data-lang="en"
+                class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
+                >ENGLISH</button
+            >
+        </div>
+
+        <!-- PDF Export Button -->
+        <button
+            onclick="window.print()"
+            class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 mb-8"
+        >
+            <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+                ></path>
+            </svg>
+            匯出 PDF 手冊
+        </button>
+
+        <nav class="space-y-6" id="main-nav">
+            <NavSection 
+                id="nav-section-manual"
+                titleZh="目錄"
+                titleEn="Table of Contents"
+                items={manualNav}
+                active={!isAssessmentPage && !isCurriculumPage && !isSkirtFitPage && !isBoatSpecsPage}
+                baseUrl={baseUrl}
+            />
+
+            <NavSection 
+                id="nav-section-rubric"
+                titleZh="量表章節"
+                titleEn="Sections"
+                items={rubricNav}
+                active={isAssessmentPage}
+                baseUrl={baseUrl}
+                pathPrefix="assessment-guide"
+            />
+
+            <NavSection 
+                id="nav-section-curriculum"
+                titleZh="進度目錄"
+                titleEn="Contents"
+                items={curriculumNav}
+                active={isCurriculumPage}
+                baseUrl={baseUrl}
+                pathPrefix="river-kayaking-curriculum"
+            />
+
+            <NavSection 
+                id="nav-section-skirt"
+                titleZh="工具目錄"
+                titleEn="Tool Menu"
+                items={skirtNav}
+                active={isSkirtFitPage}
+                baseUrl={baseUrl}
+                pathPrefix="skirt-fit"
+            />
+
+            <NavSection 
+                id="nav-section-boat-specs"
+                titleZh="工具目錄"
+                titleEn="Tool Menu"
+                items={boatSpecsNav}
+                active={isBoatSpecsPage}
+                baseUrl={baseUrl}
+                pathPrefix="boat-specs"
+            />
+        </nav>
+    </div>
+
+    <div class="mt-auto pt-8 border-t border-slate-100">
+        <p class="text-[10px] text-slate-400 leading-tight">
+            American Canoe Association<br />
+            Instructor Manual v.2020
+        </p>
+    </div>
+</aside>

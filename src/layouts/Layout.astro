@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/print.css";
 
 interface Props {
     title: string;
@@ -7,67 +8,17 @@ interface Props {
 
 const { title } = Astro.props;
 
-import { getCollection } from "astro:content";
-import { modes } from "../config/navigation";
+import Sidebar from "../components/navigation/Sidebar.astro";
+import { ClientRouter } from 'astro:transitions';
 
 const isAssessmentPage = Astro.url.pathname.includes("assessment-guide");
 const isCurriculumPage = Astro.url.pathname.includes("river-kayaking-curriculum");
 const isBoatSpecsPage = Astro.url.pathname.includes("boat-specs");
 const isSkirtFitPage = Astro.url.pathname.includes("skirt-fit");
 
-const manualUnits = await getCollection("manual");
-const sortedUnits = manualUnits
-    .filter(u => u.id !== 'river-kayaking-101')
-    .sort((a, b) => (a.data.unit_number ?? 999) - (b.data.unit_number ?? 999));
-
-const manualNav = [
-    ...sortedUnits.map(u => ({
-        id: u.id,
-        zh: u.data.title,
-        en: u.data.en_title,
-        slug: u.id
-    })),
-    { id: "acknowledgments", zh: "致謝", en: "Acknowledgments", slug: "acknowledgments" }
-];
-
-const rubricNav = [
-    { id: "process", zh: "評估程序與指標", en: "Process & Rubric", slug: "process-and-rubric" },
-    { id: "tech", zh: "技術知識", en: "Technical Knowledge", slug: "technical-knowledge" },
-    { id: "flat", zh: "靜態水域技術", en: "Flatwater Skills", slug: "flatwater-skills" },
-    { id: "moving", zh: "動態水域技術", en: "Moving Water Maneuvers", slug: "moving-water-maneuvers" },
-    { id: "risk", zh: "風險管理", en: "Risk Management", slug: "risk-management" },
-];
-
-const curriculumNav = [
-    { id: "aca-outline", zh: "ACA 官方技術大綱", en: "ACA Official Outline", slug: "aca-outline" },
-    { id: "intro-course", zh: "入門課程範例", en: "Introductory Course", slug: "intro-course" },
-    { id: "basic-course", zh: "初階課程範例", en: "Basic Course", slug: "basic-course" },
-    { id: "resources", zh: "教學資源與後續發展", en: "Resources & Development", slug: "resources" },
-];
-
-const skirtNav = [
-    { id: "fit-assistant", zh: "尺寸查詢助手", en: "Fit Assistant", slug: "fit-assistant" },
-    { id: "size-reference", zh: "規格對照表", en: "Size Reference", slug: "size-reference" },
-    { id: "buying-principles", zh: "選購核心觀念", en: "Buying Principles", slug: "buying-principles" },
-    { id: "construction-comparison", zh: "結構類型對照", en: "Construction Style", slug: "construction-comparison" },
-    { id: "expert-faq", zh: "專家建議與 FAQ", en: "Expert FAQ", slug: "expert-faq" },
-    { id: "measure-tips", zh: "測量與官方數據", en: "Measurement Tips", slug: "measure-tips" },
-];
-
-const boatSpecsNav = [
-    { id: "specs-tool", zh: "規格查詢工具", en: "Specs Tool", slug: "specs-tool" },
-    { id: "glossary", zh: "技術術語解釋", en: "Glossary", slug: "glossary" },
-];
-
-const currentNav = isCurriculumPage 
-    ? curriculumNav 
-    : (isAssessmentPage 
-        ? rubricNav 
-        : (isSkirtFitPage ? skirtNav : (isBoatSpecsPage ? boatSpecsNav : manualNav)));
 const rawBaseUrl = import.meta.env.BASE_URL;
 // Ensure baseUrl ends with exactly one slash for safe joining
 const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
-
 ---
 
 <!DOCTYPE html>
@@ -88,10 +39,12 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap"
             rel="stylesheet"
         />
+        <ClientRouter />
     </head>
     <body
         class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900"
     >
+        <div id="loading-bar"></div>
         <div class="flex flex-col lg:flex-row min-h-screen w-full">
             <!-- Mobile Header -->
             <div
@@ -157,664 +110,58 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
             <!-- Spacer for fixed header -->
             <div class="lg:hidden h-16"></div>
 
-            <!-- Overlay -->
+            <!-- Sidebar Overlay (Mobile) -->
             <div
                 id="sidebar-overlay"
-                class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"
+                class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
             >
             </div>
 
-            <!-- Sidebar -->
-            <aside
-                id="main-sidebar"
-                class="fixed inset-y-0 left-0 w-80 lg:w-[340px] bg-white z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:h-screen lg:sticky lg:top-0 p-8 flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out border-r border-slate-200"
-            >
-                <div class="mb-10">
-                    <div class="flex items-center justify-between lg:block mb-8">
-                        <a
-                            href={import.meta.env.BASE_URL}
-                            class="flex items-center gap-3 group"
-                        >
-                            <div
-                                class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform"
-                            >
-                                A
-                            </div>
-                            <div>
-                                <h1
-                                    class="text-lg font-black tracking-tighter leading-none"
-                                >
-                                    ACA MANUAL
-                                </h1>
-                                <p
-                                    class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1"
-                                >
-                                    Version 2020
-                                </p>
-                            </div>
-                        </a>
-                        <!-- Mobile Close Button -->
-                        <button
-                            id="sidebar-close"
-                            class="lg:hidden p-2 -mr-2 text-slate-400 hover:text-blue-600 transition-colors"
-                            aria-label="Close Menu"
-                        >
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="flex flex-col gap-2 mb-6" id="mode-switcher">
-                        <!-- 第一列：核心手冊內容 -->
-                        <div class="bg-slate-100 p-1 rounded-xl flex gap-1 border border-slate-200">
-                            {modes.slice(0, 3).map(mode => {
-                                const path = Astro.url.pathname;
-                                const isActive = mode.id === 'manual' 
-                                    ? (path === baseUrl || path === baseUrl.slice(0, -1))
-                                    : (mode.id === 'assessment' ? path.includes('assessment-guide') : path.includes('river-kayaking-curriculum'));
-                                
-                                return (
-                                    <a
-                                        href={`${baseUrl}${mode.path.replace(/^\//, '')}${mode.path.length > 1 ? '' : ''}?menu=open`}
-                                        class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isActive ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
-                                    >
-                                        {mode.name}
-                                    </a>
-                                );
-                            })}
-                        </div>
-                        <!-- 第二列：工具與規格 -->
-                        <div class="bg-slate-100 p-1 rounded-xl flex gap-1 border border-slate-200">
-                            {modes.slice(3).map(mode => {
-                                const path = Astro.url.pathname;
-                                const isActive = mode.id === 'boat-specs' ? path.includes('boat-specs') : path.includes('skirt-fit');
-                                
-                                return (
-                                    <a
-                                        href={`${baseUrl}${mode.path.replace(/^\//, '')}?menu=open`}
-                                        class={`flex-1 py-2 px-1 rounded-lg text-[10px] font-bold text-center transition-all ${isActive ? 'bg-white shadow-sm text-blue-600 active-mode' : 'text-slate-500 hover:text-slate-800'}`}
-                                    >
-                                        {mode.name}
-                                    </a>
-                                );
-                            })}
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-100 p-1 rounded-xl flex gap-1 mb-4 border border-slate-200"
-                        id="lang-switcher"
-                    >
-                        <button
-                            data-lang="zh"
-                            class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
-                            >中文</button
-                        >
-                        <button
-                            data-lang="en"
-                            class="flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all hover:bg-white"
-                            >ENGLISH</button
-                        >
-                    </div>
-
-                    <!-- PDF Export Button -->
-                    <button
-                        onclick="window.print()"
-                        class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200 mb-8"
-                    >
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            ><path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 00-2 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 012-2H5a2 2 0 012 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-                            ></path>
-                        </svg>
-                        匯出 PDF 手冊
-                    </button>
-
-                    <nav class="space-y-6" id="main-nav">
-                        <!-- Manual Section -->
-                        <div id="nav-section-manual" class={isAssessmentPage || isCurriculumPage || isSkirtFitPage || isBoatSpecsPage ? 'hidden' : ''}>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">目錄 Table of Contents</p>
-                            <div class="space-y-2">
-                                {manualNav.map((item) => {
-                                    const isExternalPage = item.slug === "river-kayaking-curriculum";
-                                    const href = isExternalPage 
-                                        ? `${baseUrl}${item.slug}`
-                                        : `${baseUrl}#${item.slug}`;
-                                    
-                                    return (
-                                        <a
-                                            href={href}
-                                            data-nav-id={item.slug}
-                                            class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                        >
-                                            <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                            <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                        </a>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        <!-- Rubric Section -->
-                        <div id="nav-section-rubric" class={!isAssessmentPage ? 'hidden' : ''}>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">量表章節 Sections</p>
-                            <div class="space-y-2">
-                                {rubricNav.map((item) => (
-                                    <a
-                                        href={`${baseUrl}assessment-guide#${item.slug}`}
-                                        data-nav-id={item.slug}
-                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                    >
-                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <!-- Curriculum Section -->
-                        <div id="nav-section-curriculum" class={!isCurriculumPage ? 'hidden' : ''}>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">進度目錄 Contents</p>
-                            <div class="space-y-2">
-                                {curriculumNav.map((item) => (
-                                    <a
-                                        href={`${baseUrl}river-kayaking-curriculum#${item.slug}`}
-                                        data-nav-id={item.slug}
-                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                    >
-                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <!-- Skirt Fit Section -->
-                        <div id="nav-section-skirt" class={!isSkirtFitPage ? 'hidden' : ''}>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">工具目錄 Tool Menu</p>
-                            <div class="space-y-2">
-                                {skirtNav.map((item) => (
-                                    <a
-                                        href={`${baseUrl}skirt-fit#${item.slug}`}
-                                        data-nav-id={item.slug}
-                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                    >
-                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <!-- Boat Specs Section -->
-                        <div id="nav-section-boat-specs" class={!isBoatSpecsPage ? 'hidden' : ''}>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-2">工具目錄 Tool Menu</p>
-                            <div class="space-y-2">
-                                {boatSpecsNav.map((item) => (
-                                    <a
-                                        href={`${baseUrl}boat-specs#${item.slug}`}
-                                        data-nav-id={item.slug}
-                                        class="nav-link flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-all group"
-                                    >
-                                        <span class="zh text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug transition-colors">{item.zh}</span>
-                                        <span class="en text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-snug mt-0.5 transition-colors">{item.en}</span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-
-                <div class="mt-auto pt-8 border-t border-slate-100">
-                    <p class="text-[10px] text-slate-400 leading-tight">
-                        American Canoe Association<br />
-                        Instructor Manual v.2020
-                    </p>
-                </div>
-            </aside>
+            <Sidebar baseUrl={baseUrl} currentPath={Astro.url.pathname} transition:persist />
 
             <!-- Main Content Area -->
-            <main class="flex-1 bg-white relative min-w-0 w-full">
+            <main class="flex-1 bg-white relative min-w-0 w-full fade-in" id="main-content">
                 <slot />
             </main>
         </div>
 
-        <script is:inline>
-            const initLang = () => {
-                const savedLang = localStorage.getItem("aca-lang") || "zh";
-                document.documentElement.className = `lang-${savedLang}`;
+        <script>
+            import { initLang, initModeSwitcher, initMobileMenu, initScrollSpy } from "../scripts/ui";
 
-                const buttons = document.querySelectorAll(
-                    "#lang-switcher button"
-                );
-                buttons.forEach((btn) => {
-                    if (btn.dataset.lang === savedLang) {
-                        btn.classList.add(
-                            "bg-white",
-                            "shadow-sm",
-                            "text-blue-600"
-                        );
-                    } else {
-                        btn.classList.remove(
-                            "bg-white",
-                            "shadow-sm",
-                            "text-blue-600"
-                        );
-                    }
-
-                    btn.onclick = () => {
-                        const lang = btn.dataset.lang;
-                        localStorage.setItem("aca-lang", lang);
-                        document.documentElement.className = `lang-${lang}`;
-
-                        buttons.forEach((b) =>
-                            b.classList.remove(
-                                "bg-white",
-                                "shadow-sm",
-                                "text-blue-600"
-                            )
-                        );
-                        btn.classList.add(
-                            "bg-white",
-                            "shadow-sm",
-                            "text-blue-600"
-                        );
-                    };
-                });
-            };
-
-            const initModeSwitcher = () => {
-                const buttons = document.querySelectorAll("#mode-switcher button, #mode-switcher a");
-                const manualSection = document.getElementById("nav-section-manual");
-                const rubricSection = document.getElementById("nav-section-rubric");
-
-                buttons.forEach(btn => {
-                    const isLink = btn.tagName === 'A';
-                    
-                    btn.onclick = (e) => {
-                        const mode = btn.getAttribute('data-mode') || (btn.getAttribute('href').includes('assessment-guide') ? 'rubric' : 'manual');
-                        
-                        // If it's desktop, we might want to just toggle without navigating if it's already on the right page
-                        // But since we want to keep it simple, we let the <a> handle navigation and only use JS for buttons or 
-                        // to handle the UI state before navigation begins.
-                        
-                        // Update UI
-                        buttons.forEach(b => {
-                            b.classList.remove("bg-white", "shadow-sm", "text-blue-600", "active-mode");
-                            b.classList.add("text-slate-500");
-                        });
-                        btn.classList.add("bg-white", "shadow-sm", "text-blue-600", "active-mode");
-                        btn.classList.remove("text-slate-500");
-
-                        if (mode === "manual") {
-                            manualSection?.classList.remove("hidden");
-                            rubricSection?.classList.add("hidden");
-                            document.getElementById("nav-section-curriculum")?.classList.add("hidden");
-                        } else if (mode === "rubric") {
-                            manualSection?.classList.add("hidden");
-                            rubricSection?.classList.remove("hidden");
-                            document.getElementById("nav-section-curriculum")?.classList.add("hidden");
-                        } else {
-                            manualSection?.classList.add("hidden");
-                            rubricSection?.classList.add("hidden");
-                            document.getElementById("nav-section-curriculum")?.classList.remove("hidden");
-                        }
-                    };
-                });
-            };
-
-            // Mobile Menu Logic
-            const initMobileMenu = () => {
-                const toggleBtn = document.getElementById("mobile-menu-toggle");
-                const sidebar = document.getElementById("main-sidebar");
-                const overlay = document.getElementById("sidebar-overlay");
-                const hamburgerIcon = document.getElementById("hamburger-icon");
-                const closeIcon = document.getElementById("close-icon");
-                const sidebarClose = document.getElementById("sidebar-close");
-                const navLinks = document.querySelectorAll(".nav-link");
-
-                // Reset body overflow on init to be safe
-                document.body.style.overflow = "";
-
-                const toggleMenu = (shouldOpen) => {
-                    const isDesktop = window.innerWidth >= 1024;
-                    const nextState = shouldOpen !== undefined ? shouldOpen : !sidebar.classList.contains("translate-x-0");
-                    
-                    if (nextState) {
-                        // Open menu
-                        sidebar.classList.add("translate-x-0");
-                        sidebar.classList.remove("-translate-x-full");
-                        overlay.classList.remove("hidden", "opacity-0", "pointer-events-none");
-                        overlay.classList.add("opacity-100", "pointer-events-auto");
-                        hamburgerIcon.classList.add("hidden");
-                        closeIcon.classList.remove("hidden");
-                        
-                        // ONLY lock body on mobile
-                        if (!isDesktop) {
-                            document.body.style.overflow = "hidden";
-                        }
-                    } else {
-                        // Close menu
-                        sidebar.classList.remove("translate-x-0");
-                        sidebar.classList.add("-translate-x-full");
-                        overlay.classList.add("hidden", "opacity-0", "pointer-events-none");
-                        overlay.classList.remove("opacity-100", "pointer-events-auto");
-                        hamburgerIcon.classList.remove("hidden");
-                        closeIcon.classList.add("hidden");
-                        document.body.style.overflow = "";
-                    }
-                };
-
-                // Auto-open if ?menu=open is present (Mobile Only feature)
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.get('menu') === 'open' && window.innerWidth < 1024) {
-                    // Disable transition temporarily to prevent re-animation
-                    sidebar.style.transition = 'none';
-                    overlay.style.transition = 'none';
-                    
-                    toggleMenu(true); 
-                    
-                    // Re-enable transitions after a tiny delay
-                    setTimeout(() => {
-                        sidebar.style.transition = '';
-                        overlay.style.transition = '';
-                    }, 10);
-
-                    // Clean up URL without reload
-                    const newUrl = window.location.pathname + window.location.hash;
-                    window.history.replaceState({}, '', newUrl);
-                }
-
-                if (toggleBtn && sidebar && overlay) {
-                    toggleBtn.onclick = () => toggleMenu();
-                    overlay.onclick = () => toggleMenu(false); 
-                    if (sidebarClose) sidebarClose.onclick = () => toggleMenu(false); 
-
-                    navLinks.forEach((link) => {
-                        link.onclick = () => {
-                            if (window.innerWidth < 1024) {
-                                toggleMenu(false); 
-                            }
-                        };
-                    });
-                }
-            };
-
-            const initScrollSpy = () => {
-                const sections = document.querySelectorAll("section[id]");
-                const navLinks = document.querySelectorAll(".nav-link");
-
-                if (sections.length === 0) {
-                    // Handle single unit page highlighting
-                    const path = window.location.pathname;
-                    const slug = path.split("/").filter(Boolean).pop();
-                    if (slug) {
-                        navLinks.forEach((link) => {
-                            if (link.dataset.navId === slug) {
-                                link.classList.add("active-nav");
-                            }
-                        });
-                    }
-                    return;
-                }
-
-                // Intersection Observer for scroll tracking
-                const observerOptions = {
-                    rootMargin: "-15% 0px -75% 0px",
-                    threshold: 0,
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            const id = entry.target.getAttribute("id");
-                            const mobileUnitDisplay = document.getElementById(
-                                "mobile-current-unit"
-                            );
-
-                            navLinks.forEach((link) => {
-                                if (link.dataset.navId === id) {
-                                    link.classList.add("active-nav");
-
-                                    // Update Mobile Header Title
-                                    if (mobileUnitDisplay) {
-                                        const unitZh = link.querySelector(".zh")?.textContent;
-                                        if (unitZh && mobileUnitDisplay.textContent !== unitZh) {
-                                            mobileUnitDisplay.style.opacity = "0";
-                                            setTimeout(() => {
-                                                mobileUnitDisplay.textContent = unitZh;
-                                                mobileUnitDisplay.style.opacity = "1";
-                                            }, 200);
-                                        }
-                                    }
-                                } else {
-                                    link.classList.remove("active-nav");
-                                }
-                            });
-                        }
-                    });
-                }, observerOptions);
-
-                sections.forEach((section) => observer.observe(section));
-            };
-
-            // Run on initial load
-            initLang();
-            initModeSwitcher();
-            initMobileMenu();
-            initScrollSpy();
-
-            // Support Astro view transitions
-            document.addEventListener("astro:after-swap", () => {
+            const init = () => {
                 initLang();
                 initModeSwitcher();
                 initMobileMenu();
                 initScrollSpy();
+            };
+
+            const loadingBar = document.getElementById('loading-bar');
+            
+            document.addEventListener('astro:before-preparation', () => {
+                if (loadingBar) {
+                    loadingBar.style.width = '30%';
+                    loadingBar.style.opacity = '1';
+                }
+            });
+
+            document.addEventListener('astro:after-preparation', () => {
+                if (loadingBar) {
+                    loadingBar.style.width = '80%';
+                }
+            });
+
+            document.addEventListener('astro:page-load', () => {
+                if (loadingBar) {
+                    loadingBar.style.width = '100%';
+                    setTimeout(() => {
+                        loadingBar.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingBar.style.width = '0';
+                        }, 300);
+                    }, 200);
+                }
+                init();
             });
         </script>
     </body>
 </html>
-
-<style is:global>
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        width: 100%;
-        position: relative;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Global Typography Defense */
-    p, h1, h2, h3, h4, h5, h6, li, span {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-
-    /* Flex/Grid Child Defense */
-    main, section, article, .grid, .flex {
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    /* Image/Media Defense */
-    img, video, svg {
-        max-width: 100%;
-        height: auto;
-    }
-    .lang-zh .en {
-        display: none !important;
-    }
-    .lang-en .zh {
-        display: none !important;
-    }
-
-    .en {
-        font-family: 'Inter', sans-serif;
-    }
-
-    .serif {
-        font-family: "Noto Serif TC", serif;
-    }
-
-    /* Active Navigation Styles */
-    .active-nav {
-        background-color: #eff6ff !important;
-        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1),
-            0 4px 6px -4px rgba(37, 99, 235, 0.1), inset 0 0 0 1px #dbeafe !important;
-        transform: translateX(6px);
-    }
-    .active-nav .zh {
-        color: #2563eb !important;
-    }
-    .active-nav .en {
-        color: #60a5fa !important;
-    }
-
-    @media print {
-        #mobile-menu-toggle,
-        /* Language Switching */
-        
-        #sidebar-overlay,
-        .lg\:hidden {
-            display: none !important;
-        }
-        aside {
-            display: none !important;
-        }
-    }
-
-    .nav-link {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border-left: 0px solid #2563eb;
-    }
-    .active-nav.nav-link {
-        border-left-width: 4px;
-        padding-left: 0.5rem;
-    }
-
-    @media print {
-        @page {
-            size: A4;
-            margin: 2cm;
-        }
-        aside,
-        button,
-        #lang-switcher,
-        nav {
-            display: none !important;
-        }
-        main {
-            width: 100% !important;
-            padding: 0 !important;
-        }
-        .manual-unit {
-            width: 100% !important;
-            max-width: none !important;
-            padding-top: 0 !important;
-            margin-top: 0 !important;
-        }
-        .max-w-4xl {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-        }
-
-        /* Force display based on current selection, but if 'both' is selected, ensure it prints well */
-        .lang-both .en,
-        .lang-both .zh {
-            display: block !important;
-        }
-
-        section {
-            padding-top: 0 !important;
-            margin-top: 0 !important;
-        }
-        section:first-of-type {
-            page-break-before: auto;
-        }
-
-        /* Typography optimizations for print */
-        body {
-            background: white !important;
-            font-size: 11pt;
-            line-height: 1.5;
-            color: black !important;
-        }
-        .prose {
-            max-width: none !important;
-            color: black !important;
-        }
-        .bg-slate-50,
-        .bg-slate-100,
-        .bg-blue-50,
-        .bg-gray-50 {
-            background-color: transparent !important;
-            border: 1px solid #eee !important;
-        }
-        .text-blue-600,
-        .text-red-600 {
-            color: black !important;
-            font-weight: bold;
-        }
-        .shadow-lg,
-        .shadow-xl,
-        .shadow-2xl {
-            shadow: none !important;
-            box-shadow: none !important;
-        }
-
-        /* Prevent breaking elements across pages */
-        .grid > div,
-        .p-4,
-        .p-5,
-        .p-6,
-        .p-8,
-        li,
-        blockquote,
-        .rounded-2xl,
-        .rounded-3xl,
-        h2,
-        h3,
-        h4 {
-            break-inside: avoid;
-            page-break-inside: avoid;
-        }
-
-        /* Ensure images and headers stay with their following content */
-        h2,
-        h3,
-        h4 {
-            break-after: avoid;
-        }
-        img {
-            break-inside: avoid;
-            max-height: 40vh;
-            object-fit: contain;
-        }
-    }
-
-    /* Scrollbar Styling */
-    aside {
-        scrollbar-gutter: stable;
-    }
-    aside::-webkit-scrollbar {
-        width: 4px;
-    }
-    aside::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    aside::-webkit-scrollbar-thumb {
-        background: #e2e8f0;
-        border-radius: 10px;
-    }
-    aside::-webkit-scrollbar-thumb:hover {
-        background: #cbd5e1;
-    }
-</style>

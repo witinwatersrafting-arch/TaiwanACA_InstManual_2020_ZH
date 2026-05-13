@@ -1,0 +1,120 @@
+@media print {
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    /* Hide UI elements */
+    #mobile-menu-toggle,
+    #sidebar-overlay,
+    #lang-switcher,
+    #sidebar-close,
+    .lg\:hidden,
+    aside,
+    button,
+    nav,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Layout adjustments */
+    main {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+
+    .manual-unit {
+        width: 100% !important;
+        max-width: none !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .max-w-4xl, .max-w-5xl {
+        max-width: none !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Force display of both languages or handle current selection */
+    .lang-both .en,
+    .lang-both .zh {
+        display: block !important;
+    }
+
+    /* Typography & Color */
+    body {
+        background: white !important;
+        font-size: 10.5pt; /* Optimized for A4 */
+        line-height: 1.6;
+        color: black !important;
+    }
+
+    h1 { font-size: 24pt; margin-bottom: 1cm; text-align: center; }
+    h2 { font-size: 18pt; margin-top: 1.5cm; margin-bottom: 0.5cm; border-bottom: 2px solid #000; padding-bottom: 0.2cm; page-break-before: always; }
+    h3 { font-size: 14pt; margin-top: 0.8cm; margin-bottom: 0.3cm; color: #333 !important; }
+    h4 { font-size: 12pt; margin-top: 0.5cm; }
+
+    .prose {
+        max-width: none !important;
+        color: black !important;
+    }
+
+    /* UI Decoration Removal - Force everything to be ink-friendly */
+    * {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .bg-slate-50, .bg-slate-100, .bg-blue-50, .bg-blue-600, .bg-slate-900, .bg-white, [class^="bg-"] {
+        background-color: transparent !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .text-blue-600, .text-red-600, .text-blue-500, .text-slate-900, [class^="text-"] {
+        color: black !important;
+        font-weight: bold;
+    }
+
+    /* Content Breaking Logic */
+    .manual-unit article > * {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    h2, h3, h4 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    img {
+        break-inside: avoid;
+        max-height: 35vh;
+        object-fit: contain;
+        display: block;
+        margin: 1cm auto;
+        border: none !important;
+    }
+
+    /* Link Handling - Clean URLs */
+    a {
+        text-decoration: underline;
+        color: black !important;
+    }
+    
+    a::after {
+        content: " [" attr(href) "]";
+        font-size: 9pt;
+        font-weight: normal;
+        color: #666;
+    }
+
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after,
+    .no-link-print a::after {
+        content: "";
+    }
+}
