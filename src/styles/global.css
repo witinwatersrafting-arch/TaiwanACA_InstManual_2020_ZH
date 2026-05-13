@@ -41,11 +41,11 @@
     }
 
     .en {
-        font-family: 'Inter', sans-serif;
+        font-family: inherit; /* Use the parent's system-ui font */
     }
 
     .serif {
-        font-family: "Noto Serif TC", serif;
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     }
 
     .nav-link {

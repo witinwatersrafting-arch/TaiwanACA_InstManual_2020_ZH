@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
-        serif: ['Noto Serif TC', 'serif'],
+        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"PingFang TC"', '"Hiragino Sans GB"', '"Microsoft JhengHei"', '"Noto Sans TC"', 'Helvetica', 'Arial', 'sans-serif'],
+        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },
     },
   },
