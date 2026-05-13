@@ -1,5 +1,10 @@
 export const initLang = () => {
-    const savedLang = localStorage.getItem("aca-lang") || "zh";
+    let savedLang = "zh";
+    try {
+        savedLang = localStorage.getItem("aca-lang") || "zh";
+    } catch (e) {
+        console.warn("LocalStorage access denied in incognito mode.");
+    }
     document.documentElement.className = `lang-${savedLang}`;
 
     const buttons = document.querySelectorAll(
@@ -24,7 +29,11 @@ export const initLang = () => {
         btn.onclick = () => {
             const lang = btn.dataset.lang;
             if (lang) {
-                localStorage.setItem("aca-lang", lang);
+                try {
+                    localStorage.setItem("aca-lang", lang);
+                } catch (e) {
+                    // Silently fail in incognito
+                }
                 document.documentElement.className = `lang-${lang}`;
 
                 buttons.forEach((b) =>
