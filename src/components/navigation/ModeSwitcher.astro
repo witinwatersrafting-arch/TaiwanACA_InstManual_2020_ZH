@@ -30,7 +30,7 @@ const { baseUrl, currentPath } = Astro.props;
     <!-- 第二列：工具與規格 -->
     <div class="bg-slate-100 p-1 rounded-xl flex gap-1 border border-slate-200">
         {modes.slice(3).map(mode => {
-            const isActive = mode.id === 'boat-specs' ? currentPath.includes('boat-specs') : currentPath.includes('skirt-fit');
+            const isActive = currentPath.includes(mode.path.replace(/^\//, ''));
             
             return (
                 <a

@@ -1,0 +1,551 @@
+---
+import StandardPage from "../components/StandardPage.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<StandardPage 
+  title="槳長計算器 | ACA 獨木舟手冊"
+  badgeZh="裝備工具"
+  badgeEn="Gear Tools"
+  heroTitleMainZh="槳長計算器"
+  heroTitleSubZh="算出你的專屬槳長"
+  heroTitleMainEn="Paddle Length Calculator"
+  heroTitleSubEn="Professional Biomechanical Fitting"
+  descriptionZh="透過肘距、肌力與體重，精確計算出最符合您身體結構的槳長與握距。本工具基於 Michele Ramazza 的專業算法。"
+  descriptionEn="Precisely calculate the ideal paddle length and grip width based on your biomechanics. Algorithm developed by Michele Ramazza."
+  maxW="max-w-7xl" 
+>
+  <!-- Calculator Section -->
+  <section class="mb-24">
+    <SectionHeader 
+      id="calculator"
+      titleZh="專業長度計算器"
+      titleEn="Pro Length Calculator"
+      descZh="請輸入精確數據以獲得最佳擬合結果。此計算器適用於溪流、旅遊、海洋與激流標桿。"
+      descEn="Enter accurate data for optimal results. Valid for creek, touring, sea and slalom."
+    />
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Input Form -->
+      <div class="lg:col-span-5 bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/20">
+        <div class="space-y-8">
+          <!-- Elbow Distance -->
+          <div>
+            <label class="block mb-4">
+              <span class="zh font-bold text-slate-800">1. 肘對肘距離 (cm)</span>
+              <span class="en text-xs text-slate-400 block tracking-tight uppercase mt-1">Elbow to elbow distance</span>
+            </label>
+            
+            <!-- Measurement Diagram (Hands-up Posture) -->
+            <div class="bg-slate-50 rounded-2xl p-4 mb-6 flex justify-center border border-slate-100">
+              <svg viewBox="0 0 200 110" class="w-full max-w-[240px] h-auto">
+                <!-- Torso / Shoulders -->
+                <path d="M82 60 Q100 55, 118 60 L125 100 L75 100 Z" fill="#cbd5e1" opacity="0.5" /> <!-- Torso -->
+                <circle cx="100" cy="45" r="10" fill="#4796cc" /> <!-- Head -->
+                
+                <!-- Arms: Hands-up Posture -->
+                <!-- Left Arm: Shoulder -> Elbow (Out) -> Hand (In) -->
+                <path d="M85 62 L55 65 L75 40" fill="none" stroke="#4796cc" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="55" cy="65" r="3" fill="#fff" /> <!-- Elbow Apex -->
+                
+                <!-- Right Arm: Shoulder -> Elbow (Out) -> Hand (In) -->
+                <path d="M115 62 L145 65 L125 40" fill="none" stroke="#4796cc" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="145" cy="65" r="3" fill="#fff" /> <!-- Elbow Apex -->
+                
+                <!-- Measurement Annotations -->
+                <path d="M55 55 L145 55" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4" />
+                <path d="M55 50 L55 60 M145 50 L145 60" stroke="#f43f5e" stroke-width="2" />
+                <path d="M55 55 L61 52 M55 55 L61 58 M145 55 L139 52 M145 55 L139 58" stroke="#f43f5e" stroke-width="1.5" />
+                
+                <text x="100" y="25" text-anchor="middle" font-size="8" font-weight="bold" fill="#f43f5e" class="uppercase tracking-widest">Measure Between Elbows</text>
+              </svg>
+            </div>
+
+            <div class="relative">
+              <input 
+                type="number" 
+                id="input-elbow" 
+                value="95" 
+                min="50" max="150"
+                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-xl font-black text-blue-600 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all outline-none"
+              />
+              <span class="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 font-bold">CM</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-3 italic">
+              <span class="zh">雙臂平伸，測量兩肘尖之間的最長距離。</span>
+              <span class="en">Measure from elbow to elbow with arms extended.</span>
+            </p>
+          </div>
+
+          <!-- Pull-ups -->
+          <div>
+            <label class="block mb-4">
+              <span class="zh font-bold text-slate-800">2. 引體向上次數 (肌力指標)</span>
+              <span class="en text-xs text-slate-400 block tracking-tight uppercase mt-1">Tractions on the bar</span>
+            </label>
+
+            <select 
+              id="input-power"
+              class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-lg font-bold text-slate-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all outline-none appearance-none"
+            >
+              <option value="0">無法完成或 1 次 (0-1)</option>
+              <option value="1">1 到 5 次 (1-5)</option>
+              <option value="5">5 到 10 次 (5-10)</option>
+              <option value="10">10 次以上 (10+)</option>
+              <option value="20">20 次以上 (20+)</option>
+            </select>
+          </div>
+
+          <!-- Weight -->
+          <div>
+            <label class="block mb-4">
+              <span class="zh font-bold text-slate-800">體重 (kg)</span>
+              <span class="en text-xs text-slate-400 block tracking-tight uppercase mt-1">Paddler weight (kg)</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="number" 
+                id="input-weight" 
+                value="75" 
+                min="20" max="200"
+                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-xl font-black text-slate-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all outline-none"
+              />
+              <span class="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 font-bold">KG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Display -->
+      <div class="lg:col-span-7 bg-slate-900 rounded-[2rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-blue-900/20 flex flex-col justify-center">
+        <!-- Abstract Decoration -->
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 space-y-12">
+          <!-- Result Visual Diagram -->
+          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 flex flex-col items-center">
+            <svg viewBox="0 0 300 120" class="w-full max-w-[400px] h-auto">
+              <!-- Paddle -->
+              <rect x="30" y="58" width="240" height="4" rx="2" fill="#475569" />
+              <!-- Blades -->
+              <ellipse cx="30" cy="60" rx="25" ry="12" fill="#1e293b" />
+              <ellipse cx="270" cy="60" rx="25" ry="12" fill="#1e293b" />
+              
+              <!-- Paddler Top Down -->
+              <circle cx="150" cy="75" r="12" fill="#4796cc" /> <!-- Head -->
+              <!-- Arms (Visualizing 45 degree angle) -->
+              <path d="M138 75 Q110 75, 100 60" fill="none" stroke="#4796cc" stroke-width="8" stroke-linecap="round" />
+              <path d="M162 75 Q190 75, 200 60" fill="none" stroke="#4796cc" stroke-width="8" stroke-linecap="round" />
+              
+              <!-- Annotations -->
+              <!-- Grip Width -->
+              <path d="M100 50 L200 50" stroke="#fbbf24" stroke-width="1.5" />
+              <path d="M100 45 L100 55 M200 45 L200 55" stroke="#fbbf24" stroke-width="1.5" />
+              <text x="150" y="42" text-anchor="middle" font-size="8" fill="#fbbf24" font-weight="bold">GRIP WIDTH</text>
+              
+              <!-- Total Length -->
+              <path d="M5 105 L295 105" stroke="#fff" stroke-width="1" stroke-opacity="0.3" />
+              <path d="M5 100 L5 110 M295 100 L295 110" stroke="#fff" stroke-width="1" stroke-opacity="0.3" />
+              <text x="150" y="115" text-anchor="middle" font-size="7" fill="#94a3b8" font-weight="bold">TOTAL LENGTH</text>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-4">Recommended Fitting</h4>
+            <div class="flex flex-col md:flex-row gap-8">
+              <!-- Total Length -->
+              <div class="flex-1">
+                <p class="zh text-slate-400 text-sm mb-1">建議槳總長</p>
+                <div class="flex items-baseline gap-2">
+                  <span id="result-total" class="text-5xl md:text-7xl font-black text-white tabular-nums">195.7</span>
+                  <span class="text-xl font-bold text-blue-500">CM</span>
+                </div>
+              </div>
+              <!-- Grip Width -->
+              <div class="flex-1 border-l border-slate-800 pl-8">
+                <p class="zh text-slate-400 text-sm mb-1">建議內部握距</p>
+                <div class="flex items-baseline gap-2">
+                  <span id="result-grip" class="text-4xl md:text-5xl font-black text-blue-400 tabular-nums">62.5</span>
+                  <span class="text-lg font-bold text-slate-500">CM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Advice -->
+          <div class="grid grid-cols-1 gap-6 pt-8 border-t border-slate-800">
+            <div>
+              <p class="zh text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-2">Blade Surface</p>
+              <p id="result-blade" class="text-lg font-bold text-white">Medium-Large</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Science & Logic Section -->
+  <section class="mb-24">
+    <SectionHeader 
+      id="science-logic"
+      titleZh="槳長的科學與邏輯"
+      titleEn="The Science of Paddle Length"
+      descZh="為什麼生物力學指標比身高更重要？"
+      descEn="Why biomechanical metrics trump height-based formulas."
+    />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- 1. Height Myth -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm">
+        <h4 class="text-xl font-black text-slate-900 mb-4">
+          <span class="zh">1. 破解「身高決定論」的迷思</span>
+          <span class="en text-xs text-slate-400 block tracking-tight mt-1">Breaking the Height Myth</span>
+        </h4>
+        <p class="zh text-slate-600 leading-relaxed">
+          傳統上，許多人習慣依照身高來選擇槳長，但這在生物力學上是存在缺陷的。獨木舟是一項<strong>「坐姿」</strong>運動，決定你划幅與力矩的關鍵在於你的<strong>軀幹高度 (Torso Height)</strong>、<strong>臂長 (Arm Span)</strong> 以及<strong>肩膀寬度</strong>。兩位身高相同的人，可能因為軀幹比例不同，而需要完全不同的槳長。
+        </p>
+      </div>
+
+      <!-- 2. Power Triangle -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm">
+        <h4 class="text-xl font-black text-slate-900 mb-4">
+          <span class="zh">2. 核心邏輯：動力三角形</span>
+          <span class="en text-xs text-slate-400 block tracking-tight mt-1">The Power Triangle</span>
+        </h4>
+        <p class="zh text-slate-600 leading-relaxed mb-4">
+          本工具的核心，是幫你找出身體發力最穩定、最安全的區間。
+        </p>
+        <ul class="zh space-y-3 text-slate-600 text-sm">
+          <li class="flex gap-2">
+            <span class="text-blue-600 font-bold">•</span>
+            <span><strong>肘距 vs. 握距：</strong> 我們不參考靜態的肩膀寬度，而是測量具備功能性的「肘對肘距離」。</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-blue-600 font-bold">•</span>
+            <span><strong>0.658 黃金比例：</strong> 計算器輸出的握距，旨在讓你握槳時，肩膀自然處於最穩定的「肩胛面 (Scapular Plane)」。</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3. Verification & Angle Analysis -->
+      <div class="bg-slate-900 rounded-[2rem] p-10 text-white lg:col-span-2 shadow-2xl shadow-blue-900/20">
+        <h4 class="text-2xl font-black mb-10 text-center">
+          <span class="zh">3. 驗證你的理想握距</span>
+          <span class="en text-xs text-blue-300 block tracking-tight mt-1">Grip Verification & Angle Analysis</span>
+        </h4>
+
+        <!-- Step 1: How to do it -->
+        <div class="bg-white/10 p-8 rounded-3xl border border-white/20 mb-12">
+          <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Diagram Container -->
+            <div class="w-full lg:w-1/2 bg-white/5 rounded-2xl p-6 flex flex-col items-center border border-white/10">
+              <div class="text-[10px] font-black uppercase text-blue-400 tracking-widest mb-6">Shoulder Angle Diagram (Top-down)</div>
+              <svg viewBox="0 0 240 180" class="w-full max-w-[340px] h-auto">
+                <!-- Human Head & Shoulders -->
+                <circle cx="60" cy="110" r="15" fill="#4796cc" opacity="0.2" /> <!-- Head -->
+                <text x="60" y="113" text-anchor="middle" font-size="8" fill="#4796cc" font-weight="bold" opacity="0.8">頭</text>
+                <rect x="10" y="105" width="100" height="10" rx="5" fill="#cbd5e1" opacity="0.1" /> <!-- Shoulders -->
+                
+                <!-- Joint Center (Shifted Further Left) -->
+                <circle cx="110" cy="110" r="8" fill="#3b82f6" /> <!-- Shoulder Joint Right -->
+                <text x="110" y="135" text-anchor="middle" font-size="8" fill="#60a5fa" font-weight="bold">肩關節 (Joint)</text>
+                
+                <!-- 0 Degree (Forward) -->
+                <line x1="110" y1="110" x2="110" y2="20" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4" />
+                <text x="110" y="12" text-anchor="middle" font-size="9" fill="#94a3b8" font-weight="bold">0° 正前方</text>
+                
+                <!-- 90 Degree (Side) -->
+                <line x1="110" y1="110" x2="170" y2="110" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4" />
+                <text x="170" y="125" text-anchor="middle" font-size="9" fill="#f43f5e" font-weight="bold">90° 脫臼風險</text>
+                
+                <!-- 45 Degree (Golden Zone) -->
+                <path d="M110 110 L155 65" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" /> <!-- Upper Arm (Humerus) -->
+                <path d="M110 90 A20 20 0 0 1 124.14 95.86" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3" />
+                
+                <text x="165" y="55" text-anchor="start" font-size="9" fill="#fff" font-weight="black">45° 最佳角度</text>
+                <text x="165" y="67" text-anchor="start" font-size="7" fill="#60a5fa" class="uppercase font-bold tracking-tighter">Optimal Angle</text>
+              </svg>
+              <p class="text-[10px] text-slate-400 mt-6 zh text-center">本圖呈現上臂相對於軀幹的夾角。藍色 45° 為力量與安全的最佳平衡點。</p>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex-1">
+              <div class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <div class="text-blue-400 font-black">● 俯瞰視角</div>
+                    <p class="zh text-sm text-slate-300 leading-relaxed">想像從頭頂向下看你的雙臂位置。</p>
+                  </div>
+                  <div class="space-y-2">
+                    <div class="text-blue-400 font-black">● 設定角度</div>
+                    <p class="zh text-sm text-slate-300 leading-relaxed">將手肘從身體正前方向兩側張開至 <strong>45 度</strong>。</p>
+                  </div>
+                </div>
+
+                <div class="p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30">
+                  <div class="text-blue-400 font-black mb-2">● 鎖定夾角 (最佳槓桿輸出)</div>
+                  <p class="zh text-sm text-slate-200 leading-relaxed">
+                    當肘關節呈現 90 度時，肱二頭肌與肱橈肌處於最佳的「長度-張力關係」，能最有效地將<strong>背闊肌、胸大肌</strong>產生的力量，透過前臂這根槓桿，毫無損失地傳遞到槳桿上。
+                  </p>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-blue-400 font-black">● 得出寬度</div>
+                  <p class="zh text-sm text-slate-300 leading-relaxed">此時雙手間距離，即為你發力最穩定、最保護肩膀的參考握距。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="space-y-3 p-6 bg-blue-600 rounded-2xl shadow-xl order-first">
+            <div class="text-3xl font-black text-white">45°</div>
+            <p class="zh text-sm leading-relaxed text-blue-50">
+              <strong>最佳角度：</strong> 這是肩膀最穩定、肌群發力最平衡的角度（肩胛面）。在受力時，肩膀的負擔最輕。
+            </p>
+          </div>
+          <div class="space-y-3 p-6 bg-white/5 rounded-2xl border border-white/10">
+            <div class="text-3xl font-black text-slate-500">0°</div>
+            <p class="zh text-sm leading-relaxed text-slate-300">
+              雖然安全但力矩太短，無法透過核心旋轉發力，容易變成低效的「推槳」。
+            </p>
+          </div>
+          <div class="space-y-3 p-6 bg-white/5 rounded-2xl border border-white/10">
+            <div class="text-3xl font-black text-red-500">90°</div>
+            <p class="zh text-sm leading-relaxed text-slate-300">
+              傳統 90 度規則。會讓肩關節處於外展與外旋極限，受力時極易導致擠壓或脫臼。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Balance -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm">
+        <h4 class="text-xl font-black text-slate-900 mb-4">
+          <span class="zh">4. 長度與力量的平衡</span>
+          <span class="en text-xs text-slate-400 block tracking-tight mt-1">Power & Cadence Balance</span>
+        </h4>
+        <p class="zh text-slate-600 text-sm leading-relaxed mb-4">
+          最後，計算器會根據你的<strong>肌力 (引體向上次數)</strong> 與<strong>體重</strong>微調總長度：
+        </p>
+        <ul class="zh space-y-3 text-slate-600 text-sm">
+          <li class="flex gap-2">
+            <span class="text-blue-600 font-bold">•</span>
+            <span><strong>強壯的划者：</strong> 可以支撐更長的力臂（較長的槳），以換取更高的單槳推力。</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-blue-600 font-bold">•</span>
+            <span><strong>重視頻率的划者：</strong> 較短的槳能提升划頻 (Cadence)，並減輕關節在長途巡航時的負擔。</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5. Torso & Seat Height -->
+      <div class="bg-slate-50 rounded-[2rem] p-10 border border-slate-200">
+        <h4 class="text-xl font-black text-slate-900 mb-4">
+          <span class="zh">補充：關於坐高與軀幹</span>
+          <span class="en text-xs text-slate-400 block tracking-tight mt-1">Seat Height & Torso Note</span>
+        </h4>
+        <p class="zh text-slate-600 leading-relaxed mb-4">
+          取得握距後，下一步即是計算「抓握點到槳葉」的距離。這段距離理論上取決於<strong>軀幹長度</strong>與<strong>船型坐高</strong>。
+        </p>
+        <p class="zh text-slate-500 text-sm italic">
+          由於坐高在大多數船型中是可以輕易調整的（如墊高塊），因此我們不將其列入計算器的固定參考。建議以計算器得出的長度為基準，再依個人坐姿微調。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hand Distance Guide Section -->
+  <section id="hand-distance" class="mb-24">
+    <SectionHeader 
+      id="hand-distance"
+      titleZh="握距標定指南"
+      titleEn="Hand Distance Guide"
+      descZh="如何將計算出的理想握距應用到你的槳桿上？"
+      descEn="How to apply the calculated grip width to your paddle shaft."
+    />
+
+    <div class="bg-slate-50 rounded-[2rem] p-12 border border-slate-200 shadow-inner">
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="flex-1 space-y-6">
+          <p class="zh text-slate-700 text-lg leading-relaxed">
+            透過計算器得出理想握距後，你可以使用<strong>絕緣膠帶</strong>在槳桿上纏繞數圈作為參考點。
+          </p>
+          <ul class="zh space-y-4 text-slate-600">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">1</span>
+              <span>找出槳桿的精確中心點。</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">2</span>
+              <span>以此中心點為準，對稱地向左右標示出計算出的距離值。</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">3</span>
+              <span>確保標記對稱，這能強迫你維持正確的生物力學姿勢。</span>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/3 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
+          <div class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Grip Marking</div>
+          <div class="w-full h-2 bg-slate-800 rounded-full relative mb-8">
+            <div class="absolute left-1/2 -translate-x-1/2 -top-2 w-1 h-6 bg-red-500"></div>
+            <div class="absolute left-1/4 -translate-x-1/2 -top-1 w-2 h-4 bg-blue-500"></div>
+            <div class="absolute right-1/4 translate-x-1/2 -top-1 w-2 h-4 bg-blue-500"></div>
+          </div>
+          <p class="text-[10px] text-slate-400 font-bold uppercase zh">請務必相對於中心對稱標記</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert Advices Section -->
+  <section id="expert-advices" class="mb-24">
+    <SectionHeader 
+      id="expert-advices"
+      titleZh="專業選購建議"
+      titleEn="Expert Technical Insights"
+      descZh="關於材質、槳桿與設計的個人見解"
+      descEn="Personal perspectives based on professional experience."
+    />
+
+    <!-- Pro Perspective Disclaimer -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-3xl mb-12 shadow-sm">
+      <div class="flex items-start gap-5">
+        <div class="p-3 bg-blue-500 rounded-2xl text-white shadow-lg shadow-blue-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h5 class="text-lg font-black text-blue-900 mb-2 zh flex items-center gap-2">
+            專業划者個人心得 <span class="text-xs font-medium opacity-60">Ramazza's Insights</span>
+          </h5>
+          <p class="text-blue-800 text-sm zh leading-relaxed">
+            此區塊內容基於 <strong>Michele Ramazza</strong> 在激流與競技領域（Slalom / Creeking）多年的實戰經驗與個人心得。這些觀點反映了資深選手對極致回饋與性能的個人偏好，並不一定適用於所有使用者，建議結合個人程度與舒適度進行參考。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-slate-600">
+      <!-- 1. Material Selection -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500">
+        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h4 class="text-xl font-black text-slate-900 mb-4 zh">材質：剛性與重量</h4>
+        <p class="zh text-sm leading-relaxed mb-4">
+          碳纖維 (Carbon Fiber) 是性能首選。它能最小化槳桿形變，確保每一份核心力量都完整傳遞。雖價格較高且對關節衝擊較直接，但其輕量化優勢能顯著減少長途划行的疲勞。
+        </p>
+      </div>
+
+      <!-- 2. Straight vs Bent Shaft -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500">
+        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"></path><path d="M15 8h-5"></path><path d="M19 17V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2z"></path></svg>
+        </div>
+        <h4 class="text-xl font-black text-slate-900 mb-4 zh">槳桿：直桿的回饋感</h4>
+        <p class="zh text-sm leading-relaxed mb-4">
+          直桿始終是 Michele 的第一選擇。它提供最直接、不模糊的水感回饋，並能協助划者建立最精確的控槳標定感。彎桿雖能減輕手腕壓力，但會犧牲部分對槳葉角度的微細感應。
+        </p>
+      </div>
+
+      <!-- 3. Blade Offsets (Forward Offset) -->
+      <div class="bg-white rounded-[2rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500">
+        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="m7 7 5 5-5 5"></path><path d="m17 7 5 5-5 5"></path></svg>
+        </div>
+        <h4 class="text-xl font-black text-slate-900 mb-4 zh">穩定度：槳葉前移設計</h4>
+        <p class="zh text-sm leading-relaxed mb-4">
+          強烈推薦槳葉相對於軸線向前偏移 (Forward Offset) 的設計。這種構造能顯著提升槳葉入水瞬間的穩定性，大幅減少震動，這對激流中精確的標定操作至關重要。
+        </p>
+      </div>
+
+      <!-- 4. Feather Angle -->
+      <div class="bg-blue-600 rounded-[2rem] p-10 text-white shadow-xl shadow-blue-200 lg:col-span-2">
+        <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
+        </div>
+        <h4 class="text-xl font-black mb-4">
+          <span class="zh">槳葉偏角 (Feather 角度)</span>
+          <span class="en text-xs text-blue-200 block tracking-tight mt-1">Science of Feather Angle</span>
+        </h4>
+        <p class="zh text-blue-50 leading-relaxed mb-4 text-sm">
+          偏角的選擇是為了在<strong>風阻</strong>與<strong>手腕轉動</strong>間取得平衡。能否順暢划槳並非取決於角度對錯，而是<strong>非控制手 (Non-control hand)</strong> 對槳桿的精細控制能力。雖然 45° 是常見選擇，但正確的手法應讓槳桿在手中自如轉動，而非僵硬抓握。
+        </p>
+        <p class="en text-blue-100 italic text-[10px] leading-relaxed opacity-70">
+          Choosing a feather angle balances wind resistance and wrist rotation. Success depends on the non-control hand's precision in allowing the shaft to rotate smoothly.
+        </p>
+      </div>
+    </div>
+  </section>
+</StandardPage>
+
+<script>
+  const init = () => {
+    const inputElbow = document.getElementById('input-elbow') as HTMLInputElement;
+    const inputPower = document.getElementById('input-power') as HTMLSelectElement;
+    const inputWeight = document.getElementById('input-weight') as HTMLInputElement;
+    const inputDisciplines = document.querySelectorAll('input[name="discipline"]');
+    
+    const resultTotal = document.getElementById('result-total');
+    const resultGrip = document.getElementById('result-grip');
+    const resultBlade = document.getElementById('result-blade');
+    const resultFeather = document.getElementById('result-feather');
+
+    const calculate = () => {
+      const elbow = parseFloat(inputElbow.value) || 0;
+      const weight = parseFloat(inputWeight.value) || 0;
+      const powerValue = inputPower.value;
+      const power = (powerValue === 'NOT_EVEN_ONE') ? -1 : parseInt(powerValue);
+
+      // 1. Grip Width (45 degree biomechanical constant)
+      const grip = Math.round(elbow * 0.658 * 10) / 10;
+      
+      // 2. Total Length & Power Offset Logic (Refined by CSV Analysis)
+      let powerOffset = 0;
+      if (power === 20) {
+        powerOffset = 2.0;
+      } else if (power === 10) {
+        // Special Case: Power 10 bonus disappears for very heavy users (100kg+)
+        powerOffset = weight >= 100 ? 0 : 1.0;
+      }
+
+      const total = Math.round(((elbow * 0.83) + 116.85 + powerOffset) * 10) / 10;
+
+      // 3. Blade Surface Matrix Logic (Derived from analyze_blade.py)
+      let blade = "Medium-Large";
+      if (power >= 10) {
+          if (weight < 55) blade = "Medium-Large";
+          else if (weight < 95) blade = "Large-XLarge";
+          else blade = "XLarge";
+      } else if (power >= 5) {
+          if (weight < 55) blade = "Small-Medium";
+          else if (weight < 75) blade = "Large";
+          else if (weight < 95) blade = "Large-XLarge";
+          else blade = "XLarge";
+      } else {
+          if (weight < 55) blade = "Small-Medium";
+          else if (weight < 75) blade = "Medium-Large";
+          else if (weight < 95) blade = "Large";
+          else blade = "XLarge";
+      }
+
+      if (resultGrip) resultGrip.textContent = grip.toFixed(1);
+      if (resultTotal) resultTotal.textContent = total.toFixed(1);
+      if (resultBlade) resultBlade.textContent = blade;
+    };
+
+    [inputElbow, inputPower, inputWeight].forEach(el => {
+      el?.addEventListener('input', calculate);
+    });
+
+    calculate(); // Initial run
+  };
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

@@ -28,7 +28,20 @@ export const modes = [
     en_name: "Skirt Fit",
     path: "/skirt-fit",
     id: "skirt-fit"
+  },
+  {
+    name: "槳長計算器",
+    en_name: "Paddle Calculator",
+    path: "/paddle-calculator",
+    id: "paddle-calculator"
   }
+];
+
+export const paddleCalcNav = [
+  { id: "calculator", zh: "專業長度計算器", en: "Pro Length Calculator", slug: "calculator" },
+  { id: "science-logic", zh: "槳長的科學與邏輯", en: "Science & Logic", slug: "science-logic" },
+  { id: "hand-distance", zh: "握距標定指南", en: "Hand Distance Guide", slug: "hand-distance" },
+  { id: "expert-advices", zh: "專業選購建議", en: "Expert Advices", slug: "expert-advices" },
 ];
 
 export const rubricNav = [
