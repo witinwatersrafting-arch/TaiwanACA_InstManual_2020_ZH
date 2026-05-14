@@ -129,8 +129,8 @@ import SectionHeader from "../components/SectionHeader.astro";
               <!-- Paddle -->
               <rect x="30" y="58" width="240" height="4" rx="2" fill="#475569" />
               <!-- Blades -->
-              <ellipse cx="30" cy="60" rx="25" ry="12" fill="#1e293b" />
-              <ellipse cx="270" cy="60" rx="25" ry="12" fill="#1e293b" />
+              <ellipse cx="30" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" />
+              <ellipse cx="270" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" />
               
               <!-- Paddler Top Down -->
               <circle cx="150" cy="75" r="12" fill="#4796cc" /> <!-- Head -->
@@ -202,7 +202,7 @@ import SectionHeader from "../components/SectionHeader.astro";
           <span class="en text-xs text-slate-400 block tracking-tight mt-1">Breaking the Height Myth</span>
         </h4>
         <p class="zh text-slate-600 leading-relaxed">
-          傳統上，許多人習慣依照身高來選擇槳長，但這在生物力學上是存在缺陷的。獨木舟是一項<strong>「坐姿」</strong>運動，決定你划幅與力矩的關鍵在於你的<strong>軀幹高度 (Torso Height)</strong>、<strong>臂長 (Arm Span)</strong> 以及<strong>肩膀寬度</strong>。兩位身高相同的人，可能因為軀幹比例不同，而需要完全不同的槳長。
+          傳統上，許多人習慣依照身高來選擇槳長，但這在生物力學上是存在缺陷的。獨木舟是一項<strong>「坐姿」</strong>運動，決定你划幅與力矩的關鍵在於你的<strong>軀幹高度 (Torso Height)</strong>、<strong>臂長 (Arm Span)</strong> 以及<strong>肩膀寬度</strong>。兩位身高相同的人，可能因為軀幹、臂展比例不同，而需要完全不同的槳長。
         </p>
       </div>
 
@@ -213,12 +213,12 @@ import SectionHeader from "../components/SectionHeader.astro";
           <span class="en text-xs text-slate-400 block tracking-tight mt-1">The Power Triangle</span>
         </h4>
         <p class="zh text-slate-600 leading-relaxed mb-4">
-          本工具的核心，是幫你找出身體發力最穩定、最安全的區間。
+          本工具的核心，是幫你找出身體發力最穩定、最安全的區間。有好的握距才能找到對的長度。
         </p>
         <ul class="zh space-y-3 text-slate-600 text-sm">
           <li class="flex gap-2">
             <span class="text-blue-600 font-bold">•</span>
-            <span><strong>肘距 vs. 握距：</strong> 我們不參考靜態的肩膀寬度，而是測量具備功能性的「肘對肘距離」。</span>
+            <span><strong>肘距 vs. 握距：</strong> 我們不參考肩膀寬度，而是測量具備功能性的「肘對肘距離」。</span>
           </li>
           <li class="flex gap-2">
             <span class="text-blue-600 font-bold">•</span>
@@ -351,7 +351,7 @@ import SectionHeader from "../components/SectionHeader.astro";
           取得握距後，下一步即是計算「抓握點到槳葉」的距離。這段距離理論上取決於<strong>軀幹長度</strong>與<strong>船型坐高</strong>。
         </p>
         <p class="zh text-slate-500 text-sm italic">
-          由於坐高在大多數船型中是可以輕易調整的（如墊高塊），因此我們不將其列入計算器的固定參考。建議以計算器得出的長度為基準，再依個人坐姿微調。
+          由於坐高在大多數船型中是可以輕易調整的（如墊高塊），每艘船吃水深度不同，因此不將其列入計算器的固定參考。建議以計算器得出的長度為基準，再依個人習慣坐高、船型微調。
         </p>
       </div>
     </div>
@@ -390,10 +390,19 @@ import SectionHeader from "../components/SectionHeader.astro";
         </div>
         <div class="w-full md:w-1/3 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
           <div class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Grip Marking</div>
-          <div class="w-full h-2 bg-slate-800 rounded-full relative mb-8">
-            <div class="absolute left-1/2 -translate-x-1/2 -top-2 w-1 h-6 bg-red-500"></div>
-            <div class="absolute left-1/4 -translate-x-1/2 -top-1 w-2 h-4 bg-blue-500"></div>
-            <div class="absolute right-1/4 translate-x-1/2 -top-1 w-2 h-4 bg-blue-500"></div>
+          <div class="w-full h-8 relative flex items-center mb-10">
+            <!-- Left Blade -->
+            <div class="w-12 h-8 bg-slate-300 rounded-l-full opacity-40 shrink-0"></div>
+            <!-- Shaft -->
+            <div class="flex-1 h-2 bg-slate-800 relative">
+              <!-- Center Marker -->
+              <div class="absolute left-1/2 -translate-x-1/2 -top-2 w-1 h-6 bg-red-500 shadow-sm"></div>
+              <!-- Grip Markers -->
+              <div class="absolute left-1/4 -translate-x-1/2 -top-1 w-2 h-4 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
+              <div class="absolute right-1/4 translate-x-1/2 -top-1 w-2 h-4 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
+            </div>
+            <!-- Right Blade -->
+            <div class="w-12 h-8 bg-slate-300 rounded-r-full opacity-40 shrink-0"></div>
           </div>
           <p class="text-[10px] text-slate-400 font-bold uppercase zh">請務必相對於中心對稱標記</p>
         </div>
@@ -405,9 +414,9 @@ import SectionHeader from "../components/SectionHeader.astro";
   <section id="expert-advices" class="mb-24">
     <SectionHeader 
       id="expert-advices"
-      titleZh="專業選購建議"
+      titleZh="Ramazza的選購建議"
       titleEn="Expert Technical Insights"
-      descZh="關於材質、槳桿與設計的個人見解"
+      descZh="性能優先的材質、槳桿與設計"
       descEn="Personal perspectives based on professional experience."
     />
 
