@@ -1,0 +1,317 @@
+---
+import StandardPage from "../components/StandardPage.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const timeOptions = [];
+for (let h = 0; h < 24; h++) {
+  for (let m = 0; m < 60; m += 30) {
+    const hh = h.toString().padStart(2, '0');
+    const mm = m.toString().padStart(2, '0');
+    timeOptions.push(`${hh}:${mm}`);
+  }
+}
+---
+
+<StandardPage 
+  title="行程報備單 | Float Plan"
+  badgeZh="安全工具"
+  badgeEn="Safety Tool"
+  heroTitleMainZh="Float Plan"
+  heroTitleSubZh="獨木舟行程報備系統"
+  heroTitleMainEn="Float Plan"
+  heroTitleSubEn="Paddler Safety System"
+  descriptionZh="專為獨木舟活動設計的極簡報備單。快速填寫行程與人員資訊，系統將自動寄送完整的留守信件給您指定的緊急聯絡人。"
+  descriptionEn="A minimalist float plan generator designed for kayakers. Quickly fill out trip and roster details, and the system will automatically send a comprehensive safety email to your designated shore contacts."
+  maxW="max-w-4xl" 
+>
+  
+  <div class="space-y-24">
+    <!-- Section 1: Trip Details -->
+    <section id="trip-details" class="scroll-mt-32">
+      <SectionHeader 
+        titleZh="📍 行程與時間"
+        titleEn="Trip Details"
+        descZh="請選擇預定的溪流區段，並設定出發與預計上岸時間。若使用自訂路線，建議提供明確的地標或 Google Maps 連結。"
+        descEn="Select your intended river section, put-in and take-out times."
+      />
+      
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/20">
+        <form class="space-y-8">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">溪流路線快選</label>
+              <select id="river-select" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                <option value="custom">-- 自訂路線 (自行填寫上下岸點) --</option>
+                <option value="laonong-1">荖濃溪 (寶來二橋 - 新發大橋)</option>
+                <option value="wanli-1">萬里溪 (林道下車處 - 萬里橋)</option>
+                <option value="xiuguluan-1">秀姑巒溪 (瑞穗 - 奇美)</option>
+              </select>
+              <p class="text-xs text-slate-400 mt-2 pl-2">選擇內建路線將自動帶入標準上下岸點資訊。</p>
+            </div>
+
+            <div id="custom-route-container" class="space-y-2 pt-2 transition-all">
+              <label class="block text-sm font-bold text-slate-700">自訂路線名稱</label>
+              <input type="text" placeholder="例如：北勢溪 (坪林 - 黑龍潭)" class="w-full p-4 bg-white border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">預計出發時間</label>
+              <div class="flex gap-2">
+                <input type="date" class="w-[55%] p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                <select class="w-[45%] p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                  <option value="" disabled selected>時間</option>
+                  {timeOptions.map(time => <option value={time}>{time}</option>)}
+                </select>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">預計上岸時間</label>
+              <div class="flex gap-2">
+                <input type="date" class="w-[55%] p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                <select class="w-[45%] p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                  <option value="" disabled selected>時間</option>
+                  {timeOptions.map(time => <option value={time}>{time}</option>)}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">下水點 (Put-in)</label>
+              <div class="relative">
+                <input type="text" placeholder="地標名稱或貼上 Google Maps 連結" class="w-full p-4 pr-12 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-300">
+                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="獲取目前定位">
+                  📍
+                </button>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">上岸點 (Take-out)</label>
+              <div class="relative">
+                <input type="text" placeholder="地標名稱或貼上 Google Maps 連結" class="w-full p-4 pr-12 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-300">
+                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="獲取目前定位">
+                  📍
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section 2: The Squad -->
+    <section id="the-squad" class="scroll-mt-32">
+      <SectionHeader 
+        titleZh="👥 人員編制"
+        titleEn="The Squad"
+        descZh="請填寫同行隊員名單與緊急聯絡方式。此資訊僅會在發送給留守人的信件中顯示，絕對不會公開。"
+        descEn="Roster and emergency contacts. This information is strictly private and only shared with your shore contacts."
+      />
+      
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/20">
+        <div class="mb-6 flex items-end gap-4">
+           <div class="w-32 space-y-2">
+              <label class="block text-sm font-bold text-slate-700">總人數</label>
+              <input type="number" min="1" value="3" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-center font-bold text-lg text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+           </div>
+           <div class="flex-1 space-y-2">
+              <label class="block text-sm font-bold text-slate-700">隊伍經驗簡述 (選填)</label>
+              <input type="text" placeholder="例如：1位教練、2位具備初階翻滾能力的新手" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-300">
+           </div>
+        </div>
+
+        <div class="space-y-4">
+           <label class="block text-sm font-bold text-slate-700">人員名冊</label>
+           
+           <!-- Person Row Prototype -->
+           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <input type="text" placeholder="隊員姓名" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+              <input type="tel" placeholder="個人手機號碼" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+              <input type="text" placeholder="緊急聯絡人 (關係/電話)" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+           </div>
+           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <input type="text" placeholder="隊員姓名" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+              <input type="tel" placeholder="個人手機號碼" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+              <input type="text" placeholder="緊急聯絡人 (關係/電話)" class="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm">
+           </div>
+
+           <button type="button" class="w-full py-4 border-2 border-dashed border-slate-200 text-slate-400 font-bold rounded-xl hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              新增同行隊員
+           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Gear & Logistics -->
+    <section id="gear-logistics" class="scroll-mt-32">
+      <SectionHeader 
+        titleZh="🛶 裝備與接駁車"
+        titleEn="Gear & Logistics"
+        descZh="詳細描述車輛與船隻顏色，這是發生意外時搜救人員在公路與水面上最重要的視覺線索。"
+        descEn="Describe vehicle and boat details. These are critical visual clues for search and rescue operations."
+      />
+      
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/20">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+               <div class="space-y-2">
+                  <label class="block text-sm font-bold text-slate-700">船隻特徵描述</label>
+                  <textarea rows="3" placeholder="例如：1艘紅色短舟 (Dagger Mamba), 1艘黃色長舟" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-slate-300 resize-none"></textarea>
+               </div>
+               
+               <div class="space-y-3">
+                  <label class="block text-sm font-bold text-slate-700 mb-4">通訊與安全裝備清單</label>
+                  <label class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:bg-blue-50 transition-colors">
+                     <input type="checkbox" class="w-5 h-5 text-blue-600 rounded border-slate-300">
+                     <span class="text-sm font-medium text-slate-600">攜帶衛星通訊裝置 (inReach / PLB)</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:bg-blue-50 transition-colors">
+                     <input type="checkbox" class="w-5 h-5 text-blue-600 rounded border-slate-300">
+                     <span class="text-sm font-medium text-slate-600">攜帶 VHF 無線電</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:bg-blue-50 transition-colors">
+                     <input type="checkbox" class="w-5 h-5 text-blue-600 rounded border-slate-300">
+                     <span class="text-sm font-medium text-slate-600">攜帶急救包與進階繩索 (Z-drag) 系統</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:bg-blue-50 transition-colors">
+                     <input type="checkbox" class="w-5 h-5 text-blue-600 rounded border-slate-300">
+                     <span class="text-sm font-medium text-slate-600">攜帶緊急過夜裝備 (避難帳/生火工具)</span>
+                  </label>
+               </div>
+            </div>
+
+            <div class="space-y-6">
+               <div class="p-5 bg-orange-50 border border-orange-100 rounded-xl">
+                  <h4 class="font-bold text-orange-800 mb-2 flex items-center gap-2">
+                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                     接駁車資訊
+                  </h4>
+                  <p class="text-xs text-orange-700 leading-relaxed mb-4">若有人員未歸，搜救隊會優先確認橋頭或上下岸點的車輛是否還在。請確實填寫車色與車牌。</p>
+                  
+                  <div class="space-y-4">
+                     <div class="space-y-1">
+                        <label class="block text-xs font-bold text-slate-500">下水點車輛 (Put-in Vehicle)</label>
+                        <input type="text" placeholder="例如：Toyota RAV4 (白色) / ABC-1234" class="w-full p-3 bg-white border border-orange-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400">
+                     </div>
+                     <div class="space-y-1">
+                        <label class="block text-xs font-bold text-slate-500">上岸點車輛 (Take-out Vehicle)</label>
+                        <input type="text" placeholder="例如：Nissan (藍色) / XYZ-9876" class="w-full p-3 bg-white border border-orange-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Action -->
+    <section id="action-privacy" class="scroll-mt-32 pb-12">
+      <SectionHeader 
+        titleZh="📤 發送與設定"
+        titleEn="Action & Privacy"
+        descZh="設定您的留守人與發布隱私。系統將自動排版並發送正式信件給指定的留守人。"
+        descEn="Configure shore contacts and privacy settings before publishing your float plan."
+      />
+
+      <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/20">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Left Column: Emails -->
+            <div class="space-y-8">
+               <div class="space-y-2">
+                  <label class="block text-sm font-bold text-slate-700">您的 Email (必填)</label>
+                  <input type="email" placeholder="your.email@example.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                  <p class="text-xs text-slate-400 pl-2">系統將寄送一份確認信給您，內含「一鍵解除報備」連結。</p>
+               </div>
+
+               <div class="space-y-4 pt-6 border-t border-slate-100">
+                  <label class="block text-sm font-bold text-slate-700">留守人 Email (必填)</label>
+                  
+                  <div class="flex gap-2">
+                     <input type="email" placeholder="shore-contact@example.com" class="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                  </div>
+                  <div class="flex gap-2">
+                     <input type="email" placeholder="friend@email.com (選填)" class="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                  </div>
+
+                  <button type="button" class="w-full py-3 border-2 border-dashed border-slate-200 text-slate-400 font-bold rounded-xl hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                     新增留守人 Email
+                  </button>
+               </div>
+            </div>
+
+            <!-- Right Column: Privacy & Submit -->
+            <div class="space-y-8">
+               <div class="space-y-4">
+                  <label class="block text-sm font-bold text-slate-700">發布模式設定</label>
+                  
+                  <label class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all hover:bg-blue-50/50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
+                     <input type="radio" name="publish_mode" value="private" class="w-5 h-5 mt-0.5 text-blue-600 border-slate-300 focus:ring-blue-500" checked>
+                     <div>
+                        <span class="block font-bold text-slate-700 mb-1">隱私模式 (僅留守人可見)</span>
+                        <span class="block text-xs text-slate-500 leading-relaxed">行程資訊僅透過 Email 寄送給您與留守人。絕對私密，不公開發布。</span>
+                     </div>
+                  </label>
+
+                  <label class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all hover:bg-blue-50/50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
+                     <input type="radio" name="publish_mode" value="public_limited" class="w-5 h-5 mt-0.5 text-blue-600 border-slate-300 focus:ring-blue-500">
+                     <div>
+                        <span class="block font-bold text-slate-700 mb-1">有限公開模式 (推薦)</span>
+                        <span class="block text-xs text-slate-500 leading-relaxed">留守人獲得完整資訊。社群看板僅顯示「日期、溪流區段、預計時間」，自動隱藏所有人名與車牌，作為社群水況參考。</span>
+                     </div>
+                  </label>
+
+                  <label class="flex items-start gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all hover:bg-blue-50/50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
+                     <input type="radio" name="publish_mode" value="public_full" class="w-5 h-5 mt-0.5 text-blue-600 border-slate-300 focus:ring-blue-500">
+                     <div>
+                        <span class="block font-bold text-slate-700 mb-1">完全公開模式</span>
+                        <span class="block text-xs text-slate-500 leading-relaxed">留守人獲得完整資訊。社群看板也將顯示包含名冊、車輛與裝備等所有細節資訊。</span>
+                     </div>
+                  </label>
+               </div>
+
+               <button type="button" class="w-full py-5 bg-blue-600 text-white rounded-xl font-black text-lg hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 active:scale-[0.98] transition-all">
+                  🚀 確認送出報備單
+               </button>
+            </div>
+         </div>
+      </div>
+    </section>
+
+  </div>
+</StandardPage>
+
+<script>
+  const init = () => {
+    // Prototype interactions can go here
+    const riverSelect = document.getElementById('river-select') as HTMLSelectElement;
+    const customRouteContainer = document.getElementById('custom-route-container');
+
+    if (riverSelect && customRouteContainer) {
+      const toggleCustomRoute = () => {
+        if (riverSelect.value === 'custom') {
+          customRouteContainer.classList.remove('hidden');
+        } else {
+          customRouteContainer.classList.add('hidden');
+        }
+      };
+
+      riverSelect.addEventListener('change', toggleCustomRoute);
+      toggleCustomRoute(); // Initialize state on load
+    }
+
+    // Auto-show date picker on click anywhere in the input
+    const dateInputs = document.querySelectorAll('input[type="date"]');
+    dateInputs.forEach(input => {
+      input.addEventListener('click', (e) => {
+        try { (e.target as HTMLInputElement).showPicker(); } catch (err) {}
+      });
+    });
+  };
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

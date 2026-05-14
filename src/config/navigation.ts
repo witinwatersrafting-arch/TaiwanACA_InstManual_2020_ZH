@@ -34,6 +34,12 @@ export const modes = [
     en_name: "Paddle Calculator",
     path: "/paddle-calculator",
     id: "paddle-calculator"
+  },
+  {
+    name: "行程報備",
+    en_name: "Float Plan",
+    path: "/float-plan",
+    id: "float-plan"
   }
 ];
 
@@ -72,3 +78,11 @@ export const boatSpecsNav = [
   { id: "specs-tool", zh: "規格查詢工具", en: "Specs Tool", slug: "specs-tool" },
   { id: "glossary", zh: "技術術語解釋", en: "Glossary", slug: "glossary" },
 ];
+
+export const floatPlanNav = [
+  { id: "trip-details", zh: "行程與時間", en: "Trip Details", slug: "trip-details" },
+  { id: "the-squad", zh: "人員編制", en: "The Squad", slug: "the-squad" },
+  { id: "gear-logistics", zh: "裝備與接駁車", en: "Gear & Logistics", slug: "gear-logistics" },
+  { id: "action-privacy", zh: "發送與設定", en: "Action & Privacy", slug: "action-privacy" },
+];
+

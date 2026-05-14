@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { modes, rubricNav, curriculumNav, skirtNav, boatSpecsNav, paddleCalcNav } from "../../config/navigation";
+import { modes, rubricNav, curriculumNav, skirtNav, boatSpecsNav, paddleCalcNav, floatPlanNav } from "../../config/navigation";
 import ModeSwitcher from "./ModeSwitcher.astro";
 import NavSection from "./NavSection.astro";
 
@@ -16,6 +16,7 @@ const isCurriculumPage = currentPath.includes("river-kayaking-curriculum");
 const isBoatSpecsPage = currentPath.includes("boat-specs");
 const isSkirtFitPage = currentPath.includes("skirt-fit");
 const isPaddleCalcPage = currentPath.includes("paddle-calculator");
+const isFloatPlanPage = currentPath.includes("float-plan");
 
 const manualUnits = await getCollection("manual");
 const sortedUnits = manualUnits
@@ -116,7 +117,7 @@ const manualNav = [
                 titleZh="目錄"
                 titleEn="Table of Contents"
                 items={manualNav}
-                active={!isAssessmentPage && !isCurriculumPage && !isSkirtFitPage && !isBoatSpecsPage && !isPaddleCalcPage}
+                active={!isAssessmentPage && !isCurriculumPage && !isSkirtFitPage && !isBoatSpecsPage && !isPaddleCalcPage && !isFloatPlanPage}
                 baseUrl={baseUrl}
                 isHashNav={true}
                 pathPrefix=""
@@ -170,6 +171,17 @@ const manualNav = [
                 active={isPaddleCalcPage}
                 baseUrl={baseUrl}
                 pathPrefix="paddle-calculator/"
+            />
+
+            <NavSection 
+                id="nav-section-float-plan"
+                titleZh="填寫段落"
+                titleEn="Sections"
+                items={floatPlanNav}
+                active={isFloatPlanPage}
+                baseUrl={baseUrl}
+                pathPrefix="float-plan/"
+                isHashNav={true}
             />
         </nav>
     </div>

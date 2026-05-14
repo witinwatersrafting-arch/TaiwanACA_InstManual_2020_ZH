@@ -27,6 +27,8 @@ export const myNewModeNav = [
 ];
 ```
 
+*附註：前端 `<ModeSwitcher />` 元件已實作自動分段邏輯，每列最多顯示三個 Mode 按鈕，因此只需放心在 `navigation.ts` 中新增項目，UI 會自動換列排列，確保手機版易用性。*
+
 ### 2. 同步側邊欄與 UI 切換邏輯 // turbo
 為了確保切換模式時側邊欄能正確顯示對應內容，需更新以下兩處：
 

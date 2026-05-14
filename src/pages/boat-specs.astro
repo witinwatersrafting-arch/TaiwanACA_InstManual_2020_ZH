@@ -19,9 +19,8 @@ const types = [...new Set(kayaksData.map(k => k.Type).filter(Boolean))].sort();
   descriptionEn="A comprehensive database of over 1,000 whitewater kayaks, featuring technical specs like volume, length, width, and weight ranges to help paddlers find the perfect fit."
   maxW="max-w-7xl"
 >
-    <section class="mb-24">
+    <section id="specs-tool" class="mb-24 scroll-mt-32">
         <SectionHeader 
-            id="specs-tool"
             titleZh="規格查詢工具"
             titleEn="Specs Tool"
             descZh="收錄超過 1000 款激流獨木舟的詳細規格。您可以透過搜尋品牌或型號，快速找到排水量、長度及建議體重等數據。"
@@ -85,9 +84,8 @@ const types = [...new Set(kayaksData.map(k => k.Type).filter(Boolean))].sort();
     </section>
 
     <!-- 技術術語解釋 (Glossary) -->
-    <section class="mb-24">
+    <section id="glossary" class="mb-24 scroll-mt-32">
         <SectionHeader 
-            id="glossary"
             titleZh="技術術語解釋"
             titleEn="Glossary"
             descZh="為了幫助您更準確地解讀規格表，我們針對常見的技術名詞提供了詳細的解釋與應用建議。"

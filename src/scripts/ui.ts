@@ -61,6 +61,7 @@ export const initModeSwitcher = () => {
     const skirtSection = document.getElementById("nav-section-skirt");
     const boatSpecsSection = document.getElementById("nav-section-boat-specs");
     const paddleCalcSection = document.getElementById("nav-section-paddle-calc");
+    const floatPlanSection = document.getElementById("nav-section-float-plan");
 
     const path = window.location.pathname;
     
@@ -71,6 +72,7 @@ export const initModeSwitcher = () => {
     else if (path.includes('skirt-fit')) currentMode = 'skirt';
     else if (path.includes('boat-specs')) currentMode = 'boat-specs';
     else if (path.includes('paddle-calculator')) currentMode = 'paddle-calculator';
+    else if (path.includes('float-plan')) currentMode = 'float-plan';
 
     // Initial state based on determined mode
     buttons.forEach(btn => {
@@ -83,11 +85,13 @@ export const initModeSwitcher = () => {
             else if (currentMode === 'skirt' && href.includes('skirt-fit')) isBtnActive = true;
             else if (currentMode === 'boat-specs' && href.includes('boat-specs')) isBtnActive = true;
             else if (currentMode === 'paddle-calculator' && href.includes('paddle-calculator')) isBtnActive = true;
+            else if (currentMode === 'float-plan' && href.includes('float-plan')) isBtnActive = true;
             else if (currentMode === 'manual' && !href.includes('assessment-guide') && 
                      !href.includes('river-kayaking-curriculum') && 
                      !href.includes('skirt-fit') && 
                      !href.includes('boat-specs') &&
-                     !href.includes('paddle-calculator')) isBtnActive = true;
+                     !href.includes('paddle-calculator') &&
+                     !href.includes('float-plan')) isBtnActive = true;
         }
 
         if (isBtnActive) {
@@ -100,7 +104,7 @@ export const initModeSwitcher = () => {
     });
 
     // Handle section visibility
-    [manualSection, rubricSection, curriculumSection, skirtSection, boatSpecsSection, paddleCalcSection].forEach(s => s?.classList.add("hidden"));
+    [manualSection, rubricSection, curriculumSection, skirtSection, boatSpecsSection, paddleCalcSection, floatPlanSection].forEach(s => s?.classList.add("hidden"));
     
     if (currentMode === 'manual') manualSection?.classList.remove("hidden");
     else if (currentMode === 'rubric') rubricSection?.classList.remove("hidden");
@@ -108,6 +112,7 @@ export const initModeSwitcher = () => {
     else if (currentMode === 'skirt') skirtSection?.classList.remove("hidden");
     else if (currentMode === 'boat-specs') boatSpecsSection?.classList.remove("hidden");
     else if (currentMode === 'paddle-calculator') paddleCalcSection?.classList.remove("hidden");
+    else if (currentMode === 'float-plan') floatPlanSection?.classList.remove("hidden");
 
     // Click handler for instant UI feedback
     buttons.forEach(el => {
