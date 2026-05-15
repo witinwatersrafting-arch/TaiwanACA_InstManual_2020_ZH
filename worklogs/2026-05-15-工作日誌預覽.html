@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作日誌預覽 | 2026-05-15</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            font-size: 2.25rem;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.025em;
+        }
+
+        .meta {
+            font-size: 0.875rem;
+            color: #64748b;
+            display: flex;
+            gap: 16px;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-top: 32px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+            color: #e11d48;
+        }
+
+        .note-card {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 4px;
+            margin-top: 24px;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .file-list li {
+            background: #f8fafc;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin-bottom: 0;
+            font-family: monospace;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>工作日誌：行程報備表單與導航滾動監控修正</h1>
+            <div class="meta">
+                <span>📅 2026-05-15</span>
+                <span>👤 User & Antigravity</span>
+                <span class="tag">v0.95 UI-Refined</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>🛠️ 執行任務總覽</h2>
+            
+            <h3>1. 行程報備表單 (Float Plan) UI 優化</h3>
+            <ul>
+                <li><strong>時間選擇優化</strong>：改為 30 分鐘間隔的動態下拉選單，並加入 <code>showPicker()</code> 提高點擊觸發便利性。</li>
+                <li><strong>動態路線輸入</strong>：實作「自訂路線」與「預設路線」的切換機制。</li>
+                <li><strong>發布模式與隱私控制</strong>：新增三階層發布模式（完全公開、有限公開、私人），並刪減非必要的裝備選項，聚焦於 VHF、衛星通訊等搜救配備。</li>
+            </ul>
+
+            <h3>2. 導航列排版與工作流重構</h3>
+            <ul>
+                <li><strong>ModeSwitcher 動態分塊</strong>：重構為「每列最多 3 個」的陣列分塊 (Chunking) 邏輯，徹底解決手機版按鈕排版破裂。</li>
+                <li><strong>新模式自動化指南</strong>：更新 <code>.agents/workflows/new-mode.md</code>，記錄導航列斷行邏輯。</li>
+            </ul>
+
+            <h3>3. 全局滾動監控 (ScrollSpy) 修復</h3>
+            <ul>
+                <li><strong>Anchor ID 重構</strong>：將五個工具頁面中的 <code>id</code> 從內部的 <code>&lt;SectionHeader&gt;</code> 移至外層的 <code>&lt;section&gt;</code>，修復 IntersectionObserver。</li>
+                <li><strong>版面偏移修正</strong>：為所有外層 <code>&lt;section&gt;</code> 統一加上 <code>scroll-mt-32</code>，防止錨點跳轉時被頂部導航列遮擋。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📂 受影響的檔案清單</h2>
+            <ul class="file-list">
+                <li>src/pages/float-plan.astro</li>
+                <li>src/components/navigation/ModeSwitcher.astro</li>
+                <li>.agents/workflows/new-mode.md</li>
+                <li>src/pages/skirt-fit.astro</li>
+                <li>src/pages/boat-specs.astro</li>
+                <li>src/pages/paddle-calculator.astro</li>
+                <li>src/pages/assessment-guide.astro</li>
+                <li>src/content/manual/river-kayaking-101.mdx</li>
+            </ul>
+        </section>
+
+        <section class="note-card">
+            <h2>💡 開發備忘錄</h2>
+            <p><strong>避坑指南：</strong> <code>src/scripts/ui.ts</code> 內的 <code>IntersectionObserver</code> 強度依賴於 <code>section[id]</code> 選擇器。新增任何具備側邊導航的頁面時，絕對要將 <code>id</code> 綁定在 <code>&lt;section&gt;</code> 標籤上。</p>
+            <p><strong>未竟事項：</strong> GAS 後端串接 (最高優先級)、表單 Submit 按鈕 Loading 狀態與發布通知實作、驗證「有限公開模式」下個資遮蔽。</p>
+        </section>
+
+        <footer>
+            產出於 Archivist (歷史檔案管理員) 模式 - 3.0 Astro Optimized
+        </footer>
+    </div>
+</body>
+</html>
