@@ -36,7 +36,7 @@ import SectionHeader from "../components/SectionHeader.astro";
             </label>
             
             <!-- Measurement Diagram (Hands-up Posture) -->
-            <div class="bg-slate-50 rounded-2xl p-4 mb-6 flex justify-center border border-slate-100">
+            <div class="md:bg-slate-50 md:rounded-2xl px-0 py-2 md:p-4 mb-6 flex justify-center md:border border-slate-100">
               <svg viewBox="0 0 200 110" class="w-full max-w-[240px] h-auto">
                 <!-- Torso / Shoulders -->
                 <path d="M82 60 Q100 55, 118 60 L125 100 L75 100 Z" fill="#cbd5e1" opacity="0.5" /> <!-- Torso -->
@@ -123,13 +123,13 @@ import SectionHeader from "../components/SectionHeader.astro";
 
         <div class="relative z-10 space-y-12">
           <!-- Result Visual Diagram -->
-          <div class="bg-white/5 rounded-3xl p-6 border border-white/10 flex flex-col items-center">
+          <div class="md:bg-white/5 md:rounded-3xl px-0 py-4 md:p-6 md:border border-white/10 flex flex-col items-center">
             <svg viewBox="0 0 300 120" class="w-full max-w-[400px] h-auto">
               <!-- Paddle -->
               <rect x="30" y="58" width="240" height="4" rx="2" fill="#475569" />
-              <!-- Blades -->
-              <ellipse cx="30" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" />
-              <ellipse cx="270" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" />
+              <!-- Blades (Hidden on mobile to save space) -->
+              <ellipse cx="30" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" class="hidden md:block" />
+              <ellipse cx="270" cy="60" rx="25" ry="12" fill="#475569" opacity="0.6" stroke="#64748b" stroke-width="0.5" class="hidden md:block" />
               
               <!-- Paddler Top Down -->
               <circle cx="150" cy="75" r="12" fill="#4796cc" /> <!-- Head -->
@@ -226,7 +226,7 @@ import SectionHeader from "../components/SectionHeader.astro";
       </div>
 
       <!-- 3. Verification & Angle Analysis -->
-      <div class="bg-slate-900 rounded-[2rem] p-6 lg:p-10 text-white lg:col-span-2 shadow-2xl shadow-blue-900/20">
+      <div class="bg-slate-900 rounded-[2rem] px-4 py-8 lg:p-10 text-white lg:col-span-2 shadow-2xl shadow-blue-900/20">
         <h4 class="text-2xl font-black mb-8 lg:mb-10 text-center">
           <span class="zh">3. 驗證你的理想握距</span>
           <span class="en text-xs text-blue-300 block tracking-tight mt-1">Grip Verification & Angle Analysis</span>
@@ -236,7 +236,7 @@ import SectionHeader from "../components/SectionHeader.astro";
         <div class="lg:bg-white/10 lg:p-8 lg:rounded-3xl lg:border lg:border-white/20 mb-12">
           <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <!-- Diagram Container -->
-            <div class="w-full lg:w-1/2 bg-white/5 rounded-2xl p-4 lg:p-6 flex flex-col items-center border border-white/10">
+            <div class="w-full lg:w-1/2 lg:bg-white/5 lg:rounded-2xl px-0 py-2 lg:p-6 flex flex-col items-center lg:border border-white/10">
               <div class="text-[10px] font-black uppercase text-blue-400 tracking-widest mb-6">Shoulder Angle Diagram (Top-down)</div>
               <svg viewBox="0 0 240 180" class="w-full max-w-[340px] h-auto">
                 <!-- Human Head & Shoulders -->
@@ -385,11 +385,11 @@ import SectionHeader from "../components/SectionHeader.astro";
             </li>
           </ul>
         </div>
-        <div class="w-full md:w-1/3 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center">
+        <div class="w-full md:w-1/3 bg-white px-2 py-6 md:p-8 rounded-3xl md:border border-slate-200 md:shadow-sm text-center">
           <div class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Grip Marking</div>
           <div class="w-full h-8 relative flex items-center mb-10">
             <!-- Left Blade -->
-            <div class="w-12 h-8 bg-slate-300 rounded-l-full opacity-40 shrink-0"></div>
+            <div class="w-12 h-8 bg-slate-300 rounded-l-full opacity-40 shrink-0 hidden md:block"></div>
             <!-- Shaft -->
             <div class="flex-1 h-2 bg-slate-800 relative">
               <!-- Center Marker -->
@@ -399,7 +399,7 @@ import SectionHeader from "../components/SectionHeader.astro";
               <div class="absolute right-1/4 translate-x-1/2 -top-1 w-2 h-4 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
             </div>
             <!-- Right Blade -->
-            <div class="w-12 h-8 bg-slate-300 rounded-r-full opacity-40 shrink-0"></div>
+            <div class="w-12 h-8 bg-slate-300 rounded-r-full opacity-40 shrink-0 hidden md:block"></div>
           </div>
           <p class="text-[10px] text-slate-400 font-bold uppercase zh">請務必相對於中心對稱標記</p>
         </div>
