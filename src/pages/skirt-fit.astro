@@ -26,7 +26,7 @@ const manufacturers = Object.keys(skirtData).sort();
             descZh="輸入您的船隻型號，快速獲取 Immersion Research 官方推薦的水裙尺寸。這是一個基於真實測試數據的查詢工具。"
         />
         <!-- 核心查詢卡片 -->
-        <div class="w-full bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden mb-12">
+        <div class="w-full bg-white rounded-none md:rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border-y md:border border-slate-100 overflow-hidden mb-12">
             <div class="p-6 md:p-12">
                 <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center gap-3">
                 <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
@@ -82,7 +82,7 @@ const manufacturers = Object.keys(skirtData).sort();
         <!-- 並排對照區域 (現代精練網格佈局) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <!-- Deck Size Card -->
-        <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
+        <div class="bg-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-xl shadow-slate-200/30">
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
@@ -109,7 +109,7 @@ const manufacturers = Object.keys(skirtData).sort();
         </div>
 
         <!-- Tunnel Size Card -->
-        <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
+        <div class="bg-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-xl shadow-slate-200/30">
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
@@ -144,7 +144,7 @@ const manufacturers = Object.keys(skirtData).sort();
             descZh="選擇水裙不僅僅是看尺寸，還需考慮安全性、舒適度以及您的使用環境。以下是來自專業教練的選購建議。"
         />
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
+            <div class="bg-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
                 </div>
@@ -153,7 +153,7 @@ const manufacturers = Object.keys(skirtData).sort();
                     雖然長度與寬度是基礎，但 <strong>周長 (Circumference)</strong> 才是決定合適與否的最重要數據。即使長寬相同，形狀差異可能導致周長產生 5-6 英吋的落差。測量時應包含座艙緣的最外圍。
                 </p>
             </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
+            <div class="bg-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
                 </div>
@@ -162,7 +162,7 @@ const manufacturers = Object.keys(skirtData).sort();
                     水裙通常「越緊越乾」，但也「越難穿上」。強韌材質通常延伸性較差。在追求極致乾爽的同時，也需考慮自己體力與技術是否能應付緊急情況下的穿脫。
                 </p>
             </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/30">
+            <div class="bg-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-xl shadow-slate-200/30">
                 <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
@@ -182,7 +182,7 @@ const manufacturers = Object.keys(skirtData).sort();
         />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Bungee Style -->
-            <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-[2rem] border border-slate-100 shadow-lg">
+            <div class="bg-gradient-to-br from-slate-50 to-white p-6 md:p-8 rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-lg">
                 <div class="flex items-center justify-between mb-6">
                     <span class="px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-black uppercase tracking-widest">Bungee Style</span>
                     <div class="text-blue-500">
@@ -210,7 +210,7 @@ const manufacturers = Object.keys(skirtData).sort();
             </div>
 
             <!-- Rand Style -->
-            <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-[2rem] text-white shadow-2xl shadow-slate-300">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-6 md:p-8 rounded-none md:rounded-[2rem] text-white shadow-2xl shadow-slate-300">
                 <div class="flex items-center justify-between mb-6">
                     <span class="px-4 py-1 bg-white/10 text-slate-300 rounded-full text-xs font-black uppercase tracking-widest">Rand Style</span>
                     <div class="text-white/40">
@@ -245,7 +245,7 @@ const manufacturers = Object.keys(skirtData).sort();
             titleEn="Expert FAQ"
             descZh="針對初學者與專業划手最常遇到的問題，我們整理了進階的使用建議與常見困惑解答。"
         />
-        <div class="flex flex-col md:flex-row items-center gap-8 bg-blue-600 rounded-[2rem] p-8 md:p-10 text-white shadow-xl shadow-blue-100 mb-8">
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-blue-600 rounded-none md:rounded-[2rem] p-6 md:p-10 text-white shadow-xl shadow-blue-100 mb-8">
             <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
@@ -258,7 +258,7 @@ const manufacturers = Object.keys(skirtData).sort();
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-lg">
+            <div class="p-6 md:p-8 bg-white rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-lg">
                 <h4 class="font-bold text-slate-900 mb-4 text-sm flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
                     關於 J-Lo 水裙 (女性專用)
@@ -281,7 +281,7 @@ const manufacturers = Object.keys(skirtData).sort();
                     </div>
                 </div>
             </div>
-            <div class="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-lg">
+            <div class="p-6 md:p-8 bg-white rounded-none md:rounded-[2rem] border-y md:border border-slate-100 shadow-lg">
                 <h4 class="font-bold text-slate-900 mb-4 text-sm flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                     低溫環境穿戴技巧
@@ -311,13 +311,13 @@ const manufacturers = Object.keys(skirtData).sort();
             descZh="如果您無法在清單中找到您的船隻，可以透過手動測量座艙周長來判斷所需的裙面尺寸。"
         />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-24">
-      <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100">
+      <div class="p-6 md:p-8 bg-slate-50 rounded-none md:rounded-[2rem] border-y md:border border-slate-100">
         <h4 class="font-bold text-slate-900 mb-3 text-base">關於官方數據與測量</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
             此數據與 Immersion Research 官方同步。測量時請包含座艙外緣最外側的周長。如果您在列表找不到對應船型，請測量周長後參考上方的尺寸卡片進行比對。
         </p>
       </div>
-      <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100">
+      <div class="p-6 md:p-8 bg-slate-50 rounded-none md:rounded-[2rem] border-y md:border border-slate-100">
         <h4 class="font-bold text-slate-900 mb-3 text-base">座艙尺寸測量提示</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
             周長是沿著座艙邊緣的最外緣（而非下方安裝凹槽）測量。對於複合材料（玻纖/碳纖）船隻，通常對尺寸的精確度要求會比塑膠船更高，務必謹慎測量。

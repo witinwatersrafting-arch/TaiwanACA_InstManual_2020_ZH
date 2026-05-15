@@ -47,21 +47,21 @@ const {
   <!-- Evaluation Criteria Grid -->
   <div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-8">
     {evalMethod_zh && (
-      <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+      <div class="p-6 bg-slate-50 rounded-none md:rounded-2xl border-y md:border border-slate-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-[#4796cc] mb-3">Evaluation Method</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{evalMethod_zh}</p>
         <p class="en text-slate-600 text-[12px] leading-tight">{evalMethod_en}</p>
       </div>
     )}
     {meetsStandard_zh && (
-      <div class="p-6 bg-emerald-50/50 rounded-2xl border border-emerald-100">
+      <div class="p-6 bg-emerald-50/50 rounded-none md:rounded-2xl border-y md:border border-emerald-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-emerald-600 mb-3">Meets Standard</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{meetsStandard_zh}</p>
         <p class="en text-slate-600 text-[12px] leading-tight">{meetsStandard_en}</p>
       </div>
     )}
     {belowStandard_zh && (
-      <div class="p-6 bg-rose-50/50 rounded-2xl border border-rose-100">
+      <div class="p-6 bg-rose-50/50 rounded-none md:rounded-2xl border-y md:border border-rose-100">
         <h4 class="text-xs font-black uppercase tracking-widest text-rose-600 mb-3">Below Standard</h4>
         <p class="zh text-slate-700 text-sm leading-relaxed mb-2">{belowStandard_zh}</p>
         <p class="en text-slate-600 text-[12px] leading-tight">{belowStandard_en}</p>
@@ -70,7 +70,7 @@ const {
   </div>
 
   <!-- Rubric Table / Grid -->
-  <div class="rounded-3xl border border-slate-200 overflow-hidden shadow-sm bg-white">
+  <div class="rounded-none md:rounded-3xl border-y md:border border-slate-200 overflow-hidden shadow-sm bg-white">
     <!-- Desktop Header: 5 Equal Columns (Brand Blue) -->
     <div class="hidden lg:grid print:grid grid-cols-5 bg-[#4796cc] text-white font-black text-[10px] uppercase tracking-[0.2em] py-6 px-4">
       <div class="px-6 border-r border-white/10 flex items-center">技能指標</div>
@@ -98,7 +98,7 @@ const {
           </div>
 
           <!-- Mobile View: Simple Cards -->
-          <div class="lg:hidden print:hidden p-8 space-y-6">
+          <div class="lg:hidden print:hidden p-6 md:p-8 space-y-6">
             <h4 class="text-xl font-black text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">
               <span class="zh block">{row.name_zh}</span>
               <span class="en block text-[11px] text-[#4796cc] uppercase tracking-widest mt-1">{row.name_en}</span>
