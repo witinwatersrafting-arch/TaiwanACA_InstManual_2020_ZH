@@ -45,7 +45,7 @@ const styles = {
 const currentStyle = styles[type];
 ---
 
-<div class={`p-6 my-8 border rounded-2xl shadow-sm ${currentStyle.container}`}>
+<div class={`p-6 my-8 border-y md:border rounded-none md:rounded-2xl shadow-sm -mx-6 md:mx-0 ${currentStyle.container}`}>
   {(title || enTitle) && (
     <div class="flex items-center gap-2 mb-3">
       <div class={currentStyle.iconColor}>
